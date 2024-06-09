@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    fontFamily: {
+      'rubik': ['Rubik Mono One'],
+    },
     extend: {},
   },
   plugins: [],
