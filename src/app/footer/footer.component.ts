@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <footer class="bg-black flex flex-col items-center px-10 pb-10 pt-20 justify-center">
-      <div class="flex flex-col md:flex-row items-center md:gap-24 gap-12">
+      <div class="flex flex-col items-center gap-12 md:flex-row md:gap-24 md:items-start">
         <div>
-          <img src="logo.jpg" alt="Netlife Logo" />
+          <img class="h-16" src="logo.jpg" alt="Netlife Logo" />
         </div>
         <div class="flex flex-col">
           <div>
