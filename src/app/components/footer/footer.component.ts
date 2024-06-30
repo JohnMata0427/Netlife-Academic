@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <footer class="bg-black flex flex-col items-center px-10 pb-10 pt-20 justify-center">
+    <footer class="bg-black flex flex-col items-center px-10 pb-10 pt-20">
       <div class="flex flex-col items-center gap-12 md:flex-row md:gap-24 md:items-start">
         <div>
           <img class="h-16" src="logo.jpg" alt="Netlife Logo" />

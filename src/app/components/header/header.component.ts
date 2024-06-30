@@ -94,7 +94,7 @@ import { Component } from '@angular/core';
           } @else {
           <button
             class="bg-[#ec7434] font-bold text-white py-1 px-2 mr-4 ml-2 rounded"
-            (click)="isLoggedIn = true"
+            (click)="goToLogin()"
           >
             Sign Up
           </button>
@@ -111,4 +111,8 @@ export class HeaderComponent {
   greet = () => {
     alert('Hello, ' + this.username);
   };
+
+  goToLogin = () => {
+    window.location.href = '/auth/registro';
+  }
 }

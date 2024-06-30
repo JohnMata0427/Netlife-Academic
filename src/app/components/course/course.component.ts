@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
       <div>
         <img class="size-full rounded-t-lg" src="{{ src }}" alt="{{ title }}">
       </div>
-      <div class="bg-black rounded-b-lg px-4">
+      <div class="bg-black rounded-b-lg px-4 flex flex-col items-center">
         <div class="w-full flex flex-col gap-y-1">
           <h2 class="text-white text-xl font-bold pt-2">{{ title }}</h2>
           <p class="text-white font-light text-sm">Ing. {{ teacher }}</p>
