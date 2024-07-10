@@ -3,6 +3,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@netlifeacademic/interfaces/*": ["./src/app/interfaces/*"],
+      "@netlifeacademic/services/*": ["./src/app/services/*"],
+      "@netlifeacademic/components/*": ["./src/app/components/*"],
+      "@netlifeacademic/environments/*": ["./src/environments/*"],
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

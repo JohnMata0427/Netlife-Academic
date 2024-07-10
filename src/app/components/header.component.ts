@@ -84,35 +84,11 @@ import { Component } from '@angular/core';
               </g>
             </svg>
           </button>
-          @if (isLoggedIn) {
-          <img
-            class="size-8 rounded-full mr-4 ml-2"
-            src="https://github.com/{{ username }}.png"
-            alt="User {{ username }}"
-            (click)="greet()"
-          />
-          } @else {
-          <button
-            class="bg-[#ec7434] font-bold text-white py-1 px-2 mr-4 ml-2 rounded"
-            (click)="goToLogin()"
-          >
-            Sign Up
-          </button>
-          }
         </div>
       </nav>
     </header>
   `,
 })
 export class HeaderComponent {
-  username = 'JohnMata0427';
-  isLoggedIn = false;
-
-  greet = () => {
-    alert('Hello, ' + this.username);
-  };
-
-  goToLogin = () => {
-    window.location.href = '/auth/registro';
-  }
+  
 }

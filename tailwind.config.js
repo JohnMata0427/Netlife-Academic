@@ -7,7 +7,11 @@ module.exports = {
     fontFamily: {
       'rubik': ['Rubik Mono One'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'authentication': "url('../public/background-authentication.png')",
+      }
+    },
   },
   plugins: [],
 }
