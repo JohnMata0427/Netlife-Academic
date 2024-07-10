@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'rubik': ['Rubik Mono One'],
+      'roboto': ['Roboto'],
     },
     extend: {
       backgroundImage: {

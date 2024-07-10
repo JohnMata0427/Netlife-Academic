@@ -1,53 +1,58 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [],
   template: `
-    <header class="bg-black py-4">
-      <nav class="flex items-center">
+    <header class="bg-[#0b0603] py-2 px-4 shadow-sm shadow-black">
+      <nav class="flex">
         <div class="flex items-center w-full">
-          <a class="px-7" href="/">
+          <a class="pr-8" href="/">
             <img class="h-9" src="logo.jpg" alt="Netlife Logo" />
           </a>
-          <div class="flex">
+          <div class="flex gap-x-8">
             <a
-              class="text-white hover:text-[#ec7434] transition-all mr-10"
-              href="/"
+              id="home"
+              class="text-white hover:text-[#ec7434] transition-all text-sm"
+              href="/home"
               >Inicio</a
             >
             <a
-              class="text-white hover:text-[#ec7434] transition-all mr-10"
+              id="mi-perfil"
+              class="text-white hover:text-[#ec7434] transition-all text-sm"
               href="/mi-perfil"
-              >Perfil</a
+              >Mi Perfil</a
             >
             <a
-              class="text-white hover:text-[#ec7434] transition-all mr-10"
+              id="mis-cursos"
+              class="text-white hover:text-[#ec7434] transition-all text-sm"
               href="/mis-cursos"
-              >Cursos</a
+              >Mis Cursos</a
             >
             <a
-              class="text-white hover:text-[#ec7434] transition-all"
+              id="mis-certificados"
+              class="text-white hover:text-[#ec7434] transition-all text-sm"
               href="/mis-certificados"
-              >Certificados</a
+              >Mis Certificados</a
             >
           </div>
         </div>
         <div class="flex justify-end items-center w-full">
           <div class="flex justify-end items-center mr-4">
             <input
-              class="w-96 py-1 px-3 rounded-lg"
+              class="w-96 py-1 px-3 rounded-2xl text-sm focus:outline-none border focus:border-[#ec7434]"
               type="text"
-              placeholder="Buscar Clases"
+              placeholder="Buscar más cursos"
             />
-            <button class="absolute mr-2">
+            <button class="absolute mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-search"
-                width="25"
-                height="25"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                stroke-width="2.5"
                 stroke="#000000"
                 fill="none"
                 stroke-linecap="round"
@@ -59,36 +64,39 @@ import { Component } from '@angular/core';
               </svg>
             </button>
           </div>
-          <button>
-            <svg
-              class="size-7"
-              viewBox="0 0 24.00 24.00"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke="#ffffff"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  d="M9.00195 17H5.60636C4.34793 17 3.71872 17 3.58633 16.9023C3.4376 16.7925 3.40126 16.7277 3.38515 16.5436C3.37082 16.3797 3.75646 15.7486 4.52776 14.4866C5.32411 13.1835 6.00031 11.2862 6.00031 8.6C6.00031 7.11479 6.63245 5.69041 7.75766 4.6402C8.88288 3.59 10.409 3 12.0003 3C13.5916 3 15.1177 3.59 16.2429 4.6402C17.3682 5.69041 18.0003 7.11479 18.0003 8.6C18.0003 11.2862 18.6765 13.1835 19.4729 14.4866C20.2441 15.7486 20.6298 16.3797 20.6155 16.5436C20.5994 16.7277 20.563 16.7925 20.4143 16.9023C20.2819 17 19.6527 17 18.3943 17H15.0003M9.00195 17L9.00031 18C9.00031 19.6569 10.3435 21 12.0003 21C13.6572 21 15.0003 19.6569 15.0003 18V17M9.00195 17H15.0003"
-                  stroke="#ffffff"
-                  stroke-width="1.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </g>
-            </svg>
-          </button>
+          <div class="flex items-center gap-x-3">
+            <button>
+              <img src="icons/header/notify.svg" alt="Notificaciones">
+            </button>
+            <button>
+              <img src="icons/header/message.svg" alt="Mensajes">
+            </button>
+            <button (click)="goToProfile()" class="flex items-center gap-x-2">
+              <img src="profile-icon.png" alt="Perfil del Usuario">
+              <img src="icons/header/deploy-info.svg" alt="Desplegar información">
+            </button>
+          </div>
         </div>
       </nav>
     </header>
   `,
 })
 export class HeaderComponent {
-  
+  active = 'home';
+  activeLink: any;
+
+  constructor(private activatedRouter: ActivatedRoute){
+    this.activatedRouter.url.subscribe((url) => {
+      this.active = url[0]['path'];
+    });
+  }
+
+  ngOnInit() {
+    document.getElementById(this.active)?.classList.remove('text-white', 'hover:text-[#ec7434]', 'transition-all');
+    document.getElementById(this.active)?.classList.add('text-[#ec7434]');
+  }
+
+  goToProfile() {
+    window.location.href = '/mi-perfil'
+  }
 }
