@@ -54,12 +54,12 @@ export class LoginComponent {
     }
 
     onSubmit() {
+        console.log(this.form.value)
         if (this.form.invalid) {
             console.log("¡Por favor llena todos los campos!")
         } else {
             this.authService.loginUser(this.form.value).subscribe({
                 next: (result) => {
-                    localStorage.setItem("token", result.token);
                     this.route.navigate(['/home']);
                 },
                 error: (error) => console.error(error),

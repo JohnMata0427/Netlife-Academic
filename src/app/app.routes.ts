@@ -8,18 +8,24 @@ import { NewPasswordComponent } from './pages/auth/new-password.component';
 import { MisCursosComponent } from './pages/mis-cursos.component';
 import { MiPerfilComponent } from './pages/mi-perfil.component';
 import { CourseComponent } from './pages/course.component';
+import { ActualizarPerfilComponent } from './pages/actualizar-perfi.component';
+import { authGuard } from './guard/auth.guard';
+import { noAuthGuard } from './guard/no-auth.guard';
 
 export const routes: Routes = [
     { path: 'auth', children: [
-        { path: 'register', component: RegistroComponent },
-        { path: 'login', component: LoginComponent },
-        { path: 'recovery-password', component: RecoveryPasswordComponent },
-        { path: 'verify-code', component: VerifyCodeComponent },
-        { path: 'new-password', component: NewPasswordComponent },
+        { path: 'register', component: RegistroComponent, canActivate: [noAuthGuard] },
+        { path: 'login', component: LoginComponent, canActivate: [noAuthGuard] },
+        { path: 'recovery-password', component: RecoveryPasswordComponent, canActivate: [noAuthGuard] },
+        { path: 'verify-code', component: VerifyCodeComponent, canActivate: [noAuthGuard] },
+        { path: 'new-password', component: NewPasswordComponent, canActivate: [noAuthGuard] },
     ]},
-    { path: 'home', component: HomeComponent },
-    { path: 'mis-cursos/:id', component: CourseComponent },
-    { path: 'mis-cursos', component: MisCursosComponent },
-    { path: 'mi-perfil', component: MiPerfilComponent },
-    { path: '', redirectTo: '/auth/register', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+    { path: 'mis-cursos/:id', component: CourseComponent, canActivate: [authGuard] },
+    { path: 'mis-cursos', component: MisCursosComponent, canActivate: [authGuard] },
+    { path: 'mi-perfil', children: [
+        { path: '', component: MiPerfilComponent, canActivate: [authGuard] },
+        { path: 'actualizar-informacion', component: ActualizarPerfilComponent, canActivate: [authGuard] }
+    ] },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

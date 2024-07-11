@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '@netlifeacademic/environments/environment.development';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -84,10 +85,17 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent {
   active = 'home';
   activeLink: any;
+  @Input() id = '';
+  cloudinaryUrl = environment.CLOUDINARY_PROFILE + this.id + '.jpg';
 
-  constructor(private activatedRouter: ActivatedRoute){
+  constructor(private activatedRouter: ActivatedRoute, private router: Router){
     this.activatedRouter.url.subscribe((url) => {
-      this.active = url[0]['path'];
+      try {
+        this.active = url[0]['path'];
+      } catch (error) {
+        this.active = 'mi-perfil';
+      }
+      console.log(this.active);
     });
   }
 
@@ -97,6 +105,6 @@ export class HeaderComponent {
   }
 
   goToProfile() {
-    window.location.href = '/mi-perfil'
+    this.router.navigate(['/mi-perfil']);
   }
 }

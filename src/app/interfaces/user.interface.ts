@@ -1,29 +1,32 @@
 export interface User {
-    id:                    string;
-    name:                  string;
-    lastname:              string;
-    email:                 string;
-    password:              string;
-    role:                  string;
-    token:                 string;
-    verificationCode:      string;
-    verified:              boolean;
-    recoveryPassword:      boolean;
-    company:               string;
-    area:                  string;
-    position:              string;
-    birthdate:             Date;
-    image:                 string;
-    active:                boolean;
-    deleted:               boolean;
-    createdAt:             Date;
-    updatedAt:             Date;
-    enabled:               boolean;
-    credentialsNonExpired: boolean;
-    accountNonExpired:     boolean;
-    authorities:           Authority[];
-    username:              string;
-    accountNonLocked:      boolean;
+    id:                    string | null;
+    name:                  string | null;
+    lastname:              string | null;
+    email:                 string | null;
+    password:              string | null;
+    role:                  string | null;
+    token:                 string | null;
+    verificationCode:      string | null;
+    verified:              boolean | null;
+    recoveryPassword:      boolean | null;
+    company:               string | null;
+    area:                  string | null;
+    level:                 string | null;
+    position:              string | null;
+    birthdate:             Date | null;
+    image:                 File | null;
+    imageUrl:              string | null;
+    state:                 string | null;
+    active:                boolean | null;
+    deleted:               boolean | null;
+    createdAt:             Date | null;
+    updatedAt:             Date | null;
+    enabled:               boolean | null;
+    credentialsNonExpired: boolean | null;
+    accountNonExpired:     boolean | null;
+    authorities:           Authority[] | null;
+    username:              string | null;
+    accountNonLocked:      boolean | null;
 }
 
 export interface Authority {

@@ -11,14 +11,14 @@ import { HeaderComponent } from "@netlifeacademic/components/header.component";
         <router-outlet />
         <app-header />
         <main>
-            <div class="w-full h-auto bg-black flex py-10 px-16 justify-between">
+            <div class="bg-black flex py-10 px-16 justify-center">
                 <div class="w-1/2 flex justify-center">
-                    <img class="rounded-lg" src="courses/sql.png" alt="">
+                    <img class="rounded-lg h-72" src="courses/redes.jpg" alt="">
                 </div>
-                <div class="flex flex-col w-1/2">
+                <div class="w-1/2 flex flex-col pl-16">
                     <h1 class="text-white font-extrabold text-4xl">REDES DE COMPUTADORAS</h1>
                     <div class="text-white text-sm rounded py-[6px] w-28 my-4 px-4 bg-[#82D245]/50"><span>En progreso</span></div>
-                    <p class="text-white text-sm w-4/5 font-light">Este curso ofrece una introducción integral a los fundamentos de las redes de computadoras. A lo largo del curso, los estudiantes aprenderán sobre la arquitectura, componentes y operaciones de redes de datos.</p>
+                    <p class="w-11/12 text-white text-sm font-extralight">Este curso ofrece una introducción integral a los fundamentos de las redes de computadoras. A lo largo del curso, los estudiantes aprenderán sobre la arquitectura, componentes y operaciones de redes de datos.</p>
                     <div class="flex gap-x-2 items-center mt-4">
                         <img src="icons/courses/teacher.svg" alt="Icono del Profesor">
                         <span class="text-white text-sm font-medium">Prof. Monica Jimenez</span>
@@ -48,50 +48,62 @@ import { HeaderComponent } from "@netlifeacademic/components/header.component";
                 </div>
                 <div class="mt-8 flex justify-center gap-x-2">
                     <div>
-                        <button (click)="showInicio()" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Inicio</button>
+                        <button (click)="showInicio()" class="min-w-24 bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Inicio</button>
                         @if (selectedButton === 'Inicio') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 1'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 1</button>
+                        <button (click)="selectedButton = 'Modulo 1'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 1</button>
                         @if (selectedButton === 'Modulo 1') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 2'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 2</button>
+                        <button (click)="selectedButton = 'Modulo 2'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 2</button>
                         @if (selectedButton === 'Modulo 2') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 3'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 3</button>
+                        <button (click)="selectedButton = 'Modulo 3'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 3</button>
                         @if (selectedButton === 'Modulo 3') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 4'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 4</button>
+                        <button (click)="selectedButton = 'Modulo 4'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 4</button>
                         @if (selectedButton === 'Modulo 4') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 5'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 5</button>
+                        <button (click)="selectedButton = 'Modulo 5'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 5</button>
                         @if (selectedButton === 'Modulo 5') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 6'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 6</button>
+                        <button (click)="selectedButton = 'Modulo 6'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 6</button>
                         @if (selectedButton === 'Modulo 6') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
                     <div>
-                        <button (click)="selectedButton = 'Modulo 7'" class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg">Modulo 7</button>
+                        <button (click)="selectedButton = 'Modulo 7'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 7</button>
                         @if (selectedButton === 'Modulo 7') {
+                            <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
+                        }
+                    </div>
+                    <div>
+                        <button (click)="selectedButton = 'Modulo 8'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 8</button>
+                        @if (selectedButton === 'Modulo 8') {
+                            <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
+                        }
+                    </div>
+                    <div>
+                        <button (click)="selectedButton = 'Modulo 9'" class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg">Modulo 9</button>
+                        @if (selectedButton === 'Modulo 9') {
                             <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
                         }
                     </div>
@@ -101,6 +113,53 @@ import { HeaderComponent } from "@netlifeacademic/components/header.component";
                 <div class="relative mt-10">
                     <img class="w-80 h-auto" src="title-layout.png" alt="Información del curso" />
                     <h1 class="absolute top-2 left-16 text-white font-semibold">Información del curso</h1>
+                </div>
+                <div class="flex justify-center gap-x-8 my-10">
+                    <div class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg">
+                        <div class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg">
+                            <h3 class="text-white text-xs font-light italic">Objetivos</h3>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ratione ab perferendis laudantium labore in, maxime iste sunt sit quis tempora, aliquam modi amet ut alias, ad provident! Placeat, laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quis tenetur eligendi nobis provident voluptatum ex magni ratione necessitatibus, unde eaque eum quos, architecto quae officiis facere debitis maxime reiciendis?</p>
+                        </div>
+                    </div>
+                    <div class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg">
+                        <div class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg">
+                            <h3 class="text-white text-xs font-light italic">Destrezas</h3>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatibus rem perspiciatis libero, dolorum soluta illum quo velit placeat est? Atque dolorem quia culpa est. Temporibus error accusamus id provident?
+                            Cumque quo totam delectus nulla, animi dolore? Expedita modi repellendus ex, hic sint reprehenderit dicta ratione dolor, assumenda ipsam a molestiae facere vero maxime fugit, quis aspernatur nulla cupiditate quasi?</p>
+                        </div>
+                    </div>
+                    <div class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg">
+                        <div class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg">
+                            <h3 class="text-white text-xs font-light italic">Valores y Actitudes</h3>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci molestiae, laboriosam sed quaerat quasi quae quo harum. Sint labore, ea aperiam libero placeat dolore iste facilis, saepe laborum excepturi eius!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="relative mt-10">
+                    <img class="w-80 h-auto" src="title-layout.png" alt="Información del curso" />
+                    <h1 class="absolute top-2 left-16 text-white font-semibold">Recursos de Apoyo</h1>
+                </div>
+                <div class="flex flex-col pl-16 mt-10 gap-2">
+                    <a class="flex items-center gap-x-4" href="#">
+                        <img class="size-7" src="icons/courses/archive.svg" alt="Documento Adjunto">
+                        <span class="text-sm">Introducción al curso</span>
+                    </a>
+                    <a class="flex items-center gap-x-4" href="#">
+                        <img class="size-7" src="icons/courses/archive.svg" alt="Documento Adjunto">
+                        <span class="text-sm">Introducción al curso</span>
+                    </a>
+                    <a class="flex items-center gap-x-4" href="#">
+                        <img class="size-7" src="icons/courses/archive.svg" alt="Documento Adjunto">
+                        <span class="text-sm">Introducción al curso</span>
+                    </a>
                 </div>
             </section>
         </main>
