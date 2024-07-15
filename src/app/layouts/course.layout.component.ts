@@ -75,7 +75,7 @@ import { HeaderComponent } from '@netlifeacademic/components/header.component';
         <div class="mt-8 flex justify-center gap-x-1">
           <div>
             <button
-              (click)="showInicio()"
+              (click)="selectedButton = 'Inicio'"
               class="min-w-24 bg-black text-white text-sm py-2 px-5 rounded-tr-lg hover:bg-black/90 border-2"
               [ngClass]="{ 'border-[#FD6A00]': selectedButton === 'Inicio' }"
             >
@@ -274,13 +274,7 @@ import { HeaderComponent } from '@netlifeacademic/components/header.component';
     <app-footer />
   `,
 })
-export class CourseComponent {
+export class CourseLayoutComponent {
   selectedButton = 'Inicio';
   modules = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-  constructor() {}
-
-  showInicio() {
-    this.selectedButton = 'Inicio';
-  }
 }

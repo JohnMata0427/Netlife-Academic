@@ -7,48 +7,64 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
 import { tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthService {
-
   private urlAPI = environment.API_URL;
-  private token = '';
 
-  constructor(private http: HttpClient, private router: Router) {
-    
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   registerUser(user: User) {
-    return this.http.post(this.urlAPI + "/auth/register", user);
+    return this.http
+      .post<MessageResponse>(this.urlAPI + '/auth/register', user)
+      .pipe(
+        tap((response) => {
+          if (response.token) {
+            localStorage.setItem('token', response.token);
+          }
+        })
+      );
   }
 
-  loginUser(user: User) {
-    return this.http.post<MessageResponse>(this.urlAPI + "/auth/login", user).pipe(
-      tap((response) => {
-        if (response.token) {
-          localStorage.setItem(this.token, response.token);
-        }
-      }
-    ))
+  loginUser(user: any) {
+    return this.http
+      .post<MessageResponse>(this.urlAPI + '/auth/login', user)
+      .pipe(
+        tap((response) => {
+          if (response.token) {
+            localStorage.setItem('token', response.token);
+          }
+        })
+      );
   }
 
   recoveryPassword(email: string | null) {
-    return this.http.post<MessageResponse>(this.urlAPI + "/auth/recovery-password", { email })
+    return this.http.post<MessageResponse>(
+      this.urlAPI + '/auth/recovery-password',
+      { email }
+    );
   }
 
   verifyCode(verificationCode: string | null, token: any) {
     const tokenParam = new HttpParams().set('token', token);
-    return this.http.post<MessageResponse>(this.urlAPI + "/auth/verify-code", { verificationCode }, { params: tokenParam })
+    return this.http.post<MessageResponse>(
+      this.urlAPI + '/auth/verify-code',
+      { verificationCode },
+      { params: tokenParam }
+    );
   }
 
   newPassword(changePassword: any, token: any) {
     const tokenParam = new HttpParams().set('token', token);
-    return this.http.post<MessageResponse>(this.urlAPI + "/auth/new-password", changePassword, { params: tokenParam })
+    return this.http.post<MessageResponse>(
+      this.urlAPI + '/auth/new-password',
+      changePassword,
+      { params: tokenParam }
+    );
   }
 
   private getToken() {
-    return localStorage.getItem(this.token);
+    return localStorage.getItem('token');
   }
 
   isAuthenticated(): boolean {
@@ -62,21 +78,33 @@ export class AuthService {
 
     const exp = payload.exp * 1000;
 
-    return (exp > Date.now());
+    return exp > Date.now();
+  }
+
+  isAdministrator(): boolean {
+    const token = this.getToken();
+
+    if (!token) {
+      return false;
+    }
+
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+    return payload.role === 'ADMIN';
   }
 
   logout() {
-    localStorage.removeItem(this.token);
+    localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
 
-  getInfoFromToken() {
-    const token = localStorage.getItem(this.token);
+  getSubFromToken() {
+    const token = localStorage.getItem('token');
     if (!token) {
       return null;
     }
     const payload = JSON.parse(atob(token.split('.')[1]));
 
-    return payload.sub
+    return payload.sub;
   }
 }
