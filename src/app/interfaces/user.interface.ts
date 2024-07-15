@@ -20,6 +20,7 @@ export interface User {
   image: File | null;
   imageUrl: string | null;
   state: string | null;
+  identification: string | null;
   active: boolean | null;
   deleted: boolean | null;
   createdAt: Date | null;

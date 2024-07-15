@@ -26,6 +26,4 @@ import { Component } from '@angular/core';
     </div>
   `,
 })
-export class LayoutComponent {
-  constructor() {}
-}
+export class LayoutComponent {}

@@ -30,7 +30,7 @@ import { Component, Input } from '@angular/core';
             ></div>
           </div>
           <h4 class="text-xs text-white font-extralight text-end">
-            {{ progress }} Completado
+            {{ progress }}% Completado
           </h4>
         </div>
       </div>

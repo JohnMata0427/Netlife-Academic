@@ -203,7 +203,7 @@ import { UserService } from '@netlifeacademic/services/user.service';
         <div class="w-full flex justify-end">
           <button
             (click)="router.navigate(['/home'])"
-            class="bg-gradient-to-r from-[#4B4B4B] to-black text-white flex gap-x-2 py-[7px] px-3 rounded-lg text-xs items-center"
+            class="bg-gradient-to-r from-[#4B4B4B] to-black text-white flex gap-x-2 py-[7px] px-3 rounded-lg text-xs items-center shadow-md shadow-black/20"
           >
             Volver al Sitio Principal
             <img
