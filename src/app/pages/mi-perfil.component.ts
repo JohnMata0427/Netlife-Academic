@@ -29,6 +29,7 @@ import { UserLayout } from '../layouts/user-layout.component';
           <h4 class="text-xl font-extrabold mt-4">
             {{ user.name + ' ' + user.lastname }}
           </h4>
+          <small>{{ user.state || '' }}</small>
           <p class="text-sm mt-2">{{ user.email }}</p>
           <button
             (click)="router.navigate(['/actualizar-informacion'])"
