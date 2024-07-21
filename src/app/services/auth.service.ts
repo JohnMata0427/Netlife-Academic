@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '@netlifeacademic/environments/environment.development';
+import { environment } from '@netlifeacademic/environments/environment';
 import { MessageResponse } from '@netlifeacademic/interfaces/message-response.interface';
 import { User } from '@netlifeacademic/interfaces/user.interface';
 import { tap } from 'rxjs';
@@ -10,7 +10,7 @@ import { tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private urlAPI = environment.API_URL;
+  private urlAPI = environment.BACKEND_URL;
 
   constructor(private http: HttpClient, private router: Router) {}
 

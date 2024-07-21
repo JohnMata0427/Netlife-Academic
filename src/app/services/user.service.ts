@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@netlifeacademic/environments/environment.development';
+import { environment } from '@netlifeacademic/environments/environment';
 import { MessageResponse } from '@netlifeacademic/interfaces/message-response.interface';
 import { User } from '@netlifeacademic/interfaces/user.interface';
 
@@ -8,7 +8,7 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
   providedIn: 'root',
 })
 export class UserService {
-  private urlAPI = environment.API_URL;
+  private urlAPI = environment.BACKEND_URL;
 
   constructor(private httpClient: HttpClient) {}
 
