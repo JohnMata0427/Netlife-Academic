@@ -17,7 +17,11 @@ import { Component } from '@angular/core';
         />
         <div class="w-96 my-40">
           <ng-content></ng-content>
-          @if (!cookies) {
+          
+        </div>
+      </div>
+    </div>
+    @if (!cookies) {
           <div class="bg-gray-100">
             <div
               class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow"
@@ -56,9 +60,6 @@ import { Component } from '@angular/core';
             </div>
           </div>
           }
-        </div>
-      </div>
-    </div>
   `,
   styles: `
     .bg-auth {
