@@ -7,7 +7,7 @@
       "@netlifeacademic/interfaces/*": ["./src/app/interfaces/*"],
       "@netlifeacademic/services/*": ["./src/app/services/*"],
       "@netlifeacademic/components/*": ["./src/app/components/*"],
-      "@netlifeacademic/environments/*": ["./src/environments/*"],
+      "@netlifeacademic/environments/*": ["./src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
@@ -25,10 +25,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
