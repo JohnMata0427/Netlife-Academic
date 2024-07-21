@@ -1,26 +1,15 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header.component';
 import { CourseInfoComponent } from '../components/course-info.component';
-import { FooterComponent } from '../components/footer.component';
-import { RouterOutlet } from '@angular/router';
+import { UserLayout } from '../layouts/user-layout.component';
+import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
 
 @Component({
   selector: 'app-mis-cursos',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    CourseInfoComponent,
-    FooterComponent,
-    RouterOutlet,
-  ],
+  imports: [CourseInfoComponent, UserLayout, CustomTitleComponent],
   template: `
-    <router-outlet />
-    <app-header />
-    <main>
-      <div class="relative mt-10">
-        <img class="w-80 h-auto" src="title-layout.png" alt="Cursos" />
-        <h1 class="absolute top-2 left-16 text-white font-semibold">Cursos</h1>
-      </div>
+    <app-user-layout>
+      <app-custom-title title="Cursos" />
       <p class="pl-16 my-4 text-sm">
         Información sobre los cursos que estás tomando o que tomaste.
       </p>
@@ -100,8 +89,7 @@ import { RouterOutlet } from '@angular/router';
           />
         </div>
       </section>
-    </main>
-    <app-footer />
+    </app-user-layout>
   `,
 })
 export class MisCursosComponent {

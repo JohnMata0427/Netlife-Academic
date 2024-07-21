@@ -12,6 +12,7 @@
 
 * {
     font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
 }
 
 h1 {

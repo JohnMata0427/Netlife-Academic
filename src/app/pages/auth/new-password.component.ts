@@ -139,7 +139,6 @@ export class NewPasswordComponent {
     private authService: AuthService,
     private activatedRoute: ActivatedRoute
   ) {
-    localStorage.removeItem('email');
     this.form = new FormGroup({
       password: new FormControl('', [
         Validators.required,
@@ -161,6 +160,7 @@ export class NewPasswordComponent {
       this.authService.newPassword(this.form.value, this.token).subscribe({
         next: () => {
           this.loading = false;
+          localStorage.removeItem('email');
           this.router.navigate(['/auth/login']);
         },
         error: (error) => {

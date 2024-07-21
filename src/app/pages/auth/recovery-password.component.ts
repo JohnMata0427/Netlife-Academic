@@ -10,36 +10,49 @@ import { AuthService } from '../../services/auth.service';
   imports: [LayoutComponent, ReactiveFormsModule],
   template: `
     <app-layout>
-      @if (codeSent) {
-      <div class="bg-black py-4 px-10 rounded-lg flex flex-col items-center">
-        <h1
-          class="text-xl text-transparent bg-clip-text font-bold text-center bg-gradient-to-r from-[#FEE500] to-[#FD6A00]"
+      @if (showModal) {
+      <div class="z-50 items-center flex relative">
+        <!--content-->
+        <div
+          class="rounded-lg shadow-lg relative flex flex-col bg-black outline-none focus:outline-none p-4"
         >
-          Revisa tu correo electrónico
-        </h1>
-        <p class="text-white text-sm text-center my-7">
-          Te enviamos un correo electrónico a
-          <strong>{{ email.value }}</strong> con un código de confirmación para
-          que puedas restablecer tu contraseña.
-        </p>
-        <span class="text-white text-[12px]"
-          >¿No has recibido el código de confirmación?</span
-        >
-        <div class="flex gap-4 mt-6">
-          <button
-            (click)="codeSent = false"
-            class="w-32 bg-[#6C6565] py-2 rounded-lg text-sm hover:bg-[#4D4D4D] transition-all"
+          <h3
+            class="text-xl text-transparent bg-clip-text font-bold text-center bg-gradient-to-r from-[#FEE500] to-[#FD6A00]"
           >
-            Cerrar
-          </button>
-          <button
-            (click)="onSubmit()"
-            class="w-32 bg-gradient-to-r from-[#FEE500] to-[#FD6A00] py-2 rounded-lg text-sm hover:bg-white transition-all"
+            Revisa tu correo electrónico
+          </h3>
+          <!--body-->
+          <p
+            class="text-white font-light text-sm text-center my-7"
           >
-            Reenviar
-          </button>
+            Te enviamos un correo electrónico a
+            <strong class="font-bold">{{
+              email.value || 'jhonmata0427@gmail.com'
+            }}</strong>
+            con un código de confirmación para que puedas restablecer tu
+            contraseña.
+          </p>
+          <!--footer-->
+          <span class="text-white text-center text-[12px]"
+            >¿No has recibido el código de confirmación?</span
+          >
+          <div class="flex gap-x-4 justify-center mt-6">
+            <button
+              (click)="showModal = false"
+              class="w-32 bg-[#6C6565] py-2 rounded-lg text-sm hover:bg-[#4D4D4D] transition-all"
+            >
+              Cerrar
+            </button>
+            <button
+              (click)="onSubmit()"
+              class="w-32 bg-gradient-to-r from-[#FEE500] to-[#FD6A00] py-2 rounded-lg text-sm hover:bg-white transition-all"
+            >
+              Reenviar
+            </button>
+          </div>
         </div>
       </div>
+      <div class="opacity-25 fixed inset-0 z-40 bg-black"></div>
       } @else {
       <div class="flex flex-col gap-3">
         <h1 class="text-3xl font-bold text-center mb-12">
@@ -108,7 +121,7 @@ import { AuthService } from '../../services/auth.service';
 export class RecoveryPasswordComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage = '';
-  codeSent = false;
+  showModal = false;
   loading = false;
 
   constructor(private authService: AuthService) {}
@@ -121,7 +134,7 @@ export class RecoveryPasswordComponent {
     } else {
       this.authService.recoveryPassword(this.email.value).subscribe({
         next: () => {
-          this.codeSent = true;
+          this.showModal = true;
           this.loading = false;
           localStorage.setItem('email', this.email.value as string);
         },

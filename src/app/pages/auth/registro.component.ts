@@ -157,8 +157,8 @@ import { LayoutComponent } from '../../layouts/auth-layout.component';
         <div class="relative">
           <img
             class="size-3 absolute top-0 left-0 mt-3 ml-3"
-            src="icons/forms/password.svg"
-            alt="Password Icon"
+            src="icons/forms/verify.svg"
+            alt="Verify Code Icon"
           />
           <input
             formControlName="verificationCode"
@@ -190,7 +190,7 @@ import { LayoutComponent } from '../../layouts/auth-layout.component';
         <p class="text-red-500 text-xs text-center px-4">{{ errorMessage }}</p>
         }
 
-        <button class="bg-black text-white py-2 rounded-lg text-sm">
+        <button class="bg-black text-white py-2 rounded-lg text-sm hover:bg-black/90">
           @if (loading) {
           <svg
             aria-hidden="true"

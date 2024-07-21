@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "dev": "ng serve --configuration=development",
+    "dev": "ng serve --configuration=development --open",
     "test": "ng test"
   },
   "private": true,

@@ -1,36 +1,23 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header.component';
-import { CourseInfoComponent } from '../components/course-info.component';
-import { FooterComponent } from '../components/footer.component';
-import { RouterOutlet } from '@angular/router';
 import { UserService } from '@netlifeacademic/services/user.service';
 import { User } from '@netlifeacademic/interfaces/user.interface';
+import { UserLayout } from "../layouts/user-layout.component";
+import { CourseInfoComponent } from '@netlifeacademic/components/course-info.component';
+import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
+    UserLayout,
     CourseInfoComponent,
-    FooterComponent,
-    RouterOutlet,
-  ],
+    CustomTitleComponent
+],
   template: `
-    <router-outlet />
-    <app-header />
-    <main>
-      <img src="banner.png" alt="Banner de Inicio" />
+  <app-user-layout>
+  <img class="w-full" src="banner.png" alt="Banner de Inicio" />
       <section>
-        <div class="relative mt-10 mb-5">
-          <img
-            class="w-80 h-auto"
-            src="title-layout.png"
-            alt="Modulos de trabajo"
-          />
-          <h1 class="absolute top-2 left-16 text-white font-semibold">
-            Ranking
-          </h1>
-        </div>
+        <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex gap-20">
           <aside class="w-1/2 flex flex-col gap-y-2 ml-16">
             @for (user of users; track user.id) {
@@ -198,16 +185,8 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
         </div>
       </section>
       <section>
-        <div class="relative mt-10 mb-5">
-          <img
-            class="w-80 h-auto"
-            src="title-layout.png"
-            alt="Modulos de trabajo"
-          />
-          <h1 class="absolute top-2 left-16 text-white font-semibold">
-            Nuevos cursos
-          </h1>
-        </div>
+      <app-custom-title title="Nuevos Cursos" />
+
         <h2 class="text-[#ec7434] font-extrabold ml-16">
           CURSOS RECOMENDADOS PARA TI
         </h2>
@@ -234,8 +213,7 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
           />
         </div>
       </section>
-    </main>
-    <app-footer />
+  </app-user-layout>
   `,
   styles: `
   .vertical-lr {

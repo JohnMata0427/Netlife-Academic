@@ -24,7 +24,7 @@ import { LayoutComponent } from '../../layouts/auth-layout.component';
         <div class="relative">
           <img
             class="size-3 absolute top-0 left-0 mt-3 ml-3"
-            src="icons/forms/lock.svg"
+            src="icons/forms/verify.svg"
             alt="Lock Icon"
           />
           <input

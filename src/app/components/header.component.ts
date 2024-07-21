@@ -16,27 +16,34 @@ import { UserService } from '@netlifeacademic/services/user.service';
             <img class="h-9" src="logo.jpg" alt="Netlife Logo" />
           </a>
           <div class="flex gap-x-8">
+            <!-- <a
+              id="home"
+              class="text-white hover:text-[#ec7434] text-sm"
+              href="/home"
+              >Inicio</a
+            > -->
             <a
               id="home"
-              class="text-white hover:text-[#ec7434] transition-all text-sm"
+              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/home"
               >Inicio</a
             >
+
             <a
               id="mi-perfil"
-              class="text-white hover:text-[#ec7434] transition-all text-sm"
+              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mi-perfil"
               >Mi Perfil</a
             >
             <a
               id="mis-cursos"
-              class="text-white hover:text-[#ec7434] transition-all text-sm"
+              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-cursos"
               >Mis Cursos</a
             >
             <a
               id="mis-certificados"
-              class="text-white hover:text-[#ec7434] transition-all text-sm"
+              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-certificados"
               >Mis Certificados</a
             >
@@ -148,7 +155,7 @@ import { UserService } from '@netlifeacademic/services/user.service';
   `,
 })
 export class HeaderComponent {
-  active = 'home';
+  active = '';
   activeLink: any;
   profile = '';
   username = '';
@@ -173,11 +180,7 @@ export class HeaderComponent {
   ) {
     this.activatedRouter.url.subscribe((url) => {
       console.log(url);
-      try {
-        this.active = url[0]['path'];
-      } catch (error) {
-        this.active = 'mi-perfil';
-      }
+      this.active = url[0]['path'];
     });
   }
 
@@ -196,16 +199,13 @@ export class HeaderComponent {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ') + ' | Netlife Academic'
     );
+
     this.userService
       .getUserById(this.authService.getSubFromToken())
-      .subscribe((user) => {
-        this.profile = user.imageUrl as string;
-        this.username = user.name + ' ' + user.lastname;
-        this.email = user.email as string;
+      .subscribe(({ imageUrl, name, lastname, email}) => {
+        this.profile = imageUrl as string;
+        this.username = name + ' ' + lastname;
+        this.email = email as string;
       });
-  }
-
-  goToProfile() {
-    this.router.navigate(['/mi-perfil']);
   }
 }

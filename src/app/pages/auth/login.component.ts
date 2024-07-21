@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '@netlifeacademic/services/auth.service';
 import { Router } from '@angular/router';
 import { LayoutComponent } from '../../layouts/auth-layout.component';
 
@@ -59,17 +59,12 @@ import { LayoutComponent } from '../../layouts/auth-layout.component';
           />
         </div>
 
-        @if (form.get('password')?.invalid && form.get('password')?.value !==
-        '') {
-        <span class="text-xs text-red-500"
-          >La contraseña debe tener al menos 8 caracteres</span
-        >
-        } @if (message) {
+        @if (message) {
         <span class="text-xs text-red-500 text-center">{{ message }}</span>
         }
 
         <button
-          class="bg-black text-white py-2 rounded-lg text-sm flex justify-center hover:bg-black/90 transition-all"
+          class="bg-black text-white py-2 rounded-lg text-sm flex justify-center hover:bg-black/90"
         >
           @if (loading) {
           <svg

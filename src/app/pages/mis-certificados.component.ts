@@ -1,35 +1,29 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header.component';
-import { CourseInfoComponent } from '../components/course-info.component';
-import { FooterComponent } from '../components/footer.component';
-import { RouterOutlet } from '@angular/router';
+import { UserLayout } from "../layouts/user-layout.component";
+import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
 
 @Component({
-  selector: 'app-mis-cursos',
+  selector: 'app-mis-certificados',
   standalone: true,
   imports: [
-    HeaderComponent,
-    CourseInfoComponent,
-    FooterComponent,
-    RouterOutlet,
-  ],
+    UserLayout,
+    CustomTitleComponent
+],
   template: `
-    <router-outlet />
-    <app-header />
-    <main>
-      <div class="relative mt-10">
-        <img class="w-80 h-auto" src="title-layout.png" alt="Cursos" />
-        <h1 class="absolute top-2 left-16 text-white font-semibold">
-          Certificados
-        </h1>
+    <app-user-layout>
+        <app-custom-title title="Certificados" />
+        <p class="pl-16 my-4 text-sm">
+          En este apartado, podrás ver todos tus certificados obtenidos y tendrás
+          la opción de descargarlos en formato .pdf o compartirlos en tus redes
+          sociales.
+        </p>
+      <div class="flex flex-col justify-center items-center gap-y-4 mt-24" >
+        <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] w-96 p-4 rounded-lg text-center">
+          <p class="text-md">Actualmente no tienes nungún certificado, pero <strong>no olvides seguir</strong> uno de nuestros <a class="text-[#FD6A00] font-bold" href="/mis-cursos">cursos</a> para obtener uno.</p>
+        </div>
+        <img src="no-certificates.png" alt="Imagen para indicar que el usuario no tiene certificados">
       </div>
-      <p class="pl-16 my-4 text-sm">
-        En este apartado, podrás ver todos tus certificados obtenidos y tendrás
-        la opción de descargarlos en formato .pdf o compartirlos en tus redes
-        sociales.
-      </p>
-    </main>
-    <app-footer />
+    </app-user-layout>
   `,
 })
 export class MisCertificadosComponent {

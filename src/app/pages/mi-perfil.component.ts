@@ -1,25 +1,17 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header.component';
-import { CourseInfoComponent } from '../components/course-info.component';
-import { FooterComponent } from '../components/footer.component';
-import { RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '@netlifeacademic/services/auth.service';
 import { User } from '@netlifeacademic/interfaces/user.interface';
 import { UserService } from '@netlifeacademic/services/user.service';
+import { NgClass } from '@angular/common';
+import { UserLayout } from '../layouts/user-layout.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-mi-perfil',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    CourseInfoComponent,
-    FooterComponent,
-    RouterOutlet,
-  ],
+  imports: [UserLayout, NgClass],
   template: `
-    <router-outlet />
-    <app-header />
-    <main>
+    <app-user-layout>
       <div class="relative">
         <img
           class="w-full h-auto"
@@ -31,16 +23,18 @@ import { UserService } from '@netlifeacademic/services/user.service';
         >
           <img
             class="rounded-full size-52 border-white border-8"
-            src="{{ user?.imageUrl || 'profile.png' }}"
+            src="{{ user.imageUrl || 'profile.png' }}"
             alt="Foto de Perfil"
           />
-          <h4 class="text-xl font-extrabold mt-4">{{ fullName }}</h4>
-          <p class="text-sm mt-2">{{ user?.email }}</p>
+          <h4 class="text-xl font-extrabold mt-4">
+            {{ user.name + ' ' + user.lastname }}
+          </h4>
+          <p class="text-sm mt-2">{{ user.email }}</p>
           <button
-            (click)="goToActualizarPerfil()"
-            class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] py-1 px-8 rounded-md mt-3 font-medium text-md"
+            (click)="router.navigate(['/actualizar-informacion'])"
+            class="mt-4 text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border border-[#FD6A00] bg-white px-3 text-[#FD6A00] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#FD6A00] before:transition-all before:duration-500 hover:text-white hover:shadow-[#FD6A00] hover:before:left-0 hover:before:w-full"
           >
-            Editar Perfil
+            <span class="relative z-10"> Editar Perfil </span>
           </button>
         </div>
       </div>
@@ -48,50 +42,47 @@ import { UserService } from '@netlifeacademic/services/user.service';
         <div class="flex gap-1">
           <div>
             <button
-              (click)="showSobreMi()"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg"
+              (click)="selectedButton = 'sobre-mi'"
+              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
             >
-              Sobre mí
+              <span class="relative z-10"> Sobre mí </span>
             </button>
-            @if (selectedButton === 'sobre-mi') {
-            <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
-            }
           </div>
           <div>
             <button
-              (click)="showMisCursos()"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg"
+              (click)="selectedButton = 'mis-cursos'"
+              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
             >
-              Mis cursos
+              <span class="relative z-10"> Mis Cursos </span>
             </button>
-            @if (selectedButton === 'mis-cursos') {
-            <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
-            }
           </div>
           <div>
             <button
-              (click)="showMisCertificados()"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg"
+              (click)="selectedButton = 'mis-certificados'"
+              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
             >
-              Mis certificados
+              <span class="relative z-10"> Mis Certificados </span>
             </button>
-            @if (selectedButton === 'mis-certificados') {
-            <div class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] h-1"></div>
-            }
           </div>
         </div>
         <div
-          class="border border-solid border-black min-h-36 mr-16 rounded mt-1 p-4"
+          class="border border-solid border-black min-h-52 mr-16 rounded mt-1 p-4"
         >
           @if (selectedButton === 'sobre-mi') {
           <ul>
-            <!-- <li>Rol: {{user?.role}}</li> -->
-            <li>Compañia: {{ user?.company }}</li>
-            <li>Area: {{ user?.area }}</li>
-            <li>Nivel: {{ user?.level }}</li>
-            <li>Cargo: {{ user?.position }}</li>
-            <li>Fecha de Cumpleaños: {{ user?.birthdate }}</li>
-            <li>Fecha de Ingreso a la Organización: {{ user?.createdAt }}</li>
+            <li><strong>Rol:</strong> {{ user.role }}</li>
+            <li><strong>Compañia:</strong> {{ user.company }}</li>
+            <li><strong>Area:</strong> {{ user.area }}</li>
+            <li><strong>Nivel:</strong> {{ user.level }}</li>
+            <li><strong>Cargo:</strong> {{ user.position }}</li>
+            <li>
+              <strong>Fecha de Cumpleaños:</strong>
+              {{ birthdate.toDateString() }}
+            </li>
+            <li>
+              <strong>Fecha de Ingreso a la Organización:</strong>
+              {{ date.toDateString() }}
+            </li>
           </ul>
           } @else if (selectedButton === 'mis-cursos') {
           <ul>
@@ -104,48 +95,32 @@ import { UserService } from '@netlifeacademic/services/user.service';
           }
         </div>
       </section>
-    </main>
-    <app-footer />
+    </app-user-layout>
   `,
 })
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';
-  id = '';
-  fullName = '';
-  user: User | null = null;
+  user = {} as User;
+  date = new Date();
+  birthdate = new Date();
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    public router: Router
   ) {}
 
-  showSobreMi() {
-    this.selectedButton = 'sobre-mi';
-  }
-
-  showMisCursos() {
-    this.selectedButton = 'mis-cursos';
-  }
-
-  showMisCertificados() {
-    this.selectedButton = 'mis-certificados';
-  }
-
-  goToActualizarPerfil() {
-    window.location.href = '/mi-perfil/actualizar-informacion';
-  }
-
   ngOnInit() {
-    this.id = this.authService.getSubFromToken();
-
-    this.userService.getUserById(this.id).subscribe({
+    this.userService.getUserById(this.authService.getSubFromToken()).subscribe({
       next: (result) => {
         this.user = result;
-        this.fullName = `${this.user?.name} ${this.user?.lastname}`;
-      },
-      error: (error) => console.error(error),
-      complete() {
-        console.log('Complete');
+        this.date = result.createdAt ? new Date(result.createdAt) : new Date();
+        this.birthdate = result.birthdate
+          ? new Date(result.birthdate)
+          : new Date();
+
+        this.date.setHours(this.date.getHours() + 5);
+        this.birthdate.setHours(this.birthdate.getHours() + 5);
       },
     });
   }

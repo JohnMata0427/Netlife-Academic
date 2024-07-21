@@ -8,31 +8,32 @@ import { NewPasswordComponent } from './pages/auth/new-password.component';
 import { MisCursosComponent } from './pages/mis-cursos.component';
 import { MiPerfilComponent } from './pages/mi-perfil.component';
 import { CourseComponent } from './pages/course.component';
-import { ActualizarPerfilComponent } from './pages/actualizar-perfi.component';
+import { ActualizarPerfilComponent } from './pages/actualizar-perfil.component';
 import { authGuard } from './guard/required-auth.guard';
 import { noAuthGuard } from './guard/no-required-auth.guard';
 import { MisCertificadosComponent } from './pages/mis-certificados.component';
 import { AdminDashboardComponent } from './pages/admin/dashboard.component';
 import { adminGuard } from './guard/required-admin.guard';
+import { requiredCodeGuard } from './guard/required-code.guard';
+import { AdminAnunciosComponent } from './pages/admin/anuncios.component';
 
 export const routes: Routes = [
-    { path: 'auth', children: [
-        { path: 'register', component: RegistroComponent, canActivate: [noAuthGuard] },
-        { path: 'login', component: LoginComponent, canActivate: [noAuthGuard] },
-        { path: 'recovery-password', component: RecoveryPasswordComponent, canActivate: [noAuthGuard] },
-        { path: 'verify-code', component: VerifyCodeComponent, canActivate: [noAuthGuard] },
-        { path: 'new-password', component: NewPasswordComponent, canActivate: [noAuthGuard] },
+    { path: 'auth', canActivate: [noAuthGuard], children: [
+        { path: 'register', component: RegistroComponent },
+        { path: 'login', component: LoginComponent },
+        { path: 'recovery-password', component: RecoveryPasswordComponent },
+        { path: 'verify-code', component: VerifyCodeComponent, canActivate: [requiredCodeGuard] },
+        { path: 'new-password', component: NewPasswordComponent, canActivate: [requiredCodeGuard] },
     ]},
     { path: 'home', component: HomeComponent, canActivate: [authGuard] },
     { path: 'mis-cursos/:id', component: CourseComponent, canActivate: [authGuard] },
     { path: 'mis-cursos', component: MisCursosComponent, canActivate: [authGuard] },
-    { path: 'mi-perfil', children: [
-        { path: '', component: MiPerfilComponent, canActivate: [authGuard] },
-        { path: 'actualizar-informacion', component: ActualizarPerfilComponent, canActivate: [authGuard] }
-    ] },
-    { path: 'mis-certificados', component: MisCertificadosComponent },
+    { path: 'actualizar-informacion', canActivate: [authGuard], component: ActualizarPerfilComponent },
+    { path: 'mi-perfil', canActivate: [authGuard], component: MiPerfilComponent },
+    { path: 'mis-certificados', canActivate: [authGuard], component: MisCertificadosComponent },
     { path: 'admin', canActivate: [authGuard, adminGuard], children: [
-        { path: 'dashboard', component: AdminDashboardComponent }
+        { path: 'dashboard', component: AdminDashboardComponent },
+        { path: 'anuncios', component: AdminAnunciosComponent }
     ] },
     { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
 ];
