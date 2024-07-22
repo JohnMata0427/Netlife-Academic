@@ -192,7 +192,7 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
         }
 
         <app-custom-button
-          [moreStyles]="'w-full'"
+          [moreStyles]="'w-full justify-center'"
           [color]="'black'"
           [hoverColor]="'white'"
           [text]="'Registrate'"
@@ -221,11 +221,11 @@ export class RegistroComponent {
 
   isPasswordVisible = false;
   typePasswordInput = 'password';
-  iconPasswordInput = 'eye-off';
+  iconPasswordInput = 'eye';
 
   isConfirmPasswordVisible = false;
   typeConfirmPasswordInput = 'password';
-  iconConfirmPasswordInput = 'eye-off';
+  iconConfirmPasswordInput = 'eye';
 
   constructor(private route: Router, private authService: AuthService) {
     this.form = new FormGroup({

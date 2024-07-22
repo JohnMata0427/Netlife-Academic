@@ -87,7 +87,7 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
 
         <app-custom-button
           (click)="onSubmit()"
-          [moreStyles]="'w-full'"
+          [moreStyles]="'w-full justify-center'"
           [color]="'black'"
           [hoverColor]="'white'"
           [text]="'Enviar código de verificación'"

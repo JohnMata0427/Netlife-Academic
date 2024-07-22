@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
-type ColorVariant = 'black' | 'white' | 'orange' | 'yellow' | 'gray';
+type ColorVariant = 'black' | 'white' | 'orange' | 'gray';
 
 @Component({
   selector: 'app-custom-button',
@@ -10,7 +10,7 @@ type ColorVariant = 'black' | 'white' | 'orange' | 'yellow' | 'gray';
   template: `
     <button
     [ngClass]="[variantsColor[color], variantsHoverColor[hoverColor]]"
-      class="text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border px-3  shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex justify-center items-center {{moreStyles}}"
+      class="text-md font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center {{moreStyles}}"
     >
       @if (loading) {
       <svg
@@ -30,7 +30,7 @@ type ColorVariant = 'black' | 'white' | 'orange' | 'yellow' | 'gray';
           fill="currentColor"
         />
       </svg>
-      } @else { <span class="relative z-10"> {{ text }} </span> }
+      } @else { <ng-content></ng-content> <span class="relative z-10"> {{ text }} </span> }
     </button>
   `,
 })
@@ -45,7 +45,6 @@ export class CustomButtonComponent {
     black: 'border-black bg-black hover:text-black',
     white: 'border-white bg-white hover:text-white',
     orange: 'border-[#FD6A00] bg-[#FD6A00] hover:text-[#FD6A00]',
-    yellow: 'border-[#FFD700] bg-[#FFD700] hover:text-[#FFD700]',
     gray: 'border-[#5C5C5C] bg-[#5C5C5C] hover:text-[#5C5C5C]'
   }
 
@@ -53,7 +52,6 @@ export class CustomButtonComponent {
     black: 'text-black before:bg-black hover:shadow-black',
     white: 'text-white before:bg-white hover:shadow-white',
     orange: 'text-[#FD6A00] before:bg-[#FD6A00] hover:shadow-[#FD6A00]',
-    yellow: 'text-[#FFD700] before:bg-[#FFD700] hover:shadow-[#FFD700]',
     gray: 'text-[#5C5C5C] before:bg-[#5C5C5C] hover:shadow-[#5C5C5C]'
   }
 }

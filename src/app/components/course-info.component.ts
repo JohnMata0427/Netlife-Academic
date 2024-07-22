@@ -13,6 +13,7 @@ import { Component, Input } from '@angular/core';
           alt="{{ title }}"
         />
       </a>
+      
       <div class="bg-black rounded-b-lg px-4 py-3 flex flex-col gap-y-1">
         <h3 class="text-white text-sm font-bold">{{ title }}</h3>
         <div class="flex items-center gap-x-2">

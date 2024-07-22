@@ -3,7 +3,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@netlifeacademic/services/auth.service';
 import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { CustomButtonComponent } from "../../components/custom-button.component";
+import { CustomButtonComponent } from '../../components/custom-button.component';
 
 @Component({
   selector: 'app-verify-code',
@@ -45,7 +45,7 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
         }
 
         <app-custom-button
-          [moreStyles]="'w-full'"
+          [moreStyles]="'w-full justify-center'"
           [color]="'black'"
           [hoverColor]="'white'"
           [text]="'Verificar código'"
@@ -53,13 +53,17 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
         />
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >

@@ -14,13 +14,14 @@ import { CustomButtonComponent } from "../components/custom-button.component";
   template: `
     <app-user-layout>
       <div class="relative">
-        <img
+        <!-- <img
           class="w-full h-auto"
           src="profile/background-profile.png"
           alt="Portada del Perfil"
-        />
+        /> -->
+        <div class="w-screen h-96 bg-profile"></div>
         <div
-          class="absolute -bottom-[216px] left-16 flex flex-col items-center"
+          class="absolute -bottom-[216px] md:left-16 inset-x-0 md:right-auto flex flex-col items-center"
         >
           <img
             class="rounded-full size-52 border-white border-8"
@@ -41,15 +42,15 @@ import { CustomButtonComponent } from "../components/custom-button.component";
           />
         </div>
       </div>
-      <section class="ml-[360px] mt-4 mb-20">
-        <div class="flex gap-1">
+      <section class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start">
+        <div class="flex gap-x-1">
 
           <app-custom-button
           (click)="selectedButton = 'sobre-mi'"
           [hoverColor]="'white'"
           [color]="'black'"
           [text]="'Sobre Mí'"
-          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
@@ -57,7 +58,7 @@ import { CustomButtonComponent } from "../components/custom-button.component";
           [hoverColor]="'white'"
           [color]="'black'"
           [text]="'Mis Cursos'"
-          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
@@ -65,12 +66,12 @@ import { CustomButtonComponent } from "../components/custom-button.component";
           [hoverColor]="'white'"
           [color]="'black'"
           [text]="'Mis Certificados'"
-          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
           
         </div>
         <div
-          class="border border-solid border-black min-h-52 mr-16 rounded mt-1 p-4"
+          class="border border-solid border-black min-h-52 min-w-[365px] w-[90%] md:mr-16 rounded mt-1 p-4"
         >
           @if (selectedButton === 'sobre-mi') {
           <ul>
@@ -101,6 +102,14 @@ import { CustomButtonComponent } from "../components/custom-button.component";
       </section>
     </app-user-layout>
   `,
+  styles: `
+    .bg-profile {
+      background-image: url('https://img.freepik.com/foto-gratis/paisaje-surrealista-3d-al-estilo-marte_1048-9878.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  `
 })
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';

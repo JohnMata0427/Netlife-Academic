@@ -65,7 +65,7 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
         }
 
         <app-custom-button
-          [moreStyles]="'w-full'"
+          [moreStyles]="'w-full justify-center'"
           [color]="'black'"
           [hoverColor]="'white'"
           [text]="'Iniciar sesión'"
@@ -105,8 +105,8 @@ export class LoginComponent {
   message = '';
 
   isPasswordVisible = false;
-  typePasswordInput = this.isPasswordVisible ? 'text' : 'password';
-  iconPasswordInput = this.isPasswordVisible ? 'eye' : 'eye-off';
+  typePasswordInput = 'password';
+  iconPasswordInput = 'eye';
 
   constructor(private route: Router, private authService: AuthService) {}
 
