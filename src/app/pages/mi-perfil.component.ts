@@ -41,7 +41,7 @@ import { CustomButtonComponent } from "../components/custom-button.component";
           />
         </div>
       </div>
-      <section class="ml-[360px] mt-4">
+      <section class="ml-[360px] mt-4 mb-20">
         <div class="flex gap-1">
 
           <app-custom-button

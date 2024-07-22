@@ -184,7 +184,7 @@ import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.c
           </article>
         </div>
       </section>
-      <section>
+      <section class="mb-20">
       <app-custom-title title="Nuevos Cursos" />
 
         <h2 class="text-[#ec7434] font-extrabold ml-16">

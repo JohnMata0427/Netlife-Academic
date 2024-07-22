@@ -188,7 +188,7 @@ import { UserService } from '@netlifeacademic/services/user.service';
           </ul>
         </nav>
       </header>
-      <section class="p-2">
+      <section class="w-full py-4 px-8">
         <div class="w-full flex justify-end">
           <button
             (click)="router.navigate(['/home'])"

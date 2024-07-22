@@ -62,7 +62,7 @@ import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.c
           />
         </div>
       </section>
-      <section class="pl-16 my-4">
+      <section class="pl-16 mt-4 mb-20">
         <h2 class="text-[#ec7434] font-extrabold">
           CURSOS RECOMENDADOS PARA TI
         </h2>
