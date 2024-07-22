@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from '../../layouts/auth-layout.component';
 import { AuthService } from '../../services/auth.service';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { CustomButtonComponent } from "../../components/custom-button.component";
 
 @Component({
   selector: 'app-recovery-password',
@@ -23,7 +23,9 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
             Revisa tu correo electrónico
           </h3>
           <!--body-->
-          <p class="text-white font-light text-sm text-center my-7">
+          <p
+            class="text-white font-light text-sm text-center my-7"
+          >
             Te enviamos un correo electrónico a
             <strong class="font-bold">{{
               email.value || 'jhonmata0427@gmail.com'
@@ -35,21 +37,23 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
           <span class="text-white text-center text-[12px]"
             >¿No has recibido el código de confirmación?</span
           >
-          <div class="flex gap-x-4 justify-center mt-4">
+          <div class="flex gap-x-4 justify-center mt-6">
             <app-custom-button
-              (click)="showModal = false"
-              [color]="'#FEE500'"
-              [hoverColor]="'white'"
-              [text]="'Cerrar'"
-              [loading]="loading"
-            />
+            (click)="showModal = false"
+          [moreStyles]="'w-full'"
+          [color]="'gray'"
+          [hoverColor]="'white'"
+          [text]="'Cerrar'"
+          [loading]="loading"
+        />
             <app-custom-button
-              (click)="onSubmit()"
-              [color]="'#FD6A00'"
-              [hoverColor]="'white'"
-              [text]="'Reenviar'"
-              [loading]="loading"
-            />
+          (click)="onSubmit()"
+          [moreStyles]="'w-full'"
+          [color]="'orange'"
+          [hoverColor]="'white'"
+          [text]="'Reenviar'"
+          [loading]="loading"
+        />
           </div>
         </div>
       </div>
@@ -92,13 +96,13 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
 
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/register"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/login"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
@@ -110,7 +114,7 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
 export class RecoveryPasswordComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage = '';
-  showModal = true;
+  showModal = false;
   loading = false;
 
   constructor(private authService: AuthService) {}

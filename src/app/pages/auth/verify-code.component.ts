@@ -53,13 +53,13 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
         />
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/register"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/login"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >

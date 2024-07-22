@@ -1,12 +1,16 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
+
+type ColorVariant = 'black' | 'white' | 'orange' | 'yellow' | 'gray';
 
 @Component({
   selector: 'app-custom-button',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   template: `
     <button
-      class="text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border border-{{color}} bg-{{ color }} px-3 text-{{hoverColor}} shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-{{hoverColor}} before:transition-all before:duration-500 hover:text-{{color}} hover:shadow-{{hoverColor}} hover:before:left-0 hover:before:w-full flex justify-center items-center {{moreStyles}}"
+    [ngClass]="[variantsColor[color], variantsHoverColor[hoverColor]]"
+      class="text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border px-3  shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex justify-center items-center {{moreStyles}}"
     >
       @if (loading) {
       <svg
@@ -32,17 +36,24 @@ import { Component, Input } from '@angular/core';
 })
 export class CustomButtonComponent {
   @Input() text = '';
-  @Input() hoverColor = '';
-  @Input() color = '';
+  @Input() hoverColor: ColorVariant = 'black';
+  @Input() color: ColorVariant = 'white';
   @Input() loading = false;
   @Input() moreStyles = '';
 
-  ngOnInit() {
-    if (this.hoverColor.includes('#'))
-      this.hoverColor = '[' + this.hoverColor + ']';
-    if (this.color.includes('#')) this.color = '[' + this.color + ']';
+  variantsColor: Record<ColorVariant, string> = {
+    black: 'border-black bg-black hover:text-black',
+    white: 'border-white bg-white hover:text-white',
+    orange: 'border-[#FD6A00] bg-[#FD6A00] hover:text-[#FD6A00]',
+    yellow: 'border-[#FFD700] bg-[#FFD700] hover:text-[#FFD700]',
+    gray: 'border-[#5C5C5C] bg-[#5C5C5C] hover:text-[#5C5C5C]'
+  }
 
-    console.log('hoverColor', this.hoverColor);
-    console.log('color', this.color);
+  variantsHoverColor: Record<ColorVariant, string> = {
+    black: 'text-black before:bg-black hover:shadow-black',
+    white: 'text-white before:bg-white hover:shadow-white',
+    orange: 'text-[#FD6A00] before:bg-[#FD6A00] hover:shadow-[#FD6A00]',
+    yellow: 'text-[#FFD700] before:bg-[#FFD700] hover:shadow-[#FFD700]',
+    gray: 'text-[#5C5C5C] before:bg-[#5C5C5C] hover:shadow-[#5C5C5C]'
   }
 }

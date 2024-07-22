@@ -79,13 +79,13 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
 
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/register"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
 
         <a
-          class="text-[#FD6A00] hover:underline text-center text-xs"
+          class="text-[#FD6A00] font-medium hover:underline text-center text-xs"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >

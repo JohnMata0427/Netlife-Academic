@@ -5,11 +5,12 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
 import { UserService } from '@netlifeacademic/services/user.service';
 import { NgClass } from '@angular/common';
 import { UserLayout } from '../layouts/user-layout.component';
+import { CustomButtonComponent } from "../components/custom-button.component";
 
 @Component({
   selector: 'app-mi-perfil',
   standalone: true,
-  imports: [UserLayout, NgClass],
+  imports: [UserLayout, NgClass, CustomButtonComponent],
   template: `
     <app-user-layout>
       <div class="relative">
@@ -31,40 +32,42 @@ import { UserLayout } from '../layouts/user-layout.component';
           </h4>
           <small>{{ user.state || '' }}</small>
           <p class="text-sm mt-2">{{ user.email }}</p>
-          <button
-            (click)="router.navigate(['/actualizar-informacion'])"
-            class="mt-4 text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border border-[#FD6A00] bg-white px-3 text-[#FD6A00] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#FD6A00] before:transition-all before:duration-500 hover:text-white hover:shadow-[#FD6A00] hover:before:left-0 hover:before:w-full"
-          >
-            <span class="relative z-10"> Editar Perfil </span>
-          </button>
+          <app-custom-button
+          (click)="router.navigate(['/actualizar-informacion'])"
+          [hoverColor]="'white'"
+          [color]="'orange'"
+          [text]="'Editar Perfil'"
+          [moreStyles]="'mt-4'"
+          />
         </div>
       </div>
       <section class="ml-[360px] mt-4">
         <div class="flex gap-1">
-          <div>
-            <button
-              (click)="selectedButton = 'sobre-mi'"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
-            >
-              <span class="relative z-10"> Sobre mí </span>
-            </button>
-          </div>
-          <div>
-            <button
-              (click)="selectedButton = 'mis-cursos'"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
-            >
-              <span class="relative z-10"> Mis Cursos </span>
-            </button>
-          </div>
-          <div>
-            <button
-              (click)="selectedButton = 'mis-certificados'"
-              class="bg-black text-white text-sm py-2 px-12 rounded-tr-lg hover:before:bg-redborder-red-500 relative overflow-hidden border border-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-white before:transition-all before:duration-500 hover:text-black hover:shadow-white hover:before:left-0 hover:before:w-full"
-            >
-              <span class="relative z-10"> Mis Certificados </span>
-            </button>
-          </div>
+
+          <app-custom-button
+          (click)="selectedButton = 'sobre-mi'"
+          [hoverColor]="'white'"
+          [color]="'black'"
+          [text]="'Sobre Mí'"
+          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          />
+
+          <app-custom-button
+          (click)="selectedButton = 'mis-cursos'"
+          [hoverColor]="'white'"
+          [color]="'black'"
+          [text]="'Mis Cursos'"
+          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          />
+
+          <app-custom-button
+          (click)="selectedButton = 'mis-certificados'"
+          [hoverColor]="'white'"
+          [color]="'black'"
+          [text]="'Mis Certificados'"
+          [moreStyles]="'w-44 rounded-none rounded-tr-lg'"
+          />
+          
         </div>
         <div
           class="border border-solid border-black min-h-52 mr-16 rounded mt-1 p-4"
@@ -78,11 +81,11 @@ import { UserLayout } from '../layouts/user-layout.component';
             <li><strong>Cargo:</strong> {{ user.position }}</li>
             <li>
               <strong>Fecha de Cumpleaños:</strong>
-              {{ birthdate.toDateString() }}
+              {{ birthdate?.toDateString() }}
             </li>
             <li>
               <strong>Fecha de Ingreso a la Organización:</strong>
-              {{ date.toDateString() }}
+              {{ date?.toDateString() }}
             </li>
           </ul>
           } @else if (selectedButton === 'mis-cursos') {
@@ -102,8 +105,8 @@ import { UserLayout } from '../layouts/user-layout.component';
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';
   user = {} as User;
-  date = new Date();
-  birthdate = new Date();
+  date = null as Date | null;
+  birthdate = null as Date | null;
 
   constructor(
     private authService: AuthService,
@@ -115,13 +118,13 @@ export class MiPerfilComponent {
     this.userService.getUserById(this.authService.getSubFromToken()).subscribe({
       next: (result) => {
         this.user = result;
-        this.date = result.createdAt ? new Date(result.createdAt) : new Date();
+        this.date = result.createdAt ? new Date(result.createdAt) : null;
         this.birthdate = result.birthdate
           ? new Date(result.birthdate)
-          : new Date();
+          : null;
 
-        this.date.setHours(this.date.getHours() + 5);
-        this.birthdate.setHours(this.birthdate.getHours() + 5);
+        this.date?.setHours(this.date.getHours() + 5);
+        this.birthdate?.setHours(this.birthdate.getHours() + 5);
       },
     });
   }

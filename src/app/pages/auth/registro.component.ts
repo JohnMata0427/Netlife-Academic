@@ -181,7 +181,7 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
           />
           <label (click)="toggleCheckbox()" class="text-xs cursor-default"
             >Aceptas los
-            <a class="text-[#FD6A00] hover:underline" href="/"
+            <a class="text-[#FD6A00] font-medium hover:underline" href="/"
               >términos y condiciones</a
             ></label
           >
@@ -201,12 +201,12 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
 
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
-          <a class="text-[#FD6A00] hover:underline" href="/auth/login"
+          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
         <a
-          class="text-[#FD6A00] hover:underline text-center text-xs"
+          class="text-[#FD6A00] font-medium hover:underline text-center text-xs"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >

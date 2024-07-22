@@ -5,11 +5,12 @@ import { UserService } from '@netlifeacademic/services/user.service';
 import { User } from '@netlifeacademic/interfaces/user.interface';
 import { AuthService } from '@netlifeacademic/services/auth.service';
 import { UserLayout } from '../layouts/user-layout.component';
+import { CustomButtonComponent } from '../components/custom-button.component';
 
 @Component({
   selector: 'app-actualizar-perfil',
   standalone: true,
-  imports: [ReactiveFormsModule, UserLayout],
+  imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
     <app-user-layout>
       <div class="relative">
@@ -65,6 +66,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.name }}"
+                placeholder="Coloca tu nombre aquí"
               />
             </div>
             <div class="flex flex-col w-1/2">
@@ -74,6 +76,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.lastname }}"
+                placeholder="Coloca tus apellidos aquí"
               />
             </div>
           </div>
@@ -85,6 +88,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.company }}"
+                placeholder="Coloca tu empresa aquí"
               />
             </div>
             <div class="flex flex-col w-full">
@@ -94,6 +98,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.area }}"
+                placeholder="Coloca tu área aquí"
               />
             </div>
           </div>
@@ -105,6 +110,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.level }}"
+                placeholder="Coloca tu nivel aquí"
               />
             </div>
             <div class="flex flex-col w-full">
@@ -114,6 +120,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.position }}"
+                placeholder="Coloca tu cargo aquí"
               />
             </div>
           </div>
@@ -125,6 +132,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="date"
                 value="{{ user.birthdate }}"
+                placeholder="Coloca tu fecha de nacimiento aquí"
               />
             </div>
             <div class="flex flex-col w-full">
@@ -134,6 +142,7 @@ import { UserLayout } from '../layouts/user-layout.component';
                 class="border border-black rounded p-1 mt-2"
                 type="text"
                 value="{{ user.state }}"
+                placeholder="Coloca tu estado aquí"
               />
             </div>
           </div>
@@ -144,17 +153,21 @@ import { UserLayout } from '../layouts/user-layout.component';
             >
               Actualizar Perfil
             </button> -->
-            <button
-              class="mt-10 text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border border-[#FD6A00] bg-white px-3 text-[#FD6A00] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#FD6A00] before:transition-all before:duration-500 hover:text-white hover:shadow-[#FD6A00] hover:before:left-0 hover:before:w-full"
-            >
-              <span class="relative z-10">Actualizar Perfil</span>
-            </button>
-            <button
+
+            <app-custom-button
+              [hoverColor]="'white'"
+              [color]="'orange'"
+              [text]="'Actualizar Perfil'"
+              [moreStyles]="'mt-10'"
+              [loading]="loading"
+            />
+            <app-custom-button
               (click)="cancel = true"
-              class="mt-10 text-md font-medium rounded-md h-10 hover:before:bg-redborder-red-500 relative overflow-hidden border border-[#414141] bg-white px-3 text-[#414141] shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#414141] before:transition-all before:duration-500 hover:text-white hover:shadow-[#414141] hover:before:left-0 hover:before:w-full"
-            >
-              <span class="relative z-10">Cancelar</span>
-            </button>
+              [hoverColor]="'white'"
+              [color]="'gray'"
+              [text]="'Cancelar'"
+              [moreStyles]="'mt-10'"
+            />
           </div>
         </form>
       </section>
@@ -167,6 +180,7 @@ export class ActualizarPerfilComponent {
   imagePreview: string | ArrayBuffer | null = null;
   image: File | null = null;
   cancel = false;
+  loading = false;
 
   user = {} as User;
 
@@ -204,6 +218,7 @@ export class ActualizarPerfilComponent {
   }
 
   onSubmit() {
+    this.loading = true;
     if (this.cancel) {
       this.router.navigate(['/mi-perfil']);
       return;
@@ -215,6 +230,10 @@ export class ActualizarPerfilComponent {
     this.userService.updateUser(this.form.value, this.id).subscribe({
       next: () => {
         this.router.navigate(['/mi-perfil']);
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
       },
     });
   }
