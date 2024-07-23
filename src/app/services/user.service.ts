@@ -33,7 +33,25 @@ export class UserService {
     if (image) formData.append('image', image);
     return this.httpClient.post<MessageResponse>(
       this.urlAPI + '/api/users/' + id + '/upload-image',
-      formData
+      formData,
+      {
+        reportProgress: true,
+        observe: 'events',
+      }
+    );
+  }
+
+  createUser(email: string, role: string) {
+    return this.httpClient.post<User>(this.urlAPI + '/api/users', {
+      email,
+      role,
+    });
+  }
+
+  blockUser(email: string) {
+    return this.httpClient.put<MessageResponse>(
+      this.urlAPI + '/api/users/lock-user',
+      { email }
     );
   }
 }

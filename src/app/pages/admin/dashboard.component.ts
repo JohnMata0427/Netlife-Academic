@@ -5,6 +5,7 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
 import { NgClass } from '@angular/common';
 import { FooterComponent } from '@netlifeacademic/components/footer.component';
 import { CustomButtonComponent } from '../../components/custom-button.component';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -14,6 +15,7 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
     NgClass,
     FooterComponent,
     CustomButtonComponent,
+    ReactiveFormsModule,
   ],
   template: `
     <app-admin-layout>
@@ -127,49 +129,95 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
       </article>
       <div class="flex justify-center gap-x-4 mt-4">
         <app-custom-button
+          (click)="selectedButton = 'Agregar'"
           [color]="'orange'"
           [text]="'Agregar usuario'"
           [moreStyles]="'text-xs h-8'"
           [hoverColor]="'white'"
         />
         <app-custom-button
+          (click)="selectedButton = 'Editar'"
           [color]="'orange'"
           [text]="'Editar usaurio'"
           [moreStyles]="'text-xs h-8'"
           [hoverColor]="'white'"
         />
         <app-custom-button
+          (click)="selectedButton = 'Bloquear'"
           [color]="'orange'"
           [text]="'Bloquear usuario'"
           [hoverColor]="'white'"
           [moreStyles]="'text-xs h-8'"
         />
       </div>
-      <div class="mt-4  flex flex-col gap-y-4">
-        <h3 class="font-bold">Permisos para editar información</h3>
+
+      <div
+        class="w-full mt-4 flex flex-col gap-y-2 rounded-lg p-4 {{
+          selectedButton !== '' ? 'border border-black' : ''
+        }}"
+      >
+        @if (selectedButton !== '') {
+        <h3 class="font-bold">Correo del usuario</h3>
+
         <input
-          class="text-sm p-1 border border-[#cfcfcf] rounded-lg w-96"
+          [formControl]="email"
+          class="text-sm p-1 border border-[#B8B8B8] rounded-lg w-96"
           type="text"
           placeholder="Buscar usuario"
         />
+
+        @if (selectedButton === 'Agregar') {
+        <select [formControl]="role" name="role" id="role" class="w-96 border border-[#B8B8B8] rounded-lg p-1 text-sm">
+          <option value="STUDENT">Estudiante</option>
+          <option value="TEACHER">Docente</option>
+          <option value="ADMIN">Administrador</option>
+        </select>
+        }
         <app-custom-button
-          [color]="'orange'"
-          [text]="'Otorgar permisos'"
+          (click)="
+            selectedButton === 'Agregar'
+              ? createUser()
+              : selectedButton === 'Bloquear'
+              ? blockUser()
+              : null
+          "
+          [color]="'black'"
+          [text]="selectedButton"
           [hoverColor]="'white'"
           [moreStyles]="'text-xs h-8'"
         />
+        }
       </div>
     </app-admin-layout>
   `,
 })
 export class AdminDashboardComponent {
   users = [] as User[];
+  selectedButton = '';
+  email = new FormControl('', Validators.required);
+  role = new FormControl('STUDENT');
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe({
       next: (result) => {
         this.users = result;
+      },
+    });
+  }
+
+  createUser() {
+    this.userService.createUser(this.email.value as string, this.role.value as string).subscribe({
+      next: (result) => {
+        console.log(result);
+      },
+    });
+  }
+
+  blockUser() {
+    this.userService.blockUser(this.email.value as string).subscribe({
+      next: (result) => {
+        console.log(result);
       },
     });
   }

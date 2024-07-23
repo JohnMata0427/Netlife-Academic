@@ -63,12 +63,8 @@ export class AuthService {
     );
   }
 
-  private getToken() {
-    return localStorage.getItem('token');
-  }
-
   isAuthenticated(): boolean {
-    const token = this.getToken();
+    const token = localStorage.getItem('token');
 
     if (!token) {
       return false;
@@ -82,7 +78,7 @@ export class AuthService {
   }
 
   isAdministrator(): boolean {
-    const token = this.getToken();
+    const token = localStorage.getItem('token');
 
     if (!token) {
       return false;

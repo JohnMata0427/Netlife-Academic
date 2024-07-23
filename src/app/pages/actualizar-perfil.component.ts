@@ -15,11 +15,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
     <app-user-layout>
       <div class="relative">
         <div class="relative">
-          <img
-            class="w-full h-auto"
-            src="profile/background-profile.png"
-            alt="Portada del Perfil"
-          />
+          <div class="w-screen h-96 bg-profile"></div>
           <button
             class="group absolute bottom-4 right-12 flex items-center justify-center gap-x-2 px-4 text-md rounded-md h-10 hover:before:bg-redborder-red-500 overflow-hidden border border-white bg-white text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full text-sm"
           >
@@ -189,6 +185,14 @@ import { CustomButtonComponent } from '../components/custom-button.component';
         </form>
       </section>
     </app-user-layout>
+  `,
+  styles: `
+    .bg-profile {
+      background-image: url('https://img.freepik.com/foto-gratis/paisaje-surrealista-3d-al-estilo-marte_1048-9878.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   `,
 })
 export class ActualizarPerfilComponent {

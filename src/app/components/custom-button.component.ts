@@ -10,7 +10,7 @@ type ColorVariant = 'black' | 'white' | 'orange' | 'gray';
   template: `
     <button
     [ngClass]="[variantsColor[color], variantsHoverColor[hoverColor]]"
-      class="text-md font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center {{moreStyles}}"
+      class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center {{moreStyles}}"
     >
       @if (loading) {
       <svg

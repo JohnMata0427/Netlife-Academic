@@ -25,6 +25,9 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
             alt="Email Icon"
           />
           <input
+            id="email"
+            name="email"
+            value="{{ form.get('email')?.value }}"
             formControlName="email"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
