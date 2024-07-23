@@ -127,11 +127,11 @@ import { HeaderComponent } from '@netlifeacademic/components/header.component';
             />
             <img
               class="size-20 rounded-full ml-5"
-              src="https://res.cloudinary.com/ddcs9xxid/image/upload/v1720913496/user-2d96b93a-f81b-40bb-8d58-ee982bb02ed5.jpg"
+              src="profile.png"
               alt="Perfil del Docente"
             />
             <div class="flex flex-col gap-y-2">
-              <h3 class="text-lg font-bold">Kiyotaka Ayanokouji</h3>
+              <h3 class="text-lg font-bold">Monica Jimenez</h3>
               <span class="text-sm ml-4"
                 ><strong>Titulo académico: </strong>Ing. Sistemas</span
               >
@@ -147,8 +147,8 @@ import { HeaderComponent } from '@netlifeacademic/components/header.component';
             />
           </div>
           <div class="bg-[#FAAB00] rounded-lg p-4 text-sm w-1/2">
-            ¡Hola a todos! Soy <strong>Kiyotaka Ayanokouji</strong>, y seré su
-            instructor para este curso. Estoy emocionado de acompañarlos en este
+            ¡Hola a todos! Soy <strong>Monica Jimenez</strong>, y seré su
+            instructora para este curso. Estoy emocionada de acompañarlos en este
             viaje de aprendizaje sobre redes de computadoras. Juntos
             exploraremos el fascinante mundo de las redes, desde lo básico hasta
             configuraciones avanzadas.
