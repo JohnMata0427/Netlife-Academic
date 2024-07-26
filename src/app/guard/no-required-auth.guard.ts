@@ -4,17 +4,10 @@ import { AuthService } from '@netlifeacademic/services/auth.service';
 
 export const noAuthGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
-  const router = inject(Router)
+  const router = inject(Router);
 
-  if (authService.isAdministrator()) {
-    router.navigate(['/admin/dashboard']);
-    return false;
-  }
+  if (!authService.isAuthenticated()) return true;
 
-  if (authService.isAuthenticated()) {
-    router.navigate(['/home']);
-    return false;
-  }
-
-  return true;
+  if (authService.getInfoUser().role !== 'ADMIN') return router.createUrlTree(['/home']);
+  else return router.createUrlTree(['/admin/dashboard']);
 };

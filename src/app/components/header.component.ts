@@ -218,7 +218,7 @@ export class HeaderComponent {
     );
 
     this.userService
-      .getUserById(this.authService.getSubFromToken())
+      .getUserById(this.authService.getInfoUser().sub)
       .subscribe(({ imageUrl, name, lastname, email, role }) => {
         this.profile = imageUrl as string;
         this.username = name + ' ' + lastname;

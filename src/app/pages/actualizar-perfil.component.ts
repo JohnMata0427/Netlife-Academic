@@ -260,7 +260,7 @@ export class ActualizarPerfilComponent {
   }
 
   ngOnInit() {
-    this.id = this.authService.getSubFromToken();
+    this.id = this.authService.getInfoUser().sub;
     this.userService.getUserById(this.id).subscribe((result) => {
       this.user = result;
       this.imagePreview = result.imageUrl;

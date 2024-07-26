@@ -5,7 +5,7 @@ import { User } from '@netlifeacademic/interfaces/user.interface';
 import { UserService } from '@netlifeacademic/services/user.service';
 import { NgClass } from '@angular/common';
 import { UserLayout } from '../layouts/user-layout.component';
-import { CustomButtonComponent } from "../components/custom-button.component";
+import { CustomButtonComponent } from '../components/custom-button.component';
 
 @Component({
   selector: 'app-mi-perfil',
@@ -34,41 +34,41 @@ import { CustomButtonComponent } from "../components/custom-button.component";
           <small>{{ user.state || '' }}</small>
           <p class="text-sm mt-2">{{ user.email }}</p>
           <app-custom-button
-          (click)="router.navigate(['/actualizar-informacion'])"
-          [hoverColor]="'white'"
-          [color]="'orange'"
-          [text]="'Editar Perfil'"
-          [moreStyles]="'mt-4'"
+            (click)="router.navigate(['/actualizar-informacion'])"
+            [hoverColor]="'white'"
+            [color]="'orange'"
+            [text]="'Editar Perfil'"
+            [moreStyles]="'mt-4'"
           />
         </div>
       </div>
-      <section class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start">
+      <section
+        class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start"
+      >
         <div class="flex gap-x-1">
-
           <app-custom-button
-          (click)="selectedButton = 'sobre-mi'"
-          [hoverColor]="'white'"
-          [color]="'black'"
-          [text]="'Sobre Mí'"
-          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            (click)="selectedButton = 'sobre-mi'"
+            [hoverColor]="'white'"
+            [color]="'black'"
+            [text]="'Sobre Mí'"
+            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
-          (click)="selectedButton = 'mis-cursos'"
-          [hoverColor]="'white'"
-          [color]="'black'"
-          [text]="'Mis Cursos'"
-          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            (click)="selectedButton = 'mis-cursos'"
+            [hoverColor]="'white'"
+            [color]="'black'"
+            [text]="'Mis Cursos'"
+            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
-          (click)="selectedButton = 'mis-certificados'"
-          [hoverColor]="'white'"
-          [color]="'black'"
-          [text]="'Mis Certificados'"
-          [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            (click)="selectedButton = 'mis-certificados'"
+            [hoverColor]="'white'"
+            [color]="'black'"
+            [text]="'Mis Certificados'"
+            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
-          
         </div>
         <div
           class="border border-solid border-black min-h-52 min-w-[365px] w-[90%] md:mr-16 rounded mt-1 p-4"
@@ -109,7 +109,7 @@ import { CustomButtonComponent } from "../components/custom-button.component";
       background-position: center;
       background-repeat: no-repeat;
     }
-  `
+  `,
 })
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';
@@ -124,13 +124,11 @@ export class MiPerfilComponent {
   ) {}
 
   ngOnInit() {
-    this.userService.getUserById(this.authService.getSubFromToken()).subscribe({
+    this.userService.getUserById(this.authService.getInfoUser().sub).subscribe({
       next: (result) => {
         this.user = result;
         this.date = result.createdAt ? new Date(result.createdAt) : null;
-        this.birthdate = result.birthdate
-          ? new Date(result.birthdate)
-          : null;
+        this.birthdate = result.birthdate ? new Date(result.birthdate) : null;
 
         this.date?.setHours(this.date.getHours() + 5);
         this.birthdate?.setHours(this.birthdate.getHours() + 5);

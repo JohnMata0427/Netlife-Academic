@@ -82,7 +82,9 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
 
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
@@ -122,10 +124,10 @@ export class LoginComponent {
       this.authService.loginUser(this.form.value).subscribe({
         next: () => {
           this.loading = false;
-          if (this.authService.isAdministrator()) {
-            this.route.navigate(['/admin/dashboard']);
-          } else {
+          if (this.authService.getInfoUser().role !== 'ADMIN') {
             this.route.navigate(['/home']);
+          } else {
+            this.route.navigate(['/admin/dashboard']);
           }
         },
         error: (error) => {

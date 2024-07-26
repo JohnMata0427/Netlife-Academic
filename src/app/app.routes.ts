@@ -16,6 +16,7 @@ import { AdminDashboardComponent } from './pages/admin/dashboard.component';
 import { adminGuard } from './guard/required-admin.guard';
 import { requiredCodeGuard } from './guard/required-code.guard';
 import { AdminAnunciosComponent } from './pages/admin/anuncios.component';
+import { NotFoundComponent } from './pages/not-found.component';
 
 export const routes: Routes = [
     { path: 'auth', canActivate: [noAuthGuard], children: [
@@ -28,12 +29,13 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [authGuard] },
     { path: 'mis-cursos/:id', component: CourseComponent, canActivate: [authGuard] },
     { path: 'mis-cursos', component: MisCursosComponent, canActivate: [authGuard] },
-    { path: 'actualizar-informacion', canActivate: [authGuard], component: ActualizarPerfilComponent },
-    { path: 'mi-perfil', canActivate: [authGuard], component: MiPerfilComponent },
-    { path: 'mis-certificados', canActivate: [authGuard], component: MisCertificadosComponent },
-    { path: 'admin', canActivate: [authGuard, adminGuard], children: [
+    { path: 'actualizar-informacion', component: ActualizarPerfilComponent, canActivate: [authGuard] },
+    { path: 'mi-perfil', component: MiPerfilComponent, canActivate: [authGuard] },
+    { path: 'mis-certificados', component: MisCertificadosComponent, canActivate: [authGuard] },
+    { path: 'admin', canActivate: [adminGuard], children: [
         { path: 'dashboard', component: AdminDashboardComponent },
         { path: 'anuncios', component: AdminAnunciosComponent }
     ] },
-    { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
+    { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+    { path: '**', component: NotFoundComponent, canActivate: [authGuard] }
 ];

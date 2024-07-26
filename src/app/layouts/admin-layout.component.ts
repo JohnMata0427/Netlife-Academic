@@ -224,7 +224,7 @@ export class AdminLayoutComponent {
 
   ngOnInit() {
     this.userService
-      .getUserById(this.authService.getSubFromToken())
+      .getUserById(this.authService.getInfoUser().sub)
       .subscribe((user) => {
         this.user = user;
       });

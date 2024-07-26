@@ -77,30 +77,18 @@ export class AuthService {
     return exp > Date.now();
   }
 
-  isAdministrator(): boolean {
+  getInfoUser() {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      return false;
+      return null;
     }
 
-    const payload = JSON.parse(atob(token.split('.')[1]));
-
-    return payload.role === 'ADMIN';
+    return JSON.parse(atob(token.split('.')[1]));
   }
 
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
-  }
-
-  getSubFromToken() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      return null;
-    }
-    const payload = JSON.parse(atob(token.split('.')[1]));
-
-    return payload.sub;
   }
 }

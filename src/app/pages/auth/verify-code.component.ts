@@ -100,9 +100,9 @@ export class VerifyCodeComponent {
     Validators.required,
     Validators.maxLength(6),
   ]);
-  errorMessage: string = '';
-  token: string = '';
-  loading: boolean = false;
+  errorMessage = '';
+  token = '';
+  loading = false;
 
   constructor(
     private router: Router,
