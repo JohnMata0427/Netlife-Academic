@@ -15,7 +15,7 @@ import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.c
           tendrás la opción de descargarlos en formato .pdf o compartirlos en
           tus redes sociales.
         </p>
-        <div class="flex flex-col justify-end items-center gap-y-4 mt-24">
+        <div class="flex flex-col justify-end items-center gap-y-4 mt-20">
           <div
             class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] w-80 p-4 rounded-lg text-center"
           >

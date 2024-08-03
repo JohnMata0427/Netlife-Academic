@@ -97,7 +97,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
             class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-[#d4d4d4]"
           >
             <th>
-              {{ user.identification || '1729151975' }}
+              {{ user.identification }}
             </th>
             <th>
               {{ user.name + ' ' + user.lastname }}
@@ -135,13 +135,13 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [moreStyles]="'text-xs h-8'"
           [hoverColor]="'white'"
         />
-        <app-custom-button
+        <!-- <app-custom-button
           (click)="selectedButton = 'Editar'"
           [color]="'orange'"
           [text]="'Editar usaurio'"
           [moreStyles]="'text-xs h-8'"
           [hoverColor]="'white'"
-        />
+        /> -->
         <app-custom-button
           (click)="selectedButton = 'Bloquear'"
           [color]="'orange'"
@@ -167,7 +167,12 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
         />
 
         @if (selectedButton === 'Agregar') {
-        <select [formControl]="role" name="role" id="role" class="w-96 border border-[#B8B8B8] rounded-lg p-1 text-sm">
+        <select
+          [formControl]="role"
+          name="role"
+          id="role"
+          class="w-96 border border-[#B8B8B8] rounded-lg p-1 text-sm"
+        >
           <option value="STUDENT">Estudiante</option>
           <option value="TEACHER">Docente</option>
           <option value="ADMIN">Administrador</option>
@@ -187,6 +192,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [moreStyles]="'text-xs h-8'"
         />
         }
+
+        @if (message) {
+          <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">{{ message }}</div>
+        }
       </div>
     </app-admin-layout>
   `,
@@ -196,6 +205,8 @@ export class AdminDashboardComponent {
   selectedButton = '';
   email = new FormControl('', Validators.required);
   role = new FormControl('STUDENT');
+  message = '';
+
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -207,17 +218,39 @@ export class AdminDashboardComponent {
   }
 
   createUser() {
-    this.userService.createUser(this.email.value as string, this.role.value as string).subscribe({
-      next: (result) => {
-        console.log(result);
-      },
-    });
+    this.userService
+      .createUser(this.email.value as string, this.role.value as string)
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          this.users = [];
+          this.message = 'Usuario creado con éxito';
+          setTimeout(() => {
+            this.message = '';
+          }, 5000);
+          this.userService.getAllUsers().subscribe({
+            next: (result) => {
+              this.users = result;
+            },
+          });
+        },
+      });
   }
 
   blockUser() {
     this.userService.blockUser(this.email.value as string).subscribe({
       next: (result) => {
         console.log(result);
+        this.users = []
+        this.message = 'Usuario bloqueado con éxito';
+        setTimeout(() => {
+          this.message = '';
+        }, 5000);
+        this.userService.getAllUsers().subscribe({
+          next: (result) => {
+            this.users = result;
+          },
+        });
       },
     });
   }

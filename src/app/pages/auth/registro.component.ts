@@ -25,6 +25,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="User Icon"
           />
           <input
+            id="name"
+            name="name"
             formControlName="name"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
@@ -40,6 +42,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="User Icon"
           />
           <input
+            id="lastname"
+            name="lastname"
             formControlName="lastname"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
@@ -55,6 +59,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Email Icon"
           />
           <input
+            id="email"
+            name="email"
             formControlName="email"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
@@ -70,6 +76,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Email Icon"
           />
           <input
+            id="confirmEmail"
+            name="confirmEmail"
             formControlName="confirmEmail"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
@@ -89,15 +97,18 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Identification Icon"
           />
           <input
+            id="identification"
+            name="identification"
             formControlName="identification"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Cédula o Pasaporte"
             required
+            maxlength="10"
           />
         </div>
 
-        @if (form.get('identification')?.value.lenght != 10 &&
+        @if (form.get('identification')?.value.lenght < 10 &&
         form.get('identification')?.value !== '') {
         <p class="text-red-500 text-xs px-4">
           La identificación debe tener 10 caracteres
@@ -115,6 +126,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Password Icon"
           />
           <input
+            id="password"
+            name="password"
             formControlName="password"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typePasswordInput }}"
@@ -136,6 +149,8 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Password Icon"
           />
           <input
+            id="confirmPassword"
+            name="confirmPassword"
             formControlName="confirmPassword"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typeConfirmPasswordInput }}"
@@ -162,10 +177,14 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
             alt="Verify Code Icon"
           />
           <input
+            id="verificationCode"
+            name="verificationCode"
             formControlName="verificationCode"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="number"
             placeholder="Código de Verificación"
+            maxlength="6"
+            autocomplete="off"
             required
           />
         </div>
@@ -181,7 +200,7 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
           />
           <label (click)="toggleCheckbox()" class="text-xs cursor-default"
             >Aceptas los
-            <a class="text-[#FD6A00] font-medium hover:underline" href="/"
+            <a class="text-[#FD6A00] font-medium hover:underline" href="/terms-and-conditions"
               >términos y condiciones</a
             ></label
           >
@@ -201,7 +220,9 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
 
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
@@ -236,20 +257,18 @@ export class RegistroComponent {
         Validators.required,
         Validators.email,
       ]),
-      identification: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-      ]),
+      identification: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
-      verificationCode: new FormControl('', Validators.required),
+      verificationCode: new FormControl('', [Validators.required, Validators.maxLength(6)]),
       terms: new FormControl(false, Validators.required),
     });
   }
 
   toggleCheckbox() {
     document.getElementById('terms')?.click();
-    if (this.errorMessage === '¡Debes aceptar los términos y condiciones!') this.errorMessage = '';
+    if (this.errorMessage === '¡Debes aceptar los términos y condiciones!')
+      this.errorMessage = '';
   }
 
   togglePasswordVisibility() {
