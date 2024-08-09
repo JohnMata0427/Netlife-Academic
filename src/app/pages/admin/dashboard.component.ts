@@ -32,11 +32,11 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           (click)="toggleRadioButtonUsername()"
           class="text-sm"
           for="filter"
-          ><input id="username" type="radio" name="filter" /> Nombres y
+          ><input id="username" name="username" type="radio" name="filter" /> Nombres y
           Apellidos</label
         >
         <label (click)="toggleRadioButtonEmail()" class="text-sm" for="filter"
-          ><input id="email" type="radio" name="filter" /> Correo</label
+          ><input id="email" name="email" type="radio" name="filter" /> Correo</label
         >
         <input
           class="text-sm p-1 border border-[#cfcfcf] rounded-lg w-96"
@@ -54,10 +54,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               [hoverColor]="'white'"
               [moreStyles]="'text-xs h-8 gap-x-2 group'"
             >
-              <svg class="z-10" width="15" height="19" viewBox="0 0 15 19">
+              <svg class="z-10" viewBox="0 0 15 19">
                 <path
+                  d="M4.38.13.2 4.28h3.12v7.3h2.09v-7.3h3.12L4.38.12Zm7.29 14.59v-7.3H9.58v7.3H6.46l4.17 4.15 4.16-4.15h-3.12Z"
                   class="fill-white group-hover:fill-black"
-                  d="M4.37504 0.125L0.208374 4.28125H3.33337V11.5833H5.41671V4.28125H8.54171L4.37504 0.125ZM11.6667 14.7188V7.41667H9.58337V14.7188H6.45837L10.625 18.875L14.7917 14.7188H11.6667Z"
                 />
               </svg>
             </app-custom-button>
@@ -67,10 +67,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               [hoverColor]="'white'"
               [moreStyles]="'text-xs h-8 gap-x-2 group'"
             >
-              <svg class="z-10" width="16" height="16" viewBox="0 0 16 16">
+              <svg class="z-10" viewBox="0 0 16 16">
                 <path
+                  d="M8 11.57a1.1 1.1 0 0 1-.38-.06.87.87 0 0 1-.32-.21L3.7 7.7a.95.95 0 0 1-.28-.7c0-.28.1-.52.28-.7a1 1 0 0 1 .71-.29c.3 0 .53.08.71.27L7 8.14V1c0-.28.1-.52.29-.71C7.48.09 7.72 0 8 0c.28 0 .52.1.71.29.2.19.29.43.29.71v7.15l1.88-1.88a.93.93 0 0 1 .7-.26c.3.01.54.1.72.29.18.18.27.42.27.7 0 .28-.09.52-.27.7l-3.6 3.6c-.1.1-.2.17-.32.21a1.1 1.1 0 0 1-.38.06ZM2 16c-.55 0-1.02-.2-1.41-.59C.19 15.02 0 14.55 0 14v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2h12v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2c0 .55-.2 1.02-.59 1.41-.39.4-.86.59-1.41.59H2Z"
                   class="fill-white group-hover:fill-[#F86A00]"
-                  d="M8 11.575C7.86667 11.575 7.74167 11.554 7.625 11.512C7.50833 11.4707 7.4 11.4 7.3 11.3L3.7 7.7C3.51667 7.51667 3.425 7.28333 3.425 7C3.425 6.71667 3.51667 6.48333 3.7 6.3C3.88333 6.11667 4.12067 6.02067 4.412 6.012C4.704 6.004 4.94167 6.09167 5.125 6.275L7 8.15V1C7 0.716667 7.096 0.479 7.288 0.287C7.47933 0.0956668 7.71667 0 8 0C8.28333 0 8.521 0.0956668 8.713 0.287C8.90433 0.479 9 0.716667 9 1V8.15L10.875 6.275C11.0583 6.09167 11.296 6.004 11.588 6.012C11.8793 6.02067 12.1167 6.11667 12.3 6.3C12.4833 6.48333 12.575 6.71667 12.575 7C12.575 7.28333 12.4833 7.51667 12.3 7.7L8.7 11.3C8.6 11.4 8.49167 11.4707 8.375 11.512C8.25833 11.554 8.13333 11.575 8 11.575ZM2 16C1.45 16 0.979333 15.8043 0.588 15.413C0.196 15.021 0 14.55 0 14V12C0 11.7167 0.0956668 11.479 0.287 11.287C0.479 11.0957 0.716667 11 1 11C1.28333 11 1.521 11.0957 1.713 11.287C1.90433 11.479 2 11.7167 2 12V14H14V12C14 11.7167 14.096 11.479 14.288 11.287C14.4793 11.0957 14.7167 11 15 11C15.2833 11 15.5207 11.0957 15.712 11.287C15.904 11.479 16 11.7167 16 12V14C16 14.55 15.8043 15.021 15.413 15.413C15.021 15.8043 14.55 16 14 16H2Z"
                 />
               </svg>
             </app-custom-button>
@@ -191,10 +191,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [hoverColor]="'white'"
           [moreStyles]="'text-xs h-8'"
         />
-        }
-
-        @if (message) {
-          <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">{{ message }}</div>
+        } @if (message) {
+        <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">
+          {{ message }}
+        </div>
         }
       </div>
     </app-admin-layout>
@@ -221,8 +221,7 @@ export class AdminDashboardComponent {
     this.userService
       .createUser(this.email.value as string, this.role.value as string)
       .subscribe({
-        next: (result) => {
-          console.log(result);
+        next: () => {
           this.users = [];
           this.message = 'Usuario creado con éxito';
           setTimeout(() => {
@@ -239,9 +238,8 @@ export class AdminDashboardComponent {
 
   blockUser() {
     this.userService.blockUser(this.email.value as string).subscribe({
-      next: (result) => {
-        console.log(result);
-        this.users = []
+      next: () => {
+        this.users = [];
         this.message = 'Usuario bloqueado con éxito';
         setTimeout(() => {
           this.message = '';

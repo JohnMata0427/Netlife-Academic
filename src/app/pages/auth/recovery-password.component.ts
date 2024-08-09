@@ -72,6 +72,7 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
           <input
             [formControl]="email"
             id="email"
+            name="email"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
             placeholder="Correo Electrónico"

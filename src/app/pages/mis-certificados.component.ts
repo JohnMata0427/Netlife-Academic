@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { UserLayout } from '../layouts/user-layout.component';
 import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
+import { CertificadoComponent } from "../components/certificado.component";
 
 @Component({
   selector: 'app-mis-certificados',
   standalone: true,
-  imports: [UserLayout, CustomTitleComponent],
+  imports: [UserLayout, CustomTitleComponent, CertificadoComponent],
   template: `
     <app-user-layout>
       <section class="flex flex-col justify-end">
@@ -15,7 +16,7 @@ import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.c
           tendrás la opción de descargarlos en formato .pdf o compartirlos en
           tus redes sociales.
         </p>
-        <div class="flex flex-col justify-end items-center gap-y-4 mt-20">
+        <!-- <div class="flex flex-col justify-end items-center gap-y-4 mt-20">
           <div
             class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] w-80 p-4 rounded-lg text-center"
           >
@@ -30,6 +31,18 @@ import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.c
             src="no-certificates.png"
             alt="Imagen para indicar que el usuario no tiene certificados"
           />
+        </div> -->
+        <div class="flex gap-x-8 ml-16">
+          <app-certificado
+            [id]="'redes-de-computadoras'"
+            [src]="'courses/redes.jpg'"
+            [title]="'Redes de Computadoras'"
+          ></app-certificado>
+          <app-certificado
+            [id]="'inteligencia-artificial'"
+            [src]="'courses/ia.png'"
+            [title]="'Inteligencia Artificial'"
+          ></app-certificado>
         </div>
       </section>
     </app-user-layout>

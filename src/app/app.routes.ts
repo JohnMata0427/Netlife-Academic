@@ -18,6 +18,7 @@ import { requiredCodeGuard } from './guard/required-code.guard';
 import { AdminAnunciosComponent } from './pages/admin/anuncios.component';
 import { NotFoundComponent } from './pages/not-found.component';
 import { TermsComponent } from './pages/terms.component';
+import { ExamenComponent } from './pages/examen.component';
 
 export const routes: Routes = [
     { path: 'auth', canActivate: [noAuthGuard], children: [
@@ -31,6 +32,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [authGuard] },
     { path: 'mis-cursos/:id', component: CourseComponent, canActivate: [authGuard] },
     { path: 'mis-cursos', component: MisCursosComponent, canActivate: [authGuard] },
+    { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
     { path: 'actualizar-informacion', component: ActualizarPerfilComponent, canActivate: [authGuard] },
     { path: 'mi-perfil', component: MiPerfilComponent, canActivate: [authGuard] },
     { path: 'mis-certificados', component: MisCertificadosComponent, canActivate: [authGuard] },

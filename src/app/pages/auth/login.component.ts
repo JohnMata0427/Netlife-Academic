@@ -75,11 +75,6 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
           [loading]="loading"
         />
 
-        <!-- <div class="flex gap-2 my-2">
-          <input class="accent-[#FD6A00]" type="checkbox" id="remember" required>
-          <label (click)="toggleCheckbox()" class="text-xs cursor-default">Recordar usuario</label>
-        </div> -->
-
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a

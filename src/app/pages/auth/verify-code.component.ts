@@ -30,7 +30,8 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
           />
           <input
             [formControl]="verificationCode"
-            id="code"
+            id="verificationCode"
+            name="verificationCode"
             class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Código de Verificación"
@@ -123,7 +124,7 @@ export class VerifyCodeComponent {
       this.authService
         .verifyCode(this.verificationCode.value, this.token)
         .subscribe({
-          next: (result) => {
+          next: () => {
             this.router.navigate(['/auth/new-password'], {
               queryParams: { token: this.token },
             });
@@ -131,10 +132,7 @@ export class VerifyCodeComponent {
           error: (error) => {
             console.error(error);
             this.errorMessage = error.error.message;
-          },
-          complete() {
-            console.log('Code verified');
-          },
+          }
         });
     }
     this.loading = false;
@@ -149,9 +147,6 @@ export class VerifyCodeComponent {
       },
       error: (error) => {
         this.errorMessage = error.error.message;
-      },
-      complete() {
-        console.log('Email sent');
       },
     });
   }
