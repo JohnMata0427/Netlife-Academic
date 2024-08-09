@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AdminLayoutComponent } from '../../layouts/admin-layout.component';
-import { UserService } from '@netlifeacademic/services/user.service';
-import { User } from '@netlifeacademic/interfaces/user.interface';
+import { AdminLayoutComponent } from '@layouts/admin-layout.component';
+import { UserService } from '@services/user.service';
+import { User } from '@interfaces/user.interface';
 import { NgClass } from '@angular/common';
-import { FooterComponent } from '@netlifeacademic/components/footer.component';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { FooterComponent } from '@components/footer.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -29,13 +29,13 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       <div class=" mt-4 flex flex-col gap-y-1">
         <h2 class="font-bold">Filtros de búsqueda</h2>
         <label
-          (click)="toggleRadioButtonUsername()"
+          (click)="toggleRadioButton('username')"
           class="text-sm"
           for="filter"
-          ><input id="username" name="username" type="radio" name="filter" /> Nombres y
+          ><input class="border border-black" id="username" name="username" type="radio" name="filter" /> Nombres y
           Apellidos</label
         >
-        <label (click)="toggleRadioButtonEmail()" class="text-sm" for="filter"
+        <label (click)="toggleRadioButton('email')" class="text-sm" for="filter"
           ><input id="email" name="email" type="radio" name="filter" /> Correo</label
         >
         <input
@@ -54,7 +54,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               [hoverColor]="'white'"
               [moreStyles]="'text-xs h-8 gap-x-2 group'"
             >
-              <svg class="z-10" viewBox="0 0 15 19">
+              <svg class="z-10 size-4" viewBox="0 0 15 19">
                 <path
                   d="M4.38.13.2 4.28h3.12v7.3h2.09v-7.3h3.12L4.38.12Zm7.29 14.59v-7.3H9.58v7.3H6.46l4.17 4.15 4.16-4.15h-3.12Z"
                   class="fill-white group-hover:fill-black"
@@ -67,7 +67,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               [hoverColor]="'white'"
               [moreStyles]="'text-xs h-8 gap-x-2 group'"
             >
-              <svg class="z-10" viewBox="0 0 16 16">
+              <svg class="z-10 size-4" viewBox="0 0 16 16">
                 <path
                   d="M8 11.57a1.1 1.1 0 0 1-.38-.06.87.87 0 0 1-.32-.21L3.7 7.7a.95.95 0 0 1-.28-.7c0-.28.1-.52.28-.7a1 1 0 0 1 .71-.29c.3 0 .53.08.71.27L7 8.14V1c0-.28.1-.52.29-.71C7.48.09 7.72 0 8 0c.28 0 .52.1.71.29.2.19.29.43.29.71v7.15l1.88-1.88a.93.93 0 0 1 .7-.26c.3.01.54.1.72.29.18.18.27.42.27.7 0 .28-.09.52-.27.7l-3.6 3.6c-.1.1-.2.17-.32.21a1.1 1.1 0 0 1-.38.06ZM2 16c-.55 0-1.02-.2-1.41-.59C.19 15.02 0 14.55 0 14v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2h12v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2c0 .55-.2 1.02-.59 1.41-.39.4-.86.59-1.41.59H2Z"
                   class="fill-white group-hover:fill-[#F86A00]"
@@ -135,13 +135,6 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [moreStyles]="'text-xs h-8'"
           [hoverColor]="'white'"
         />
-        <!-- <app-custom-button
-          (click)="selectedButton = 'Editar'"
-          [color]="'orange'"
-          [text]="'Editar usaurio'"
-          [moreStyles]="'text-xs h-8'"
-          [hoverColor]="'white'"
-        /> -->
         <app-custom-button
           (click)="selectedButton = 'Bloquear'"
           [color]="'orange'"
@@ -253,11 +246,7 @@ export class AdminDashboardComponent {
     });
   }
 
-  toggleRadioButtonUsername() {
-    document.getElementById('username')?.click();
-  }
-
-  toggleRadioButtonEmail() {
-    document.getElementById('email')?.click();
+  toggleRadioButton(id: string) {
+    document.getElementById(id)?.click();
   }
 }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { CustomButtonComponent } from '@netlifeacademic/components/custom-button.component';
+import { LayoutComponent } from '@layouts/auth-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-registro',
@@ -170,6 +170,10 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
         <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
         }
 
+        <span class="text-gray-500 text-xs font-semibold"
+          >El código es proporcionado por un administrador del sitio.</span
+        >
+
         <div class="relative">
           <img
             class="size-3 absolute top-0 left-0 mt-3 ml-3"
@@ -200,7 +204,9 @@ import { CustomButtonComponent } from '@netlifeacademic/components/custom-button
           />
           <label (click)="toggleCheckbox()" class="text-xs cursor-default"
             >Aceptas los
-            <a class="text-[#FD6A00] font-medium hover:underline" href="/terms-and-conditions"
+            <a
+              class="text-[#FD6A00] font-medium hover:underline"
+              href="/terms-and-conditions"
               >términos y condiciones</a
             ></label
           >
@@ -257,10 +263,16 @@ export class RegistroComponent {
         Validators.required,
         Validators.email,
       ]),
-      identification: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      identification: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(10),
+      ]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
-      verificationCode: new FormControl('', [Validators.required, Validators.maxLength(6)]),
+      verificationCode: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(6),
+      ]),
       terms: new FormControl(false, Validators.required),
     });
   }

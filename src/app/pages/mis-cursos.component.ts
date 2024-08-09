@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CourseInfoComponent } from '../components/course-info.component';
-import { UserLayout } from '../layouts/user-layout.component';
-import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
+import { CourseInfoComponent } from '@components/course-info.component';
+import { UserLayout } from '@layouts/user-layout.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
   selector: 'app-mis-cursos',

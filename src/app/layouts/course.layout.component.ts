@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from '@netlifeacademic/components/footer.component';
-import { HeaderComponent } from '@netlifeacademic/components/header.component';
+import { FooterComponent } from '@components/footer.component';
+import { HeaderComponent } from '@components/header.component';
 
 @Component({
   selector: 'app-course',

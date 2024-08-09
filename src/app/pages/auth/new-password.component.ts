@@ -5,10 +5,10 @@ import {
   Validators,
   FormGroup,
 } from '@angular/forms';
-import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { AuthService } from '@netlifeacademic/services/auth.service';
+import { LayoutComponent } from '@layouts/auth-layout.component';
+import { AuthService } from '@services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomButtonComponent } from "../../components/custom-button.component";
+import { CustomButtonComponent } from "@components/custom-button.component";
 
 @Component({
   selector: 'app-new-password',
@@ -21,7 +21,7 @@ import { CustomButtonComponent } from "../../components/custom-button.component"
         class="flex flex-col gap-3"
         (submit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-10">Nueva Contraseña</h1>
+        <h1 class="text-3xl font-bold text-center mb-12">Nueva Contraseña</h1>
         <span class="text-gray-500 text-xs font-semibold"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
         >

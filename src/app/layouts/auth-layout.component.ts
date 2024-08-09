@@ -14,7 +14,7 @@ import '@justinribeiro/lite-youtube';
         </div>
       </div>
       <div
-        class="relative sm:w-[40vw] w-full flex justify-center items-center bg-[#E5E5E5] px-4"
+        class="relative sm:w-[40vw] w-full flex justify-center items-center bg-[#E5E5E5] px-8"
       >
         <img
           class="absolute top-0 left-0 w-[200px] rounded-br-2xl"
@@ -34,7 +34,7 @@ import '@justinribeiro/lite-youtube';
         <div
           class="container mx-auto px-4 py-1 flex justify-between items-center"
         >
-          <p class="text-sm text-gray-700">
+          <p class="sm:text-sm text-xs text-gray-700">
             ©2024 Alumne LMS. Todos los derechos reservados. Consulta nuestras
             <a class="text-[#FD6A00] underline-offset-2 underline" href="#"
               >Políticas de Privacidad</a

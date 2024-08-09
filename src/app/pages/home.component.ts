@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UserService } from '@netlifeacademic/services/user.service';
-import { User } from '@netlifeacademic/interfaces/user.interface';
-import { UserLayout } from "../layouts/user-layout.component";
-import { CourseInfoComponent } from '@netlifeacademic/components/course-info.component';
-import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
+import { UserService } from '@services/user.service';
+import { User } from '@interfaces/user.interface';
+import { UserLayout } from "@layouts/user-layout.component";
+import { CourseInfoComponent } from '@components/course-info.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
   selector: 'app-home',

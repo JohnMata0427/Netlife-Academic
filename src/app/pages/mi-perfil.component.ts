@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@netlifeacademic/services/auth.service';
-import { User } from '@netlifeacademic/interfaces/user.interface';
-import { UserService } from '@netlifeacademic/services/user.service';
+import { AuthService } from '@services/auth.service';
+import { User } from '@interfaces/user.interface';
+import { UserService } from '@services/user.service';
 import { NgClass } from '@angular/common';
-import { UserLayout } from '../layouts/user-layout.component';
-import { CustomButtonComponent } from '../components/custom-button.component';
+import { UserLayout } from '@layouts/user-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-mi-perfil',

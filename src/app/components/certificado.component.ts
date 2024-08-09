@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CustomButtonComponent } from './custom-button.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-certificado',

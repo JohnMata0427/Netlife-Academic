@@ -2,8 +2,8 @@ import { NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@netlifeacademic/services/auth.service';
-import { UserService } from '@netlifeacademic/services/user.service';
+import { AuthService } from '@services/auth.service';
+import { UserService } from '@services/user.service';
 @Component({
   selector: 'app-header',
   standalone: true,

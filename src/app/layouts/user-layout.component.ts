@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header.component';
-import { CourseInfoComponent } from '../components/course-info.component';
-import { FooterComponent } from '../components/footer.component';
+import { HeaderComponent } from '@components/header.component';
+import { CourseInfoComponent } from '@components/course-info.component';
+import { FooterComponent } from '@components/footer.component';
 
 @Component({
   selector: 'app-user-layout',

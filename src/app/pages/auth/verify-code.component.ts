@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@netlifeacademic/services/auth.service';
-import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { AuthService } from '@services/auth.service';
+import { LayoutComponent } from '@layouts/auth-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-verify-code',
@@ -13,7 +13,7 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
     <app-layout>
       @if (errorMessage !== 'Código de verificación incorrecto') {
       <form class="flex flex-col gap-3" (submit)="onSubmit($event)">
-        <h1 class="text-3xl font-bold text-center mb-10">
+        <h1 class="text-3xl font-bold text-center mb-12">
           Código de verificación
         </h1>
 

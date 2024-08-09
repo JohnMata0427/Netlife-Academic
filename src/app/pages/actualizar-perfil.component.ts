@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '@netlifeacademic/services/user.service';
-import { User } from '@netlifeacademic/interfaces/user.interface';
-import { AuthService } from '@netlifeacademic/services/auth.service';
-import { UserLayout } from '../layouts/user-layout.component';
-import { CustomButtonComponent } from '../components/custom-button.component';
+import { UserService } from '@services/user.service';
+import { User } from '@interfaces/user.interface';
+import { AuthService } from '@services/auth.service';
+import { UserLayout } from '@layouts/user-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-actualizar-perfil',

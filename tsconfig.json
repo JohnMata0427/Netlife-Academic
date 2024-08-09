@@ -4,10 +4,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@netlifeacademic/interfaces/*": ["./src/app/interfaces/*"],
-      "@netlifeacademic/services/*": ["./src/app/services/*"],
-      "@netlifeacademic/components/*": ["./src/app/components/*"],
-      "@netlifeacademic/environments/*": ["./src/environments/*"]
+      "@interfaces/*": ["./src/app/interfaces/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@environments/*": ["./src/environments/*"],
+      "@layouts/*": ["./src/app/layouts/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@guards/*": ["./src/app/guards/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

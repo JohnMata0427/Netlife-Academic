@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '@netlifeacademic/services/auth.service';
+import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { LayoutComponent } from '@layouts/auth-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
         class="flex flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center">Inicia sesión</h1>
+        <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1>
         <div class="relative">
           <img
             class="size-3 absolute top-0 left-0 mt-3 ml-3"

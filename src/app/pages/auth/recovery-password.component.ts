@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LayoutComponent } from '../../layouts/auth-layout.component';
-import { AuthService } from '../../services/auth.service';
-import { CustomButtonComponent } from "../../components/custom-button.component";
+import { LayoutComponent } from '@layouts/auth-layout.component';
+import { AuthService } from '@services/auth.service';
+import { CustomButtonComponent } from "@components/custom-button.component";
 
 @Component({
   selector: 'app-recovery-password',

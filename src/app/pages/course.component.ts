@@ -1,11 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { FooterComponent } from '@netlifeacademic/components/footer.component';
-import { HeaderComponent } from '@netlifeacademic/components/header.component';
-import { CustomButtonComponent } from '../components/custom-button.component';
-import { CustomTitleComponent } from '../components/custom-title.component';
-import { UserLayout } from '../layouts/user-layout.component';
+import { FooterComponent } from '@components/footer.component';
+import { HeaderComponent } from '@components/header.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
+import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
   selector: 'app-course',

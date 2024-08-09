@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from '@netlifeacademic/environments/environment';
-import { MessageResponse } from '@netlifeacademic/interfaces/message-response.interface';
-import { User } from '@netlifeacademic/interfaces/user.interface';
+import { environment } from '@environments/environment';
+import { MessageResponse } from '@interfaces/message-response.interface';
+import { User } from '@interfaces/user.interface';
 import { tap } from 'rxjs';
 
 @Injectable({

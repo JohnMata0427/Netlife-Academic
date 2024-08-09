@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '../layouts/user-layout.component';
+import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
   selector: 'app-not-found',

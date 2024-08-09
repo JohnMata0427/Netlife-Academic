@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AdminLayoutComponent } from '../../layouts/admin-layout.component';
+import { AdminLayoutComponent } from '@layouts/admin-layout.component';
 import { NgClass } from '@angular/common';
-import { FooterComponent } from '@netlifeacademic/components/footer.component';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { FooterComponent } from '@components/footer.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 import {
   FormControl,
   FormGroup,
@@ -13,7 +13,7 @@ import {
   AngularEditorConfig,
   AngularEditorModule,
 } from '@kolkov/angular-editor';
-import { AnnouncementService } from '@netlifeacademic/services/announcement.service';
+import { AnnouncementService } from '@services/announcement.service';
 
 @Component({
   selector: 'app-admin-anuncios',

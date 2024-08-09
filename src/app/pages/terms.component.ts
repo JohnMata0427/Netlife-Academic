@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CustomTitleComponent } from '@netlifeacademic/components/custom-title.component';
-import { CustomButtonComponent } from '../components/custom-button.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-terms',
