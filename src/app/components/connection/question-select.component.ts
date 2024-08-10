@@ -7,14 +7,14 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   template: `
     <div
-      (click)="booleanoRespuesta = !booleanoRespuesta"
+      (click)="showOptions = !showOptions"
       class="relative w-full"
     >
       <div
         class="flex justify-between w-full border-4 rounded-[10px] border-[#72C234] min-h-[48px] items-center"
       >
         <span class="ml-2">
-          {{ respuestaSeleccionada }}
+          {{ selectedResponse }}
         </span>
         <svg
           class="w-3 mr-2"
@@ -30,30 +30,30 @@ import { NgClass } from '@angular/common';
       </div>
       <div
         class="border border-[#F2F2F2] bg-[#F2F2F2] rounded-[10px] absolute w-full"
-        [ngClass]="{ hidden: !booleanoRespuesta, '': booleanoRespuesta }"
+        [ngClass]="{ hidden: !showOptions, '': showOptions }"
       >
         <ol class="flex flex-col *:pl-5 *:py-2   rounded-[10px] ">
           <li
             class="hover:bg-[#D9D9D9] rounded-t-[10px]"
-            (click)="respuestaSeleccionada = 'Saltos'"
+            (click)="selectedResponse = 'Saltos'"
           >
             Saltos
           </li>
           <li
             class="hover:bg-[#D9D9D9]"
-            (click)="respuestaSeleccionada = 'Ancho de banda'"
+            (click)="selectedResponse = 'Ancho de banda'"
           >
             Ancho de banda
           </li>
           <li
             class="hover:bg-[#D9D9D9]"
-            (click)="respuestaSeleccionada = 'Retardo'"
+            (click)="selectedResponse = 'Retardo'"
           >
             Retardo
           </li>
           <li
             class="hover:bg-[#D9D9D9] rounded-b-[10px]"
-            (click)="respuestaSeleccionada = 'Ninguna de las anteriores'"
+            (click)="selectedResponse = 'Ninguna de las anteriores'"
           >
             Ninguna de las anteriores
           </li>
@@ -64,6 +64,6 @@ import { NgClass } from '@angular/common';
 })
 export class QuestionsSelectComponent {
   constructor() {}
-  respuestaSeleccionada = '';
-  booleanoRespuesta = false;
+  selectedResponse = '';
+  showOptions = false;
 }

@@ -72,7 +72,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                   JUL
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-[6px] font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   20
                 </div>
@@ -100,7 +100,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                   JUL
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-[6px] font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   31
                 </div>
@@ -128,7 +128,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                   AGO
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-[6px] font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   2
                 </div>

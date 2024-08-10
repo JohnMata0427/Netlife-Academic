@@ -174,7 +174,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="w-full flex justify-end">
           <app-custom-button
             (click)="router.navigate(['/home'])"
-            [color]="'black'"
             [text]="'Volver al Sitio Principal'"
             [hoverColor]="'white'"
             [moreStyles]="'text-xs h-8 gap-x-2 group'"

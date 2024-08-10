@@ -41,7 +41,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           >
             <input
               id="filechooser"
-              class="hidden"
+              hidden
               type="file"
               (change)="onFileChange($event)"
             />
@@ -152,12 +152,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           <div class="flex justify-center gap-5">
-            <!-- <button
-              class="bg-gradient-to-r from-[#FEE500] to-[#FD6A00] py-2 px-8 rounded-md mt-10 font-medium text-md"
-            >
-              Actualizar Perfil
-            </button> -->
-
             <app-custom-button
               [hoverColor]="'white'"
               [color]="'orange'"
@@ -222,15 +216,13 @@ export class ActualizarPerfilComponent {
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
-      reader.onload = () => {
+      reader.onload = () => 
         this.imagePreview = reader.result;
-      };
       this.image = file;
     }
   }
 
   onSubmit() {
-    this.loading = true;
     if (this.cancel) {
       this.router.navigate(['/mi-perfil']);
       return;
@@ -239,14 +231,10 @@ export class ActualizarPerfilComponent {
     if (this.image)
       this.userService.updatePhoto(this.image, this.id).subscribe();
 
+    this.loading = true;
     this.userService.updateUser(this.form.value, this.id).subscribe({
-      next: () => {
-        this.router.navigate(['/mi-perfil']);
-        this.loading = false;
-      },
-      error: () => {
-        this.loading = false;
-      },
+      next: () => this.router.navigate(['/mi-perfil']),
+      error: () => (this.
     });
   }
 

@@ -21,7 +21,7 @@ import { HeaderComponent } from '@components/header.component';
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="text-white text-sm rounded py-[6px] w-28 my-4 px-4 bg-[#82D245]/50"
+            class="text-white text-sm rounded py-1.5 w-28 my-4 px-4 bg-[#82D245]/50"
           >
             <span>En progreso</span>
           </div>

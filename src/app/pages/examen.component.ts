@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouteConfigLoadEnd, Router } from '@angular/router';
 import { CustomButtonComponent } from "../components/custom-button.component";
-import { QuestionsComponent } from "../components/connection/questions.component";
-import { QuestionsSelectComponent } from "../components/connection/questionsSelect.component";
+import { QuestionsComponent } from "../components/connection/question.component";
+import { QuestionsSelectComponent } from "../components/connection/question-select.component";
 
 @Component({
   standalone: true,

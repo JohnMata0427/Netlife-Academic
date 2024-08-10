@@ -32,7 +32,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             [formControl]="verificationCode"
             id="verificationCode"
             name="verificationCode"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Código de Verificación"
             required
@@ -117,37 +117,32 @@ export class VerifyCodeComponent {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    this.loading = true;
     if (this.verificationCode.invalid) {
       this.errorMessage = 'Por favor, introduzca un código válido';
-    } else {
-      this.authService
-        .verifyCode(this.verificationCode.value, this.token)
-        .subscribe({
-          next: () => {
-            this.router.navigate(['/auth/new-password'], {
-              queryParams: { token: this.token },
-            });
-          },
-          error: (error) => {
-            console.error(error);
-            this.errorMessage = error.error.message;
-          }
-        });
+      return;
     }
-    this.loading = false;
+
+    this.loading = true;
+    this.authService
+      .verifyCode(this.verificationCode.value, this.token)
+      .subscribe({
+        next: () =>
+          this.router.navigate(['/auth/new-password'], {
+            queryParams: { token: this.token },
+          }),
+        error: ({ error }) => (this.errorMessage = error.message),
+        complete: () => (this.loading = false),
+      });
   }
 
   resendVerifyCode() {
     this.authService.recoveryPassword(localStorage.getItem('email')).subscribe({
-      next: (result) => {
+      next: (result) =>
         this.router.navigate([], {
           queryParams: { token: result.token },
-        });
-      },
-      error: (error) => {
-        this.errorMessage = error.error.message;
-      },
+        }),
+      error: ({ error }) => (this.errorMessage = error.message),
+      complete: () => (this.loading = false),
     });
   }
 }

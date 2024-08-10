@@ -113,11 +113,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class CertificadoComponent {
+  constructor() {}
+
   @Input() title = '';
   @Input() src = '';
   @Input() id = '';
   showCertificate = false;
   showShare = false;
-
-  constructor() {}
 }

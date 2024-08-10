@@ -28,7 +28,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="name"
             name="name"
             formControlName="name"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Nombre"
             required
@@ -45,7 +45,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="lastname"
             name="lastname"
             formControlName="lastname"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Apellidos"
             required
@@ -62,7 +62,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -79,7 +79,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmEmail"
             name="confirmEmail"
             formControlName="confirmEmail"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
             placeholder="Confirmar Correo Electrónico"
             required
@@ -100,7 +100,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="identification"
             name="identification"
             formControlName="identification"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="text"
             placeholder="Cédula o Pasaporte"
             required
@@ -129,7 +129,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="password"
             name="password"
             formControlName="password"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
@@ -152,7 +152,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmPassword"
             name="confirmPassword"
             formControlName="confirmPassword"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
@@ -184,7 +184,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="verificationCode"
             name="verificationCode"
             formControlName="verificationCode"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="number"
             placeholder="Código de Verificación"
             maxlength="6"
@@ -300,23 +300,18 @@ export class RegistroComponent {
   }
 
   onSubmit() {
-    this.loading = true;
     if (this.form.invalid) {
       this.errorMessage = this.form.value.terms
         ? 'Por favor, completa los campos correctamente'
         : '¡Debes aceptar los términos y condiciones!';
-      this.loading = false;
-    } else {
-      this.authService.registerUser(this.form.value).subscribe({
-        next: () => {
-          this.route.navigate(['/home']);
-          this.loading = false;
-        },
-        error: (error) => {
-          this.errorMessage = error.error.message;
-          this.loading = false;
-        },
-      });
+      return;
     }
+    
+    this.loading = true;
+    this.authService.registerUser(this.form.value).subscribe({
+      next: () => this.route.navigate(['/home']),
+      error: ({error}) => (this.errorMessage = error.message),
+      complete: () => (this.loading = false),
+    });
   }
 }

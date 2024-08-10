@@ -22,7 +22,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="text-white text-center text-sm rounded py-[6px] w-32 my-4 px-4 bg-[#82D245]/50"
+            class="text-white text-center text-sm rounded py-1.5 w-32 my-4 px-4 bg-[#82D245]/50"
           >
             En progreso
           </div>

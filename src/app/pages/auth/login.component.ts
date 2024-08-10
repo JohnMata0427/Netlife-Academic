@@ -27,9 +27,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <input
             id="email"
             name="email"
-            value="{{ form.get('email')?.value }}"
             formControlName="email"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -50,7 +49,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
           <input
             formControlName="password"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
@@ -111,31 +110,24 @@ export class LoginComponent {
   constructor(private route: Router, private authService: AuthService) {}
 
   onSubmit() {
-    this.loading = true;
     if (this.form.invalid) {
       this.message = 'Por favor, completa los campos correctamente';
-      this.loading = false;
-    } else {
-      this.authService.loginUser(this.form.value).subscribe({
-        next: () => {
-          this.loading = false;
-          if (this.authService.getInfoUser().role !== 'ADMIN') {
-            this.route.navigate(['/home']);
-          } else {
-            this.route.navigate(['/admin/dashboard']);
-          }
-        },
-        error: (error) => {
-          this.loading = false;
-          this.message = error.error.message;
-        },
-      });
+      return;
     }
-  }
 
-  // toggleCheckbox() {
-  //     document.getElementById('remember')?.click();
-  // }
+    this.loading = true;
+    this.authService.loginUser(this.form.value).subscribe({
+      next: () => {
+        this.route.navigate([
+          this.authService.getInfoUser().role !== 'ADMIN'
+            ? '/home'
+            : '/dashboard/admin',
+        ]);
+      },
+      error: (error) => (this.message = error.error.message),
+      complete: () => (this.loading = false),
+    });
+  }
 
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;

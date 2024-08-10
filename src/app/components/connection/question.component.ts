@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 @Component({
-  selector: 'app-questions',
+  selector: 'app-question',
   standalone: true,
   imports: [NgClass],
   template: `
@@ -12,7 +12,7 @@ import { NgClass } from '@angular/common';
           'bg-[#72C234]': opcionSeleccionada == 1,
           'hover:bg-[#010101] bg-[#D9D9D9]': opcionSeleccionada != 1
         }"
-        class="items-center flex  py-1 pr-1  rounded-[10px] "
+        class="items-center flex py-1 pr-1 rounded-[10px] "
       >
         <strong class="px-2">A</strong>
         <div class="rounded-[10px] bg-white p-2 w-full">

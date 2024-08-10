@@ -8,7 +8,7 @@ import {
 import { LayoutComponent } from '@layouts/auth-layout.component';
 import { AuthService } from '@services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomButtonComponent } from "@components/custom-button.component";
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-new-password',
@@ -34,7 +34,7 @@ import { CustomButtonComponent } from "@components/custom-button.component";
           />
           <input
             formControlName="password"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
@@ -62,7 +62,7 @@ import { CustomButtonComponent } from "@components/custom-button.component";
           />
           <input
             formControlName="confirmPassword"
-            class="p-[6px] pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
@@ -91,13 +91,17 @@ import { CustomButtonComponent } from "@components/custom-button.component";
         />
         <span class="text-center text-xs"
           >¿No tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/register"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="text-[#FD6A00] font-medium hover:underline" href="/auth/login"
+          <a
+            class="text-[#FD6A00] font-medium hover:underline"
+            href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
@@ -128,9 +132,11 @@ export class NewPasswordComponent {
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
-        Validators.maxLength(16),
       ]),
-      confirmPassword: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
     this.activatedRoute.queryParams.subscribe((params) => {
       this.token = params['token'];
@@ -138,22 +144,20 @@ export class NewPasswordComponent {
   }
 
   onSubmit() {
-    this.loading = true;
     if (this.form.invalid) {
       this.errorMessage = 'Por favor, completa los campos correctamente.';
-    } else {
-      this.authService.newPassword(this.form.value, this.token).subscribe({
-        next: () => {
-          this.loading = false;
-          localStorage.removeItem('email');
-          this.router.navigate(['/auth/login']);
-        },
-        error: (error) => {
-          this.loading = false;
-          this.errorMessage = error.error.message;
-        },
-      });
+      return;
     }
+
+    this.loading = true;
+    this.authService.newPassword(this.form.value, this.token).subscribe({
+      next: () => {
+        localStorage.removeItem('email');
+        this.router.navigate(['/auth/login']);
+      },
+      error: ({ error }) => (this.errorMessage = error.message),
+      complete: () => (this.loading = false),
+    });
   }
 
   togglePasswordVisibility() {

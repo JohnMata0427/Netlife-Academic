@@ -8,7 +8,9 @@ import '@justinribeiro/lite-youtube';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div class="relative min-h-screen flex">
-      <div class="w-[60vw] bg-auth sm:flex hidden sm:justify-center sm:items-center">
+      <div
+        class="w-[60vw] bg-auth sm:flex hidden sm:justify-center sm:items-center"
+      >
         <div class="flex w-3/4 h-auto">
           <lite-youtube class="rounded-xl" videoid="m9lp16bzjmU"></lite-youtube>
         </div>
@@ -69,9 +71,10 @@ import '@justinribeiro/lite-youtube';
   `,
 })
 export class LayoutComponent {
-  cookies = false;
-
   constructor() {}
 
-  ngOnInit() {}
+  cookies = false;
+
+  // background-image: url('https://i.gifer.com/88kQ.gif');
+  // background-image: url('https://i.makeagif.com/media/10-10-2023/g2MQLz.gif');
 }
