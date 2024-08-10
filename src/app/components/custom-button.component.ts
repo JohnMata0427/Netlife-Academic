@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
-type ColorVariant = 'black' | 'white' | 'orange' | 'gray';
+type ColorVariant = 'black' | 'white' | 'orange' | 'gray' | 'orangelight';
 
 @Component({
   selector: 'app-custom-button',
@@ -48,12 +48,13 @@ export class CustomButtonComponent {
     white: 'border-white bg-white hover:text-white',
     orange: 'border-[#FD6A00] bg-[#FD6A00] hover:text-[#FD6A00]',
     gray: 'border-[#5C5C5C] bg-[#5C5C5C] hover:text-[#5C5C5C]',
+    orangelight:'border-[#FAAB00] bg-[#FAAB00] hover:text-[#FAAB00]',
   };
-
   variantsHoverColor: Record<ColorVariant, string> = {
     black: 'text-black before:bg-black hover:shadow-black',
     white: 'text-white before:bg-white hover:shadow-white',
     orange: 'text-[#FD6A00] before:bg-[#FD6A00] hover:shadow-[#FD6A00]',
     gray: 'text-[#5C5C5C] before:bg-[#5C5C5C] hover:shadow-[#5C5C5C]',
+    orangelight:'text-[#FAAB00] before:bg-[#FAAB00] hover:shadow-[#FAAB00]',
   };
 }
