@@ -279,7 +279,7 @@ export class ExamenComponent {
 
   finish = false;
   numeroPregunta!: number;
-  answersSelected!: string[];
+  answersSelected = ['', '', '', '', ''];
 
   minutosElement!: HTMLElement;
   segundosElement!: HTMLElement;
