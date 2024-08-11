@@ -8,7 +8,7 @@ import { NgClass } from '@angular/common';
     <div class="flex flex-col gap-y-2">
       <div class="flex gap-x-4">
         <input
-          class="accent-[#72C234]"
+          class="accent-greenlight"
           type="radio"
           id="true"
           name="answer"
@@ -18,7 +18,7 @@ import { NgClass } from '@angular/common';
       </div>
       <div class="flex gap-x-4">
         <input
-          class="accent-[#72C234]"
+          class="accent-greenlight"
           type="radio"
           id="false"
           name="answer"

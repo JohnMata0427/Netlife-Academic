@@ -7,8 +7,8 @@ import { NgClass } from '@angular/common';
   template: `
     <div
       [ngClass]="{
-        'bg-[#72C234]': answerSelected == answerLetter,
-        'hover:bg-[#C5EAA9] bg-zinc-300': answerSelected != answerLetter
+        'bg-greenlight': answerSelected == answerLetter,
+        'hover:bg-greenlight/50 bg-quinary': answerSelected != answerLetter
       }"
       class="items-center flex py-1 pr-1 rounded-lg cursor-pointer w-3/4"
     >

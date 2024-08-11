@@ -49,14 +49,14 @@ export class CustomButtonComponent {
     black: 'border-black bg-black hover:text-black',
     white: 'border-white bg-white hover:text-white',
     orange: 'border-primary bg-primary hover:text-primary',
-    gray: 'border-[#5C5C5C] bg-[#5C5C5C] hover:text-[#5C5C5C]',
-    orangelight: 'border-[#FAAB00] bg-[#FAAB00] hover:text-[#FAAB00]',
+    gray: 'border-neutral-500 bg-neutral-500 hover:text-neutral-500',
+    orangelight: 'border-orangelight bg-orangelight hover:text-orangelight',
   };
   variantsHoverColor: Record<ColorVariant, string> = {
     black: 'text-black before:bg-black hover:shadow-black',
     white: 'text-white before:bg-white hover:shadow-white',
     orange: 'text-primary before:bg-primary hover:shadow-primary',
-    gray: 'text-[#5C5C5C] before:bg-[#5C5C5C] hover:shadow-[#5C5C5C]',
-    orangelight: 'text-[#FAAB00] before:bg-[#FAAB00] hover:shadow-[#FAAB00]',
+    gray: 'text-neutral-500 before:bg-neutral-500 hover:shadow-neutral-500',
+    orangelight: 'text-orangelight before:bg-orangelight hover:shadow-orangelight',
   };
 }

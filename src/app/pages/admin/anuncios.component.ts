@@ -28,7 +28,7 @@ import { AnnouncementService } from '@services/announcement.service';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl text-[#F86A00] font-bold">
+      <h1 class="text-2xl text-primary font-bold">
         Configuración del Anuncio
       </h1>
       <div class="flex flex-col items-center">
@@ -39,7 +39,7 @@ import { AnnouncementService } from '@services/announcement.service';
               id="subject"
               name="subject"
               formControlName="subject"
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               type="text"
               required
             />
@@ -47,7 +47,7 @@ import { AnnouncementService } from '@services/announcement.service';
             <angular-editor
               formControlName="content"
               [config]="editorConfig"
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               required
             />
           </div>
@@ -59,7 +59,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="type"
               id="type"
               name="type"
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               required
             >
               <option value="info">Información o aviso</option>
@@ -72,7 +72,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="role"
               id="role"
               name="role"
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               required
             >
               <option value="ALL">Todos</option>
@@ -90,7 +90,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Excluir a usuarios
             </label>
@@ -108,7 +108,7 @@ import { AnnouncementService } from '@services/announcement.service';
               formControlName="state"
               name="state"
               id="state"
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               required
             >
               <option value="all">Todos</option>
@@ -125,7 +125,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Excluir a usuarios invitados
             </label>
@@ -140,7 +140,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Enviar por correo electrónico </label
             ><label class="relative inline-flex cursor-pointer items-center">
@@ -153,7 +153,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch-3" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Envío a la Pantalla Principal/Inicio del aplicativo
             </label>
@@ -162,7 +162,7 @@ import { AnnouncementService } from '@services/announcement.service';
               >Fecha de caducidad del anuncio</label
             >
             <input
-              class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
+              class="border border-quinary rounded-lg p-1 text-sm"
               type="datetime-local"
               formControlName="deletedAt"
               name="deletedAt"

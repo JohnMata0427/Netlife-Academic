@@ -18,7 +18,7 @@ import { CertificadoComponent } from '@components/certificado.component';
         </p>
         <!-- <div class="flex flex-col justify-end items-center gap-y-4 mt-20">
           <div
-            class="bg-gradient-to-r from-[#FEE500] to-primary w-80 p-4 rounded-lg text-center"
+            class="bg-gradient-to-r from-secondary to-primary w-80 p-4 rounded-lg text-center"
           >
             <p class="text-sm">
               Actualmente no tienes nungún certificado, pero

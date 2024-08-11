@@ -18,7 +18,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           <aside class="w-1/2 flex flex-col gap-y-2 ml-16">
             @for (user of users; track user.id) {
             <div
-              class="bg-[#ececec] flex justify-between items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8"
+              class="bg-quinary flex justify-between items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8"
             >
               <div class="flex items-center gap-x-2">
                 @if (users[0] === user ) {
@@ -63,7 +63,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             <a href="/mis-cursos" class="flex gap-x-4">
               <div class="relative">
                 <div
-                  class="bg-[#F50009] vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
+                  class="bg-tertiary vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
                 >
                   JUL
                 </div>
@@ -74,7 +74,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-quinary/50"
               >
                 <h3 class="text-sm">
                   <strong>Tarea: </strong> Redes neuronales
@@ -103,7 +103,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-quinary/50"
               >
                 <h3 class="text-sm">
                   <strong>Tarea: </strong> Conceptos de Programación
@@ -121,7 +121,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             <a href="/mis-cursos" class="flex gap-x-4">
               <div class="relative">
                 <div
-                  class="bg-[#F8E500] vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
+                  class="bg-secondary vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
                 >
                   AGO
                 </div>
@@ -132,7 +132,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-quinary/50"
               >
                 <h3 class="text-sm"><strong>Tarea: </strong> Modelo OSI</h3>
                 <div class="flex items-center gap-x-2">
@@ -153,9 +153,9 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 <div class="flex">
                   <div class="w-20 flex flex-col gap-y-1">
                     <div
-                      class="h-1 bg-[#F8E500] w-full rounded-l-lg flex justify-end items-center"
+                      class="h-1 bg-secondary w-full rounded-l-lg flex justify-end items-center"
                     >
-                      <div class="size-2 rounded-full bg-[#F8E500]"></div>
+                      <div class="size-2 rounded-full bg-secondary"></div>
                     </div>
                     <span class="text-xs text-white text-end">Por hacer</span>
                   </div>
@@ -166,8 +166,8 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                     <span class="text-xs text-white text-end">Proximo</span>
                   </div>
                   <div class="w-20 flex flex-col gap-y-1">
-                    <div class="h-1 bg-[#F50009] flex justify-end items-center">
-                      <div class="size-2 rounded-full bg-[#F50009]"></div>
+                    <div class="h-1 bg-tertiary flex justify-end items-center">
+                      <div class="size-2 rounded-full bg-tertiary"></div>
                     </div>
                     <span class="text-xs text-white text-end">Urgente</span>
                   </div>

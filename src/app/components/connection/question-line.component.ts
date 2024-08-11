@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
       <div>
         <ul #questionList class="flex flex-col gap-y-2 select-none">
           @for (question of questions; track $index) {
-          <li (click)="selectQuestion($index)" class="hover:bg-[#C5EAA9] rounded-lg p-1">
+          <li (click)="selectQuestion($index)" class="hover:bg-greenlight/50 rounded-lg p-1">
             <strong>{{ $index + 1 }}.</strong>
             <span class="ml-4 mr-2">{{ question }}</span>
           </li>
@@ -18,7 +18,7 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
       <div>
         <ul #answerList class="flex flex-col gap-y-2 select-none">
           @for (answer of answers; track $index) {
-          <li (click)="selectAnswer($index)" class="hover:bg-[#C5EAA9] rounded-lg p-1">
+          <li (click)="selectAnswer($index)" class="hover:bg-greenlight/50 rounded-lg p-1">
             <span class="ml-2">{{ answer }}</span>
           </li>
           }
@@ -53,13 +53,13 @@ export class QuestionsLineComponent {
   @ViewChild('answerList', { static: true }) answerList!: ElementRef;
 
   selectQuestion(question: any) {
-    this.questionList.nativeElement.children[question].classList.add('bg-[#72C234]');
+    this.questionList.nativeElement.children[question].classList.add('bg-greenlight');
     this.selectedQuestion = question + 1;
     this.checkSelection();
   }
 
   selectAnswer(answer: any) {
-    this.answerList.nativeElement.children[answer].classList.add('bg-[#72C234]');
+    this.answerList.nativeElement.children[answer].classList.add('bg-greenlight');
     this.selectedAnswer = answer + 1;
     this.checkSelection();
   }
@@ -86,8 +86,8 @@ export class QuestionsLineComponent {
 
       this.selectedQuestion = null;
       this.selectedAnswer = null;
-      questionElement.classList.remove('bg-[#72C234]');
-      answerElement.classList.remove('bg-[#72C234]');
+      questionElement.classList.remove('bg-greenlight');
+      answerElement.classList.remove('bg-greenlight');
     }
   }
 }

@@ -22,7 +22,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           class="rounded-lg shadow-lg relative flex flex-col bg-black/95 outline-none focus:outline-none p-4"
         >
           <h3
-            class="text-xl text-transparent bg-clip-text font-bold text-center bg-gradient-to-r from-primary via-[#FEE500] to-primary"
+            class="text-xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary"
           >
             Revisa tu correo electrónico
           </h3>
@@ -115,7 +115,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 export class RecoveryPasswordComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage!: string;
-  showModal = true;
+  showModal = false;
   loading = false;
 
   constructor(private authService: AuthService) {}

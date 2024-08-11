@@ -19,7 +19,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl text-[#F86A00] font-bold">Gestión de usuarios</h1>
+      <h1 class="text-2xl text-primary font-bold">Gestión de usuarios</h1>
       <div class="flex flex-col text-sm gap-y-1 mt-4">
         <span>
           Para agregar, eliminar o editar usuarios y sus roles o privilegios.
@@ -43,7 +43,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           type="search"
           id="search"
           name="search"
-          class="text-sm p-1 border border-[#cfcfcf] rounded-lg w-96"
+          class="text-sm p-1 border border-quinary rounded-lg w-96"
           placeholder="Coloque aquí su búsqueda"
         />
       </div>
@@ -73,17 +73,17 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               <svg class="z-10 size-4" viewBox="0 0 16 16">
                 <path
                   d="M8 11.57a1.1 1.1 0 0 1-.38-.06.87.87 0 0 1-.32-.21L3.7 7.7a.95.95 0 0 1-.28-.7c0-.28.1-.52.28-.7a1 1 0 0 1 .71-.29c.3 0 .53.08.71.27L7 8.14V1c0-.28.1-.52.29-.71C7.48.09 7.72 0 8 0c.28 0 .52.1.71.29.2.19.29.43.29.71v7.15l1.88-1.88a.93.93 0 0 1 .7-.26c.3.01.54.1.72.29.18.18.27.42.27.7 0 .28-.09.52-.27.7l-3.6 3.6c-.1.1-.2.17-.32.21a1.1 1.1 0 0 1-.38.06ZM2 16c-.55 0-1.02-.2-1.41-.59C.19 15.02 0 14.55 0 14v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2h12v-2c0-.28.1-.52.29-.71.19-.2.43-.29.71-.29.28 0 .52.1.71.29.2.19.29.43.29.71v2c0 .55-.2 1.02-.59 1.41-.39.4-.86.59-1.41.59H2Z"
-                  class="fill-white group-hover:fill-[#F86A00]"
+                  class="fill-white group-hover:fill-primary"
                 />
               </svg>
             </app-custom-button>
           </div>
         </div>
         <table
-          class="w-full text-sm border border-[#d4d4d4] shadow-sm shadow-black/30 mt-2"
+          class="w-full text-sm border border-quinary shadow-sm shadow-black/30 mt-2"
         >
           <tr
-            class="bg-[#cfcfcf] *:font-medium *:pl-1 *:pr-2 *:py-1 *:text-start"
+            class="bg-quinary *:font-medium *:pl-1 *:pr-2 *:py-1 *:text-start"
           >
             <th>Identificación</th>
             <th>Nombres y Apellidos</th>
@@ -97,7 +97,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           </tr>
           @for(user of users; track user) {
           <tr
-            class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-[#d4d4d4]"
+            class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary"
           >
             <th>
               {{ user.identification }}
@@ -159,7 +159,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [formControl]="email"
           id="email"
           name="email"
-          class="text-sm p-1 border border-[#B8B8B8] rounded-lg w-96"
+          class="text-sm p-1 border border-quinary rounded-lg w-96"
           type="text"
           placeholder="Buscar usuario"
         />
@@ -169,7 +169,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           [formControl]="role"
           name="role"
           id="role"
-          class="w-96 border border-[#B8B8B8] rounded-lg p-1 text-sm"
+          class="w-96 border border-quinary rounded-lg p-1 text-sm"
         >
           <option value="STUDENT">Estudiante</option>
           <option value="TEACHER">Docente</option>

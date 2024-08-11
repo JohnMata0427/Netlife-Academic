@@ -143,14 +143,14 @@ import { UserService } from '@services/user.service';
               @if (role === 'ADMIN') {
               <button
                 (click)="router.navigate(['/admin/dashboard'])"
-                class="text-sm text-black hover:bg-gray-300 text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
+                class="text-sm text-black hover:bg-quinary text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
               >
                 Admin Dashboard
               </button>
               }
               <button
                 (click)="router.navigate(['/mi-perfil'])"
-                class="text-sm text-black hover:bg-gray-300 text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
+                class="text-sm text-black hover:bg-quinary text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
               >
                 <img
                   class="size-4"
@@ -161,7 +161,7 @@ import { UserService } from '@services/user.service';
               </button>
               <button
                 (click)="router.navigate(['/actualizar-informacion'])"
-                class="text-sm text-black hover:bg-gray-300 text-start flex items-center gap-x-2 rounded-lg py-1 px-2"
+                class="text-sm text-black hover:bg-quinary text-start flex items-center gap-x-2 rounded-lg py-1 px-2"
               >
                 <img
                   class="size-4"
@@ -171,12 +171,12 @@ import { UserService } from '@services/user.service';
                 Configurar Perfil
               </button>
               <button
-                class="text-sm text-black hover:bg-gray-300 text-start rounded-lg py-1 px-2"
+                class="text-sm text-black hover:bg-quinary text-start rounded-lg py-1 px-2"
               >
                 Calendario de Tareas
               </button>
               <button
-                class="flex items-center gap-2 text-sm text-red-700 hover:bg-gray-300 text-start rounded-lg py-1 px-2"
+                class="flex items-center gap-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
                 (click)="logout()"
               >
                 <svg
@@ -187,7 +187,7 @@ import { UserService } from '@services/user.service';
                 >
                   <path
                     d="M112 176a16 16 0 0 1 16-16h144V56c0-32-33.79-56-64-56H56A56.06 56.06 0 0 0 0 56v240a56.06 56.06 0 0 0 56 56h160a56.06 56.06 0 0 0 56-56V192H128a16 16 0 0 1-16-16Zm299.31-11.31-80-80a16 16 0 0 0-22.62 22.62L361.37 160H272v32h89.37l-52.68 52.69a16 16 0 1 0 22.62 22.62l80-80a16 16 0 0 0 0-22.62Z"
-                    class="fill-red-700"
+                    class="filltertiary"
                   />
                 </svg>
                 Cerrar Sesión

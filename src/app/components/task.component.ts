@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
     <a href="/mis-cursos" class="flex gap-x-4">
       <div class="relative">
         <div
-          class="bg-[#F50009] vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
+          class="bg-tertiary vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
         >
           JUL
         </div>
@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
         </div>
       </div>
       <div
-        class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
+        class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-quinary/50"
       >
         <h3 class="text-sm"><strong>Tarea: </strong> {{ nombre }}</h3>
         <div class="flex items-center gap-x-2">

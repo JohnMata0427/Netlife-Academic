@@ -26,10 +26,10 @@ import { Component, Input } from '@angular/core';
           <span class="text-white text-xs font-light">Prof. {{ teacher }}</span>
         </div>
         <div class="flex flex-col gap-y-1 mt-2">
-          <div class="w-full bg-zinc-300 h-2.5 rounded border border-white">
+          <div class="w-full bg-quinary h-2.5 rounded border border-white">
             <div
               [ngStyle]="{'width.%': progress}"
-              class="bg-gradient-to-r from-[#FEE500] via-[#F0000B] to-[#4C1B53] rounded-l h-full"
+              class="bg-gradient-to-r from-secondary via-tertiary to-quaternary rounded-l h-full"
             ></div>
             
           </div>

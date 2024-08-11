@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <footer class="bg-black flex flex-col items-center">
-      <p class="text-[#9CA3AF] font-bold text-xs py-3">
+      <p class="text-gray-400 font-bold text-xs py-3">
         Copyrigth &copy; 2024 Netlife Academic
       </p>
     </footer>

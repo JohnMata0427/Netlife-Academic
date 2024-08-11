@@ -88,13 +88,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <div class="flex gap-4">
             <button
               (click)="errorMessage = ''"
-              class="w-32 bg-[#6C6565] py-2 rounded-lg text-sm"
+              class="w-32 bg- py-2 rounded-lg text-sm"
             >
               Cerrar
             </button>
             <button
               (click)="resendVerifyCode()"
-              class="w-32 bg-gradient-to-r from-[#FEE500] to-primary py-2 rounded-lg text-sm"
+              class="w-32 bg-gradient-to-r from-secondary to-primary py-2 rounded-lg text-sm"
             >
               Reenviar
             </button>

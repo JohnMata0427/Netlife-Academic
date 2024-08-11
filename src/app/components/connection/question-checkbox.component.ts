@@ -8,7 +8,7 @@ import { NgClass } from '@angular/common';
     <div class="gap-4 flex flex-col">
       <div class="flex gap-4 items-center">
         <input
-          class="size-4 accent-[#72C234]"
+          class="size-4 accent-greenlight"
           id="{{ answer }}"
           name="{{ answer }}"
           type="checkbox"

@@ -31,10 +31,10 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
       </h1>
     </header>
     <main>
-      <div class="mb-7 mt-12 mx-16 h-4 bg-zinc-300 rounded-lg">
+      <div class="mb-7 mt-12 mx-16 h-4 bg-quinary rounded-lg">
         <div
           [ngStyle]="{ 'width.%': (numeroPregunta / 5) * 100 }"
-          class="h-full bg-gradient-to-r from-[#72C234] to-[#7fff1c] rounded-l-lg transition-all duration-500 {{
+          class="h-full bg-gradient-to-r from-greenlight to-green-500 rounded-l-lg transition-all duration-500 {{
             numeroPregunta == 5 ? 'rounded-r-lg' : ''
           }}"
         ></div>
@@ -43,20 +43,20 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         <div class="flex flex-col gap-y-4 md:w-1/4 ">
           <div class="flex justify-center gap-x-4">
             <div
-              class="bg-[#faab00] flex flex-col items-center p-4 rounded-lg w-1/2"
+              class="bg-orangelight flex flex-col items-center p-4 rounded-lg w-1/2"
             >
               <h2 class="font-bold">Pregunta</h2>
               <span>{{ numeroPregunta }}/5</span>
             </div>
             <div
-              class="bg-[#faab00] flex flex-col items-center p-4 rounded-lg  w-1/2"
+              class="bg-orangelight flex flex-col items-center p-4 rounded-lg  w-1/2"
             >
               <h3 class="font-bold">Puntuación</h3>
               <span>0/5</span>
             </div>
           </div>
           <div
-            class="bg-[#f0000b] text-white flex justify-center items-center rounded-lg p-2 gap-x-2"
+            class="bg-tertiary text-white flex justify-center items-center rounded-lg p-2 gap-x-2"
           >
             <span>Tiempo restante:</span>
             <strong>
@@ -66,7 +66,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         </div>
         <div class="flex flex-col md:w-4/5">
           <div
-            class="border border-[#a5a5a5] p-4 rounded-lg flex flex-col gap-y-4 w-full h-80"
+            class="border border-quinary p-4 rounded-lg flex flex-col gap-y-4 w-full h-80"
           >
             @if (numeroPregunta == 1) {
             <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
@@ -235,11 +235,11 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         >
           <path
             d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
-            class="fill-red-600"
+            class="filltertiary"
           />
         </svg>
         <div
-          class="bg-[#FBA100] flex flex-col items-center py-4 px-8 rounded-lg gap-y-4"
+          class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-y-4"
         >
           <span class="text-center font-light text-sm"
             >Muy bien, has terminado un desafío más para tu aprendizaje.</span

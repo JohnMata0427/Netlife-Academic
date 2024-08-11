@@ -70,10 +70,10 @@ import { UserLayout } from '@layouts/user-layout.component';
       </div>
 
       <section class="flex items-center justify-center gap-x-4 mt-8">
-        <div class="w-5/6 bg-zinc-300 h-5 rounded">
+        <div class="w-5/6 bg-quinary h-5 rounded">
           <div
             [ngStyle]="{ 'width.%': '50' }"
-            class="bg-gradient-to-r from-[#FEE500] to-[#F0000B] rounded-l h-full"
+            class="bg-gradient-to-r from-secondary to-tertiary rounded-l h-full"
           ></div>
         </div>
         <h4 class="text-sm">50% Progreso</h4>
@@ -110,7 +110,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <app-custom-title [title]="'Docente del Curso'" />
         <div class="flex gap-x-10 items-center mx-16">
           <div
-            class="relative bg-[#ececec] flex items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8 gap-x-4 h-32 w-1/2"
+            class="relative bg-quinary flex items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8 gap-x-4 h-32 w-1/2"
           >
             <img
               class="size-12 absolute top-3 left-3"
@@ -138,7 +138,7 @@ import { UserLayout } from '@layouts/user-layout.component';
               alt=""
             />
           </div>
-          <div class="bg-[#FAAB00] rounded-lg p-4 text-sm w-1/2">
+          <div class="bg-orangelight rounded-lg p-4 text-sm w-1/2">
             ¡Hola a todos! Soy <strong>Monica Jimenez</strong>, y seré su
             instructora para este curso. Estoy emocionada de acompañarlos en
             este viaje de aprendizaje sobre redes de computadoras. Juntos
@@ -153,7 +153,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <app-custom-title [title]="'Información del Curso'" />
         <div class="flex justify-center gap-x-8 my-10">
           <div
-            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
@@ -174,7 +174,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             </div>
           </div>
           <div
-            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
@@ -195,7 +195,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             </div>
           </div>
           <div
-            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
@@ -293,7 +293,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             >
               <path
                 d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
-                class="fill-[#72C234]"
+                class="fill-greenlight"
               />
             </svg>
           </div>
