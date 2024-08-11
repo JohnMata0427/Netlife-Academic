@@ -17,7 +17,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         class="flex flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1>
+        <!-- <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1> -->
+        <img src="/NetlifeLogo.png" alt="">
         <div class="relative">
           <img
             class="size-3 absolute inset-y-0 my-auto left-3"

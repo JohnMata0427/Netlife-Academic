@@ -7,8 +7,9 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   template: `
     <div (click)="showOptions = !showOptions" class="relative w-full">
-      <div
-        class="flex justify-between w-full border-4 rounded-lg border-[#72C234] min-h-12 items-center"
+      <div [ngClass]="{'border-[#72C234]': showOptions, 'border-zinc-300': !showOptions}"
+
+        class="flex justify-between w-full border-4 rounded-lg border-[#72C234] min-h-12 items-center "
       >
         <span class="ml-2">
           {{ selectedResponse }}
@@ -25,6 +26,7 @@ import { NgClass } from '@angular/common';
           />
         </svg>
       </div>
+      
       <div
         class="border border-[#F2F2F2] bg-[#F2F2F2] rounded-lg absolute w-full"
         [ngClass]="{ hidden: !showOptions, '': showOptions }"
@@ -60,4 +62,5 @@ export class QuestionsSelectComponent {
   constructor() {}
   selectedResponse = '';
   showOptions = false;
+
 }
