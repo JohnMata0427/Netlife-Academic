@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
 import { MessageResponse } from '@interfaces/message-response.interface';
 import { User } from '@interfaces/user.interface';
@@ -12,83 +11,74 @@ import { tap } from 'rxjs';
 export class AuthService {
   private urlAPI = environment.BACKEND_URL;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  registerUser(user: User) {
+  registerUser(user: any) {
     return this.http
       .post<MessageResponse>(this.urlAPI + '/auth/register', user)
       .pipe(
-        tap((response) => {
-          if (response.token) {
-            localStorage.setItem('token', response.token);
-          }
+        tap(({ token }) => {
+          if (token) localStorage.setItem('token', token);
         })
       );
   }
 
-  loginUser(user: any) {
+  loginUser(
+    loginData: Partial<{ email: string | null; password: string | null }>
+  ) {
     return this.http
-      .post<MessageResponse>(this.urlAPI + '/auth/login', user)
+      .post<MessageResponse>(this.urlAPI + '/auth/login', loginData)
       .pipe(
-        tap((response) => {
-          if (response.token) {
-            localStorage.setItem('token', response.token);
-          }
+        tap(({ token }) => {
+          if (token) localStorage.setItem('token', token);
         })
       );
   }
 
-  recoveryPassword(email: string | null) {
+  recoveryPassword(email: string) {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/recovery-password',
       { email }
     );
   }
 
-  verifyCode(verificationCode: string | null, token: any) {
-    const tokenParam = new HttpParams().set('token', token);
+  verifyCode(verificationCode: string, token: string) {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/verify-code',
       { verificationCode },
-      { params: tokenParam }
+      { params: new HttpParams().set('token', token) }
     );
   }
 
-  newPassword(changePassword: any, token: any) {
-    const tokenParam = new HttpParams().set('token', token);
+  newPassword(
+    changePassword: Partial<{
+      password: string | null;
+      confirmPassword: string | null;
+    }>,
+    token: string
+  ) {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/new-password',
       changePassword,
-      { params: tokenParam }
+      { params: new HttpParams().set('token', token) }
     );
   }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
 
-    if (!token) {
-      return false;
-    }
+    if (!token) return false;
 
     const payload = JSON.parse(atob(token.split('.')[1]));
 
-    const exp = payload.exp * 1000;
-
-    return exp > Date.now();
+    return (payload.exp * 1000) > Date.now();
   }
 
   getInfoUser() {
     const token = localStorage.getItem('token');
 
-    if (!token) {
-      return null;
-    }
+    if (!token) return null;
 
     return JSON.parse(atob(token.split('.')[1]));
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/auth/login']);
   }
 }

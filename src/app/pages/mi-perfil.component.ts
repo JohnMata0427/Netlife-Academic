@@ -110,9 +110,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 })
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';
-  user = {} as User;
-  date = '';
-  birthdate = '';
+  user!: User;
+  date!: string;
+  birthdate!: string;
 
   constructor(
     private authService: AuthService,
@@ -128,14 +128,20 @@ export class MiPerfilComponent {
         let formatDate = new Date(result.createdAt);
 
         this.date = Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(
-          formatDate.setMinutes(formatDate.getMinutes() + formatDate.getTimezoneOffset())
+          formatDate.setMinutes(
+            formatDate.getMinutes() + formatDate.getTimezoneOffset()
+          )
         );
 
         if (result.birthdate) {
           formatDate = new Date(result.birthdate);
 
-          this.birthdate = Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(
-            formatDate.setMinutes(formatDate.getMinutes() + formatDate.getTimezoneOffset())
+          this.birthdate = Intl.DateTimeFormat('es-EC', {
+            dateStyle: 'long',
+          }).format(
+            formatDate.setMinutes(
+              formatDate.getMinutes() + formatDate.getTimezoneOffset()
+            )
           );
         }
       },

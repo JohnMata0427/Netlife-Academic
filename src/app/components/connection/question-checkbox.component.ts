@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-question-checkbox',
@@ -9,15 +9,20 @@ import { NgClass } from '@angular/common';
       <div class="flex gap-4 items-center">
         <input
           class="size-4 accent-[#72C234]"
-          id="respuesta-1"
-          name="respuesta-1"
+          id="{{ answer }}"
+          name="{{ answer }}"
           type="checkbox"
         />
-        <label for="respuesta-1">Tiene 48 bits (6 bytes) de longitud.</label>
+        <label class="select-none" for="{{ answer }}">{{
+          question
+        }}</label>
       </div>
     </div>
   `,
 })
-export class QuestionsComponent {
+export class QuestionsCheckboxComponent {
   constructor() {}
+
+  @Input() question!: string;
+  @Input() answer!: string;
 }

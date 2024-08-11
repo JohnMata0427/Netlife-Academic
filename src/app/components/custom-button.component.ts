@@ -39,11 +39,11 @@ type ColorVariant = 'black' | 'white' | 'orange' | 'gray' | 'orangelight';
 export class CustomButtonComponent {
   constructor() {}
 
-  @Input() text = '';
+  @Input() text!: string;
   @Input() hoverColor: ColorVariant = 'black';
   @Input() color: ColorVariant = 'white';
   @Input() loading = false;
-  @Input() moreStyles = '';
+  @Input() moreStyles!: string;
 
   variantsColor: Record<ColorVariant, string> = {
     black: 'border-black bg-black hover:text-black',

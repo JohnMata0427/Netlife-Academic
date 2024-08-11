@@ -198,31 +198,20 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class ActualizarPerfilComponent {
-  id = '';
-  form: FormGroup;
+  id!: string;
+  form!: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
   image: File | null = null;
   cancel = false;
   loading = false;
 
-  user = {} as User;
+  user!: User;
 
   constructor(
     private router: Router,
     private userService: UserService,
     private authService: AuthService
-  ) {
-    this.form = new FormGroup({
-      name: new FormControl(),
-      lastname: new FormControl(),
-      company: new FormControl(),
-      area: new FormControl(),
-      level: new FormControl(),
-      position: new FormControl(),
-      birthdate: new FormControl(),
-      state: new FormControl(),
-    });
-  }
+  ) {}
 
   fileChooser() {
     document.getElementById('filechooser')?.click();
@@ -259,6 +248,17 @@ export class ActualizarPerfilComponent {
     this.userService.getUserById(this.id).subscribe((result) => {
       this.user = result;
       this.imagePreview = result.imageUrl;
+
+      this.form = new FormGroup({
+        name: new FormControl(result.name),
+        lastname: new FormControl(result.lastname),
+        company: new FormControl(result.company),
+        area: new FormControl(result.area),
+        level: new FormControl(result.level),
+        position: new FormControl(result.position),
+        birthdate: new FormControl(result.birthdate || null),
+        state: new FormControl(result.state || null),
+      })
     });
   }
 }

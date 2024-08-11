@@ -24,7 +24,7 @@ export class UserService {
     return this.httpClient.get<User[]>(this.urlAPI + '/api/users/ranking');
   }
 
-  updateUser(user: User, id: string) {
+  updateUser(user: any, id: string) {
     return this.httpClient.put<User>(this.urlAPI + '/api/users/' + id, user);
   }
 

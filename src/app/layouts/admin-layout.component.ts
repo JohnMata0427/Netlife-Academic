@@ -175,6 +175,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <app-custom-button
             (click)="router.navigate(['/home'])"
             [text]="'Volver al Sitio Principal'"
+            [color]="'black'"
             [hoverColor]="'white'"
             [moreStyles]="'text-xs h-8 gap-x-2 group'"
           >
@@ -194,8 +195,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class AdminLayoutComponent {
-  user = {} as User;
-  active = '';
+  user!: User;
+  active!: string;
 
   constructor(
     private title: Title,

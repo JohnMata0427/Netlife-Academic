@@ -222,7 +222,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 `,
 })
 export class HomeComponent {
-  users: User[] = [];
+  users!: User[];
 
   constructor(private userService: UserService) {}
 

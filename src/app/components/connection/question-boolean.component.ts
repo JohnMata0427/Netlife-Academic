@@ -1,34 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-question-boolean',
   standalone: true,
   imports: [NgClass],
   template: `
-    <div class="flex flex-col">
-      <div class="flex gap-4 ">
+    <div class="flex flex-col gap-y-2">
+      <div class="flex gap-x-4">
         <input
           class="accent-[#72C234]"
           type="radio"
-          id="verdadero"
-          name="respuesta"
-          value="v"
+          id="true"
+          name="answer"
+          value="{{answerSelected}}"
         />
-        <label for="verdadero">Verdadero</label>
+        <label class="select-none" for="true">Verdadero</label>
       </div>
-
-      <div class="flex gap-4">
+      <div class="flex gap-x-4">
         <input
           class="accent-[#72C234]"
           type="radio"
-          id="falso"
-          name="respuesta"
-          value="f"
-        /><label for="falso">Falso</label>
+          id="false"
+          name="answer"
+          value="{{answerSelected}}"
+        /><label class="select-none" for="false">Falso</label>
       </div>
     </div>
   `,
 })
 export class QuestionsBooleanComponent {
   constructor() {}
+
+  @Input() answerSelected!: string;
 }

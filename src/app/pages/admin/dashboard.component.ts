@@ -28,22 +28,16 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       </div>
       <div class=" mt-4 flex flex-col gap-y-1">
         <h2 class="font-bold">Filtros de búsqueda</h2>
-        <label
-          (click)="toggleRadioButton('username')"
-          class="text-sm"
-          for="filter"
+        <label class="text-sm" for="filter"
           ><input
             class="border border-black"
-            id="username"
-            name="username"
-            type="radio"
+            id="filter"
             name="filter"
-          />
-          Nombres y Apellidos</label
+            type="radio"
+          />Nombres y Apellidos</label
         >
-        <label (click)="toggleRadioButton('email')" class="text-sm" for="filter"
-          ><input id="email" name="email" type="radio" name="filter" />
-          Correo</label
+        <label class="text-sm" for="filter"
+          ><input id="filter" name="filter" type="radio" />Correo</label
         >
         <input
           type="search"
@@ -155,10 +149,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
       <div
         class="w-full mt-4 flex flex-col gap-y-2 rounded-lg p-4 {{
-          selectedButton !== '' ? 'border border-black' : ''
+          selectedButton ? 'border border-black' : ''
         }}"
       >
-        @if (selectedButton !== '') {
+        @if (!selectedButton) {
         <h3 class="font-bold">Correo del usuario</h3>
 
         <input
@@ -205,19 +199,17 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   `,
 })
 export class AdminDashboardComponent {
-  users = [] as User[];
-  selectedButton = '';
+  users!: User[];
+  selectedButton!: string;
   email = new FormControl('', Validators.required);
   role = new FormControl('STUDENT');
-  message = '';
+  message!: string;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe({
-      next: (result) => {
-        this.users = result;
-      },
+      next: (result) => (this.users = result),
     });
   }
 
@@ -225,39 +217,36 @@ export class AdminDashboardComponent {
     this.userService
       .createUser(this.email.value as string, this.role.value as string)
       .subscribe({
-        next: () => {
-          this.users = [];
+        next: (result) => {
           this.message = 'Usuario creado con éxito';
           setTimeout(() => {
             this.message = '';
           }, 5000);
-          this.userService.getAllUsers().subscribe({
-            next: (result) => {
-              this.users = result;
-            },
-          });
+          this.users = [...this.users, result];
+        },
+        error: ({ error }) => {
+          this.message = error.message;
+          setTimeout(() => {
+            this.message = '';
+          }, 5000);
         },
       });
   }
 
   blockUser() {
-    this.userService.blockUser(this.email.value as string).subscribe({
+    this.userService.blockUser(this.email.value!).subscribe({
       next: () => {
-        this.users = [];
         this.message = 'Usuario bloqueado con éxito';
         setTimeout(() => {
           this.message = '';
         }, 5000);
-        this.userService.getAllUsers().subscribe({
-          next: (result) => {
-            this.users = result;
-          },
+        this.users = this.users.map((user) => {
+          if (user.email === this.email.value) {
+            user.deleted = !user.deleted;
+          }
+          return user;
         });
       },
     });
-  }
-
-  toggleRadioButton(id: string) {
-    document.getElementById(id)?.click();
   }
 }

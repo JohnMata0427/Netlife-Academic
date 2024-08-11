@@ -63,9 +63,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="pl-16 mt-4 mb-20">
-        <h2 class="text-primary font-extrabold">
-          CURSOS RECOMENDADOS PARA TI
-        </h2>
+        <h2 class="text-primary font-extrabold">CURSOS RECOMENDADOS PARA TI</h2>
         <div class="mt-4 flex gap-8">
           <app-course-info
             title="Redes de Computadoras"

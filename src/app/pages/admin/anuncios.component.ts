@@ -97,8 +97,8 @@ import { AnnouncementService } from '@services/announcement.service';
 
             @if (form.get('exclude')?.value) {
             <label class="font-bold" for="">Correos a excluir </label>
-            <input type="text">
-            
+            <input type="text" />
+
             }
 
             <label class="font-bold" for=""
@@ -179,30 +179,30 @@ import { AnnouncementService } from '@services/announcement.service';
           [moreStyles]="'text-sm h-8 mt-8'"
         />
         @if (message) {
-        <div class="text-white bg-black/90 p-2 rounded-lg mt-5">{{ message }}</div>
-        } 
+        <div class="text-white bg-black/90 p-2 rounded-lg mt-5">
+          {{ message }}
+        </div>
+        }
       </div>
     </app-admin-layout>
   `,
 })
 export class AdminAnunciosComponent {
-  form: FormGroup;
-  message = '';
+  form = new FormGroup({
+    content: new FormControl('', Validators.required),
+    subject: new FormControl('', Validators.required),
+    type: new FormControl('info', Validators.required),
+    role: new FormControl('ALL', Validators.required),
+    exclude: new FormControl(false),
+    guest: new FormControl(false, Validators.required),
+    state: new FormControl('all', Validators.required),
+    sendEmail: new FormControl(true, Validators.required),
+    publishHome: new FormControl(false, Validators.required),
+    deletedAt: new FormControl(''),
+  });
+  message!: string;
 
-  constructor(private announcementSerice: AnnouncementService) {
-    this.form = new FormGroup({
-      content: new FormControl('', Validators.required),
-      subject: new FormControl('', Validators.required),
-      type: new FormControl('info', Validators.required),
-      role: new FormControl('ALL', Validators.required),
-      exclude: new FormControl(false),
-      guest: new FormControl(false, Validators.required),
-      state: new FormControl('all', Validators.required),
-      sendEmail: new FormControl(true, Validators.required),
-      publishHome: new FormControl(false, Validators.required),
-      deletedAt: new FormControl(''),
-    });
-  }
+  constructor(private announcementSerice: AnnouncementService) {}
 
   onSubmit() {
     if (this.form.invalid) {
@@ -210,22 +210,24 @@ export class AdminAnunciosComponent {
       setTimeout(() => {
         this.message = '';
       }, 3000);
-    } else {
-      this.announcementSerice.createAnnouncement(this.form.value).subscribe(
-        (response) => {
-          this.message = 'Anuncio creado correctamente';
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
-        },
-        (error) => {
-          this.message = error.error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 3000);
-        }
-      );
+      return;
     }
+
+    this.announcementSerice.createAnnouncement(this.form.value).subscribe({
+      next: () => {
+        this.form.reset();
+        this.message = 'Anuncio creado correctamente';
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
+      },
+      error: ({ error }) => {
+        this.message = error.message;
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
+      },
+    });
   }
 
   editorConfig: AngularEditorConfig = {
@@ -239,7 +241,7 @@ export class AdminAnunciosComponent {
     translate: 'yes',
     enableToolbar: true,
     showToolbar: true,
-    placeholder: 'Enter text here...',
+    placeholder: 'Ingrese el contenido del anuncio aquí...',
     defaultParagraphSeparator: '',
     defaultFontName: '',
     defaultFontSize: '',

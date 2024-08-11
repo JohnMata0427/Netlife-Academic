@@ -18,26 +18,42 @@ import { UserService } from '@services/user.service';
           <div class="flex gap-x-8">
             <a
               id="home"
-              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              [ngClass]="{
+                'text-primary': active === 'home',
+                'text-white hover:text-primary': active !== 'home'
+              }"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/home"
               >Inicio</a
             >
 
             <a
               id="mi-perfil"
-              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              [ngClass]="{
+                'text-primary': active === 'mi-perfil',
+                'text-white hover:text-primary': active !== 'mi-perfil'
+              }"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mi-perfil"
               >Mi Perfil</a
             >
             <a
               id="mis-cursos"
-              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              [ngClass]="{
+                'text-primary': active === 'mis-cursos',
+                'text-white hover:text-primary': active !== 'mis-cursos'
+              }"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-cursos"
               >Mis Cursos</a
             >
             <a
               id="mis-certificados"
-              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              [ngClass]="{
+                'text-primary': active === 'mis-certificados',
+                'text-white hover:text-primary': active !== 'mis-certificados'
+              }"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-certificados"
               >Mis Certificados</a
             >
@@ -70,7 +86,11 @@ import { UserService } from '@services/user.service';
               (click)="showNotifications = !showNotifications"
               class="hover:scale-110"
             >
-              <img class="size-5" src="/icons/header/notify.svg" alt="Notificaciones" />
+              <img
+                class="size-5"
+                src="/icons/header/notify.svg"
+                alt="Notificaciones"
+              />
             </button>
             @if (showNotifications) {
             <div
@@ -83,7 +103,11 @@ import { UserService } from '@services/user.service';
               (click)="showMessages = !showMessages"
               class="hover:scale-110"
             >
-              <img class="size-5" src="/icons/header/message.svg" alt="Mensajes" />
+              <img
+                class="size-5"
+                src="/icons/header/message.svg"
+                alt="Mensajes"
+              />
             </button>
             @if (showMessages) {
             <div
@@ -115,7 +139,7 @@ import { UserService } from '@services/user.service';
                 <strong class="text-center">{{ username }}</strong>
                 <span class="text-xs">{{ email }}</span>
               </div>
-              <hr class="border-2"/>
+              <hr class="border-2" />
               @if (role === 'ADMIN') {
               <button
                 (click)="router.navigate(['/admin/dashboard'])"
@@ -153,7 +177,7 @@ import { UserService } from '@services/user.service';
               </button>
               <button
                 class="flex items-center gap-2 text-sm text-red-700 hover:bg-gray-300 text-start rounded-lg py-1 px-2"
-                (click)="authService.logout()"
+                (click)="logout()"
               >
                 <svg
                   class="size-4"
@@ -177,14 +201,14 @@ import { UserService } from '@services/user.service';
   `,
 })
 export class HeaderComponent {
-  active = '';
-  profile = '';
-  username = '';
-  email = '';
+  active!: string;
+  profile!: string;
+  username!: string;
+  email!: string;
+  role!: string;
   showMenu = false;
   showMessages = false;
   showNotifications = false;
-  role = '';
 
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
@@ -200,17 +224,13 @@ export class HeaderComponent {
     private activatedRouter: ActivatedRoute,
     private title: Title,
     private userService: UserService
-  ) {
-    this.activatedRouter.url.subscribe((url) => {
-      this.active = url[0]['path'];
-    });
-  }
+  ) {}
 
   ngOnInit() {
-    document
-      .getElementById(this.active)
-      ?.classList.remove('text-white', 'hover:text-primary');
-    document.getElementById(this.active)?.classList.add('text-primary');
+    this.activatedRouter.url.subscribe(([url]) => {
+      this.active = url['path'];
+    });
+
     this.title.setTitle(
       this.active
         .split('-')
@@ -226,5 +246,10 @@ export class HeaderComponent {
         this.email = email as string;
         this.role = role as string;
       });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
   }
 }

@@ -45,11 +45,9 @@ import { Component, Input } from '@angular/core';
 export class CourseInfoComponent {
   constructor() {}
 
-  @Input() title = '';
-  @Input() teacher = '';
-  @Input() duration = '';
-  @Input() rating = '';
-  @Input() src = '';
-  @Input() id = '';
-  @Input() progress = '';
+  @Input() title!: string;
+  @Input() teacher!: string;
+  @Input() src!: string;
+  @Input() id!: string;
+  @Input() progress!: string;
 }

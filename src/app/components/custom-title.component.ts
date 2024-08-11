@@ -11,11 +11,12 @@ import { Component, Input } from '@angular/core';
         src="/title-layout.webp"
         alt="Título: {{ title }}"
       />
-      <h1 class="absolute top-2 left-16 text-white font-semibold">{{ title }}</h1>
+      <h1 class="absolute top-2 left-16 text-white font-semibold">
+        {{ title }}
+      </h1>
     </div>
   `,
-  styles: ``,
 })
 export class CustomTitleComponent {
-    @Input() title = '';
+  @Input() title!: string;
 }

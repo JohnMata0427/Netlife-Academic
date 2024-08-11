@@ -17,7 +17,5 @@ import { UserLayout } from '@layouts/user-layout.component';
       <div class="bg-black h-1 w-1/2"></div>
     </section>
   </app-user-layout>`,
-  styles: `
-  `,
 })
 export class NotFoundComponent {}

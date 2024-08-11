@@ -93,7 +93,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <div class="flex flex-col items-end relative border border-primary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="cursor-pointer absolute -top-7 -right-7 z-50"
+          class="cursor-pointer absolute -top-7 -right-7 z-50 size-4"
           viewBox="0 0 273 273"
           (click)="showCertificate = false"
         >
@@ -115,9 +115,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 export class CertificadoComponent {
   constructor() {}
 
-  @Input() title = '';
-  @Input() src = '';
-  @Input() id = '';
+  @Input() title!: string;
+  @Input() src!: string;
+  @Input() id!: string;
   showCertificate = false;
   showShare = false;
 }

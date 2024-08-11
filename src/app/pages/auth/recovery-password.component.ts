@@ -16,9 +16,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           src="/logo.webp"
           alt="Logo Netlife"
         />
-        <div class="w-96 my-40">
       @if (showModal) {
-      <div class="z-50 items-center flex relative">
+      <div class="z-50 items-center flex relative w-96">
         <div
           class="rounded-lg shadow-lg relative flex flex-col bg-black/95 outline-none focus:outline-none p-4"
         >
@@ -58,7 +57,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       </div>
       <div class="opacity-25 fixed inset-0 z-40 bg-black"></div>
       } @else {
-      <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-3 w-96">
         <h1 class="text-3xl font-bold text-center mb-4">
           Recuperar Contraseña
         </h1>
@@ -81,7 +80,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         @if (errorMessage) {
         <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-        } @else if (email.value != '' && email.invalid) {
+        } @else if (email.value && email.invalid) {
         <p class="text-red-500 text-xs px-4">Correo electrónico no válido</p>
         }
 
@@ -110,14 +109,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         >
       </div>
       }
-    </div>
     </app-layout>
   `,
 })
 export class RecoveryPasswordComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
-  errorMessage = '';
-  showModal = false;
+  errorMessage!: string;
+  showModal = true;
   loading = false;
 
   constructor(private authService: AuthService) {}
@@ -128,9 +126,10 @@ export class RecoveryPasswordComponent {
       return;
     }
     this.loading = true;
-    this.authService.recoveryPassword(this.email.value).subscribe({
+    this.authService.recoveryPassword(this.email.value!).subscribe({
       next: () => {
         this.showModal = true;
+        this.loading = false;
         localStorage.setItem('email', this.email.value as string);
       },
       error: ({ error }) => (

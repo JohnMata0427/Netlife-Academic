@@ -22,7 +22,7 @@ import { Component, Input } from '@angular/core';
       <div
         class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
       >
-        <h3 class="text-sm"><strong>Tarea: </strong> {{nombre}}</h3>
+        <h3 class="text-sm"><strong>Tarea: </strong> {{ nombre }}</h3>
         <div class="flex items-center gap-x-2">
           <img src="/icons/courses/time.svg" alt="Icono hora de entrega" />
           <span class="text-xs">11:59 PM</span>
@@ -32,5 +32,5 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class CustomButtonComponent {
-    @Input() nombre = '';
+  @Input() nombre!: string;
 }

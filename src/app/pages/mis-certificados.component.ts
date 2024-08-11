@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserLayout } from '@layouts/user-layout.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
-import { CertificadoComponent } from "@components/certificado.component";
+import { CertificadoComponent } from '@components/certificado.component';
 
 @Component({
   selector: 'app-mis-certificados',

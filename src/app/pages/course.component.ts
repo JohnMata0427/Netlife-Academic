@@ -8,7 +8,13 @@ import { UserLayout } from '@layouts/user-layout.component';
 @Component({
   selector: 'app-course',
   standalone: true,
-  imports: [NgStyle, NgClass, CustomButtonComponent, CustomTitleComponent, UserLayout],
+  imports: [
+    NgStyle,
+    NgClass,
+    CustomButtonComponent,
+    CustomTitleComponent,
+    UserLayout,
+  ],
   template: `
     <app-user-layout>
       <div class="bg-black flex py-10 px-16 justify-center">
@@ -31,19 +37,31 @@ import { UserLayout } from '@layouts/user-layout.component';
             de datos.
           </p>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="/icons/courses/teacher.svg" alt="Icono del Profesor" />
+            <img
+              class="size-4"
+              src="/icons/courses/teacher.svg"
+              alt="Icono del Profesor"
+            />
             <span class="text-white text-sm font-medium"
               >Prof. Monica Jimenez</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img
+              class="size-4"
+              src="/icons/courses/calendar.svg"
+              alt="Icono del Profesor"
+            />
             <span class="text-white text-sm font-medium"
               >Publicado el 10 de junio del 2024</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img
+              class="size-4"
+              src="/icons/courses/calendar.svg"
+              alt="Icono del Profesor"
+            />
             <span class="text-white text-sm font-medium"
               >Finalizá el 20 de julio del 2024</span
             >
@@ -54,7 +72,7 @@ import { UserLayout } from '@layouts/user-layout.component';
       <section class="flex items-center justify-center gap-x-4 mt-8">
         <div class="w-5/6 bg-zinc-300 h-5 rounded">
           <div
-          [ngStyle]="{'width.%': '50'}"
+            [ngStyle]="{ 'width.%': '50' }"
             class="bg-gradient-to-r from-[#FEE500] to-[#F0000B] rounded-l h-full"
           ></div>
         </div>
@@ -259,7 +277,9 @@ import { UserLayout } from '@layouts/user-layout.component';
           </div>
           <div class="flex items-center gap-x-4">
             <app-custom-button
-              (click)="router.navigate(['/examen'])"
+              (click)="router.navigate(['/examen'], {
+                queryParams: { pregunta: '1' },
+              })"
               [color]="'orange'"
               [hoverColor]="'white'"
               [text]="'Resolver'"

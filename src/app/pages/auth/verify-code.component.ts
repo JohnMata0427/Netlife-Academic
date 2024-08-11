@@ -16,9 +16,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         src="/logo.webp"
         alt="Logo Netlife"
       />
-      <div class="w-96 my-40">
         @if (errorMessage !== 'Código de verificación incorrecto') {
-        <form class="flex flex-col gap-3" (submit)="onSubmit($event)">
+        <form class="flex flex-col gap-3 w-96" (submit)="onSubmit($event)">
           <h1 class="text-3xl font-bold text-center mb-4">
             Código de verificación
           </h1>
@@ -47,7 +46,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
           @if (errorMessage) {
           <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-          } @else if (verificationCode.value != '' && verificationCode.invalid)
+          } @else if (verificationCode.value && verificationCode.invalid)
           {
           <p class="text-red-500 text-xs px-4">
             El código debe tener 6 números
@@ -102,7 +101,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
         </div>
         }
-      </div>
     </app-layout>
   `,
 })
@@ -111,8 +109,8 @@ export class VerifyCodeComponent {
     Validators.required,
     Validators.maxLength(6),
   ]);
-  errorMessage = '';
-  token = '';
+  errorMessage!: string;
+  token!: string;
   loading = false;
 
   constructor(
@@ -134,7 +132,7 @@ export class VerifyCodeComponent {
 
     this.loading = true;
     this.authService
-      .verifyCode(this.verificationCode.value, this.token)
+      .verifyCode(this.verificationCode.value!, this.token)
       .subscribe({
         next: () =>
           this.router.navigate(['/auth/new-password'], {
@@ -146,7 +144,7 @@ export class VerifyCodeComponent {
   }
 
   resendVerifyCode() {
-    this.authService.recoveryPassword(localStorage.getItem('email')).subscribe({
+    this.authService.recoveryPassword(localStorage.getItem('email')!).subscribe({
       next: (result) =>
         this.router.navigate([], {
           queryParams: { token: result.token },
