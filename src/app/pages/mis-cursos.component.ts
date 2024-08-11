@@ -20,27 +20,27 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             id="redes-de-computadoras"
             title="Redes de Computadoras"
             teacher="Monica Jimenez"
-            src="courses/redes.jpg"
+            src="/courses/redes.jpg"
             progress="14"
           />
           <app-course-info
             id="inteligencia-artificial"
             title="Inteligencia Artificial"
             teacher="Ivonne Maldonado"
-            src="courses/ia.png"
+            src="/courses/ia.png"
             progress="22"
           />
           <app-course-info
             id="analisis-de-datos"
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
             progress="74"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
             progress="45"
           />
         </div>
@@ -51,13 +51,13 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
-            src="courses/java.png"
+            src="/courses/java.png"
             progress="100"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/google-analytics.png"
+            src="/courses/google-analytics.png"
             progress="100"
           />
         </div>
@@ -70,22 +70,22 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
-            src="courses/sql.png"
+            src="/courses/sql.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
         </div>
       </section>

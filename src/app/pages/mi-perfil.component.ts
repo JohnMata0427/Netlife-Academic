@@ -20,7 +20,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         >
           <img
             class="rounded-full size-52 border-white border-8"
-            src="{{ user.imageUrl || 'profile.png' }}"
+            src="{{ user.imageUrl || '/profile.webp' }}"
             alt="Foto de Perfil"
           />
           <div class="flex flex-col items-center justify-between">
@@ -93,7 +93,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>Análisis de Datos</li>
           </ul>
           } @else {
-          <img src="courses/analisis.png" alt="" />
+          <img src="/courses/analisis.png" alt="" />
           }
         </div>
       </section>
@@ -101,7 +101,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
   styles: `
     .bg-profile {
-      background-image: url('https://img.freepik.com/foto-gratis/paisaje-surrealista-3d-al-estilo-marte_1048-9878.jpg');
+      background-image: url('/banner-profile.webp');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

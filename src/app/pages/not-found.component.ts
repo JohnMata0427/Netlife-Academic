@@ -13,7 +13,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         Lo sentimos, la página que buscas no existe. Por favor, verifica la URL
         e intenta de nuevo.
       </p>
-      <img class="mask mt-4" src="no-certificates.png" alt="Imagen de error 404" />
+      <img class="mask mt-4" src="/stop.webp" alt="Imagen de error 404" />
       <div class="bg-black h-1 w-1/2"></div>
     </section>
   </app-user-layout>`,

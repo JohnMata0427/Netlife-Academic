@@ -24,7 +24,7 @@ import { Component, Input } from '@angular/core';
       >
         <h3 class="text-sm"><strong>Tarea: </strong> {{nombre}}</h3>
         <div class="flex items-center gap-x-2">
-          <img src="icons/courses/time.svg" alt="Icono hora de entrega" />
+          <img src="/icons/courses/time.svg" alt="Icono hora de entrega" />
           <span class="text-xs">11:59 PM</span>
         </div>
       </div>

@@ -28,7 +28,7 @@ import { CertificadoComponent } from "@components/certificado.component";
             </p>
           </div>
           <img
-            src="no-certificates.png"
+            src="/stop.webp"
             alt="Imagen para indicar que el usuario no tiene certificados"
           />
         </div> -->

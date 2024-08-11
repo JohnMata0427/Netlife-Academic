@@ -13,7 +13,7 @@ import { UserLayout } from '@layouts/user-layout.component';
     <app-user-layout>
       <div class="bg-black flex py-10 px-16 justify-center">
         <div class="w-1/2 flex justify-center">
-          <img class="rounded-lg h-72" src="courses/redes.jpg" alt="" />
+          <img class="rounded-lg h-72" src="/courses/redes.jpg" alt="" />
         </div>
         <div class="w-1/2 flex flex-col pl-16">
           <h1 class="text-white font-extrabold text-4xl">
@@ -31,19 +31,19 @@ import { UserLayout } from '@layouts/user-layout.component';
             de datos.
           </p>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="icons/courses/teacher.svg" alt="Icono del Profesor" />
+            <img class="size-4" src="/icons/courses/teacher.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Prof. Monica Jimenez</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img class="size-4" src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Publicado el 10 de junio del 2024</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img class="size-4" src="icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img class="size-4" src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Finalizá el 20 de julio del 2024</span
             >
@@ -96,12 +96,12 @@ import { UserLayout } from '@layouts/user-layout.component';
           >
             <img
               class="size-12 absolute top-3 left-3"
-              src="presentation-border-1.svg"
+              src="/presentation-border-1.svg"
               alt=""
             />
             <img
               class="size-20 rounded-full ml-5"
-              src="profile.png"
+              src="/profile.webp"
               alt="Perfil del Docente"
             />
             <div class="flex flex-col gap-y-2">
@@ -116,7 +116,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             </div>
             <img
               class="size-12 absolute bottom-3 right-3"
-              src="presentation-border-2.svg"
+              src="/presentation-border-2.svg"
               alt=""
             />
           </div>
@@ -203,7 +203,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>
@@ -211,7 +211,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>
@@ -219,7 +219,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>

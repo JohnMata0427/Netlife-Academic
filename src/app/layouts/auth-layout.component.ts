@@ -18,14 +18,15 @@ import '@justinribeiro/lite-youtube';
       <div
         class="relative sm:w-[40vw] w-full flex justify-center items-center bg-[#E5E5E5] px-8"
       >
-        <img
+        <!-- <img
           class="absolute top-0 left-0 w-52 rounded-br-2xl"
-          src="logo.jpg"
+          src="/logo.webp"
           alt="Logo Netlife"
         />
         <div class="w-96 my-40">
           <ng-content></ng-content>
-        </div>
+        </div> -->
+        <ng-content></ng-content>
       </div>
     </div>
     @if (!cookies) {
@@ -63,7 +64,7 @@ import '@justinribeiro/lite-youtube';
   `,
   styles: `
     .bg-auth {
-      background-image: url('https://img.freepik.com/vector-premium/comunicacion-senales-digitales-sobre-fondo-naranja-oscuro_49459-16.jpg');
+      background-image: url('/banner-authentication.webp');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

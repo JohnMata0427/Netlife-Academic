@@ -190,7 +190,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
   styles: `
     .bg-profile {
-      background-image: url('https://img.freepik.com/foto-gratis/paisaje-surrealista-3d-al-estilo-marte_1048-9878.jpg');
+      background-image: url('/banner-profile.webp');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

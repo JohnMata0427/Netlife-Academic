@@ -14,7 +14,7 @@ import { HeaderComponent } from '@components/header.component';
     <main>
       <div class="bg-black flex py-10 px-16 justify-center">
         <div class="w-1/2 flex justify-center">
-          <img class="rounded-lg h-72" src="courses/redes.jpg" alt="" />
+          <img class="rounded-lg h-72" src="/courses/redes.jpg" alt="" />
         </div>
         <div class="w-1/2 flex flex-col pl-16">
           <h1 class="text-white font-extrabold text-4xl">
@@ -32,19 +32,19 @@ import { HeaderComponent } from '@components/header.component';
             de datos.
           </p>
           <div class="flex gap-x-2 items-center mt-4">
-            <img src="icons/courses/teacher.svg" alt="Icono del Profesor" />
+            <img src="/icons/courses/teacher.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Prof. Monica Jimenez</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img src="icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Publicado el 10 de junio del 2024</span
             >
           </div>
           <div class="flex gap-x-2 items-center mt-4">
-            <img src="icons/courses/calendar.svg" alt="Icono del Profesor" />
+            <img src="/icons/courses/calendar.svg" alt="Icono del Profesor" />
             <span class="text-white text-sm font-medium"
               >Finalizá el 20 de julio del 2024</span
             >
@@ -66,7 +66,7 @@ import { HeaderComponent } from '@components/header.component';
         <div class="relative mt-10">
           <img
             class="w-80 h-auto"
-            src="title-layout.png"
+            src="/title-layout.png"
             alt="Modulos de trabajo"
           />
           <h1 class="absolute top-2 left-16 text-white font-semibold">
@@ -112,7 +112,7 @@ import { HeaderComponent } from '@components/header.component';
 
       <section>
         <div class="relative mt-10 mb-5">
-          <img class="w-80 h-auto" src="title-layout.png" alt="Docente" />
+          <img class="w-80 h-auto" src="/title-layout.png" alt="Docente" />
           <h1 class="absolute top-2 left-16 text-white font-semibold">
             Docente
           </h1>
@@ -123,7 +123,7 @@ import { HeaderComponent } from '@components/header.component';
           >
             <img
               class="size-12 absolute top-3 left-3"
-              src="presentation-border-1.svg"
+              src="/presentation-border-1.svg"
               alt=""
             />
             <img
@@ -143,7 +143,7 @@ import { HeaderComponent } from '@components/header.component';
             </div>
             <img
               class="size-12 absolute bottom-3 right-3"
-              src="presentation-border-2.svg"
+              src="/presentation-border-2.svg"
               alt=""
             />
           </div>
@@ -162,7 +162,7 @@ import { HeaderComponent } from '@components/header.component';
         <div class="relative mt-10">
           <img
             class="w-80 h-auto"
-            src="title-layout.png"
+            src="/title-layout.png"
             alt="Información del curso"
           />
           <h1 class="absolute top-2 left-16 text-white font-semibold">
@@ -237,7 +237,7 @@ import { HeaderComponent } from '@components/header.component';
         <div class="relative mt-10">
           <img
             class="w-80 h-auto"
-            src="title-layout.png"
+            src="/title-layout.png"
             alt="Información del curso"
           />
           <h1 class="absolute top-2 left-16 text-white font-semibold">
@@ -248,7 +248,7 @@ import { HeaderComponent } from '@components/header.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>
@@ -256,7 +256,7 @@ import { HeaderComponent } from '@components/header.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>
@@ -264,7 +264,7 @@ import { HeaderComponent } from '@components/header.component';
           <a class="flex items-center gap-x-4" href="#">
             <img
               class="size-7"
-              src="icons/courses/archive.svg"
+              src="/icons/courses/archive.svg"
               alt="Documento Adjunto"
             />
             <span class="text-sm">Introducción al curso</span>

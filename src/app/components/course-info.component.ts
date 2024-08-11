@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
         <div class="flex items-center gap-x-2">
           <img
             class="size-3"
-            src="icons/courses/teacher.svg"
+            src="/icons/courses/teacher.svg"
             alt="Icono de Profesor"
           />
           <span class="text-white text-xs font-light">Prof. {{ teacher }}</span>

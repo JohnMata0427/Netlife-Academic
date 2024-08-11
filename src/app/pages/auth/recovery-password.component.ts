@@ -11,6 +11,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-layout>
+    <img
+          class="absolute top-0 left-0 w-52 rounded-br-2xl"
+          src="/logo.webp"
+          alt="Logo Netlife"
+        />
+        <div class="w-96 my-40">
       @if (showModal) {
       <div class="z-50 items-center flex relative">
         <div
@@ -59,7 +65,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="relative">
           <img
             class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/email.svg"
+            src="/icons/forms/email.svg"
             alt="Email Icon"
           />
           <input
@@ -104,6 +110,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         >
       </div>
       }
+    </div>
     </app-layout>
   `,
 })

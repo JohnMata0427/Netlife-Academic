@@ -11,88 +11,98 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-layout>
-      @if (errorMessage !== 'Código de verificación incorrecto') {
-      <form class="flex flex-col gap-3" (submit)="onSubmit($event)">
-        <h1 class="text-3xl font-bold text-center mb-4">
-          Código de verificación
-        </h1>
+      <img
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
+        src="/logo.webp"
+        alt="Logo Netlife"
+      />
+      <div class="w-96 my-40">
+        @if (errorMessage !== 'Código de verificación incorrecto') {
+        <form class="flex flex-col gap-3" (submit)="onSubmit($event)">
+          <h1 class="text-3xl font-bold text-center mb-4">
+            Código de verificación
+          </h1>
 
-        <span class="text-sm text-center mb-2"
-          >Introduce el código de verificación enviado a tu correo
-          electrónico</span
-        >
+          <span class="text-sm text-center mb-2"
+            >Introduce el código de verificación enviado a tu correo
+            electrónico</span
+          >
 
-        <div class="relative">
-          <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/verify.svg"
-            alt="Lock Icon"
+          <div class="relative">
+            <img
+              class="size-3 absolute inset-y-0 my-auto left-3"
+              src="/icons/forms/verify.svg"
+              alt="Lock Icon"
+            />
+            <input
+              [formControl]="verificationCode"
+              id="verificationCode"
+              name="verificationCode"
+              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              type="text"
+              placeholder="Código de Verificación"
+              required
+            />
+          </div>
+
+          @if (errorMessage) {
+          <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+          } @else if (verificationCode.value != '' && verificationCode.invalid)
+          {
+          <p class="text-red-500 text-xs px-4">
+            El código debe tener 6 números
+          </p>
+          }
+
+          <app-custom-button
+            [moreStyles]="'w-full justify-center'"
+            [color]="'black'"
+            [hoverColor]="'white'"
+            [text]="'Verificar código'"
+            [loading]="loading"
           />
-          <input
-            [formControl]="verificationCode"
-            id="verificationCode"
-            name="verificationCode"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
-            type="text"
-            placeholder="Código de Verificación"
-            required
-          />
+          <span class="text-center text-xs"
+            >¿No tienes cuenta?
+            <a
+              class="text-primary font-medium hover:underline"
+              href="/auth/register"
+              >Regístrate aquí</a
+            ></span
+          >
+          <span class="text-center text-xs"
+            >¿Tienes cuenta?
+            <a
+              class="text-primary font-medium hover:underline"
+              href="/auth/login"
+              >Inicia sesión aquí</a
+            ></span
+          >
+        </form>
+        } @else {
+        <div class="bg-black py-5 px-10 rounded-lg flex flex-col items-center">
+          <p class="text-white text-sm text-center font-extralight">
+            El código de confirmación que ingresaste es incorrecto.
+          </p>
+          <span class="text-white text-[12px] my-4"
+            >¿Deseas que se te reenvíe el código?</span
+          >
+          <div class="flex gap-4">
+            <button
+              (click)="errorMessage = ''"
+              class="w-32 bg-[#6C6565] py-2 rounded-lg text-sm"
+            >
+              Cerrar
+            </button>
+            <button
+              (click)="resendVerifyCode()"
+              class="w-32 bg-gradient-to-r from-[#FEE500] to-primary py-2 rounded-lg text-sm"
+            >
+              Reenviar
+            </button>
+          </div>
         </div>
-
-        @if (errorMessage) {
-        <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-        } @else if (verificationCode.value != '' && verificationCode.invalid) {
-        <p class="text-red-500 text-xs px-4">El código debe tener 6 números</p>
         }
-
-        <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
-          [text]="'Verificar código'"
-          [loading]="loading"
-        />
-        <span class="text-center text-xs"
-          >¿No tienes cuenta?
-          <a
-            class="text-primary font-medium hover:underline"
-            href="/auth/register"
-            >Regístrate aquí</a
-          ></span
-        >
-        <span class="text-center text-xs"
-          >¿Tienes cuenta?
-          <a
-            class="text-primary font-medium hover:underline"
-            href="/auth/login"
-            >Inicia sesión aquí</a
-          ></span
-        >
-      </form>
-      } @else {
-      <div class="bg-black py-5 px-10 rounded-lg flex flex-col items-center">
-        <p class="text-white text-sm text-center font-extralight">
-          El código de confirmación que ingresaste es incorrecto.
-        </p>
-        <span class="text-white text-[12px] my-4"
-          >¿Deseas que se te reenvíe el código?</span
-        >
-        <div class="flex gap-4">
-          <button
-            (click)="errorMessage = ''"
-            class="w-32 bg-[#6C6565] py-2 rounded-lg text-sm"
-          >
-            Cerrar
-          </button>
-          <button
-            (click)="resendVerifyCode()"
-            class="w-32 bg-gradient-to-r from-[#FEE500] to-primary py-2 rounded-lg text-sm"
-          >
-            Reenviar
-          </button>
-        </div>
       </div>
-      }
     </app-layout>
   `,
 })
@@ -141,7 +151,9 @@ export class VerifyCodeComponent {
         this.router.navigate([], {
           queryParams: { token: result.token },
         }),
-      error: ({ error }) => (this.errorMessage = error.message, this.loading = false),
+      error: ({ error }) => (
+        (this.errorMessage = error.message), (this.loading = false)
+      ),
     });
   }
 }

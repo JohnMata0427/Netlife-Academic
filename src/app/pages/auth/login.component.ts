@@ -12,86 +12,88 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   imports: [ReactiveFormsModule, LayoutComponent, CustomButtonComponent],
   template: `
     <app-layout>
-      <form
-        [formGroup]="form"
-        class="flex flex-col gap-3"
-        (ngSubmit)="onSubmit()"
-      >
-        <!-- <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1> -->
-        <img src="/NetlifeLogo.png" alt="">
-        <div class="relative">
-          <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/email.svg"
-            alt="Email Icon"
-          />
-          <input
-            id="email"
-            name="email"
-            formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
-            type="email"
-            placeholder="Correo Electrónico"
-            required
-          />
-        </div>
-
-        @if (form.get('email')?.invalid && form.get('email')?.value !== '') {
-        <span class="text-xs text-red-500"
-          >El correo electrónico es inválido</span
+      <div class="w-96 my-40">
+        <form
+          [formGroup]="form"
+          class="flex flex-col gap-3"
+          (ngSubmit)="onSubmit()"
         >
-        }
+          <!-- <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1> -->
+          <img class="w-3/4 mx-auto" src="/NetlifeLogo.webp" alt="" />
+          <div class="relative">
+            <img
+              class="size-3 absolute inset-y-0 my-auto left-3"
+              src="/icons/forms/email.svg"
+              alt="Email Icon"
+            />
+            <input
+              id="email"
+              name="email"
+              formControlName="email"
+              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              type="email"
+              placeholder="Correo Electrónico"
+              required
+            />
+          </div>
 
-        <div class="relative">
-          <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/password.svg"
-            alt="Password Icon"
+          @if (form.get('email')?.invalid && form.get('email')?.value !== '') {
+          <span class="text-xs text-red-500"
+            >El correo electrónico es inválido</span
+          >
+          }
+
+          <div class="relative">
+            <img
+              class="size-3 absolute inset-y-0 my-auto left-3"
+              src="/icons/forms/password.svg"
+              alt="Password Icon"
+            />
+            <input
+              id="password"
+              name="password"
+              formControlName="password"
+              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              type="{{ typePasswordInput }}"
+              placeholder="Contraseña"
+              required
+            />
+            <img
+              (click)="togglePasswordVisibility()"
+              class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+              src="/icons/forms/{{ iconPasswordInput }}.svg"
+              alt="Eye Icon"
+            />
+          </div>
+
+          @if (message) {
+          <span class="text-xs text-red-500 text-center">{{ message }}</span>
+          }
+
+          <app-custom-button
+            [moreStyles]="'w-full justify-center'"
+            [color]="'black'"
+            [hoverColor]="'white'"
+            [text]="'Iniciar sesión'"
+            [loading]="loading"
           />
-          <input
-            id="password"
-            name="password"
-            formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
-            type="{{ typePasswordInput }}"
-            placeholder="Contraseña"
-            required
-          />
-          <img
-            (click)="togglePasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
-            src="icons/forms/{{ iconPasswordInput }}.svg"
-            alt="Eye Icon"
-          />
-        </div>
 
-        @if (message) {
-        <span class="text-xs text-red-500 text-center">{{ message }}</span>
-        }
+          <span class="text-center text-xs"
+            >¿No tienes cuenta?
+            <a
+              class="text-primary font-medium hover:underline"
+              href="/auth/register"
+              >Regístrate aquí</a
+            ></span
+          >
 
-        <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
-          [text]="'Iniciar sesión'"
-          [loading]="loading"
-        />
-
-        <span class="text-center text-xs"
-          >¿No tienes cuenta?
           <a
-            class="text-primary font-medium hover:underline"
-            href="/auth/register"
-            >Regístrate aquí</a
-          ></span
-        >
-
-        <a
-          class="text-primary font-medium hover:underline text-center text-xs"
-          href="/auth/recovery-password"
-          >¿Olvidaste tu contraseña?</a
-        >
-      </form>
+            class="text-primary font-medium hover:underline text-center text-xs"
+            href="/auth/recovery-password"
+            >¿Olvidaste tu contraseña?</a
+          >
+        </form>
+      </div>
     </app-layout>
   `,
 })
@@ -124,7 +126,7 @@ export class LoginComponent {
         this.route.navigate([
           this.authService.getInfoUser().role !== 'ADMIN'
             ? '/home'
-            : '/dashboard/admin',
+            : '/admin/dashboard',
         ]);
       },
       error: ({ error }) => (

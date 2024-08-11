@@ -11,7 +11,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
   imports: [UserLayout, CourseInfoComponent, CustomTitleComponent],
   template: `
     <app-user-layout>
-      <img class="w-full" src="banner.png" alt="Banner de Inicio" />
+      <img class="w-full" src="/banner.webp" alt="Banner de Inicio" />
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex gap-20">
@@ -22,11 +22,11 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             >
               <div class="flex items-center gap-x-2">
                 @if (users[0] === user ) {
-                <img class="size-12" src="1st.png" alt="" />
+                <img class="size-12" src="/1st.webp" alt="" />
                 } @else if (users[1] === user) {
-                <img class="size-12" src="2nd.png" alt="" />
+                <img class="size-12" src="/2nd.webp" alt="" />
                 } @else if (users[2] === user) {
-                <img class="size-12" src="3rd.png" alt="" />
+                <img class="size-12" src="/3rd.webp" alt="" />
                 } @else if (users[3] === user) {
                 <div
                   class="size-12 font-bold text-black rounded-full flex items-center justify-center"
@@ -42,7 +42,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 }
                 <img
                   class="rounded-full size-16 border-white border-4"
-                  src="{{ user.imageUrl || 'profile.png' }}"
+                  src="{{ user.imageUrl || '/profile.webp' }}"
                   alt="Foto de Perfil"
                 />
                 <h4 class="text-md font-bold">
@@ -82,7 +82,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 <div class="flex items-center gap-x-2">
                   <img
                     class="size-4"
-                    src="icons/courses/time.svg"
+                    src="/icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
                   <span class="text-xs">11:59 PM</span>
@@ -111,7 +111,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 <div class="flex items-center gap-x-2">
                   <img
                     class="size-4"
-                    src="icons/courses/time.svg"
+                    src="/icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
                   <span class="text-xs">11:59 PM</span>
@@ -138,7 +138,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 <div class="flex items-center gap-x-2">
                   <img
                     class="size-4"
-                    src="icons/courses/time.svg"
+                    src="/icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
                   <span class="text-xs">11:59 PM</span>
@@ -176,7 +176,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
               <button
                 class="bg-black flex items-center justify-center px-4 gap-x-2 rounded-lg hover:bg-black/95"
               >
-                <img class="size-4" src="icons/courses/calendar.svg" alt="Calendario" />
+                <img class="size-4" src="/icons/courses/calendar.svg" alt="Calendario" />
                 <span class="text-white text-xs">Ver calendario</span>
               </button>
             </div>
@@ -193,22 +193,22 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
-            src="courses/sql.png"
+            src="/courses/sql.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
           <app-course-info
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="courses/analisis.png"
+            src="/courses/analisis.png"
           />
         </div>
       </section>

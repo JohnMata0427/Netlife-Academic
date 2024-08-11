@@ -13,7 +13,7 @@ import { UserService } from '@services/user.service';
       <nav class="flex">
         <div class="flex items-center w-full">
           <a class="pr-8" href="/home">
-            <img class="h-9" src="logo.jpg" alt="Netlife Logo" />
+            <img class="h-9" src="/logo.webp" alt="Netlife Logo" />
           </a>
           <div class="flex gap-x-8">
             <a
@@ -70,7 +70,7 @@ import { UserService } from '@services/user.service';
               (click)="showNotifications = !showNotifications"
               class="hover:scale-110"
             >
-              <img class="size-5" src="icons/header/notify.svg" alt="Notificaciones" />
+              <img class="size-5" src="/icons/header/notify.svg" alt="Notificaciones" />
             </button>
             @if (showNotifications) {
             <div
@@ -83,7 +83,7 @@ import { UserService } from '@services/user.service';
               (click)="showMessages = !showMessages"
               class="hover:scale-110"
             >
-              <img class="size-5" src="icons/header/message.svg" alt="Mensajes" />
+              <img class="size-5" src="/icons/header/message.svg" alt="Mensajes" />
             </button>
             @if (showMessages) {
             <div
@@ -98,12 +98,12 @@ import { UserService } from '@services/user.service';
             >
               <img
                 class="rounded-full size-8 border-white border-[3px]"
-                src="{{ profile }}"
+                src="{{ profile || '/profile.webp' }}"
                 alt="Perfil del Usuario"
               />
               <img
                 class="size-3"
-                src="icons/header/deploy-info.svg"
+                src="/icons/header/deploy-info.svg"
                 alt="Desplegar información"
               />
             </button>
@@ -130,7 +130,7 @@ import { UserService } from '@services/user.service';
               >
                 <img
                   class="size-4"
-                  src="icons/forms/user.svg"
+                  src="/icons/forms/user.svg"
                   alt="User Icon"
                 />
                 Mi Perfil
@@ -141,7 +141,7 @@ import { UserService } from '@services/user.service';
               >
                 <img
                   class="size-4"
-                  src="icons/forms/user.svg"
+                  src="/icons/forms/user.svg"
                   alt="User Icon"
                 />
                 Configurar Perfil

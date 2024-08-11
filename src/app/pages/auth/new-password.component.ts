@@ -16,100 +16,107 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-layout>
-      <form
-        [formGroup]="form"
-        class="flex flex-col gap-3"
-        (submit)="onSubmit()"
-      >
-        <h1 class="text-3xl font-bold text-center mb-4">Nueva Contraseña</h1>
-        <span class="text-gray-500 text-xs font-semibold"
-          >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
+      <img
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
+        src="/logo.webp"
+        alt="Logo Netlife"
+      />
+      <div class="w-96 my-40">
+        <form
+          [formGroup]="form"
+          class="flex flex-col gap-3"
+          (submit)="onSubmit()"
         >
+          <h1 class="text-3xl font-bold text-center mb-4">Nueva Contraseña</h1>
+          <span class="text-gray-500 text-xs font-semibold"
+            >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
+          >
 
-        <div class="relative">
-          <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/password.svg"
-            alt="Password Icon"
-          />
-          <input
-            id="password"
-            name="password"
-            formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
-            type="{{ typePasswordInput }}"
-            placeholder="Contraseña"
-            required
-          />
-          <img
-            (click)="togglePasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
-            src="icons/forms/{{ iconPasswordInput }}.svg"
-            alt="Eye Icon"
-          />
-        </div>
+          <div class="relative">
+            <img
+              class="size-3 absolute inset-y-0 my-auto left-3"
+              src="/icons/forms/password.svg"
+              alt="Password Icon"
+            />
+            <input
+              id="password"
+              name="password"
+              formControlName="password"
+              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              type="{{ typePasswordInput }}"
+              placeholder="Contraseña"
+              required
+            />
+            <img
+              (click)="togglePasswordVisibility()"
+              class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+              src="/icons/forms/{{ iconPasswordInput }}.svg"
+              alt="Eye Icon"
+            />
+          </div>
 
-        @if (form.get('password')?.value !== '' &&
-        form.get('password')?.invalid) {
-        <p class="text-red-500 text-xs px-4">
-          La contraseña debe tener minimo 8 caracteres
-        </p>
-        }
+          @if (form.get('password')?.value !== '' &&
+          form.get('password')?.invalid) {
+          <p class="text-red-500 text-xs px-4">
+            La contraseña debe tener minimo 8 caracteres
+          </p>
+          }
 
-        <div class="relative">
-          <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
-            src="icons/forms/password.svg"
-            alt="Password Icon"
-          />
-          <input
-            id="confirmPassword"
-            name="confirmPassword"
-            formControlName="confirmPassword"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
-            type="{{ typeConfirmPasswordInput }}"
-            placeholder="Confirmar Contraseña"
-            required
-          />
-          <img
-            (click)="toggleConfirmPasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
-            src="icons/forms/{{ iconConfirmPasswordInput }}.svg"
-            alt="Eye Icon"
-          />
-        </div>
+          <div class="relative">
+            <img
+              class="size-3 absolute inset-y-0 my-auto left-3"
+              src="/icons/forms/password.svg"
+              alt="Password Icon"
+            />
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              type="{{ typeConfirmPasswordInput }}"
+              placeholder="Confirmar Contraseña"
+              required
+            />
+            <img
+              (click)="toggleConfirmPasswordVisibility()"
+              class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+              src="/icons/forms/{{ iconConfirmPasswordInput }}.svg"
+              alt="Eye Icon"
+            />
+          </div>
 
-        @if (errorMessage) {
-        <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-        } @else if (form.get('confirmPassword')?.value !==
-        form.get('password')?.value) {
-        <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
-        }
+          @if (errorMessage) {
+          <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+          } @else if (form.get('confirmPassword')?.value !==
+          form.get('password')?.value) {
+          <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
+          }
 
-        <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
-          [text]="'Reestablecer contraseña'"
-          [loading]="loading"
-        />
-        <span class="text-center text-xs"
-          >¿No tienes cuenta?
-          <a
-            class="text-primary font-medium hover:underline"
-            href="/auth/register"
-            >Regístrate aquí</a
-          ></span
-        >
-        <span class="text-center text-xs"
-          >¿Tienes cuenta?
-          <a
-            class="text-primary font-medium hover:underline"
-            href="/auth/login"
-            >Inicia sesión aquí</a
-          ></span
-        >
-      </form>
+          <app-custom-button
+            [moreStyles]="'w-full justify-center'"
+            [color]="'black'"
+            [hoverColor]="'white'"
+            [text]="'Reestablecer contraseña'"
+            [loading]="loading"
+          />
+          <span class="text-center text-xs"
+            >¿No tienes cuenta?
+            <a
+              class="text-primary font-medium hover:underline"
+              href="/auth/register"
+              >Regístrate aquí</a
+            ></span
+          >
+          <span class="text-center text-xs"
+            >¿Tienes cuenta?
+            <a
+              class="text-primary font-medium hover:underline"
+              href="/auth/login"
+              >Inicia sesión aquí</a
+            ></span
+          >
+        </form>
+      </div>
     </app-layout>
   `,
 })

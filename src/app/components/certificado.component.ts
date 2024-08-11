@@ -102,7 +102,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             class="fill-red-600"
           />
         </svg>
-        <img src="/certificate.png" alt="Certificado de {{ title }}" />
+        <img src="/certificate.webp" alt="Certificado de {{ title }}" />
       </div>
     </div>
     <div

@@ -16,7 +16,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <header class="min-h-screen w-60 p-4 bg-black">
         <nav class="flex flex-col">
           <div class="grid place-content-center mt-1">
-            <img class="h-auto w-48" src="logo.jpg" alt="Logo de Netlife" />
+            <img class="h-auto w-48" src="/logo.webp" alt="Logo de Netlife" />
           </div>
           <div class="flex gap-x-2 justify-center items-center my-7">
             <img
