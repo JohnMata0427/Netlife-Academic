@@ -57,6 +57,7 @@ import { ElementRef } from '@angular/core';
             class="border border-[#a5a5a5] p-4 rounded-lg flex flex-col gap-y-4 w-full"
           >
             <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
+            <question.component></question.component>
 
             <!-- <div class="gap-4 flex flex-col">
               <div class="flex gap-4 items-center">
