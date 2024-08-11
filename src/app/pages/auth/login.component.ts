@@ -20,7 +20,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1>
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -28,7 +28,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -43,20 +43,22 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/password.svg"
             alt="Password Icon"
           />
           <input
+            id="password"
+            name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute top-0 right-0 mt-[10px] mr-[10px] cursor-pointer"
+            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
             src="icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -77,14 +79,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
 
         <a
-          class="text-[#FD6A00] font-medium hover:underline text-center text-xs"
+          class="text-primary font-medium hover:underline text-center text-xs"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >
@@ -124,8 +126,9 @@ export class LoginComponent {
             : '/dashboard/admin',
         ]);
       },
-      error: (error) => (this.message = error.error.message),
-      complete: () => (this.loading = false),
+      error: ({ error }) => (
+        (this.message = error.message), (this.loading = false)
+      ),
     });
   }
 

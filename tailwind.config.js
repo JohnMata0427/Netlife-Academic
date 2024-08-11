@@ -1,14 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{html,ts}",
-  ],
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{html,ts}"],
   theme: {
-    fontFamily: {
-      'roboto': ['Roboto'],
-    }
+    extend: {
+      colors: {
+        primary: "#FD6A00",
+      },
+      fontFamily: {
+        roboto: ["Roboto"],
+      },
+    },
   },
   plugins: [],
-}
+};

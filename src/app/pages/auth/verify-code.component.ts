@@ -13,7 +13,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     <app-layout>
       @if (errorMessage !== 'Código de verificación incorrecto') {
       <form class="flex flex-col gap-3" (submit)="onSubmit($event)">
-        <h1 class="text-3xl font-bold text-center mb-12">
+        <h1 class="text-3xl font-bold text-center mb-4">
           Código de verificación
         </h1>
 
@@ -24,7 +24,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/verify.svg"
             alt="Lock Icon"
           />
@@ -32,7 +32,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             [formControl]="verificationCode"
             id="verificationCode"
             name="verificationCode"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="text"
             placeholder="Código de Verificación"
             required
@@ -55,7 +55,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
@@ -63,7 +63,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿Tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/login"
             >Inicia sesión aquí</a
           ></span
@@ -86,7 +86,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </button>
           <button
             (click)="resendVerifyCode()"
-            class="w-32 bg-gradient-to-r from-[#FEE500] to-[#FD6A00] py-2 rounded-lg text-sm"
+            class="w-32 bg-gradient-to-r from-[#FEE500] to-primary py-2 rounded-lg text-sm"
           >
             Reenviar
           </button>
@@ -141,8 +141,7 @@ export class VerifyCodeComponent {
         this.router.navigate([], {
           queryParams: { token: result.token },
         }),
-      error: ({ error }) => (this.errorMessage = error.message),
-      complete: () => (this.loading = false),
+      error: ({ error }) => (this.errorMessage = error.message, this.loading = false),
     });
   }
 }

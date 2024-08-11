@@ -32,7 +32,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </div>
           </div>
           <strong class="text-white text-xs">GESTION DE:</strong>
-          <hr class="border-[1px]" />
+          <hr class="border" />
 
           <ul class="flex flex-col gap-y-2 mt-6">
             <li>

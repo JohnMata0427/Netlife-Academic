@@ -32,15 +32,24 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           (click)="toggleRadioButton('username')"
           class="text-sm"
           for="filter"
-          ><input class="border border-black" id="username" name="username" type="radio" name="filter" /> Nombres y
-          Apellidos</label
+          ><input
+            class="border border-black"
+            id="username"
+            name="username"
+            type="radio"
+            name="filter"
+          />
+          Nombres y Apellidos</label
         >
         <label (click)="toggleRadioButton('email')" class="text-sm" for="filter"
-          ><input id="email" name="email" type="radio" name="filter" /> Correo</label
+          ><input id="email" name="email" type="radio" name="filter" />
+          Correo</label
         >
         <input
+          type="search"
+          id="search"
+          name="search"
           class="text-sm p-1 border border-[#cfcfcf] rounded-lg w-96"
-          type="text"
           placeholder="Coloque aquí su búsqueda"
         />
       </div>
@@ -154,6 +163,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
         <input
           [formControl]="email"
+          id="email"
+          name="email"
           class="text-sm p-1 border border-[#B8B8B8] rounded-lg w-96"
           type="text"
           placeholder="Buscar usuario"

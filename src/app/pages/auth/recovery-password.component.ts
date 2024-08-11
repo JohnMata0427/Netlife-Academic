@@ -13,26 +13,21 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     <app-layout>
       @if (showModal) {
       <div class="z-50 items-center flex relative">
-        <!--content-->
         <div
-          class="rounded-lg shadow-lg relative flex flex-col bg-black outline-none focus:outline-none p-4"
+          class="rounded-lg shadow-lg relative flex flex-col bg-black/95 outline-none focus:outline-none p-4"
         >
           <h3
-            class="text-xl text-transparent bg-clip-text font-bold text-center bg-gradient-to-r from-[#FEE500] to-[#FD6A00]"
+            class="text-xl text-transparent bg-clip-text font-bold text-center bg-gradient-to-r from-primary via-[#FEE500] to-primary"
           >
             Revisa tu correo electrónico
           </h3>
-          <!--body-->
           <p class="text-white font-light text-sm text-center my-7">
             Te enviamos un correo electrónico a
-            <strong class="font-bold">{{
-              email.value || 'jhonmata0427@gmail.com'
-            }}</strong>
+            <strong class="font-bold">{{ email.value }}</strong>
             con un código de confirmación para que puedas restablecer tu
             contraseña.
           </p>
-          <!--footer-->
-          <span class="text-white text-center text-[12px]"
+          <span class="text-white text-center text-xs"
             >¿No has recibido el código de confirmación?</span
           >
           <div class="flex gap-x-4 justify-center mt-6">
@@ -58,12 +53,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <div class="opacity-25 fixed inset-0 z-40 bg-black"></div>
       } @else {
       <div class="flex flex-col gap-3">
-        <h1 class="text-3xl font-bold text-center mb-12">
+        <h1 class="text-3xl font-bold text-center mb-4">
           Recuperar Contraseña
         </h1>
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -71,7 +66,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             [formControl]="email"
             id="email"
             name="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -96,16 +91,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a
-            class="text-[#FD6A00] font-medium hover:underline"
-            href="/auth/login"
+          <a class="text-primary font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
@@ -133,8 +126,9 @@ export class RecoveryPasswordComponent {
         this.showModal = true;
         localStorage.setItem('email', this.email.value as string);
       },
-      error: ({ error }) => (this.errorMessage = error.message),
-      complete: () => (this.loading = false),
+      error: ({ error }) => (
+        (this.errorMessage = error.message), (this.loading = false)
+      ),
     });
   }
 }

@@ -14,38 +14,35 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-user-layout>
       <div class="relative">
-        <!-- <img
-          class="w-full h-auto"
-          src="profile/background-profile.png"
-          alt="Portada del Perfil"
-        /> -->
         <div class="w-screen h-96 bg-profile"></div>
         <div
-          class="absolute -bottom-[216px] md:left-16 inset-x-0 md:right-auto flex flex-col items-center"
+          class="absolute -bottom-56 md:left-8 inset-x-0 mx-auto md:mx-0 flex flex-col items-center w-80"
         >
           <img
             class="rounded-full size-52 border-white border-8"
             src="{{ user.imageUrl || 'profile.png' }}"
             alt="Foto de Perfil"
           />
-          <h4 class="text-xl font-extrabold mt-4">
-            {{ user.name + ' ' + user.lastname }}
-          </h4>
-          <small>{{ user.state || '' }}</small>
-          <p class="text-sm mt-2">{{ user.email }}</p>
-          <app-custom-button
-            (click)="router.navigate(['/actualizar-informacion'])"
-            [hoverColor]="'white'"
-            [color]="'orange'"
-            [text]="'Editar Perfil'"
-            [moreStyles]="'mt-4'"
-          />
+          <div class="flex flex-col items-center justify-between">
+            <h4 class="text-xl font-extrabold text-center">
+              {{ user.name + ' ' + user.lastname }}
+            </h4>
+            <small class="my-1">{{ user.state }}</small>
+            <p class="text-sm">{{ user.email }}</p>
+            <app-custom-button
+              (click)="router.navigate(['/actualizar-informacion'])"
+              [hoverColor]="'white'"
+              [color]="'orange'"
+              [text]="'Editar Perfil'"
+              [moreStyles]="'mt-4'"
+            />
+          </div>
         </div>
       </div>
       <section
-        class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start"
+        class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start md:mr-16 mx-16"
       >
-        <div class="flex gap-x-1">
+        <div class="flex gap-x-1 w-full">
           <app-custom-button
             (click)="selectedButton = 'sobre-mi'"
             [hoverColor]="'white'"
@@ -71,7 +68,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
         <div
-          class="border border-solid border-black min-h-52 min-w-[365px] w-[90%] md:mr-16 rounded mt-1 p-4"
+          class="border border-solid border-black min-h-52 min-w-[365px] w-full rounded mt-1 p-4"
         >
           @if (selectedButton === 'sobre-mi') {
           <ul>
@@ -82,11 +79,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li><strong>Cargo:</strong> {{ user.position }}</li>
             <li>
               <strong>Fecha de Cumpleaños:</strong>
-              {{ birthdate?.toDateString() }}
+              {{ birthdate }}
             </li>
             <li>
               <strong>Fecha de Ingreso a la Organización:</strong>
-              {{ date?.toDateString() }}
+              {{ date }}
             </li>
           </ul>
           } @else if (selectedButton === 'mis-cursos') {
@@ -114,8 +111,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 export class MiPerfilComponent {
   selectedButton = 'sobre-mi';
   user = {} as User;
-  date = null as Date | null;
-  birthdate = null as Date | null;
+  date = '';
+  birthdate = '';
 
   constructor(
     private authService: AuthService,
@@ -127,11 +124,20 @@ export class MiPerfilComponent {
     this.userService.getUserById(this.authService.getInfoUser().sub).subscribe({
       next: (result) => {
         this.user = result;
-        this.date = result.createdAt ? new Date(result.createdAt) : null;
-        this.birthdate = result.birthdate ? new Date(result.birthdate) : null;
 
-        this.date?.setHours(this.date.getHours() + 5);
-        this.birthdate?.setHours(this.birthdate.getHours() + 5);
+        let formatDate = new Date(result.createdAt);
+
+        this.date = Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(
+          formatDate.setMinutes(formatDate.getMinutes() + formatDate.getTimezoneOffset())
+        );
+
+        if (result.birthdate) {
+          formatDate = new Date(result.birthdate);
+
+          this.birthdate = Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(
+            formatDate.setMinutes(formatDate.getMinutes() + formatDate.getTimezoneOffset())
+          );
+        }
       },
     });
   }

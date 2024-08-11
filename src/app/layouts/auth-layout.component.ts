@@ -19,7 +19,7 @@ import '@justinribeiro/lite-youtube';
         class="relative sm:w-[40vw] w-full flex justify-center items-center bg-[#E5E5E5] px-8"
       >
         <img
-          class="absolute top-0 left-0 w-[200px] rounded-br-2xl"
+          class="absolute top-0 left-0 w-52 rounded-br-2xl"
           src="logo.jpg"
           alt="Logo Netlife"
         />
@@ -38,21 +38,21 @@ import '@justinribeiro/lite-youtube';
         >
           <p class="sm:text-sm text-xs text-gray-700">
             ©2024 Alumne LMS. Todos los derechos reservados. Consulta nuestras
-            <a class="text-[#FD6A00] underline-offset-2 underline" href="#"
+            <a class="text-primary underline-offset-2 underline" href="#"
               >Políticas de Privacidad</a
             >
             |
-            <a class="text-[#FD6A00] underline-offset-2 underline" href="#"
+            <a class="text-primary underline-offset-2 underline" href="#"
               >Políticas de Cookies</a
             >
             |
-            <a class="text-[#FD6A00] underline-offset-2 underline" href="#"
+            <a class="text-primary underline-offset-2 underline" href="#"
               >Términos de Uso</a
             >
           </p>
           <button
             (click)="cookies = true"
-            class="px-4 py-1 bg-[#FD6A00] text-white rounded hover:bg-[#FD6A00]/80 transition duration-300 ease-in-out text-sm"
+            class="px-4 py-1 bg-primary text-white rounded hover:bg-primary/80 transition duration-300 ease-in-out text-sm"
           >
             Acepto
           </button>

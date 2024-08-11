@@ -6,12 +6,9 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [NgClass],
   template: `
-    <div
-      (click)="showOptions = !showOptions"
-      class="relative w-full"
-    >
+    <div (click)="showOptions = !showOptions" class="relative w-full">
       <div
-        class="flex justify-between w-full border-4 rounded-[10px] border-[#72C234] min-h-[48px] items-center"
+        class="flex justify-between w-full border-4 rounded-lg border-[#72C234] min-h-12 items-center"
       >
         <span class="ml-2">
           {{ selectedResponse }}
@@ -29,30 +26,27 @@ import { NgClass } from '@angular/common';
         </svg>
       </div>
       <div
-        class="border border-[#F2F2F2] bg-[#F2F2F2] rounded-[10px] absolute w-full"
+        class="border border-[#F2F2F2] bg-[#F2F2F2] rounded-lg absolute w-full"
         [ngClass]="{ hidden: !showOptions, '': showOptions }"
       >
-        <ol class="flex flex-col *:pl-5 *:py-2   rounded-[10px] ">
+        <ol class="flex flex-col *:pl-5 *:py-2 rounded-lg ">
           <li
-            class="hover:bg-[#D9D9D9] rounded-t-[10px]"
+            class="hover:bg-zinc-300 rounded-t-lg"
             (click)="selectedResponse = 'Saltos'"
           >
             Saltos
           </li>
           <li
-            class="hover:bg-[#D9D9D9]"
+            class="hover:bg-zinc-300"
             (click)="selectedResponse = 'Ancho de banda'"
           >
             Ancho de banda
           </li>
-          <li
-            class="hover:bg-[#D9D9D9]"
-            (click)="selectedResponse = 'Retardo'"
-          >
+          <li class="hover:bg-zinc-300" (click)="selectedResponse = 'Retardo'">
             Retardo
           </li>
           <li
-            class="hover:bg-[#D9D9D9] rounded-b-[10px]"
+            class="hover:bg-zinc-300 rounded-b-lg"
             (click)="selectedResponse = 'Ninguna de las anteriores'"
           >
             Ninguna de las anteriores

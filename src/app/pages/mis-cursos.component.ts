@@ -14,7 +14,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         Información sobre los cursos que estás tomando o que tomaste.
       </p>
       <section class="pl-16">
-        <h2 class="text-[#ec7434] font-extrabold">EN PROCESO</h2>
+        <h2 class="text-primary font-extrabold">EN PROCESO</h2>
         <div class="mt-4 flex gap-8">
           <app-course-info
             id="redes-de-computadoras"
@@ -46,7 +46,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="pl-16 mt-4">
-        <h2 class="text-[#ec7434] font-extrabold">COMPLETADOS</h2>
+        <h2 class="text-primary font-extrabold">COMPLETADOS</h2>
         <div class="mt-4 flex gap-8">
           <app-course-info
             title="Redes de Computadoras"
@@ -63,7 +63,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="pl-16 mt-4 mb-20">
-        <h2 class="text-[#ec7434] font-extrabold">
+        <h2 class="text-primary font-extrabold">
           CURSOS RECOMENDADOS PARA TI
         </h2>
         <div class="mt-4 flex gap-8">

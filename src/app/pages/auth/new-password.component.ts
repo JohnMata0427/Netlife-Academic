@@ -21,27 +21,29 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         class="flex flex-col gap-3"
         (submit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-12">Nueva Contraseña</h1>
+        <h1 class="text-3xl font-bold text-center mb-4">Nueva Contraseña</h1>
         <span class="text-gray-500 text-xs font-semibold"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
         >
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/password.svg"
             alt="Password Icon"
           />
           <input
+            id="password"
+            name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute top-0 right-0 mt-[10px] mr-[10px] cursor-pointer"
+            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
             src="icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -56,20 +58,22 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/password.svg"
             alt="Password Icon"
           />
           <input
+            id="confirmPassword"
+            name="confirmPassword"
             formControlName="confirmPassword"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
             (click)="toggleConfirmPasswordVisibility()"
-            class="size-4 absolute top-0 right-0 mt-[10px] mr-[10px] cursor-pointer"
+            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
             src="icons/forms/{{ iconConfirmPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -92,7 +96,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
@@ -100,7 +104,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿Tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/login"
             >Inicia sesión aquí</a
           ></span
@@ -155,8 +159,9 @@ export class NewPasswordComponent {
         localStorage.removeItem('email');
         this.router.navigate(['/auth/login']);
       },
-      error: ({ error }) => (this.errorMessage = error.message),
-      complete: () => (this.loading = false),
+      error: ({ error }) => (
+        (this.errorMessage = error.message), (this.loading = false)
+      ),
     });
   }
 

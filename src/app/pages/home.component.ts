@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
 import { UserService } from '@services/user.service';
 import { User } from '@interfaces/user.interface';
-import { UserLayout } from "@layouts/user-layout.component";
+import { UserLayout } from '@layouts/user-layout.component';
 import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    UserLayout,
-    CourseInfoComponent,
-    CustomTitleComponent
-],
+  imports: [UserLayout, CourseInfoComponent, CustomTitleComponent],
   template: `
-  <app-user-layout>
-  <img class="w-full" src="banner.png" alt="Banner de Inicio" />
+    <app-user-layout>
+      <img class="w-full" src="banner.png" alt="Banner de Inicio" />
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex gap-20">
@@ -45,7 +41,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 </div>
                 }
                 <img
-                  class="rounded-full size-[70px] border-white border-4"
+                  class="rounded-full size-16 border-white border-4"
                   src="{{ user.imageUrl || 'profile.png' }}"
                   alt="Foto de Perfil"
                 />
@@ -63,7 +59,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             }
           </aside>
           <article class="flex flex-col gap-y-2">
-            <h2 class="text-[#FD6A00] font-bold">PROXIMAS TAREAS</h2>
+            <h2 class="text-primary font-bold">PROXIMAS TAREAS</h2>
             <a href="/mis-cursos" class="flex gap-x-4">
               <div class="relative">
                 <div
@@ -72,19 +68,20 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                   JUL
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-1 rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   20
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-[#D9D9D9]/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
               >
                 <h3 class="text-sm">
                   <strong>Tarea: </strong> Redes neuronales
                 </h3>
                 <div class="flex items-center gap-x-2">
                   <img
+                    class="size-4"
                     src="icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
@@ -95,24 +92,25 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             <a href="/mis-cursos" class="flex gap-x-4">
               <div class="relative">
                 <div
-                  class="bg-[#ec7434] vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
+                  class="bg-primary vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
                 >
                   JUL
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-1 rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   31
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-[#D9D9D9]/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
               >
                 <h3 class="text-sm">
                   <strong>Tarea: </strong> Conceptos de Programación
                 </h3>
                 <div class="flex items-center gap-x-2">
                   <img
+                    class="size-4"
                     src="icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
@@ -128,17 +126,18 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                   AGO
                 </div>
                 <div
-                  class="bg-black text-white absolute -bottom-0 -left-[3px] rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
+                  class="bg-black text-white absolute -bottom-0 -left-1 rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
                 >
                   2
                 </div>
               </div>
               <div
-                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-[#D9D9D9]/50"
+                class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-zinc-300/50"
               >
                 <h3 class="text-sm"><strong>Tarea: </strong> Modelo OSI</h3>
                 <div class="flex items-center gap-x-2">
                   <img
+                    class="size-4"
                     src="icons/courses/time.svg"
                     alt="Icono hora de entrega"
                   />
@@ -161,8 +160,8 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                     <span class="text-xs text-white text-end">Por hacer</span>
                   </div>
                   <div class="w-20 flex flex-col gap-y-1">
-                    <div class="h-1 bg-[#FD6A00] flex justify-end items-center">
-                      <div class="size-2 rounded-full bg-[#FD6A00]"></div>
+                    <div class="h-1 bg-primary flex justify-end items-center">
+                      <div class="size-2 rounded-full bg-primary"></div>
                     </div>
                     <span class="text-xs text-white text-end">Proximo</span>
                   </div>
@@ -177,7 +176,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
               <button
                 class="bg-black flex items-center justify-center px-4 gap-x-2 rounded-lg hover:bg-black/95"
               >
-                <img src="icons/courses/calendar.svg" alt="Calendario" />
+                <img class="size-4" src="icons/courses/calendar.svg" alt="Calendario" />
                 <span class="text-white text-xs">Ver calendario</span>
               </button>
             </div>
@@ -185,9 +184,9 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="mb-20">
-      <app-custom-title title="Nuevos Cursos" />
+        <app-custom-title title="Nuevos Cursos" />
 
-        <h2 class="text-[#ec7434] font-extrabold ml-16">
+        <h2 class="text-primary font-extrabold ml-16">
           CURSOS RECOMENDADOS PARA TI
         </h2>
         <div class="mt-4 flex gap-8 ml-16">
@@ -213,7 +212,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           />
         </div>
       </section>
-  </app-user-layout>
+    </app-user-layout>
   `,
   styles: `
   .vertical-lr {
@@ -228,8 +227,8 @@ export class HomeComponent {
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.userService.getRankedUsers().subscribe((users) => {
-      this.users = users;
-    });
+    this.userService
+      .getRankedUsers()
+      .subscribe((users) => (this.users = users));
   }
 }

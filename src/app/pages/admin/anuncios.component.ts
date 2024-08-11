@@ -36,6 +36,8 @@ import { AnnouncementService } from '@services/announcement.service';
           <div class="w-full flex flex-col gap-y-2">
             <label class="font-bold" for="">Asunto</label>
             <input
+              id="subject"
+              name="subject"
               formControlName="subject"
               class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
               type="text"
@@ -56,6 +58,7 @@ import { AnnouncementService } from '@services/announcement.service';
               formControlName="type"
               name="type"
               id="type"
+              name="type"
               class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
               required
             >
@@ -68,6 +71,7 @@ import { AnnouncementService } from '@services/announcement.service';
               formControlName="role"
               name="role"
               id="role"
+              name="role"
               class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
               required
             >
@@ -79,13 +83,14 @@ import { AnnouncementService } from '@services/announcement.service';
             <label class="relative inline-flex cursor-pointer items-center">
               <input
                 formControlName="exclude"
+                mame="exclude"
                 id="switch"
                 type="checkbox"
                 class="peer sr-only"
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Excluir a usuarios
             </label>
@@ -113,13 +118,14 @@ import { AnnouncementService } from '@services/announcement.service';
             <label class="relative inline-flex cursor-pointer items-center">
               <input
                 formControlName="guest"
+                name="guest"
                 id="switch"
                 type="checkbox"
                 class="peer sr-only"
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Excluir a usuarios invitados
             </label>
@@ -127,25 +133,27 @@ import { AnnouncementService } from '@services/announcement.service';
             <label class="relative inline-flex cursor-pointer items-center">
               <input
                 formControlName="sendEmail"
+                name="sendEmail"
                 id="switch"
                 type="checkbox"
                 class="peer sr-only"
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Enviar por correo electrónico </label
             ><label class="relative inline-flex cursor-pointer items-center">
               <input
                 formControlName="publishHome"
                 id="switch-3"
+                name="publishHome"
                 type="checkbox"
                 class="peer sr-only"
               />
               <label for="switch-3" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
               ></div>
               Envío a la Pantalla Principal/Inicio del aplicativo
             </label>
@@ -157,6 +165,8 @@ import { AnnouncementService } from '@services/announcement.service';
               class="border border-[#B8B8B8] rounded-lg p-1 text-sm"
               type="datetime-local"
               formControlName="deletedAt"
+              name="deletedAt"
+              id="deletedAt"
             />
             }
           </div>

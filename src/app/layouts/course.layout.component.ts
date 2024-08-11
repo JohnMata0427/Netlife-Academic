@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '@components/footer.component';
@@ -7,7 +7,7 @@ import { HeaderComponent } from '@components/header.component';
 @Component({
   selector: 'app-course',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, NgClass],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, NgClass, NgStyle],
   template: `
     <router-outlet />
     <app-header />
@@ -53,12 +53,13 @@ import { HeaderComponent } from '@components/header.component';
       </div>
 
       <section class="flex items-center justify-center gap-x-4 mt-8">
-        <div class="w-5/6 bg-[#D9D9D9] h-5 rounded">
+        <div class="w-5/6 bg-zinc-300 h-5 rounded">
           <div
-            class="w-[14%] bg-gradient-to-r from-[#FEE500] to-[#F0000B] rounded-l h-full"
+            [ngStyle]="{ 'width.%': '50' }"
+            class="bg-gradient-to-r from-[#FEE500] to-[#F0000B] rounded-l h-full"
           ></div>
         </div>
-        <h4 class="text-sm">14% Progreso</h4>
+        <h4 class="text-sm">50% Progreso</h4>
       </section>
 
       <section>
@@ -77,7 +78,7 @@ import { HeaderComponent } from '@components/header.component';
             <button
               (click)="selectedButton = 'Inicio'"
               class="min-w-24 bg-black text-white text-sm py-2 px-5 rounded-tr-lg hover:bg-black/90 border-2"
-              [ngClass]="{ 'border-[#FD6A00]': selectedButton === 'Inicio' }"
+              [ngClass]="{ 'border-primary': selectedButton === 'Inicio' }"
             >
               Inicio
             </button>
@@ -88,7 +89,7 @@ import { HeaderComponent } from '@components/header.component';
               (click)="selectedButton = 'Modulo ' + module"
               class="bg-black text-white text-sm py-2 px-5 rounded-tr-lg hover:bg-black/90 border-2"
               [ngClass]="{
-                'border-[#FD6A00]': selectedButton === 'Modulo ' + module
+                'border-primary': selectedButton === 'Modulo ' + module
               }"
             >
               Módulo {{ module }}
@@ -100,7 +101,7 @@ import { HeaderComponent } from '@components/header.component';
               (click)="selectedButton = 'Evaluaciones'"
               class="min-w-24 bg-black text-white text-sm py-2 px-5 rounded-tr-lg hover:bg-black/90 border-2"
               [ngClass]="{
-                'border-[#FD6A00]': selectedButton === 'Evaluaciones'
+                'border-primary': selectedButton === 'Evaluaciones'
               }"
             >
               Evaluaciones
@@ -170,7 +171,7 @@ import { HeaderComponent } from '@components/header.component';
         </div>
         <div class="flex justify-center gap-x-8 my-10">
           <div
-            class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
@@ -191,7 +192,7 @@ import { HeaderComponent } from '@components/header.component';
             </div>
           </div>
           <div
-            class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
@@ -212,7 +213,7 @@ import { HeaderComponent } from '@components/header.component';
             </div>
           </div>
           <div
-            class="w-96 min-h-60 bg-[#D9D9D9] shadow-md shadow-black/50 rounded-lg"
+            class="w-96 min-h-60 bg-zinc-300 shadow-md shadow-black/50 rounded-lg"
           >
             <div
               class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"

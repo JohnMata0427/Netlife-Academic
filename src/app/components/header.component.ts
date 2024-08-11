@@ -18,26 +18,26 @@ import { UserService } from '@services/user.service';
           <div class="flex gap-x-8">
             <a
               id="home"
-              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/home"
               >Inicio</a
             >
 
             <a
               id="mi-perfil"
-              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mi-perfil"
               >Mi Perfil</a
             >
             <a
               id="mis-cursos"
-              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-cursos"
               >Mis Cursos</a
             >
             <a
               id="mis-certificados"
-              class="text-white hover:text-[#ec7434] text-sm relative inline cursor-pointer font-medium before:bg-[#ec7434]  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-white hover:text-primary text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-certificados"
               >Mis Certificados</a
             >
@@ -46,7 +46,10 @@ import { UserService } from '@services/user.service';
         <div class="flex justify-end items-center w-full">
           <div class="flex justify-end items-center mr-4">
             <input
-              class="w-96 py-1 px-3 rounded-2xl text-sm focus:outline-none border focus:border-[#ec7434]"
+              type="search"
+              id="search"
+              name="search"
+              class="w-96 py-1 px-3 rounded-2xl text-sm focus:outline-none border focus:border-primary"
               type="text"
               placeholder="Buscar más cursos"
             />
@@ -54,10 +57,8 @@ import { UserService } from '@services/user.service';
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               stroke="#000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
               stroke-width="2.5"
-              class="absolute mr-3 icon icon-tabler icon-tabler-search cursor-pointer hover:scale-105"
+              class="absolute mr-3 icon icon-tabler icon-tabler-search cursor-pointer hover:scale-105 size-4"
               viewBox="0 0 24 24"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
@@ -69,7 +70,7 @@ import { UserService } from '@services/user.service';
               (click)="showNotifications = !showNotifications"
               class="hover:scale-110"
             >
-              <img src="icons/header/notify.svg" alt="Notificaciones" />
+              <img class="size-5" src="icons/header/notify.svg" alt="Notificaciones" />
             </button>
             @if (showNotifications) {
             <div
@@ -82,7 +83,7 @@ import { UserService } from '@services/user.service';
               (click)="showMessages = !showMessages"
               class="hover:scale-110"
             >
-              <img src="icons/header/message.svg" alt="Mensajes" />
+              <img class="size-5" src="icons/header/message.svg" alt="Mensajes" />
             </button>
             @if (showMessages) {
             <div
@@ -96,11 +97,12 @@ import { UserService } from '@services/user.service';
               class="relative flex items-center gap-x-2 hover:scale-105"
             >
               <img
-                class="rounded-full size-9 border-white border-[3px]"
+                class="rounded-full size-8 border-white border-[3px]"
                 src="{{ profile }}"
                 alt="Perfil del Usuario"
               />
               <img
+                class="size-3"
                 src="icons/header/deploy-info.svg"
                 alt="Desplegar información"
               />
@@ -110,10 +112,10 @@ import { UserService } from '@services/user.service';
               class="w-56 flex flex-col z-10 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
             >
               <div class="flex flex-col items-center">
-                <strong>{{ username }}</strong>
+                <strong class="text-center">{{ username }}</strong>
                 <span class="text-xs">{{ email }}</span>
               </div>
-              <hr />
+              <hr class="border-2"/>
               @if (role === 'ADMIN') {
               <button
                 (click)="router.navigate(['/admin/dashboard'])"
@@ -154,6 +156,7 @@ import { UserService } from '@services/user.service';
                 (click)="authService.logout()"
               >
                 <svg
+                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 416 352"
@@ -206,8 +209,8 @@ export class HeaderComponent {
   ngOnInit() {
     document
       .getElementById(this.active)
-      ?.classList.remove('text-white', 'hover:text-[#ec7434]');
-    document.getElementById(this.active)?.classList.add('text-[#ec7434]');
+      ?.classList.remove('text-white', 'hover:text-primary');
+    document.getElementById(this.active)?.classList.add('text-primary');
     this.title.setTitle(
       this.active
         .split('-')

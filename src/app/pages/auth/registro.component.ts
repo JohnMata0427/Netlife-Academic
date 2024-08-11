@@ -17,10 +17,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         class="flex flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-12">Regístrate</h1>
+        <h1 class="text-3xl font-bold text-center mb-4">Regístrate</h1>
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/user.svg"
             alt="User Icon"
           />
@@ -28,7 +28,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="name"
             name="name"
             formControlName="name"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="text"
             placeholder="Nombre"
             required
@@ -37,7 +37,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/user.svg"
             alt="User Icon"
           />
@@ -45,7 +45,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="lastname"
             name="lastname"
             formControlName="lastname"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="text"
             placeholder="Apellidos"
             required
@@ -54,7 +54,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -62,7 +62,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -71,7 +71,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -79,7 +79,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmEmail"
             name="confirmEmail"
             formControlName="confirmEmail"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="email"
             placeholder="Confirmar Correo Electrónico"
             required
@@ -92,7 +92,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/identification.svg"
             alt="Identification Icon"
           />
@@ -100,7 +100,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="identification"
             name="identification"
             formControlName="identification"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="text"
             placeholder="Cédula o Pasaporte"
             required
@@ -121,7 +121,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -129,14 +129,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="password"
             name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute top-0 right-0 mt-[10px] mr-[10px] cursor-pointer"
+            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
             src="icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -144,7 +144,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -152,14 +152,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmPassword"
             name="confirmPassword"
             formControlName="confirmPassword"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
             (click)="toggleConfirmPasswordVisibility()"
-            class="size-4 absolute top-0 right-0 mt-[10px] mr-[10px] cursor-pointer"
+            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
             src="icons/forms/{{ iconConfirmPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -176,7 +176,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute top-0 left-0 mt-3 ml-3"
+            class="size-3 absolute inset-y-0 my-auto left-3"
             src="icons/forms/verify.svg"
             alt="Verify Code Icon"
           />
@@ -184,7 +184,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="verificationCode"
             name="verificationCode"
             formControlName="verificationCode"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border-[1px] text-sm bg-[#f1f1f1]"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
             type="number"
             placeholder="Código de Verificación"
             maxlength="6"
@@ -196,7 +196,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="flex gap-2 my-2">
           <input
             formControlName="terms"
-            class="accent-[#FD6A00]"
+            class="accent-primary"
             type="checkbox"
             name="terms"
             id="terms"
@@ -205,7 +205,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <label (click)="toggleCheckbox()" class="text-xs cursor-default"
             >Aceptas los
             <a
-              class="text-[#FD6A00] font-medium hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/terms-and-conditions"
               >términos y condiciones</a
             ></label
@@ -227,13 +227,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
           <a
-            class="text-[#FD6A00] font-medium hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
         <a
-          class="text-[#FD6A00] font-medium hover:underline text-center text-xs"
+          class="text-primary font-medium hover:underline text-center text-xs"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >
@@ -306,12 +306,13 @@ export class RegistroComponent {
         : '¡Debes aceptar los términos y condiciones!';
       return;
     }
-    
+
     this.loading = true;
     this.authService.registerUser(this.form.value).subscribe({
       next: () => this.route.navigate(['/home']),
-      error: ({error}) => (this.errorMessage = error.message),
-      complete: () => (this.loading = false),
+      error: ({ error }) => (
+        (this.errorMessage = error.message), (this.loading = false)
+      ),
     });
   }
 }
