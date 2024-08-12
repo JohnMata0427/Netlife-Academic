@@ -26,7 +26,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="text-white text-center text-sm rounded py-1.5 w-32 my-4 px-4 bg-[#82D245]/50"
+            class="text-white text-center text-sm rounded-lg py-1.5 w-32 my-4 px-4 bg-[#82D245]/50"
           >
             En progreso
           </div>
@@ -73,7 +73,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <div class="w-5/6 bg-quinary h-5 rounded">
           <div
             [ngStyle]="{ 'width.%': '50' }"
-            class="bg-gradient-to-r from-secondary to-tertiary rounded-l h-full"
+            class="bg-gradient-to-r from-secondary via-tertiary to-quaternary rounded-l h-full"
           ></div>
         </div>
         <h4 class="text-sm">50% Progreso</h4>
@@ -262,10 +262,10 @@ import { UserLayout } from '@layouts/user-layout.component';
           <h3 class="text-3xl ml-28 font-bold">Examen</h3>
         </div>
       </section>
-      <section class="mb-10">
+      <section class="mb-10 flex flex-col">
         <app-custom-title [title]="'Pruebas'" />
         <button
-          class="bg-[#54555A]/15 h-16 ml-16 flex justify-between items-center border-l-8 border-primary pl-4 w-[90%]"
+          class="bg-[#54555A]/15 mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
         >
           <div class="flex items-center gap-x-4">
             <img

@@ -68,7 +68,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
         <div
-          class="border border-solid border-black min-h-52 min-w-[365px] w-full rounded mt-1 p-4"
+          class="border border-solid border-black min-h-52 min-w-[365px] w-full rounded-lg mt-1 p-4"
         >
           @if (selectedButton === 'sobre-mi') {
           <ul>

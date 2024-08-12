@@ -9,7 +9,7 @@ import { FooterComponent } from '@components/footer.component';
   imports: [HeaderComponent, CourseInfoComponent, FooterComponent],
   template: `
     <app-header />
-    <main class="min-h-[95vh]">
+    <main class="min-h-screen">
       <ng-content></ng-content>
     </main>
     <app-footer />

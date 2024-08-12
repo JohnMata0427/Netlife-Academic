@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
     <a href="/mis-cursos" class="flex gap-x-4">
       <div class="relative">
         <div
-          class="bg-tertiary vertical-lr text-white font-bold text-xl rounded pt-1 pb-3"
+          class="bg-tertiary vertical-lr text-white font-bold text-xl rounded-lg pt-1 pb-3"
         >
           JUL
         </div>

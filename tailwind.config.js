@@ -5,13 +5,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#ED7004",
-        secondary: "#FFED00",
-        tertiary: "#E30613",
-        quaternary: "#4D1053",
-        quinary: "#D9D9D9",
-        greenlight: '#72C234',
-        orangelight: '#FAAB00',
+        primary: "#ED7004", // Naranja
+        secondary: "#FFED00", // Amarillo
+        tertiary: "#E30613", // Rojo
+        quaternary: "#4D1053", // Morado
+        quinary: "#ECECEC", // Gris
+        greenlight: '#72C234', // Verde
+        orangelight: '#FAAB00', // Naranja claro
       },
       fontFamily: {
         roboto: ["Roboto"],

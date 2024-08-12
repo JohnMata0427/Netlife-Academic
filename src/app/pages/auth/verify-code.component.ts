@@ -82,7 +82,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <p class="text-white text-sm text-center font-extralight">
             El código de confirmación que ingresaste es incorrecto.
           </p>
-          <span class="text-white text-[12px] my-4"
+          <span class="text-white text-xs my-4"
             >¿Deseas que se te reenvíe el código?</span
           >
           <div class="flex gap-4">

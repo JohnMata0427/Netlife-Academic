@@ -44,7 +44,7 @@ import '@justinribeiro/lite-youtube';
         </p>
         <button
           (click)="cookies = true"
-          class="px-4 py-1 bg-primary text-white rounded hover:bg-primary/80 transition duration-300 ease-in-out text-sm"
+          class="px-4 py-1 bg-primary text-white rounded-lg hover:bg-primary/80 transition duration-300 ease-in-out text-sm"
         >
           Acepto
         </button>

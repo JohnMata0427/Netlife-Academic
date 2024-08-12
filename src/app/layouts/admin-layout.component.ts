@@ -26,7 +26,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             />
             <div class="flex flex-col items-center">
               <h4 class="text-white text-xs">{{ user.email }}</h4>
-              <span class="text-white text-[10px]"
+              <span class="text-white text-xs"
                 >Administrador del sitio</span
               >
             </div>
