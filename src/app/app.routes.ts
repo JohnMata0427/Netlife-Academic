@@ -24,28 +24,68 @@ import { VirtualCourseComponent } from '@pages/virtual-course.component';
 import { VideoCourseComponent } from '@pages/video-course.component';
 
 export const routes: Routes = [
-    { path: 'auth', canActivate: [noAuthGuard], children: [
-        { path: 'register', component: RegistroComponent },
-        { path: 'login', component: LoginComponent },
-        { path: 'recovery-password', component: RecoveryPasswordComponent },
-        { path: 'verify-code', component: VerifyCodeComponent, canActivate: [requiredCodeGuard] },
-        { path: 'new-password', component: NewPasswordComponent, canActivate: [requiredCodeGuard] },
-    ]},
-    { path: 'terms-and-conditions', component: TermsComponent },
-    { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-    { path: 'mis-cursos/virtual/video', component: VideoCourseComponent, canActivate: [authGuard] },
-    { path: 'mis-cursos/virtual/:id', component: VirtualCourseComponent, canActivate: [authGuard] },
-    { path: 'mis-cursos/:id', component: CourseComponent, canActivate: [authGuard] },
-    { path: 'mis-cursos', component: MisCursosComponent, canActivate: [authGuard] },
-    { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
-    { path: 'grade', component: GradeComponent, canActivate: [authGuard] },
-    { path: 'actualizar-informacion', component: ActualizarPerfilComponent, canActivate: [authGuard] },
-    { path: 'mi-perfil', component: MiPerfilComponent, canActivate: [authGuard] },
-    { path: 'mis-certificados', component: MisCertificadosComponent, canActivate: [authGuard] },
-    { path: 'admin', canActivate: [adminGuard], children: [
-        { path: 'dashboard', component: AdminDashboardComponent },
-        { path: 'anuncios', component: AdminAnunciosComponent }
-    ] },
-    { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-    { path: '**', component: NotFoundComponent, canActivate: [authGuard] }
+  {
+    path: 'auth',
+    canActivate: [noAuthGuard],
+    children: [
+      { path: 'register', component: RegistroComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'recovery-password', component: RecoveryPasswordComponent },
+      {
+        path: 'verify-code',
+        component: VerifyCodeComponent,
+        canActivate: [requiredCodeGuard],
+      },
+      {
+        path: 'new-password',
+        component: NewPasswordComponent,
+        canActivate: [requiredCodeGuard],
+      },
+    ],
+  },
+  { path: 'terms-and-conditions', component: TermsComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  {
+    path: 'mis-cursos/virtual/video',
+    component: VideoCourseComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'mis-cursos/virtual/:id',
+    component: VirtualCourseComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'mis-cursos/:id',
+    component: CourseComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'mis-cursos',
+    component: MisCursosComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
+  { path: 'grade', component: GradeComponent, canActivate: [authGuard] },
+  {
+    path: 'actualizar-informacion',
+    component: ActualizarPerfilComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'mi-perfil', component: MiPerfilComponent, canActivate: [authGuard] },
+  {
+    path: 'mis-certificados',
+    component: MisCertificadosComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'admin',
+    canActivate: [adminGuard],
+    children: [
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'anuncios', component: AdminAnunciosComponent },
+    ],
+  },
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent, canActivate: [authGuard] },
 ];

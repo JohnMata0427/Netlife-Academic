@@ -19,7 +19,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       />
       <form
         [formGroup]="form"
-        class="flex flex-col gap-3 w-96 my-40"
+        class="flex flex-col gap-3 w-96 my-36"
         (ngSubmit)="onSubmit()"
       >
         <h1 class="text-3xl font-bold text-center mb-4">Regístrate</h1>
@@ -92,7 +92,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.value !== form.get('confirmEmail')?.value) {
-        <p class="text-red-500 text-xs px-4">Los correos no coinciden</p>
+          <p class="text-red-500 text-xs px-4">Los correos no coinciden</p>
         }
 
         <div class="relative">
@@ -163,9 +163,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        @if (form.get('password')?.value !== form.get('confirmPassword')?.value)
-        {
-        <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
+        @if (
+          form.get('password')?.value !== form.get('confirmPassword')?.value
+        ) {
+          <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
         }
 
         <span class="text-gray-500 text-xs font-semibold"
@@ -191,7 +192,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        <div class="flex gap-2 my-2">
+        <div class="space-x-2 my-2">
           <input
             formControlName="terms"
             class="accent-primary"
@@ -211,9 +212,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-        <p class="text-red-500 text-xs text-center px-4">
-          {{ errorMessage }}
-        </p>
+          <p class="text-red-500 text-xs text-center px-4">
+            {{ errorMessage }}
+          </p>
         }
 
         <app-custom-button
@@ -257,7 +258,7 @@ export class RegistroComponent {
     ]),
     terms: new FormControl(false, Validators.required),
   });
-  
+
   loading = false;
   errorMessage!: string;
 
@@ -269,7 +270,10 @@ export class RegistroComponent {
   typeConfirmPasswordInput = 'password';
   iconConfirmPasswordInput = 'eye';
 
-  constructor(private route: Router, private authService: AuthService) {}
+  constructor(
+    private route: Router,
+    private authService: AuthService,
+  ) {}
 
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;

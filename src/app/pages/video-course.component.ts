@@ -9,7 +9,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <app-user-layout>
-      <div class="mx-8 mt-8 flex gap-x-4 mb-10">
+      <div class="mx-8 mt-8 space-x-4 mb-10">
         <section class="w-3/5">
           <lite-youtube
             class="rounded-lg"
@@ -19,7 +19,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
           <h2 class="my-4 text-xl font-bold">
             Bienvenida del Curso - Inteligencia Artificial
           </h2>
-          <div class="flex gap-x-4 items-center">
+          <div class="space-x-4 items-center">
             <img class="rounded-full size-12" src="/profile.webp" alt="" />
             <svg
               class="size-4"
@@ -77,7 +77,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
         <aside class="w-2/5 flex flex-col gap-y-4">
           <div class="flex flex-col rounded-lg shadow-sm shadow-black/50">
             <header
-              class="bg-orangelight flex gap-x-4 py-2 px-4 items-center rounded-t-lg"
+              class="bg-orangelight space-x-4 py-2 px-4 items-center rounded-t-lg"
             >
               <svg
                 class="size-5"
@@ -96,7 +96,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               class="p-8 flex flex-col text-white gap-y-2 *:bg-zinc-600 *:p-4 *:select-none"
             >
               <details open>
-                <summary class="flex items-center gap-x-2">
+                <summary class="space-x-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </summary>
                 <ul class="flex flex-col gap-y-2 mt-4 ml-4">
                   <li class="flex justify-between">
-                    <div class="flex items-center gap-x-2">
+                    <div class="space-x-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -134,10 +134,12 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                         >1.1 Bienvenida del curso</a
                       >
                     </div>
-                    <strong class="text-greenlight text-xs font-light">00:10 min</strong>
+                    <strong class="text-greenlight text-xs font-light"
+                      >00:10 min</strong
+                    >
                   </li>
                   <li class="flex justify-between">
-                    <div class="flex items-center gap-x-2">
+                    <div class="space-x-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -158,10 +160,12 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                         >1.2 Historia y evolución de la IA</a
                       >
                     </div>
-                    <strong class="text-white text-xs font-light">00:10 min</strong>
+                    <strong class="text-white text-xs font-light"
+                      >00:10 min</strong
+                    >
                   </li>
                   <li class="flex justify-between">
-                    <div class="flex items-center gap-x-2">
+                    <div class="space-x-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -182,10 +186,12 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                         >1.3 Algoritmos y técnicas básicas</a
                       >
                     </div>
-                    <strong class="text-white text-xs font-light">00:10 min</strong>
+                    <strong class="text-white text-xs font-light"
+                      >00:10 min</strong
+                    >
                   </li>
                   <li class="flex justify-between">
-                    <div class="flex items-center gap-x-2">
+                    <div class="space-x-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -206,12 +212,14 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                         >1.4 Representación y conocimiento</a
                       >
                     </div>
-                    <strong class="text-white text-xs font-light">00:10 min</strong>
+                    <strong class="text-white text-xs font-light"
+                      >00:10 min</strong
+                    >
                   </li>
                 </ul>
               </details>
               <details>
-                <summary class="flex items-center gap-x-2">
+                <summary class="space-x-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +237,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="flex items-center gap-x-2">
+                <summary class="space-x-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +255,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="flex items-center gap-x-2">
+                <summary class="space-x-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +273,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="flex items-center gap-x-2">
+                <summary class="space-x-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -288,7 +296,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
             <h4 class="bg-black text-white pl-4 py-1 rounded-t-lg w-2/5">
               Comentarios
             </h4>
-            <div class="flex gap-x-4 items-center">
+            <div class="space-x-4 items-center">
               <img class="rounded-full size-12" src="/profile.webp" alt="" />
               <textarea
                 class="w-full text-sm border border-neutral-400 rounded-lg p-2"

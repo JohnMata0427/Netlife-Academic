@@ -22,34 +22,32 @@ import '@justinribeiro/lite-youtube';
       </div>
     </div>
     @if (!cookies) {
-    <div
-      class="fixed bottom-0 left-0 w-full bg-white"
-    >
-      <div
-        class="container mx-auto px-4 py-1 flex justify-between items-center"
-      >
-        <p class="sm:text-sm text-xs text-gray-700">
-          ©2024 Alumne LMS. Todos los derechos reservados. Consulta nuestras
-          <a class="text-primary underline-offset-2 underline" href="#"
-            >Políticas de Privacidad</a
-          >
-          |
-          <a class="text-primary underline-offset-2 underline" href="#"
-            >Políticas de Cookies</a
-          >
-          |
-          <a class="text-primary underline-offset-2 underline" href="#"
-            >Términos de Uso</a
-          >
-        </p>
-        <button
-          (click)="cookies = true"
-          class="px-4 py-1 bg-primary text-white rounded-lg hover:bg-primary/80 transition duration-300 ease-in-out text-sm"
+      <div class="fixed bottom-0 left-0 w-full bg-white">
+        <div
+          class="container mx-auto px-4 py-1 flex justify-between items-center"
         >
-          Acepto
-        </button>
+          <p class="sm:text-sm text-xs text-gray-700">
+            ©2024 Alumne LMS. Todos los derechos reservados. Consulta nuestras
+            <a class="text-primary underline-offset-2 underline" href="#"
+              >Políticas de Privacidad</a
+            >
+            |
+            <a class="text-primary underline-offset-2 underline" href="#"
+              >Políticas de Cookies</a
+            >
+            |
+            <a class="text-primary underline-offset-2 underline" href="#"
+              >Términos de Uso</a
+            >
+          </p>
+          <button
+            (click)="cookies = true"
+            class="px-4 py-1 bg-primary text-white rounded-lg hover:bg-primary/80 transition duration-300 ease-in-out text-sm"
+          >
+            Acepto
+          </button>
+        </div>
       </div>
-    </div>
     }
   `,
   styles: `

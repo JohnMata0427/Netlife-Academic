@@ -17,7 +17,7 @@ import { Component, Input } from '@angular/core';
 
       <div class="bg-black rounded-b-lg px-4 py-3 flex flex-col gap-y-1">
         <h3 class="text-white text-sm font-bold">{{ title }}</h3>
-        <div class="flex items-center gap-x-2">
+        <div class="space-x-2">
           <img
             class="size-3"
             src="/icons/courses/teacher.svg"
@@ -28,10 +28,9 @@ import { Component, Input } from '@angular/core';
         <div class="flex flex-col gap-y-1 mt-2">
           <div class="w-full bg-quinary h-2.5 rounded-lg border border-white">
             <div
-              [ngStyle]="{'width.%': progress}"
+              [ngStyle]="{ 'width.%': progress }"
               class="bg-gradient-to-r from-secondary via-tertiary to-quaternary rounded-l h-full"
             ></div>
-            
           </div>
           <h4 class="text-xs text-white font-extralight text-end">
             {{ progress }}% Completado

@@ -19,5 +19,4 @@ export class AnnouncementService {
   createAnnouncement(obj: any) {
     return this.httpClient.post(this.urlAPI + '/api/announcements', obj);
   }
-
 }

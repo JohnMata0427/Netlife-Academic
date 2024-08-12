@@ -16,7 +16,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         src="/logo.webp"
         alt="Logo Netlife"
       />
-        @if (errorMessage !== 'Código de verificación incorrecto') {
+      @if (errorMessage !== 'Código de verificación incorrecto') {
         <form class="flex flex-col gap-3 w-96" (submit)="onSubmit($event)">
           <h1 class="text-3xl font-bold text-center mb-4">
             Código de verificación
@@ -45,12 +45,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           @if (errorMessage) {
-          <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-          } @else if (verificationCode.value && verificationCode.invalid)
-          {
-          <p class="text-red-500 text-xs px-4">
-            El código debe tener 6 números
-          </p>
+            <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+          } @else if (verificationCode.value && verificationCode.invalid) {
+            <p class="text-red-500 text-xs px-4">
+              El código debe tener 6 números
+            </p>
           }
 
           <app-custom-button
@@ -77,7 +76,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             ></span
           >
         </form>
-        } @else {
+      } @else {
         <div class="bg-black py-5 px-10 rounded-lg flex flex-col items-center">
           <p class="text-white text-sm text-center font-extralight">
             El código de confirmación que ingresaste es incorrecto.
@@ -85,7 +84,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-white text-xs my-4"
             >¿Deseas que se te reenvíe el código?</span
           >
-          <div class="flex gap-4">
+          <div class="space-x-4">
             <button
               (click)="errorMessage = ''"
               class="w-32 bg- py-2 rounded-lg text-sm"
@@ -100,7 +99,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </button>
           </div>
         </div>
-        }
+      }
     </app-layout>
   `,
 })
@@ -116,7 +115,7 @@ export class VerifyCodeComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.token = params['token'];
@@ -144,14 +143,16 @@ export class VerifyCodeComponent {
   }
 
   resendVerifyCode() {
-    this.authService.recoveryPassword(localStorage.getItem('email')!).subscribe({
-      next: (result) =>
-        this.router.navigate([], {
-          queryParams: { token: result.token },
-        }),
-      error: ({ error }) => (
-        (this.errorMessage = error.message), (this.loading = false)
-      ),
-    });
+    this.authService
+      .recoveryPassword(localStorage.getItem('email')!)
+      .subscribe({
+        next: (result) =>
+          this.router.navigate([], {
+            queryParams: { token: result.token },
+          }),
+        error: ({ error }) => (
+          (this.errorMessage = error.message), (this.loading = false)
+        ),
+      });
   }
 }

@@ -42,7 +42,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <section
         class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start md:mr-16 mx-16"
       >
-        <div class="flex gap-x-1 w-full">
+        <div class="space-x-1 w-full">
           <app-custom-button
             (click)="selectedButton = 'sobre-mi'"
             [hoverColor]="'white'"
@@ -71,29 +71,29 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           class="border border-solid border-black min-h-52 min-w-[365px] w-full rounded-lg mt-1 p-4"
         >
           @if (selectedButton === 'sobre-mi') {
-          <ul>
-            <li><strong>Rol:</strong> {{ user.role }}</li>
-            <li><strong>Compañia:</strong> {{ user.company }}</li>
-            <li><strong>Area:</strong> {{ user.area }}</li>
-            <li><strong>Nivel:</strong> {{ user.level }}</li>
-            <li><strong>Cargo:</strong> {{ user.position }}</li>
-            <li>
-              <strong>Fecha de Cumpleaños:</strong>
-              {{ birthdate }}
-            </li>
-            <li>
-              <strong>Fecha de Ingreso a la Organización:</strong>
-              {{ date }}
-            </li>
-          </ul>
+            <ul>
+              <li><strong>Rol:</strong> {{ user.role }}</li>
+              <li><strong>Compañia:</strong> {{ user.company }}</li>
+              <li><strong>Area:</strong> {{ user.area }}</li>
+              <li><strong>Nivel:</strong> {{ user.level }}</li>
+              <li><strong>Cargo:</strong> {{ user.position }}</li>
+              <li>
+                <strong>Fecha de Cumpleaños:</strong>
+                {{ birthdate }}
+              </li>
+              <li>
+                <strong>Fecha de Ingreso a la Organización:</strong>
+                {{ date }}
+              </li>
+            </ul>
           } @else if (selectedButton === 'mis-cursos') {
-          <ul>
-            <li>Redes de Computadores</li>
-            <li>Lógica de Programación</li>
-            <li>Análisis de Datos</li>
-          </ul>
+            <ul>
+              <li>Redes de Computadores</li>
+              <li>Lógica de Programación</li>
+              <li>Análisis de Datos</li>
+            </ul>
           } @else {
-          <img src="/courses/analisis.png" alt="" />
+            <img src="/courses/analisis.png" alt="" />
           }
         </div>
       </section>
@@ -117,7 +117,7 @@ export class MiPerfilComponent {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    public router: Router
+    public router: Router,
   ) {}
 
   ngOnInit() {
@@ -129,8 +129,8 @@ export class MiPerfilComponent {
 
         this.date = Intl.DateTimeFormat('es-EC', { dateStyle: 'long' }).format(
           formatDate.setMinutes(
-            formatDate.getMinutes() + formatDate.getTimezoneOffset()
-          )
+            formatDate.getMinutes() + formatDate.getTimezoneOffset(),
+          ),
         );
 
         if (result.birthdate) {
@@ -140,8 +140,8 @@ export class MiPerfilComponent {
             dateStyle: 'long',
           }).format(
             formatDate.setMinutes(
-              formatDate.getMinutes() + formatDate.getTimezoneOffset()
-            )
+              formatDate.getMinutes() + formatDate.getTimezoneOffset(),
+            ),
           );
         }
       },

@@ -19,26 +19,26 @@ export class AuthService {
       .pipe(
         tap(({ token }) => {
           if (token) localStorage.setItem('token', token);
-        })
+        }),
       );
   }
 
   loginUser(
-    loginData: Partial<{ email: string | null; password: string | null }>
+    loginData: Partial<{ email: string | null; password: string | null }>,
   ) {
     return this.http
       .post<MessageResponse>(this.urlAPI + '/auth/login', loginData)
       .pipe(
         tap(({ token }) => {
           if (token) localStorage.setItem('token', token);
-        })
+        }),
       );
   }
 
   recoveryPassword(email: string) {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/recovery-password',
-      { email }
+      { email },
     );
   }
 
@@ -46,7 +46,7 @@ export class AuthService {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/verify-code',
       { verificationCode },
-      { params: new HttpParams().set('token', token) }
+      { params: new HttpParams().set('token', token) },
     );
   }
 
@@ -55,12 +55,12 @@ export class AuthService {
       password: string | null;
       confirmPassword: string | null;
     }>,
-    token: string
+    token: string,
   ) {
     return this.http.post<MessageResponse>(
       this.urlAPI + '/auth/new-password',
       changePassword,
-      { params: new HttpParams().set('token', token) }
+      { params: new HttpParams().set('token', token) },
     );
   }
 
@@ -71,7 +71,7 @@ export class AuthService {
 
     const payload = JSON.parse(atob(token.split('.')[1]));
 
-    return (payload.exp * 1000) > Date.now();
+    return payload.exp * 1000 > Date.now();
   }
 
   getInfoUser() {

@@ -23,7 +23,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
   ],
   template: `
     <header
-      class="bg-[#0b0603] text-white py-2.5 px-4 flex items-center gap-x-4 shadow-sm shadow-black"
+      class="bg-[#0b0603] text-white py-2.5 px-4 space-x-4 shadow-sm shadow-black"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
       <h1 class="font-bold">
@@ -69,124 +69,128 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             class="border border-quinary p-4 rounded-lg flex flex-col gap-y-4 w-full h-80"
           >
             @if (numeroPregunta == 1) {
-            <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
+              <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
 
-            <div class="flex flex-col gap-y-4">
-              <app-question
-                (click)="answersSelected[0] = 'A'"
-                [answerSelected]="answersSelected[0]"
-                [answerLetter]="'A'"
-                [answerText]="'Saltos'"
-              />
+              <div class="flex flex-col gap-y-4">
+                <app-question
+                  (click)="answersSelected[0] = 'A'"
+                  [answerSelected]="answersSelected[0]"
+                  [answerLetter]="'A'"
+                  [answerText]="'Saltos'"
+                />
 
-              <app-question
-                (click)="answersSelected[0] = 'B'"
-                [answerSelected]="answersSelected[0]"
-                [answerLetter]="'B'"
-                [answerText]="'Ancho de banda'"
-              />
+                <app-question
+                  (click)="answersSelected[0] = 'B'"
+                  [answerSelected]="answersSelected[0]"
+                  [answerLetter]="'B'"
+                  [answerText]="'Ancho de banda'"
+                />
 
-              <app-question
-                (click)="answersSelected[0] = 'C'"
-                [answerSelected]="answersSelected[0]"
-                [answerLetter]="'C'"
-                [answerText]="'Retardo'"
-              />
+                <app-question
+                  (click)="answersSelected[0] = 'C'"
+                  [answerSelected]="answersSelected[0]"
+                  [answerLetter]="'C'"
+                  [answerText]="'Retardo'"
+                />
 
-              <app-question
-                (click)="answersSelected[0] = 'D'"
-                [answerSelected]="answersSelected[0]"
-                [answerLetter]="'D'"
-                [answerText]="'Ninguna de las Anteriores'"
-              />
-            </div>
+                <app-question
+                  (click)="answersSelected[0] = 'D'"
+                  [answerSelected]="answersSelected[0]"
+                  [answerLetter]="'D'"
+                  [answerText]="'Ninguna de las Anteriores'"
+                />
+              </div>
             } @else if (numeroPregunta == 2) {
-            <h2>
-              2. Elige las siguientes métricas de cada protocolo de enrutamiento
-              dinámico
-            </h2>
+              <h2>
+                2. Elige las siguientes métricas de cada protocolo de
+                enrutamiento dinámico
+              </h2>
 
-            <div class="flex flex-col gap-y-4">
-              <app-questions-select
-                [question]="'OSPF'"
-                [answers]="[
-                  'Saltos',
-                  'Ancho de banda',
-                  'Retardo',
-                  'Ninguna de las Anteriores'
-                ]"
-                [answerSelected]="answersSelected[1]"
-              />
+              <div class="flex flex-col gap-y-4">
+                <app-questions-select
+                  [question]="'OSPF'"
+                  [answers]="[
+                    'Saltos',
+                    'Ancho de banda',
+                    'Retardo',
+                    'Ninguna de las Anteriores',
+                  ]"
+                  [answerSelected]="answersSelected[1]"
+                />
 
-              <app-questions-select
-                [question]="'RIP v1'"
-                [answers]="[
-                  'Saltos',
-                  'Ancho de banda',
-                  'Retardo',
-                  'Ninguna de las Anteriores'
-                ]"
-                [answerSelected]="answersSelected[1]"
-              />
+                <app-questions-select
+                  [question]="'RIP v1'"
+                  [answers]="[
+                    'Saltos',
+                    'Ancho de banda',
+                    'Retardo',
+                    'Ninguna de las Anteriores',
+                  ]"
+                  [answerSelected]="answersSelected[1]"
+                />
 
-              <app-questions-select
-                [question]="'EIGRP'"
-                [answers]="[
-                  'Saltos',
-                  'Ancho de banda',
-                  'Retardo',
-                  'Ninguna de las Anteriores'
-                ]"
-                [answerSelected]="answersSelected[1]"
-              />
-            </div>
+                <app-questions-select
+                  [question]="'EIGRP'"
+                  [answers]="[
+                    'Saltos',
+                    'Ancho de banda',
+                    'Retardo',
+                    'Ninguna de las Anteriores',
+                  ]"
+                  [answerSelected]="answersSelected[1]"
+                />
+              </div>
             } @else if (numeroPregunta == 3) {
-            <h2>3. Seleccione tres características sobre una dirección MAC</h2>
-            <div class="flex flex-col gap-y-4">
-              <app-question-checkbox
-                (click)="answersSelected[2] = 'A'"
-                [question]="'Tiene 48 bits (6 bytes) de longitud.'"
-                [answer]="'A'"
-              />
-              <app-question-checkbox
-                (click)="answersSelected[2] = 'B'"
-                [question]="'Se expresa generalmente en notación hexadecimal.'"
-                [answer]="'B'"
-              />
-              <app-question-checkbox
-                (click)="answersSelected[2] = 'C'"
-                [question]="'Es única para cada dispositivo de red.'"
-                [answer]="'C'"
-              />
-              <app-question-checkbox
-                [question]="
-                  'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
-                "
-                [answer]="'D'"
-              />
-              <app-question-checkbox
-                (click)="answersSelected[2] = 'E'"
-                [question]="
-                  'Una dirección MAC está compuesta por 10 dígitos decimales.'
-                "
-                [answer]="'E'"
-              />
-            </div>
+              <h2>
+                3. Seleccione tres características sobre una dirección MAC
+              </h2>
+              <div class="flex flex-col gap-y-4">
+                <app-question-checkbox
+                  (click)="answersSelected[2] = 'A'"
+                  [question]="'Tiene 48 bits (6 bytes) de longitud.'"
+                  [answer]="'A'"
+                />
+                <app-question-checkbox
+                  (click)="answersSelected[2] = 'B'"
+                  [question]="
+                    'Se expresa generalmente en notación hexadecimal.'
+                  "
+                  [answer]="'B'"
+                />
+                <app-question-checkbox
+                  (click)="answersSelected[2] = 'C'"
+                  [question]="'Es única para cada dispositivo de red.'"
+                  [answer]="'C'"
+                />
+                <app-question-checkbox
+                  [question]="
+                    'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
+                  "
+                  [answer]="'D'"
+                />
+                <app-question-checkbox
+                  (click)="answersSelected[2] = 'E'"
+                  [question]="
+                    'Una dirección MAC está compuesta por 10 dígitos decimales.'
+                  "
+                  [answer]="'E'"
+                />
+              </div>
             } @else if (numeroPregunta == 4) {
-            <h2>4. Una mascara clase C tiene 256 redes</h2>
-            <app-question-boolean [answerSelected]="answersSelected[3]" />
+              <h2>4. Una mascara clase C tiene 256 redes</h2>
+              <app-question-boolean [answerSelected]="answersSelected[3]" />
             } @else if (numeroPregunta == 5) {
-            <h2>5. Une cada protoclo de red con su función principal</h2>
-            <app-question-line
-              [questions]="['HTTP', 'DHCP', 'DNS', 'SMTP', 'FTP']"
-              [answers]="[
-                'Protocolo de transferencia de archivos',
-                'Protocolo de configuración dinámica de host',
-                'Protocolo de resolución de nombres de dominio',
-                'Protocolo de transferencia de hipertexto',
-                'Protocolo de transferencia de correo simple'
-              ]"
-            />
+              <h2>5. Une cada protoclo de red con su función principal</h2>
+              <app-question-line
+                [questions]="['HTTP', 'DHCP', 'DNS', 'SMTP', 'FTP']"
+                [answers]="[
+                  'Protocolo de transferencia de archivos',
+                  'Protocolo de configuración dinámica de host',
+                  'Protocolo de resolución de nombres de dominio',
+                  'Protocolo de transferencia de hipertexto',
+                  'Protocolo de transferencia de correo simple',
+                ]"
+              />
             }
           </div>
           <div
@@ -195,17 +199,17 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             }}"
           >
             @if (numeroPregunta > 1) {
-            <app-custom-button
-              [text]="'Anterior'"
-              [color]="'orange'"
-              [hoverColor]="'white'"
-              [moreStyles]="'mt-6 w-52 justify-center text-black'"
-              (click)="
-                router.navigate(['/examen'], {
-                  queryParams: { pregunta: +numeroPregunta - 1 }
-                })
-              "
-            />
+              <app-custom-button
+                [text]="'Anterior'"
+                [color]="'orange'"
+                [hoverColor]="'white'"
+                [moreStyles]="'mt-6 w-52 justify-center text-black'"
+                (click)="
+                  router.navigate(['/examen'], {
+                    queryParams: { pregunta: +numeroPregunta - 1 },
+                  })
+                "
+              />
             }
             <app-custom-button
               [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
@@ -215,7 +219,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               (click)="
                 numeroPregunta < 5
                   ? router.navigate(['/examen'], {
-                      queryParams: { pregunta: +numeroPregunta + 1 }
+                      queryParams: { pregunta: +numeroPregunta + 1 },
                     })
                   : (finish = true)
               "
@@ -225,53 +229,59 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
       </section>
     </main>
     @if (finish) {
-    <div class="z-50 items-center flex absolute inset-0 justify-center">
-      <div class="flex flex-col items-end relative">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="cursor-pointer absolute -top-7 -right-7 z-50 size-4"
-          viewBox="0 0 273 273"
-          (click)="finish = false"
-        >
-          <path
-            d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
-            class="filltertiary"
-          />
-        </svg>
-        <div
-          class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-y-4"
-        >
-          <span class="text-center font-light text-sm"
-            >Muy bien, has terminado un desafío más para tu aprendizaje.</span
+      <div class="z-50 items-center flex absolute inset-0 justify-center">
+        <div class="flex flex-col items-end relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="cursor-pointer absolute -top-7 -right-7 z-50 size-4"
+            viewBox="0 0 273 273"
+            (click)="finish = false"
           >
-          <strong class="text-center text-sm"
-            >¿Estás seguro de enviar tus respuestas?</strong
+            <path
+              d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
+              class="filltertiary"
+            />
+          </svg>
+          <div
+            class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-y-4"
           >
-          <div class="flex justify-center gap-x-4">
-            <app-custom-button
-              [text]="'Cancelar'"
-              [color]="'gray'"
-              [hoverColor]="'white'"
-              [moreStyles]="'w-36 justify-center'"
-              (click)="finish = false"
-            />
-            <app-custom-button
-              [text]="'Enviar'"
-              [color]="'black'"
-              [hoverColor]="'white'"
-              [moreStyles]="'w-36 justify-center'"
-              (click)="router.navigate(['/grade'])"
-            />
+            <span class="text-center font-light text-sm"
+              >Muy bien, has terminado un desafío más para tu aprendizaje.</span
+            >
+            <strong class="text-center text-sm"
+              >¿Estás seguro de enviar tus respuestas?</strong
+            >
+            <div class="flex justify-center gap-x-4">
+              <app-custom-button
+                [text]="'Cancelar'"
+                [color]="'gray'"
+                [hoverColor]="'white'"
+                [moreStyles]="'w-36 justify-center'"
+                (click)="finish = false"
+              />
+              <app-custom-button
+                [text]="'Enviar'"
+                [color]="'black'"
+                [hoverColor]="'white'"
+                [moreStyles]="'w-36 justify-center'"
+                (click)="router.navigate(['/grade'])"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="fixed inset-0 z-40 bg-white/75" (click)="finish = false"></div>
+      <div
+        class="fixed inset-0 z-40 bg-white/75"
+        (click)="finish = false"
+      ></div>
     }
   `,
 })
 export class ExamenComponent {
-  constructor(public router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    public router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.numeroPregunta = params['pregunta'];
     });

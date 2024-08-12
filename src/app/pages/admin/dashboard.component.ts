@@ -50,7 +50,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       <article class="mt-2">
         <div class="flex justify-between items-center w-full">
           <h2 class="font-bold">Tabla de Usuarios</h2>
-          <div class="flex gap-x-2 my-2">
+          <div class="space-x-2 my-2">
             <app-custom-button
               [color]="'black'"
               [text]="'Importar datos (CSV)'"
@@ -95,38 +95,38 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
             <th>Rol</th>
             <th>Estado</th>
           </tr>
-          @for(user of users; track user) {
-          <tr
-            class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary"
-          >
-            <th>
-              {{ user.identification }}
-            </th>
-            <th>
-              {{ user.name + ' ' + user.lastname }}
-            </th>
-            <th>
-              {{ user.company }}
-            </th>
-            <th>
-              {{ user.area }}
-            </th>
-            <th>
-              {{ user.level }}
-            </th>
-            <th>
-              {{ user.position }}
-            </th>
-            <th>
-              {{ user.email }}
-            </th>
-            <th>
-              {{ user.role }}
-            </th>
-            <th class="{{ !user.deleted ? 'bg-green-500' : 'bg-red-500' }}">
-              {{ user.deleted ? 'Bloqueado' : 'Activo' }}
-            </th>
-          </tr>
+          @for (user of users; track user) {
+            <tr
+              class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary"
+            >
+              <th>
+                {{ user.identification }}
+              </th>
+              <th>
+                {{ user.name + ' ' + user.lastname }}
+              </th>
+              <th>
+                {{ user.company }}
+              </th>
+              <th>
+                {{ user.area }}
+              </th>
+              <th>
+                {{ user.level }}
+              </th>
+              <th>
+                {{ user.position }}
+              </th>
+              <th>
+                {{ user.email }}
+              </th>
+              <th>
+                {{ user.role }}
+              </th>
+              <th class="{{ !user.deleted ? 'bg-green-500' : 'bg-red-500' }}">
+                {{ user.deleted ? 'Bloqueado' : 'Activo' }}
+              </th>
+            </tr>
           }
         </table>
       </article>
@@ -153,46 +153,47 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
         }}"
       >
         @if (!selectedButton) {
-        <h3 class="font-bold">Correo del usuario</h3>
+          <h3 class="font-bold">Correo del usuario</h3>
 
-        <input
-          [formControl]="email"
-          id="email"
-          name="email"
-          class="text-sm p-1 border border-quinary rounded-lg w-96"
-          type="text"
-          placeholder="Buscar usuario"
-        />
+          <input
+            [formControl]="email"
+            id="email"
+            name="email"
+            class="text-sm p-1 border border-quinary rounded-lg w-96"
+            type="text"
+            placeholder="Buscar usuario"
+          />
 
-        @if (selectedButton === 'Agregar') {
-        <select
-          [formControl]="role"
-          name="role"
-          id="role"
-          class="w-96 border border-quinary rounded-lg p-1 text-sm"
-        >
-          <option value="STUDENT">Estudiante</option>
-          <option value="TEACHER">Docente</option>
-          <option value="ADMIN">Administrador</option>
-        </select>
+          @if (selectedButton === 'Agregar') {
+            <select
+              [formControl]="role"
+              name="role"
+              id="role"
+              class="w-96 border border-quinary rounded-lg p-1 text-sm"
+            >
+              <option value="STUDENT">Estudiante</option>
+              <option value="TEACHER">Docente</option>
+              <option value="ADMIN">Administrador</option>
+            </select>
+          }
+          <app-custom-button
+            (click)="
+              selectedButton === 'Agregar'
+                ? createUser()
+                : selectedButton === 'Bloquear'
+                  ? blockUser()
+                  : null
+            "
+            [color]="'black'"
+            [text]="selectedButton"
+            [hoverColor]="'white'"
+            [moreStyles]="'text-xs h-8'"
+          />
         }
-        <app-custom-button
-          (click)="
-            selectedButton === 'Agregar'
-              ? createUser()
-              : selectedButton === 'Bloquear'
-              ? blockUser()
-              : null
-          "
-          [color]="'black'"
-          [text]="selectedButton"
-          [hoverColor]="'white'"
-          [moreStyles]="'text-xs h-8'"
-        />
-        } @if (message) {
-        <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">
-          {{ message }}
-        </div>
+        @if (message) {
+          <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">
+            {{ message }}
+          </div>
         }
       </div>
     </app-admin-layout>

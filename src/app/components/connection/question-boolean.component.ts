@@ -6,23 +6,23 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   template: `
     <div class="flex flex-col gap-y-2">
-      <div class="flex gap-x-4">
+      <div class="space-x-4">
         <input
           class="accent-greenlight"
           type="radio"
           id="true"
           name="answer"
-          value="{{answerSelected}}"
+          value="{{ answerSelected }}"
         />
         <label class="select-none" for="true">Verdadero</label>
       </div>
-      <div class="flex gap-x-4">
+      <div class="space-x-4">
         <input
           class="accent-greenlight"
           type="radio"
           id="false"
           name="answer"
-          value="{{answerSelected}}"
+          value="{{ answerSelected }}"
         /><label class="select-none" for="false">Falso</label>
       </div>
     </div>

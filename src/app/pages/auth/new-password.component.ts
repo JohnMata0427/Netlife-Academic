@@ -54,11 +54,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        @if (form.get('password')?.value &&
-        form.get('password')?.invalid) {
-        <p class="text-red-500 text-xs px-4">
-          La contraseña debe tener minimo 8 caracteres
-        </p>
+        @if (form.get('password')?.value && form.get('password')?.invalid) {
+          <p class="text-red-500 text-xs px-4">
+            La contraseña debe tener minimo 8 caracteres
+          </p>
         }
 
         <div class="relative">
@@ -85,10 +84,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-        <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-        } @else if (form.get('confirmPassword')?.value !==
-        form.get('password')?.value) {
-        <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
+          <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+        } @else if (
+          form.get('confirmPassword')?.value !== form.get('password')?.value
+        ) {
+          <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
         }
 
         <app-custom-button
@@ -142,7 +142,7 @@ export class NewPasswordComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.token = params['token'];

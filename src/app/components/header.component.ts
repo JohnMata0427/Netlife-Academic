@@ -15,12 +15,12 @@ import { UserService } from '@services/user.service';
           <a class="pr-8" href="/home">
             <img class="h-9" src="/logo.webp" alt="Netlife Logo" />
           </a>
-          <div class="flex gap-x-8">
+          <div class="space-x-8">
             <a
               id="home"
               [ngClass]="{
                 'text-primary': active === 'home',
-                'text-white hover:text-primary': active !== 'home'
+                'text-white hover:text-primary': active !== 'home',
               }"
               class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/home"
@@ -31,7 +31,7 @@ import { UserService } from '@services/user.service';
               id="mi-perfil"
               [ngClass]="{
                 'text-primary': active === 'mi-perfil',
-                'text-white hover:text-primary': active !== 'mi-perfil'
+                'text-white hover:text-primary': active !== 'mi-perfil',
               }"
               class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mi-perfil"
@@ -41,7 +41,7 @@ import { UserService } from '@services/user.service';
               id="mis-cursos"
               [ngClass]="{
                 'text-primary': active === 'mis-cursos',
-                'text-white hover:text-primary': active !== 'mis-cursos'
+                'text-white hover:text-primary': active !== 'mis-cursos',
               }"
               class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-cursos"
@@ -51,7 +51,7 @@ import { UserService } from '@services/user.service';
               id="mis-certificados"
               [ngClass]="{
                 'text-primary': active === 'mis-certificados',
-                'text-white hover:text-primary': active !== 'mis-certificados'
+                'text-white hover:text-primary': active !== 'mis-certificados',
               }"
               class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
               href="/mis-certificados"
@@ -81,7 +81,7 @@ import { UserService } from '@services/user.service';
               <path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0m18 11-6-6" />
             </svg>
           </div>
-          <div class="relative flex items-center gap-x-3">
+          <div class="relative space-x-3">
             <button
               (click)="showNotifications = !showNotifications"
               class="hover:scale-110"
@@ -93,11 +93,11 @@ import { UserService } from '@services/user.service';
               />
             </button>
             @if (showNotifications) {
-            <div
-              class="w-56 flex flex-col z-10 absolute top-11 right-24 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
-            >
-              <strong>Proximamente...</strong>
-            </div>
+              <div
+                class="w-56 flex flex-col z-10 absolute top-11 right-24 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
+              >
+                <strong>Proximamente...</strong>
+              </div>
             }
             <button
               (click)="showMessages = !showMessages"
@@ -110,15 +110,15 @@ import { UserService } from '@services/user.service';
               />
             </button>
             @if (showMessages) {
-            <div
-              class="w-56 flex flex-col z-10 absolute top-11 right-16 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
-            >
-              <strong>Proximamente...</strong>
-            </div>
+              <div
+                class="w-56 flex flex-col z-10 absolute top-11 right-16 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
+              >
+                <strong>Proximamente...</strong>
+              </div>
             }
             <button
               (click)="showMenu = !showMenu"
-              class="relative flex items-center gap-x-2 hover:scale-105"
+              class="relative space-x-2 hover:scale-105"
             >
               <img
                 class="rounded-full size-8 border-white border-[3px]"
@@ -132,67 +132,67 @@ import { UserService } from '@services/user.service';
               />
             </button>
             @if (showMenu) {
-            <div
-              class="w-56 flex flex-col z-10 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
-            >
-              <div class="flex flex-col items-center">
-                <strong class="text-center">{{ username }}</strong>
-                <span class="text-xs">{{ email }}</span>
-              </div>
-              <hr class="border-2" />
-              @if (role === 'ADMIN') {
-              <button
-                (click)="router.navigate(['/admin/dashboard'])"
-                class="text-sm text-black hover:bg-quinary text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
+              <div
+                class="w-56 flex flex-col z-10 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
               >
-                Admin Dashboard
-              </button>
-              }
-              <button
-                (click)="router.navigate(['/mi-perfil'])"
-                class="text-sm text-black hover:bg-quinary text-start  flex items-center gap-x-2 rounded-lg py-1 px-2"
-              >
-                <img
-                  class="size-4"
-                  src="/icons/forms/user.svg"
-                  alt="User Icon"
-                />
-                Mi Perfil
-              </button>
-              <button
-                (click)="router.navigate(['/actualizar-informacion'])"
-                class="text-sm text-black hover:bg-quinary text-start flex items-center gap-x-2 rounded-lg py-1 px-2"
-              >
-                <img
-                  class="size-4"
-                  src="/icons/forms/user.svg"
-                  alt="User Icon"
-                />
-                Configurar Perfil
-              </button>
-              <button
-                class="text-sm text-black hover:bg-quinary text-start rounded-lg py-1 px-2"
-              >
-                Calendario de Tareas
-              </button>
-              <button
-                class="flex items-center gap-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
-                (click)="logout()"
-              >
-                <svg
-                  class="size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 416 352"
+                <div class="flex flex-col items-center">
+                  <strong class="text-center">{{ username }}</strong>
+                  <span class="text-xs">{{ email }}</span>
+                </div>
+                <hr class="border-2" />
+                @if (role === 'ADMIN') {
+                  <button
+                    (click)="router.navigate(['/admin/dashboard'])"
+                    class="text-sm text-black hover:bg-quinary text-start  space-x-2 rounded-lg py-1 px-2"
+                  >
+                    Admin Dashboard
+                  </button>
+                }
+                <button
+                  (click)="router.navigate(['/mi-perfil'])"
+                  class="text-sm text-black hover:bg-quinary text-start  space-x-2 rounded-lg py-1 px-2"
                 >
-                  <path
-                    d="M112 176a16 16 0 0 1 16-16h144V56c0-32-33.79-56-64-56H56A56.06 56.06 0 0 0 0 56v240a56.06 56.06 0 0 0 56 56h160a56.06 56.06 0 0 0 56-56V192H128a16 16 0 0 1-16-16Zm299.31-11.31-80-80a16 16 0 0 0-22.62 22.62L361.37 160H272v32h89.37l-52.68 52.69a16 16 0 1 0 22.62 22.62l80-80a16 16 0 0 0 0-22.62Z"
-                    class="filltertiary"
+                  <img
+                    class="size-4"
+                    src="/icons/forms/user.svg"
+                    alt="User Icon"
                   />
-                </svg>
-                Cerrar Sesión
-              </button>
-            </div>
+                  Mi Perfil
+                </button>
+                <button
+                  (click)="router.navigate(['/actualizar-informacion'])"
+                  class="text-sm text-black hover:bg-quinary text-start space-x-2 rounded-lg py-1 px-2"
+                >
+                  <img
+                    class="size-4"
+                    src="/icons/forms/user.svg"
+                    alt="User Icon"
+                  />
+                  Configurar Perfil
+                </button>
+                <button
+                  class="text-sm text-black hover:bg-quinary text-start rounded-lg py-1 px-2"
+                >
+                  Calendario de Tareas
+                </button>
+                <button
+                  class="space-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
+                  (click)="logout()"
+                >
+                  <svg
+                    class="size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 416 352"
+                  >
+                    <path
+                      d="M112 176a16 16 0 0 1 16-16h144V56c0-32-33.79-56-64-56H56A56.06 56.06 0 0 0 0 56v240a56.06 56.06 0 0 0 56 56h160a56.06 56.06 0 0 0 56-56V192H128a16 16 0 0 1-16-16Zm299.31-11.31-80-80a16 16 0 0 0-22.62 22.62L361.37 160H272v32h89.37l-52.68 52.69a16 16 0 1 0 22.62 22.62l80-80a16 16 0 0 0 0-22.62Z"
+                      class="filltertiary"
+                    />
+                  </svg>
+                  Cerrar Sesión
+                </button>
+              </div>
             }
           </div>
         </div>
@@ -223,7 +223,7 @@ export class HeaderComponent {
     public router: Router,
     private activatedRouter: ActivatedRoute,
     private title: Title,
-    private userService: UserService
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
@@ -235,7 +235,7 @@ export class HeaderComponent {
       this.active
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ') + ' | Netlife Academic'
+        .join(' ') + ' | Netlife Academic',
     );
 
     this.userService

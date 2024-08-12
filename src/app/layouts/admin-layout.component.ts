@@ -18,7 +18,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <div class="grid place-content-center mt-1">
             <img class="h-auto w-48" src="/logo.webp" alt="Logo de Netlife" />
           </div>
-          <div class="flex gap-x-2 justify-center items-center my-7">
+          <div class="space-x-2 justify-center items-center my-7">
             <img
               class="size-10 rounded-full border-2 border-white"
               src="{{ user.imageUrl }}"
@@ -26,9 +26,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             />
             <div class="flex flex-col items-center">
               <h4 class="text-white text-xs">{{ user.email }}</h4>
-              <span class="text-white text-xs"
-                >Administrador del sitio</span
-              >
+              <span class="text-white text-xs">Administrador del sitio</span>
             </div>
           </div>
           <strong class="text-white text-xs">GESTION DE:</strong>
@@ -203,7 +201,7 @@ export class AdminLayoutComponent {
     private activatedRouter: ActivatedRoute,
     public router: Router,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
   ) {
     this.activatedRouter.url.subscribe((url) => {
       this.active = url[0]['path'];
@@ -223,7 +221,7 @@ export class AdminLayoutComponent {
           .split('-')
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ') +
-        ' | Netlife Academic'
+        ' | Netlife Academic',
     );
   }
 }

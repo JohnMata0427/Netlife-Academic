@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [NgClass],
   template: `
-    <a href="/mis-cursos" class="flex gap-x-4">
+    <a href="/mis-cursos" class="space-x-4">
       <div class="relative">
         <div
           class="bg-tertiary vertical-lr text-white font-bold text-xl rounded-lg pt-1 pb-3"
@@ -23,7 +23,7 @@ import { Component, Input } from '@angular/core';
         class="h-28 w-96 pl-6 flex flex-col justify-center gap-y-2 rounded-lg shadow-sm shadow-black/40 bg-quinary/50"
       >
         <h3 class="text-sm"><strong>Tarea: </strong> {{ nombre }}</h3>
-        <div class="flex items-center gap-x-2">
+        <div class="space-x-2">
           <img src="/icons/courses/time.svg" alt="Icono hora de entrega" />
           <span class="text-xs">11:59 PM</span>
         </div>

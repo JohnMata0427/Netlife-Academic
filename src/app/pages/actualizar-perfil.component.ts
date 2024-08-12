@@ -210,7 +210,7 @@ export class ActualizarPerfilComponent {
   constructor(
     private router: Router,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {}
 
   fileChooser() {
@@ -258,7 +258,7 @@ export class ActualizarPerfilComponent {
         position: new FormControl(result.position),
         birthdate: new FormControl(result.birthdate || null),
         state: new FormControl(result.state || null),
-      })
+      });
     });
   }
 }

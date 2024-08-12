@@ -37,9 +37,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.invalid && form.get('email')?.value) {
-        <span class="text-xs text-red-500"
-          >El correo electrónico es inválido</span
-        >
+          <span class="text-xs text-red-500"
+            >El correo electrónico es inválido</span
+          >
         }
 
         <div class="relative">
@@ -66,7 +66,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (message) {
-        <span class="text-xs text-red-500 text-center">{{ message }}</span>
+          <span class="text-xs text-red-500 text-center">{{ message }}</span>
         }
 
         <app-custom-button
@@ -110,7 +110,10 @@ export class LoginComponent {
   typePasswordInput = 'password';
   iconPasswordInput = 'eye';
 
-  constructor(private route: Router, private authService: AuthService) {}
+  constructor(
+    private route: Router,
+    private authService: AuthService,
+  ) {}
 
   onSubmit() {
     if (this.form.invalid) {

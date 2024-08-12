@@ -1,7 +1,10 @@
+import animations from "@midudev/tailwind-animations";
+import purgecss from "@fullhuman/postcss-purgecss";
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: "class",
-  content: ["./index.html", "./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
       colors: {
@@ -10,13 +13,18 @@ module.exports = {
         tertiary: "#E30613", // Rojo
         quaternary: "#4D1053", // Morado
         quinary: "#ECECEC", // Gris
-        greenlight: '#72C234', // Verde
-        orangelight: '#FAAB00', // Naranja claro
+        greenlight: "#72C234", // Verde
+        orangelight: "#FAAB00", // Naranja claro
       },
       fontFamily: {
         roboto: ["Roboto"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    animations,
+    purgecss({
+      content: ["./src/**/*.{html,ts}"],
+    }),
+  ],
 };

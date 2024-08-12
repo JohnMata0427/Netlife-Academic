@@ -37,7 +37,7 @@ export class UserService {
       {
         reportProgress: true,
         observe: 'events',
-      }
+      },
     );
   }
 
@@ -51,7 +51,7 @@ export class UserService {
   blockUser(email: string) {
     return this.httpClient.put<MessageResponse>(
       this.urlAPI + '/api/users/lock-user',
-      { email }
+      { email },
     );
   }
 }

@@ -28,9 +28,7 @@ import { AnnouncementService } from '@services/announcement.service';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl text-primary font-bold">
-        Configuración del Anuncio
-      </h1>
+      <h1 class="text-2xl text-primary font-bold">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
         <form [formGroup]="form" class="w-full flex mt-4 gap-x-4">
           <div class="w-full flex flex-col gap-y-2">
@@ -96,9 +94,8 @@ import { AnnouncementService } from '@services/announcement.service';
             </label>
 
             @if (form.get('exclude')?.value) {
-            <label class="font-bold" for="">Correos a excluir </label>
-            <input type="text" />
-
+              <label class="font-bold" for="">Correos a excluir </label>
+              <input type="text" />
             }
 
             <label class="font-bold" for=""
@@ -158,16 +155,16 @@ import { AnnouncementService } from '@services/announcement.service';
               Envío a la Pantalla Principal/Inicio del aplicativo
             </label>
             @if (form.get('publishHome')?.value) {
-            <label class="font-bold" for=""
-              >Fecha de caducidad del anuncio</label
-            >
-            <input
-              class="border border-quinary rounded-lg p-1 text-sm"
-              type="datetime-local"
-              formControlName="deletedAt"
-              name="deletedAt"
-              id="deletedAt"
-            />
+              <label class="font-bold" for=""
+                >Fecha de caducidad del anuncio</label
+              >
+              <input
+                class="border border-quinary rounded-lg p-1 text-sm"
+                type="datetime-local"
+                formControlName="deletedAt"
+                name="deletedAt"
+                id="deletedAt"
+              />
             }
           </div>
         </form>
@@ -179,9 +176,9 @@ import { AnnouncementService } from '@services/announcement.service';
           [moreStyles]="'text-sm h-8 mt-8'"
         />
         @if (message) {
-        <div class="text-white bg-black/90 p-2 rounded-lg mt-5">
-          {{ message }}
-        </div>
+          <div class="text-white bg-black/90 p-2 rounded-lg mt-5">
+            {{ message }}
+          </div>
         }
       </div>
     </app-admin-layout>

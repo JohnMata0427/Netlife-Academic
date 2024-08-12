@@ -15,7 +15,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
       </p>
       <section class="pl-16">
         <h2 class="text-primary font-extrabold">EN PROCESO</h2>
-        <div class="mt-4 flex gap-8">
+        <div class="mt-4 flex-wrap space-8">
           <app-course-info
             id="redes-de-computadoras"
             title="Redes de Computadoras"
@@ -47,7 +47,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
       </section>
       <section class="pl-16 mt-4">
         <h2 class="text-primary font-extrabold">COMPLETADOS</h2>
-        <div class="mt-4 flex gap-8">
+        <div class="mt-4 space-8">
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
@@ -64,7 +64,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
       </section>
       <section class="pl-16 mt-4 mb-20">
         <h2 class="text-primary font-extrabold">CURSOS RECOMENDADOS PARA TI</h2>
-        <div class="mt-4 flex gap-8">
+        <div class="mt-4 space-8">
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"

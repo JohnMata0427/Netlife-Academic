@@ -28,7 +28,7 @@ import { NgStyle } from '@angular/common';
             aprenderán sobre la arquitectura, componentes y operaciones de redes
             de datos.
           </p>
-          <div class="flex gap-x-2 items-center mt-4">
+          <div class="space-x-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/teacher.svg"
@@ -38,7 +38,7 @@ import { NgStyle } from '@angular/common';
               >Prof. Vanessa Guevara</span
             >
           </div>
-          <div class="flex gap-x-2 items-center mt-4">
+          <div class="space-x-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
@@ -48,7 +48,7 @@ import { NgStyle } from '@angular/common';
               >Publicado el 10 de junio del 2024</span
             >
           </div>
-          <div class="flex gap-x-2 items-center mt-4">
+          <div class="space-x-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
@@ -96,13 +96,13 @@ import { NgStyle } from '@angular/common';
             >
               <h3 class="text-white text-xs font-light italic">Destrezas</h3>
             </div>
-              <p class="text-sm p-3">
-                Desarrollar la habilidad de identificar y analizar algoritmos de
-                inteligencia artificial aplicados en diferentes contextos.
-                <br />
-                Aplicar técnicas básicas de machine learning para resolver
-                problemas específicos.
-              </p>
+            <p class="text-sm p-3">
+              Desarrollar la habilidad de identificar y analizar algoritmos de
+              inteligencia artificial aplicados en diferentes contextos.
+              <br />
+              Aplicar técnicas básicas de machine learning para resolver
+              problemas específicos.
+            </p>
           </div>
           <div
             class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
@@ -114,20 +114,20 @@ import { NgStyle } from '@angular/common';
                 Valores y Actitudes
               </h3>
             </div>
-              <p class="text-sm p-3">
-                Mantener una actitud abierta y curiosa para explorar nuevas
-                tecnologías y conceptos en inteligencia artificial.
-                <br />
-                Fomentar la reflexión ética sobre el impacto de la inteligencia
-                artificial en la sociedad, considerando aspectos como la
-                privacidad, la equidad y la responsabilidad social.
-              </p>
-            </div>
+            <p class="text-sm p-3">
+              Mantener una actitud abierta y curiosa para explorar nuevas
+              tecnologías y conceptos en inteligencia artificial.
+              <br />
+              Fomentar la reflexión ética sobre el impacto de la inteligencia
+              artificial en la sociedad, considerando aspectos como la
+              privacidad, la equidad y la responsabilidad social.
+            </p>
+          </div>
         </div>
       </section>
       <section class="mb-10">
         <app-custom-title [title]="'Contenido del Curso'" />
-        <div class="flex gap-x-8 mx-16 items-start">
+        <div class="space-x-8 mx-16 items-start">
           <div
             class="bg-quinary shadow-sm shadow-black/80 p-4 flex flex-col gap-y-10 w-[65.5%] rounded-lg"
           >
@@ -135,7 +135,7 @@ import { NgStyle } from '@angular/common';
               <summary class="font-bold">1. Fundamentos</summary>
               <ul class="flex flex-col gap-y-2 mt-4 ml-4">
                 <li class="flex justify-between">
-                  <div class="flex items-center gap-x-2">
+                  <div class="space-x-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="flex items-center gap-x-2">
+                  <div class="space-x-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +185,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="flex items-center gap-x-2">
+                  <div class="space-x-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +209,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="flex items-center gap-x-2">
+                  <div class="space-x-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +274,7 @@ import { NgStyle } from '@angular/common';
               </svg>
 
               <h3 class="text-white font-bold text-center">Vanessa Guevara</h3>
-              <div class="flex items-center gap-x-4">
+              <div class="space-x-4">
                 <img
                   class="size-16 rounded-full"
                   src="/profile.webp"

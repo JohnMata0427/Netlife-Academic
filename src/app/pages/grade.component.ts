@@ -13,9 +13,7 @@ import { CustomTitleComponent } from '../components/custom-title.component';
         <h1 class="ml-16 font-bold">Prueba conceptos básicos de redes</h1>
         <div class="flex flex-col items-center font-light m-16">
           <span>Intentos permitidos</span>
-          <span
-            >Este cuestionario se cerró el {{ date }}</span
-          >
+          <span>Este cuestionario se cerró el {{ date }}</span>
           <span>Limite de tiempo: 15 minutos</span>
           <table class="w-full mt-8">
             <thead class="bg-quinary">
@@ -31,9 +29,13 @@ import { CustomTitleComponent } from '../components/custom-title.component';
                 <td>Finalizado</td>
                 <td>20/25</td>
                 <td>8/10</td>
-                <td><button class="bg-greenlight py-1 px-7 rounded-lg font-bold text-xs hover:bg-greenlight/80 transition-all">
-                Revisión de la prueba
-                </button></td>
+                <td>
+                  <button
+                    class="bg-greenlight py-1 px-7 rounded-lg font-bold text-xs hover:bg-greenlight/80 transition-all"
+                  >
+                    Revisión de la prueba
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -43,8 +45,7 @@ import { CustomTitleComponent } from '../components/custom-title.component';
   `,
 })
 export class GradeComponent {
-
-    date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
+  date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
 
   constructor() {}
 }

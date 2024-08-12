@@ -32,7 +32,7 @@ import { CertificadoComponent } from '@components/certificado.component';
             alt="Imagen para indicar que el usuario no tiene certificados"
           />
         </div> -->
-        <div class="flex gap-x-8 ml-16">
+        <div class="space-x-8 ml-16">
           <app-certificado
             [id]="'redes-de-computadoras'"
             [src]="'courses/redes.jpg'"

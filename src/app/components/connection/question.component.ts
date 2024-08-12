@@ -8,7 +8,7 @@ import { NgClass } from '@angular/common';
     <div
       [ngClass]="{
         'bg-greenlight': answerSelected == answerLetter,
-        'hover:bg-greenlight/50 bg-quinary': answerSelected != answerLetter
+        'hover:bg-greenlight/50 bg-quinary': answerSelected != answerLetter,
       }"
       class="items-center flex py-1 pr-1 rounded-lg cursor-pointer w-3/4"
     >
