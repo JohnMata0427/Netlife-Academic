@@ -26,7 +26,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="text-white text-center text-sm rounded-lg py-1.5 w-32 my-4 px-4 bg-[#82D245]/50"
+            class="text-neutral-800 text-center font-bold text-sm rounded-lg py-1.5 w-32 my-4 px-4 bg-greenlight"
           >
             En progreso
           </div>
@@ -87,21 +87,27 @@ import { UserLayout } from '@layouts/user-layout.component';
             [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
             [hoverColor]="'white'"
             [text]="'Inicio'"
-          ></app-custom-button>
+          />
           @for (module of modules; track module) {
           <app-custom-button
             (click)="selectedButton = 'Módulo ' + module"
             [color]="selectedButton === 'Módulo ' + module ? 'orange' : 'black'"
             [hoverColor]="'white'"
             [text]="'Módulo ' + module"
-          ></app-custom-button>
+          />
           }
           <app-custom-button
             (click)="selectedButton = 'Examen'"
             [color]="selectedButton === 'Examen' ? 'orange' : 'black'"
             [hoverColor]="'white'"
             [text]="'Examenes'"
-          ></app-custom-button>
+          />
+          <app-custom-button
+            (click)="selectedButton = 'Certificado'"
+            [color]="selectedButton === 'Certificado' ? 'orange' : 'black'"
+            [hoverColor]="'white'"
+            [text]="'Fin del Curso'"
+          />
         </div>
       </section>
 
@@ -248,7 +254,7 @@ import { UserLayout } from '@layouts/user-layout.component';
       <section>
         <app-custom-title [title]="'Tema de la Clase'" />
         <div
-          class="relative ml-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white h-24"
+          class="relative ml-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white h-24 mt-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +290,7 @@ import { UserLayout } from '@layouts/user-layout.component';
               [hoverColor]="'white'"
               [text]="'Resolver'"
               [moreStyles]="'w-40 justify-center'"
-            ></app-custom-button>
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -299,13 +305,63 @@ import { UserLayout } from '@layouts/user-layout.component';
           </div>
         </button>
       </section>
+      } @else if (selectedButton === 'Certificado') {
+      <app-custom-title [title]="'Tema del Módulo'" />
+      <div
+        class="relative ml-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white h-24 my-10"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-full absolute inset-y-0 left-0"
+          viewBox="0 0 93 122"
+        >
+          <path
+            d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
+          />
+        </svg>
+        <h3 class="text-3xl ml-28 font-bold">Finalización del Curso</h3>
+      </div>
+      <app-custom-title [title]="'Obtencion del certificado'" />
+      <p class="ml-16">
+        ¡Felicidades por completar el curso! Ahora,
+        <span class="font-bold text-primary">obtén tu certificado</span> y
+        demuestra tus nuevas habilidades al mundo.
+      </p>
+
+      <button class="flex gap-x-4 ml-16 mt-4">
+        <svg
+          class="size-5"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 32 32"
+        >
+          <path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z" />
+          <path
+            fill="#000"
+            d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"
+          />
+          <path
+            fill="#000"
+            d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
+          />
+        </svg>
+        <span class="text-primary font-bold">Certificado del curso</span>
+      </button>
+      <app-custom-title [title]="'Comentario personal'" />
+      <textarea class="h-20 mx-16 rounded-lg w-[90%] bg-quinary"></textarea>
+      <app-custom-button
+        [color]="'orange'"
+        [hoverColor]="'white'"
+        [text]="'Guardar comentario'"
+        [moreStyles]="'mx-auto mt-4 mb-10'"
+      />
       }
     </app-user-layout>
   `,
 })
 export class CourseComponent {
   selectedButton = 'Inicio';
-  modules = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  modules = [1, 2, 3, 4, 5, 6, 7];
 
   constructor(public router: Router) {}
 }

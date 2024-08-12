@@ -24,7 +24,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             progress="14"
           />
           <app-course-info
-            id="inteligencia-artificial"
+            id="virtual/inteligencia-artificial"
             title="Inteligencia Artificial"
             teacher="Ivonne Maldonado"
             src="/courses/ia.png"

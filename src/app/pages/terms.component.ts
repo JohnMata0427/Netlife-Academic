@@ -18,7 +18,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         color="black"
         hoverColor="white"
         class="pl-16"
-      ></app-custom-button>
+      />
     </section>
   `,
 })

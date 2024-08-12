@@ -25,13 +25,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             [color]="'orange'"
             [hoverColor]="'white'"
             [text]="'Descargar'"
-          ></app-custom-button>
+          />
           <app-custom-button
             (click)="showShare = !showShare"
             [color]="'orange'"
             [hoverColor]="'white'"
             [text]="'Compartir'"
-          ></app-custom-button>
+          />
           @if (showShare) {
           <div
             class="absolute -right-24 bg-white py-2.5 px-7 rounded-lg w-52 flex flex-col gap-y-2 z-20"

@@ -1,16 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900');
-@import url('https://fonts.googleapis.com/css?family=Rubik%20One');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900");
+
+/* Principal Typography */
+@font-face {
+    font-family: "Avant Garde Demi";
+    src: url("./assets/fonts/AvantGardeDemi.ttf") format("truetype");
+}
+
+/* Text Typography */
+@font-face {
+  font-family: "Chalet Paris Nineteen Sixty";
+  src: url("./assets/fonts/ChaletParisNeneteenSixty.otf") format("opentype");
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s;
-}
-
-h1 {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Inter", sans-serif;
+  transition: all 0.3s;
 }

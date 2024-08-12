@@ -23,10 +23,10 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
   ],
   template: `
     <header
-      class="bg-black text-white text-center py-4 px-8 flex items-center gap-x-4"
+      class="bg-[#0b0603] text-white py-2.5 px-4 flex items-center gap-x-4 shadow-sm shadow-black"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
-      <h1 class="text-lg font-bold">
+      <h1 class="font-bold">
         Evaluación 1: Introducción a las redes de computadores
       </h1>
     </header>
@@ -205,7 +205,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                   queryParams: { pregunta: +numeroPregunta - 1 }
                 })
               "
-            ></app-custom-button>
+            />
             }
             <app-custom-button
               [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
@@ -219,7 +219,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                     })
                   : (finish = true)
               "
-            ></app-custom-button>
+            />
           </div>
         </div>
       </section>
@@ -254,14 +254,14 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               [hoverColor]="'white'"
               [moreStyles]="'w-36 justify-center'"
               (click)="finish = false"
-            ></app-custom-button>
+            />
             <app-custom-button
               [text]="'Enviar'"
               [color]="'black'"
               [hoverColor]="'white'"
               [moreStyles]="'w-36 justify-center'"
-              (click)="router.navigate(['/mis-cursos'])"
-            ></app-custom-button>
+              (click)="router.navigate(['/grade'])"
+            />
           </div>
         </div>
       </div>
@@ -285,26 +285,26 @@ export class ExamenComponent {
   segundosElement!: HTMLElement;
   fechaFinal!: number;
 
-  ngOnInit() {
-    this.fechaFinal = new Date(Date.now() + 600000).getTime();
-    this.minutosElement = document.getElementById('minutos') as HTMLElement;
-    this.segundosElement = document.getElementById('segundos') as HTMLElement;
-    this.tiempoRestante();
-  }
+  // ngOnInit() {
+  //   this.fechaFinal = new Date(Date.now() + 600000).getTime();
+  //   this.minutosElement = document.getElementById('minutos') as HTMLElement;
+  //   this.segundosElement = document.getElementById('segundos') as HTMLElement;
+  //   this.tiempoRestante();
+  // }
 
-  tiempoRestante() {
-    let tiempoRestante = this.fechaFinal - Date.now();
-    let minuto = Math.floor(tiempoRestante / 60000)
-      .toString()
-      .padStart(2, '0');
-    let segundo = Math.floor((tiempoRestante % 60000) / 1000)
-      .toString()
-      .padStart(2, '0');
-    this.minutosElement.innerHTML = minuto;
-    this.segundosElement.innerHTML = segundo;
+  // tiempoRestante() {
+  //   let tiempoRestante = this.fechaFinal - Date.now();
+  //   let minuto = Math.floor(tiempoRestante / 60000)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   let segundo = Math.floor((tiempoRestante % 60000) / 1000)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   this.minutosElement.innerHTML = minuto;
+  //   this.segundosElement.innerHTML = segundo;
 
-    if (tiempoRestante < 0) this.router.navigate(['/mis-cursos']);
+  //   if (tiempoRestante < 0) this.router.navigate(['/grade']);
 
-    setInterval(() => this.tiempoRestante(), 1000);
-  }
+  //   setInterval(() => this.tiempoRestante(), 1000);
+  // }
 }
