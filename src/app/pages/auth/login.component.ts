@@ -17,8 +17,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         class="flex flex-col gap-3 w-96"
         (ngSubmit)="onSubmit()"
       >
-        <!-- <h1 class="text-3xl font-bold text-center mb-4">Inicia sesión</h1> -->
-        <img class="w-3/4 mx-auto" src="/NetlifeLogo.webp" alt="" />
+        <img
+          class="w-3/4 mx-auto"
+          src="/NetlifeLogo.webp"
+          alt="Logo de Netlife"
+        />
         <div class="relative">
           <img
             class="size-3 absolute inset-y-0 my-auto left-3"
@@ -29,7 +32,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm peer"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -37,9 +40,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.invalid && form.get('email')?.value) {
-          <span class="text-xs text-red-500"
-            >El correo electrónico es inválido</span
-          >
+          <p class="text-xs text-tertiary">El correo electrónico es inválido</p>
         }
 
         <div class="relative">
@@ -66,13 +67,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (message) {
-          <span class="text-xs text-red-500 text-center">{{ message }}</span>
+          <p class="text-xs text-tertiary text-center">{{ message }}</p>
         }
 
         <app-custom-button
           [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
           [text]="'Iniciar sesión'"
           [loading]="loading"
         />

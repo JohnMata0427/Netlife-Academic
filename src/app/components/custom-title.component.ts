@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-custom-title',
   standalone: true,
-  imports: [],
   template: `
     <div class="relative mt-10 mb-5">
       <img

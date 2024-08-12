@@ -15,9 +15,9 @@ import { Component, Input } from '@angular/core';
         />
       </a>
 
-      <div class="bg-black rounded-b-lg px-4 py-3 flex flex-col gap-y-1">
+      <div class="bg-black rounded-b-lg px-4 py-3 flex flex-col gap-1">
         <h3 class="text-white text-sm font-bold">{{ title }}</h3>
-        <div class="space-x-2">
+        <div class="flex gap-2">
           <img
             class="size-3"
             src="/icons/courses/teacher.svg"
@@ -25,7 +25,7 @@ import { Component, Input } from '@angular/core';
           />
           <span class="text-white text-xs font-light">Prof. {{ teacher }}</span>
         </div>
-        <div class="flex flex-col gap-y-1 mt-2">
+        <div class="flex flex-col gap-1 mt-2">
           <div class="w-full bg-quinary h-2.5 rounded-lg border border-white">
             <div
               [ngStyle]="{ 'width.%': progress }"

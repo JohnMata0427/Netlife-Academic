@@ -16,7 +16,7 @@ import { CertificadoComponent } from '@components/certificado.component';
           tendrás la opción de descargarlos en formato .pdf o compartirlos en
           tus redes sociales.
         </p>
-        <!-- <div class="flex flex-col justify-end items-center gap-y-4 mt-20">
+        <!-- <div class="flex flex-col justify-end items-center gap-4 mt-20">
           <div
             class="bg-gradient-to-r from-secondary to-primary w-80 p-4 rounded-lg text-center"
           >
@@ -32,7 +32,7 @@ import { CertificadoComponent } from '@components/certificado.component';
             alt="Imagen para indicar que el usuario no tiene certificados"
           />
         </div> -->
-        <div class="space-x-8 ml-16">
+        <div class="flex gap-8 ml-16">
           <app-certificado
             [id]="'redes-de-computadoras'"
             [src]="'courses/redes.jpg'"

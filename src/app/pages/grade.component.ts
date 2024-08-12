@@ -31,7 +31,7 @@ import { CustomTitleComponent } from '../components/custom-title.component';
                 <td>8/10</td>
                 <td>
                   <button
-                    class="bg-greenlight py-1 px-7 rounded-lg font-bold text-xs hover:bg-greenlight/80 transition-all"
+                    class="bg-greenlight py-1 px-7 rounded-lg font-bold text-xs hover:bg-greenlight/50 transition-all"
                   >
                     Revisión de la prueba
                   </button>

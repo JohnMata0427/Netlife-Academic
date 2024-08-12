@@ -45,17 +45,15 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           @if (errorMessage) {
-            <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+            <p class="text-tertiary text-xs px-4">{{ errorMessage }}</p>
           } @else if (verificationCode.value && verificationCode.invalid) {
-            <p class="text-red-500 text-xs px-4">
+            <p class="text-tertiary text-xs px-4">
               El código debe tener 6 números
             </p>
           }
 
           <app-custom-button
             [moreStyles]="'w-full justify-center'"
-            [color]="'black'"
-            [hoverColor]="'white'"
             [text]="'Verificar código'"
             [loading]="loading"
           />
@@ -84,7 +82,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-white text-xs my-4"
             >¿Deseas que se te reenvíe el código?</span
           >
-          <div class="space-x-4">
+          <div class="flex gap-4">
             <button
               (click)="errorMessage = ''"
               class="w-32 bg- py-2 rounded-lg text-sm"

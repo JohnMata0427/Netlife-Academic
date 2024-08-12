@@ -1,12 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-question-boolean',
   standalone: true,
-  imports: [NgClass],
   template: `
-    <div class="flex flex-col gap-y-2">
-      <div class="space-x-4">
+    <div class="flex flex-col gap-2">
+      <div class="flex gap-4">
         <input
           class="accent-greenlight"
           type="radio"
@@ -16,7 +15,7 @@ import { NgClass } from '@angular/common';
         />
         <label class="select-none" for="true">Verdadero</label>
       </div>
-      <div class="space-x-4">
+      <div class="flex gap-4">
         <input
           class="accent-greenlight"
           type="radio"

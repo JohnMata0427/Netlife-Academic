@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AdminLayoutComponent } from '@layouts/admin-layout.component';
 import { UserService } from '@services/user.service';
 import { User } from '@interfaces/user.interface';
-import { NgClass } from '@angular/common';
+
 import { FooterComponent } from '@components/footer.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   standalone: true,
   imports: [
     AdminLayoutComponent,
-    NgClass,
+
     FooterComponent,
     CustomButtonComponent,
     ReactiveFormsModule,
@@ -20,13 +20,13 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   template: `
     <app-admin-layout>
       <h1 class="text-2xl text-primary font-bold">Gestión de usuarios</h1>
-      <div class="flex flex-col text-sm gap-y-1 mt-4">
+      <div class="flex flex-col text-sm gap-1 mt-4">
         <span>
           Para agregar, eliminar o editar usuarios y sus roles o privilegios.
         </span>
         <span> Se admite el formato CSV para exportar o importar datos. </span>
       </div>
-      <div class=" mt-4 flex flex-col gap-y-1">
+      <div class=" mt-4 flex flex-col gap-1">
         <h2 class="font-bold">Filtros de búsqueda</h2>
         <label class="text-sm" for="filter"
           ><input
@@ -50,12 +50,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       <article class="mt-2">
         <div class="flex justify-between items-center w-full">
           <h2 class="font-bold">Tabla de Usuarios</h2>
-          <div class="space-x-2 my-2">
+          <div class="flex gap-2 my-2">
             <app-custom-button
-              [color]="'black'"
               [text]="'Importar datos (CSV)'"
-              [hoverColor]="'white'"
-              [moreStyles]="'text-xs h-8 gap-x-2 group'"
+              [moreStyles]="'text-xs h-8 gap-2 group'"
             >
               <svg class="z-10 size-4" viewBox="0 0 15 19">
                 <path
@@ -67,8 +65,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
             <app-custom-button
               [color]="'orange'"
               [text]="'Exportar datos (CSV)'"
-              [hoverColor]="'white'"
-              [moreStyles]="'text-xs h-8 gap-x-2 group'"
+              [moreStyles]="'text-xs h-8 gap-2 group'"
             >
               <svg class="z-10 size-4" viewBox="0 0 16 16">
                 <path
@@ -123,36 +120,34 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               <th>
                 {{ user.role }}
               </th>
-              <th class="{{ !user.deleted ? 'bg-green-500' : 'bg-red-500' }}">
+              <th class="{{ !user.deleted ? 'bg-green-500' : 'bg-tertiary' }}">
                 {{ user.deleted ? 'Bloqueado' : 'Activo' }}
               </th>
             </tr>
           }
         </table>
       </article>
-      <div class="flex justify-center gap-x-4 mt-4">
+      <div class="flex justify-center gap-4 mt-4">
         <app-custom-button
           (click)="selectedButton = 'Agregar'"
           [color]="'orange'"
           [text]="'Agregar usuario'"
           [moreStyles]="'text-xs h-8'"
-          [hoverColor]="'white'"
         />
         <app-custom-button
           (click)="selectedButton = 'Bloquear'"
           [color]="'orange'"
           [text]="'Bloquear usuario'"
-          [hoverColor]="'white'"
           [moreStyles]="'text-xs h-8'"
         />
       </div>
 
       <div
-        class="w-full mt-4 flex flex-col gap-y-2 rounded-lg p-4 {{
+        class="w-full mt-4 flex flex-col gap-2 rounded-lg p-4 {{
           selectedButton ? 'border border-black' : ''
         }}"
       >
-        @if (!selectedButton) {
+        @if (selectedButton) {
           <h3 class="font-bold">Correo del usuario</h3>
 
           <input
@@ -184,14 +179,14 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                   ? blockUser()
                   : null
             "
-            [color]="'black'"
             [text]="selectedButton"
-            [hoverColor]="'white'"
             [moreStyles]="'text-xs h-8'"
           />
         }
         @if (message) {
-          <div class="text-white bg-black/90 p-2 rounded-lg mt-5 max-w-96">
+          <div
+            class="text-white bg-black opacity-90 p-2 rounded-lg mt-5 max-w-96"
+          >
             {{ message }}
           </div>
         }

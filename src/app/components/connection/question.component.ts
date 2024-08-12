@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-question',
   standalone: true,
-  imports: [NgClass],
   template: `
     <div
-      [ngClass]="{
-        'bg-greenlight': answerSelected == answerLetter,
-        'hover:bg-greenlight/50 bg-quinary': answerSelected != answerLetter,
-      }"
-      class="items-center flex py-1 pr-1 rounded-lg cursor-pointer w-3/4"
+      class="items-center flex py-1 pr-1 rounded-lg cursor-pointer w-3/4 {{
+        answerSelected == answerLetter
+          ? 'bg-greenlight'
+          : 'bg-quinary hover:bg-greenlight/50'
+      }}"
     >
       <strong class="px-2">{{ answerLetter }}</strong>
       <div class="rounded-lg bg-white p-2 w-full">

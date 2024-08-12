@@ -1,20 +1,16 @@
 import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-questions-select',
   standalone: true,
-  imports: [NgClass],
   template: `
-    <div class="space-x-4">
+    <div class="flex gap-4">
       <strong>{{ question }}</strong>
       <div (click)="showOptions = !showOptions" class="relative w-3/4">
         <div
-          [ngClass]="{
-            'border-greenlight': showOptions,
-            'border-quinary': !showOptions,
-          }"
-          class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer hover:border-greenlight/50"
+          class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer hover:border-greenlight/50 {{
+            showOptions ? 'border-greenlight' : 'border-quinary'
+          }}"
         >
           <span class="ml-2 select-none">
             {{ answerSelected }}
@@ -33,8 +29,9 @@ import { NgClass } from '@angular/common';
         </div>
 
         <div
-          class="border border-quinary bg-quinary rounded-lg absolute w-full z-20"
-          [ngClass]="{ hidden: !showOptions, '': showOptions }"
+          class="border border-quinary bg-quinary rounded-lg absolute w-full z-20 {{
+            showOptions ? '' : 'hidden'
+          }}"
         >
           <ol class="flex flex-col *:pl-5 *:py-2 rounded-lg">
             @for (answer of answers; track $index) {

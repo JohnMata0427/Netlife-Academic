@@ -19,7 +19,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       @if (showModal) {
         <div class="z-50 items-center flex relative w-96">
           <div
-            class="rounded-lg shadow-lg relative flex flex-col bg-black/95 outline-none focus:outline-none p-4"
+            class="rounded-lg shadow-lg relative flex flex-col bg-black opacity-90 outline-none focus:outline-none p-4"
           >
             <h3
               class="text-xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary"
@@ -35,12 +35,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <span class="text-white text-center text-xs"
               >¿No has recibido el código de confirmación?</span
             >
-            <div class="space-x-4 justify-center mt-6">
+            <div class="flex gap-4 justify-center mt-6">
               <app-custom-button
                 (click)="showModal = false"
                 [moreStyles]="'w-full'"
                 [color]="'gray'"
-                [hoverColor]="'white'"
                 [text]="'Cerrar'"
                 [loading]="loading"
               />
@@ -48,7 +47,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 (click)="onSubmit()"
                 [moreStyles]="'w-full'"
                 [color]="'orange'"
-                [hoverColor]="'white'"
                 [text]="'Reenviar'"
                 [loading]="loading"
               />
@@ -78,19 +76,19 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             />
           </div>
 
-          @if (errorMessage) {
-            <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
-          } @else if (email.value && email.invalid) {
-            <p class="text-red-500 text-xs px-4">
+          @if (email.value && email.invalid) {
+            <p class="text-tertiary text-xs px-4">
               Correo electrónico no válido
+            </p>
+          } @else if (errorMessage) {
+            <p class="text-tertiary text-xs px-4">
+              {{ errorMessage }}
             </p>
           }
 
           <app-custom-button
             (click)="onSubmit()"
             [moreStyles]="'w-full justify-center'"
-            [color]="'black'"
-            [hoverColor]="'white'"
             [text]="'Enviar código de verificación'"
             [loading]="loading"
           />

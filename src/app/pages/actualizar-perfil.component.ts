@@ -17,7 +17,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="relative">
           <div class="w-screen h-96 bg-profile"></div>
           <button
-            class="group absolute bottom-4 right-12 flex items-center justify-center gap-x-2 px-4 text-md rounded-md h-10 overflow-hidden border border-white bg-white text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full text-sm"
+            class="group absolute bottom-4 right-12 flex items-center justify-center gap-2 px-4 text-md rounded-md h-10 overflow-hidden border border-white bg-white text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full text-sm"
           >
             <svg class="z-10 size-7" viewBox="0 0 29 29">
               <path
@@ -63,7 +63,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           class="w-1/2 flex flex-col p-8"
         >
           <h1 class="text-2xl text-primary font-semibold">Datos generales</h1>
-          <div class="w-full flex mt-5 gap-x-5">
+          <div class="w-full flex mt-5 gap-5">
             <div class="flex flex-col w-1/2">
               <label for="">Nombre</label>
               <input
@@ -89,7 +89,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               />
             </div>
           </div>
-          <div class="flex mt-5 gap-x-5">
+          <div class="flex mt-5 gap-5">
             <div class="flex flex-col w-full">
               <label for="">Empresa</label>
               <input
@@ -115,7 +115,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               />
             </div>
           </div>
-          <div class="flex mt-5 gap-x-5">
+          <div class="flex mt-5 gap-5">
             <div class="flex flex-col w-full">
               <label for="">Nivel</label>
               <input
@@ -141,7 +141,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               />
             </div>
           </div>
-          <div class="flex mt-5 gap-x-5">
+          <div class="flex mt-5 gap-5">
             <div class="flex flex-col w-full">
               <label for="">Fecha de Nacimiento</label>
               <input
@@ -170,7 +170,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
           <div class="flex justify-center gap-5">
             <app-custom-button
-              [hoverColor]="'white'"
               [color]="'orange'"
               [text]="'Actualizar Perfil'"
               [moreStyles]="'mt-10 w-40 justify-center'"
@@ -178,7 +177,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             />
             <app-custom-button
               (click)="cancel = true"
-              [hoverColor]="'white'"
               [color]="'gray'"
               [text]="'Cancelar'"
               [moreStyles]="'mt-10'"

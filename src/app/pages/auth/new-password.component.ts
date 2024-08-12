@@ -55,7 +55,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('password')?.value && form.get('password')?.invalid) {
-          <p class="text-red-500 text-xs px-4">
+          <p class="text-tertiary text-xs px-4">
             La contraseña debe tener minimo 8 caracteres
           </p>
         }
@@ -84,17 +84,15 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="text-red-500 text-xs px-4">{{ errorMessage }}</p>
+          <p class="text-tertiary text-xs px-4">{{ errorMessage }}</p>
         } @else if (
           form.get('confirmPassword')?.value !== form.get('password')?.value
         ) {
-          <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
+          <p class="text-tertiary text-xs px-4">Las contraseñas no coinciden</p>
         }
 
         <app-custom-button
           [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
           [text]="'Reestablecer contraseña'"
           [loading]="loading"
         />

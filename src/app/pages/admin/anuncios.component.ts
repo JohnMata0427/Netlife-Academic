@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AdminLayoutComponent } from '@layouts/admin-layout.component';
-import { NgClass } from '@angular/common';
+
 import { FooterComponent } from '@components/footer.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import {
@@ -20,7 +20,7 @@ import { AnnouncementService } from '@services/announcement.service';
   standalone: true,
   imports: [
     AdminLayoutComponent,
-    NgClass,
+
     FooterComponent,
     CustomButtonComponent,
     ReactiveFormsModule,
@@ -30,8 +30,8 @@ import { AnnouncementService } from '@services/announcement.service';
     <app-admin-layout>
       <h1 class="text-2xl text-primary font-bold">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
-        <form [formGroup]="form" class="w-full flex mt-4 gap-x-4">
-          <div class="w-full flex flex-col gap-y-2">
+        <form [formGroup]="form" class="w-full flex mt-4 gap-4">
+          <div class="w-full flex flex-col gap-2">
             <label class="font-bold" for="">Asunto</label>
             <input
               id="subject"
@@ -49,7 +49,7 @@ import { AnnouncementService } from '@services/announcement.service';
               required
             />
           </div>
-          <div class="w-full flex flex-col gap-y-2">
+          <div class="w-full flex flex-col gap-2">
             <label class="font-bold" for="">Tipo de aviso</label>
 
             <select
@@ -172,11 +172,10 @@ import { AnnouncementService } from '@services/announcement.service';
           (click)="onSubmit()"
           [color]="'orange'"
           [text]="'Guardar Cambios'"
-          [hoverColor]="'white'"
           [moreStyles]="'text-sm h-8 mt-8'"
         />
         @if (message) {
-          <div class="text-white bg-black/90 p-2 rounded-lg mt-5">
+          <div class="text-white bg-black opacity-90 p-2 rounded-lg mt-5">
             {{ message }}
           </div>
         }

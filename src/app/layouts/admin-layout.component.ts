@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +9,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [NgClass, CustomButtonComponent],
+  imports: [CustomButtonComponent],
   template: `
     <main class="flex">
       <header class="min-h-screen w-60 p-4 bg-black">
@@ -18,7 +17,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <div class="grid place-content-center mt-1">
             <img class="h-auto w-48" src="/logo.webp" alt="Logo de Netlife" />
           </div>
-          <div class="space-x-2 justify-center items-center my-7">
+          <div class="flex gap-2 justify-center items-center my-7">
             <img
               class="size-10 rounded-full border-2 border-white"
               src="{{ user.imageUrl }}"
@@ -32,14 +31,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <strong class="text-white text-xs">GESTION DE:</strong>
           <hr class="border" />
 
-          <ul class="flex flex-col gap-y-2 mt-6">
+          <ul class="flex flex-col gap-2 mt-6">
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/dashboard'])"
                 [text]="'Dashboard'"
                 [color]="active === 'dashboard' ? 'white' : 'black'"
                 [hoverColor]="active === 'dashboard' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 18 18">
                   <path
@@ -59,7 +58,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Anuncios'"
                 [color]="active === 'anuncios' ? 'white' : 'black'"
                 [hoverColor]="active === 'anuncios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -80,7 +79,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Usuarios'"
                 [color]="active === 'usuarios' ? 'white' : 'black'"
                 [hoverColor]="active === 'usuarios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 20 20">
                   <path
@@ -101,7 +100,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Cursos'"
                 [color]="active === 'cursos' ? 'white' : 'black'"
                 [hoverColor]="active === 'cursos' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -122,7 +121,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Certificados'"
                 [color]="active === 'certificados' ? 'white' : 'black'"
                 [hoverColor]="active === 'certificados' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -143,7 +142,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Reportes'"
                 [color]="active === 'reportes' ? 'white' : 'black'"
                 [hoverColor]="active === 'reportes' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-x-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -173,9 +172,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <app-custom-button
             (click)="router.navigate(['/home'])"
             [text]="'Volver al Sitio Principal'"
-            [color]="'black'"
-            [hoverColor]="'white'"
-            [moreStyles]="'text-xs h-8 gap-x-2 group'"
+            [moreStyles]="'text-xs h-8 gap-2 group'"
           >
             <svg class="z-10 size-4" viewBox="0 0 18 18">
               <path

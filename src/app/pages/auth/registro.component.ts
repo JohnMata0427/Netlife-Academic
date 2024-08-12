@@ -92,7 +92,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.value !== form.get('confirmEmail')?.value) {
-          <p class="text-red-500 text-xs px-4">Los correos no coinciden</p>
+          <p class="text-tertiary text-xs px-4">Los correos no coinciden</p>
         }
 
         <div class="relative">
@@ -166,7 +166,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         @if (
           form.get('password')?.value !== form.get('confirmPassword')?.value
         ) {
-          <p class="text-red-500 text-xs px-4">Las contraseñas no coinciden</p>
+          <p class="text-tertiary text-xs px-4">Las contraseñas no coinciden</p>
         }
 
         <span class="text-gray-500 text-xs font-semibold"
@@ -192,7 +192,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        <div class="space-x-2 my-2">
+        <div class="flex gap-2 my-2">
           <input
             formControlName="terms"
             class="accent-primary"
@@ -212,15 +212,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="text-red-500 text-xs text-center px-4">
+          <p class="text-tertiary text-xs text-center px-4">
             {{ errorMessage }}
           </p>
         }
 
         <app-custom-button
           [moreStyles]="'w-full justify-center'"
-          [color]="'black'"
-          [hoverColor]="'white'"
           [text]="'Registrate'"
           [loading]="loading"
         />

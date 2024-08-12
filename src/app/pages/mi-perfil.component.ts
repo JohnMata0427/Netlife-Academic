@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { User } from '@interfaces/user.interface';
 import { UserService } from '@services/user.service';
-import { NgClass } from '@angular/common';
+
 import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-mi-perfil',
   standalone: true,
-  imports: [UserLayout, NgClass, CustomButtonComponent],
+  imports: [UserLayout, CustomButtonComponent],
   template: `
     <app-user-layout>
       <div class="relative">
@@ -31,7 +31,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <p class="text-sm">{{ user.email }}</p>
             <app-custom-button
               (click)="router.navigate(['/actualizar-informacion'])"
-              [hoverColor]="'white'"
               [color]="'orange'"
               [text]="'Editar Perfil'"
               [moreStyles]="'mt-4'"
@@ -42,27 +41,21 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <section
         class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start md:mr-16 mx-16"
       >
-        <div class="space-x-1 w-full">
+        <div class="flex gap-1 w-full">
           <app-custom-button
             (click)="selectedButton = 'sobre-mi'"
-            [hoverColor]="'white'"
-            [color]="'black'"
             [text]="'Sobre Mí'"
             [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
             (click)="selectedButton = 'mis-cursos'"
-            [hoverColor]="'white'"
-            [color]="'black'"
             [text]="'Mis Cursos'"
             [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />
 
           <app-custom-button
             (click)="selectedButton = 'mis-certificados'"
-            [hoverColor]="'white'"
-            [color]="'black'"
             [text]="'Mis Certificados'"
             [moreStyles]="'w-full rounded-none rounded-tr-lg'"
           />

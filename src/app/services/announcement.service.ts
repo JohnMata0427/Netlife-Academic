@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
-import { MessageResponse } from '@interfaces/message-response.interface';
-import { User } from '@interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',

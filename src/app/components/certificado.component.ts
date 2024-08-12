@@ -6,39 +6,35 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   standalone: true,
   imports: [CustomButtonComponent],
   template: `
-    <article class="w-64 shadow-md shadow-black/50 rounded-lg first:rounded-t-lg last:rounded-b-lg">
+    <article
+      class="w-64 shadow-md shadow-black/50 rounded-lg first:rounded-t-lg last:rounded-b-lg"
+    >
       <a href="/mis-cursos/{{ id }}">
-        <img
-          class="h-32 w-full"
-          src="{{ src }}"
-          alt="{{ title }}"
-        />
+        <img class="h-32 w-full" src="{{ src }}" alt="{{ title }}" />
       </a>
 
-      <div class="bg-black px-4 py-3 flex flex-col gap-y-2">
+      <div class="bg-black px-4 py-3 flex flex-col gap-2">
         <h3 class="text-white text-sm text-center">
           Certificado de {{ title }}
         </h3>
-        <div class="space-x-4 justify-center relative">
+        <div class="flex gap-4 justify-center relative">
           <app-custom-button
             (click)="showCertificate = true"
             [color]="'orange'"
-            [hoverColor]="'white'"
             [text]="'Descargar'"
           />
           <app-custom-button
             (click)="showShare = !showShare"
             [color]="'orange'"
-            [hoverColor]="'white'"
             [text]="'Compartir'"
           />
           @if (showShare) {
             <div
-              class="absolute -right-24 bg-white py-2.5 px-7 rounded-lg w-52 flex flex-col gap-y-2 z-20"
+              class="absolute -right-24 bg-white py-2.5 px-7 rounded-lg w-52 flex flex-col gap-2 z-20"
               (click)="showShare = false"
             >
               <h1 class="font-bold text-lg text-center">Compartir</h1>
-              <div class="space-x-5">
+              <div class="flex gap-5">
                 <button class="size-full group">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                     <path

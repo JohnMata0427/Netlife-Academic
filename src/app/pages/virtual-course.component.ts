@@ -28,7 +28,7 @@ import { NgStyle } from '@angular/common';
             aprenderán sobre la arquitectura, componentes y operaciones de redes
             de datos.
           </p>
-          <div class="space-x-2 items-center mt-4">
+          <div class="flex gap-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/teacher.svg"
@@ -38,7 +38,7 @@ import { NgStyle } from '@angular/common';
               >Prof. Vanessa Guevara</span
             >
           </div>
-          <div class="space-x-2 items-center mt-4">
+          <div class="flex gap-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
@@ -48,7 +48,7 @@ import { NgStyle } from '@angular/common';
               >Publicado el 10 de junio del 2024</span
             >
           </div>
-          <div class="space-x-2 items-center mt-4">
+          <div class="flex gap-2 items-center mt-4">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
@@ -61,7 +61,7 @@ import { NgStyle } from '@angular/common';
         </div>
       </div>
 
-      <section class="flex items-center justify-center gap-x-4 mt-8">
+      <section class="flex items-center justify-center gap-4 mt-8">
         <div class="w-5/6 bg-quinary h-5 rounded">
           <div
             [ngStyle]="{ 'width.%': '90' }"
@@ -73,7 +73,7 @@ import { NgStyle } from '@angular/common';
 
       <section>
         <app-custom-title [title]="'Información del Curso'" />
-        <div class="flex justify-center gap-x-8 my-10">
+        <div class="flex justify-center gap-8 my-10">
           <div
             class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
           >
@@ -127,15 +127,15 @@ import { NgStyle } from '@angular/common';
       </section>
       <section class="mb-10">
         <app-custom-title [title]="'Contenido del Curso'" />
-        <div class="space-x-8 mx-16 items-start">
+        <div class="flex gap-8 mx-16 items-start">
           <div
-            class="bg-quinary shadow-sm shadow-black/80 p-4 flex flex-col gap-y-10 w-[65.5%] rounded-lg"
+            class="bg-quinary shadow-sm shadow-black/80 p-4 flex flex-col gap-10 w-[65.5%] rounded-lg"
           >
             <details open>
               <summary class="font-bold">1. Fundamentos</summary>
-              <ul class="flex flex-col gap-y-2 mt-4 ml-4">
+              <ul class="flex flex-col gap-2 mt-4 ml-4">
                 <li class="flex justify-between">
-                  <div class="space-x-2">
+                  <div class="flex gap-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="space-x-2">
+                  <div class="flex gap-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +185,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="space-x-2">
+                  <div class="flex gap-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +209,7 @@ import { NgStyle } from '@angular/common';
                   <strong class="text-gray-500 text-sm">00:10 min</strong>
                 </li>
                 <li class="flex justify-between">
-                  <div class="space-x-2">
+                  <div class="flex gap-2">
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -246,9 +246,9 @@ import { NgStyle } from '@angular/common';
               <summary class="font-bold">4. Visión por computadora</summary>
             </details>
           </div>
-          <aside class="w-[30%] flex flex-col gap-y-4">
+          <aside class="w-[30%] flex flex-col gap-4">
             <article
-              class="bg-black rounded-lg p-7 flex flex-col items-center gap-y-4 relative"
+              class="bg-black rounded-lg p-7 flex flex-col items-center gap-4 relative"
             >
               <svg
                 class="size-12 absolute top-4 left-4"
@@ -274,7 +274,7 @@ import { NgStyle } from '@angular/common';
               </svg>
 
               <h3 class="text-white font-bold text-center">Vanessa Guevara</h3>
-              <div class="space-x-4">
+              <div class="flex gap-4">
                 <img
                   class="size-16 rounded-full"
                   src="/profile.webp"
@@ -282,7 +282,7 @@ import { NgStyle } from '@angular/common';
                 />
                 <div>
                   <ol
-                    class="text-white *:flex *:gap-x-2 text-sm flex flex-col gap-y-2"
+                    class="text-white *:flex *:gap-2 text-sm flex flex-col gap-2"
                   >
                     <li>
                       <svg

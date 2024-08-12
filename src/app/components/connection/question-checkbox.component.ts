@@ -1,12 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-question-checkbox',
   standalone: true,
-  imports: [NgClass],
   template: `
     <div class="gap-4 flex flex-col">
-      <div class="space-4 items-center">
+      <div class="flex gap-4 items-center">
         <input
           class="size-4 accent-greenlight"
           id="{{ answer }}"

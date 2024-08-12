@@ -1,18 +1,16 @@
-import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 type ColorVariant = 'black' | 'white' | 'orange' | 'gray' | 'orangelight';
+type HoverColorVariant = 'black' | 'white';
 
 @Component({
   selector: 'app-custom-button',
   standalone: true,
-  imports: [NgClass],
   template: `
     <button
-      [ngClass]="[variantsColor[color], variantsHoverColor[hoverColor]]"
       class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center {{
         moreStyles
-      }}"
+      }} {{ variantsColor[color] }} {{ variantsHoverColor[hoverColor] }}"
     >
       @if (loading) {
         <svg
@@ -42,8 +40,8 @@ export class CustomButtonComponent {
   constructor() {}
 
   @Input() text!: string;
-  @Input() hoverColor: ColorVariant = 'black';
-  @Input() color: ColorVariant = 'white';
+  @Input() color: ColorVariant = 'black';
+  @Input() hoverColor: HoverColorVariant = 'white';
   @Input() loading = false;
   @Input() moreStyles!: string;
 
@@ -54,12 +52,8 @@ export class CustomButtonComponent {
     gray: 'border-neutral-500 bg-neutral-500 hover:text-neutral-500',
     orangelight: 'border-orangelight bg-orangelight hover:text-orangelight',
   };
-  variantsHoverColor: Record<ColorVariant, string> = {
+  variantsHoverColor: Record<HoverColorVariant, string> = {
     black: 'text-black before:bg-black hover:shadow-black',
     white: 'text-white before:bg-white hover:shadow-white',
-    orange: 'text-primary before:bg-primary hover:shadow-primary',
-    gray: 'text-neutral-500 before:bg-neutral-500 hover:shadow-neutral-500',
-    orangelight:
-      'text-orangelight before:bg-orangelight hover:shadow-orangelight',
   };
 }

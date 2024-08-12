@@ -9,7 +9,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <app-user-layout>
-      <div class="mx-8 mt-8 space-x-4 mb-10">
+      <div class="mx-8 mt-8 flex gap-4 mb-10">
         <section class="w-3/5">
           <lite-youtube
             class="rounded-lg"
@@ -19,7 +19,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
           <h2 class="my-4 text-xl font-bold">
             Bienvenida del Curso - Inteligencia Artificial
           </h2>
-          <div class="space-x-4 items-center">
+          <div class="flex gap-4 items-center">
             <img class="rounded-full size-12" src="/profile.webp" alt="" />
             <svg
               class="size-4"
@@ -37,20 +37,22 @@ import { CustomButtonComponent } from '../components/custom-button.component';
           <div>
             <h3 class="mt-4 font-bold text-primary">Información del Curso</h3>
             <hr class="mb-4 border-primary border-2 w-1/4" />
-            <div class="bg-quinary p-12 rounded-lg flex flex-col gap-y-8">
+            <div class="bg-quinary p-12 rounded-lg flex flex-col gap-8">
               <div class="flex items-center">
                 <img
                   class="size-48"
                   src="https://cdn-icons-png.freepik.com/512/7364/7364330.png"
                   alt=""
                 />
-                <div class="flex flex-col gap-y-4">
+                <div class="flex flex-col gap-4">
                   <h4 class="text-xl font-extrabold">
                     ¿QUÉ ES LA <br /><span class="text-primary text-3xl"
                       >INTELIGENCIA ARTIFICIAL</span
                     >?
                   </h4>
-                  <div class="bg-secondary/80 p-4 ml-8 rounded-lg text-sm">
+                  <div
+                    class="bg-secondary/80 p-4 ml-8 rounded-lg text-sm"
+                  >
                     Es la capacidad de una máquina para imitar eI comportamiento
                     humano a través de algoritmos sacando provecho de los datos
                     y el poder computacional.
@@ -74,10 +76,10 @@ import { CustomButtonComponent } from '../components/custom-button.component';
             </div>
           </div>
         </section>
-        <aside class="w-2/5 flex flex-col gap-y-4">
+        <aside class="w-2/5 flex flex-col gap-4">
           <div class="flex flex-col rounded-lg shadow-sm shadow-black/50">
             <header
-              class="bg-orangelight space-x-4 py-2 px-4 items-center rounded-t-lg"
+              class="bg-orangelight flex gap-4 py-2 px-4 items-center rounded-t-lg"
             >
               <svg
                 class="size-5"
@@ -93,10 +95,10 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               <h2 class="font-bold">Contenidos</h2>
             </header>
             <div
-              class="p-8 flex flex-col text-white gap-y-2 *:bg-zinc-600 *:p-4 *:select-none"
+              class="p-8 flex flex-col bg-quinary text-white gap-2 *:bg-zinc-600 *:p-4 *:select-none"
             >
               <details open>
-                <summary class="space-x-2">
+                <summary class="flex gap-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +111,9 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                     /></svg
                   ><span>1. Fundamentos</span>
                 </summary>
-                <ul class="flex flex-col gap-y-2 mt-4 ml-4">
+                <ul class="flex flex-col gap-2 mt-4 ml-4">
                   <li class="flex justify-between">
-                    <div class="space-x-2">
+                    <div class="flex gap-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +141,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                     >
                   </li>
                   <li class="flex justify-between">
-                    <div class="space-x-2">
+                    <div class="flex gap-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +167,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                     >
                   </li>
                   <li class="flex justify-between">
-                    <div class="space-x-2">
+                    <div class="flex gap-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +193,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                     >
                   </li>
                   <li class="flex justify-between">
-                    <div class="space-x-2">
+                    <div class="flex gap-2">
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +221,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ul>
               </details>
               <details>
-                <summary class="space-x-2">
+                <summary class="flex gap-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +239,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="space-x-2">
+                <summary class="flex gap-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +257,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="space-x-2">
+                <summary class="flex gap-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +275,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </ol>
               </details>
               <details>
-                <summary class="space-x-2">
+                <summary class="flex gap-2">
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -292,11 +294,11 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               </details>
             </div>
           </div>
-          <section class="flex flex-col gap-y-4">
-            <h4 class="bg-black text-white pl-4 py-1 rounded-t-lg w-2/5">
+          <section class="flex flex-col gap-4">
+            <h4 class="bg-black text-white pl-4 py-1 rounded-t-lg w-2/5 text-sm">
               Comentarios
             </h4>
-            <div class="space-x-4 items-center">
+            <div class="flex gap-4 items-start bg-quinary rounded-lg shadow-sm shadow-black/50 px-4 pb-4">
               <img class="rounded-full size-12" src="/profile.webp" alt="" />
               <textarea
                 class="w-full text-sm border border-neutral-400 rounded-lg p-2"
@@ -305,17 +307,9 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 placeholder="En esta sección, puedes escribir comentarios sobre esta clase."
               ></textarea>
             </div>
-            <div class="flex justify-end gap-x-4">
-              <app-custom-button
-                [color]="'orange'"
-                [hoverColor]="'white'"
-                [text]="'Comenzar'"
-              />
-              <app-custom-button
-                [color]="'gray'"
-                [hoverColor]="'white'"
-                [text]="'Cancelar'"
-              />
+            <div class="flex justify-end gap-4">
+              <app-custom-button [color]="'orange'" [text]="'Comenzar'" />
+              <app-custom-button [color]="'gray'" [text]="'Cancelar'" />
             </div>
           </section>
         </aside>

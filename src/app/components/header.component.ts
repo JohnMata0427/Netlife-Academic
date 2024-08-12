@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,7 +6,6 @@ import { UserService } from '@services/user.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass],
   template: `
     <header class="bg-[#0b0603] py-2 px-4 shadow-sm shadow-black">
       <nav class="flex">
@@ -15,52 +13,52 @@ import { UserService } from '@services/user.service';
           <a class="pr-8" href="/home">
             <img class="h-9" src="/logo.webp" alt="Netlife Logo" />
           </a>
-          <div class="space-x-8">
+          <div class="flex gap-8">
             <a
               id="home"
-              [ngClass]="{
-                'text-primary': active === 'home',
-                'text-white hover:text-primary': active !== 'home',
-              }"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+                active === 'home'
+                  ? 'text-primary'
+                  : 'text-white hover:text-primary'
+              }}"
               href="/home"
               >Inicio</a
             >
 
             <a
               id="mi-perfil"
-              [ngClass]="{
-                'text-primary': active === 'mi-perfil',
-                'text-white hover:text-primary': active !== 'mi-perfil',
-              }"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+                active === 'mi-perfil'
+                  ? 'text-primary'
+                  : 'text-white hover:text-primary'
+              }}"
               href="/mi-perfil"
               >Mi Perfil</a
             >
             <a
               id="mis-cursos"
-              [ngClass]="{
-                'text-primary': active === 'mis-cursos',
-                'text-white hover:text-primary': active !== 'mis-cursos',
-              }"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+                active === 'mis-cursos'
+                  ? 'text-primary'
+                  : 'text-white hover:text-primary'
+              }}"
               href="/mis-cursos"
               >Mis Cursos</a
             >
             <a
               id="mis-certificados"
-              [ngClass]="{
-                'text-primary': active === 'mis-certificados',
-                'text-white hover:text-primary': active !== 'mis-certificados',
-              }"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+                active === 'mis-certificados'
+                  ? 'text-primary'
+                  : 'text-white hover:text-primary'
+              }}"
               href="/mis-certificados"
               >Mis Certificados</a
             >
           </div>
         </div>
         <div class="flex justify-end items-center w-full">
-          <div class="flex justify-end items-center mr-4">
+          <div class="flex justify-end items-center mr-4 relative">
             <input
               type="search"
               id="search"
@@ -81,7 +79,7 @@ import { UserService } from '@services/user.service';
               <path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0m18 11-6-6" />
             </svg>
           </div>
-          <div class="relative space-x-3">
+          <div class="relative flex gap-3">
             <button
               (click)="showNotifications = !showNotifications"
               class="hover:scale-110"
@@ -94,7 +92,7 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showNotifications) {
               <div
-                class="w-56 flex flex-col z-10 absolute top-11 right-24 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
+                class="w-56 flex flex-col z-10 absolute top-11 right-24 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default"
               >
                 <strong>Proximamente...</strong>
               </div>
@@ -111,14 +109,14 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showMessages) {
               <div
-                class="w-56 flex flex-col z-10 absolute top-11 right-16 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
+                class="w-56 flex flex-col z-10 absolute top-11 right-16 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default"
               >
                 <strong>Proximamente...</strong>
               </div>
             }
             <button
               (click)="showMenu = !showMenu"
-              class="relative space-x-2 hover:scale-105"
+              class="relative flex items-center gap-2 hover:scale-105"
             >
               <img
                 class="rounded-full size-8 border-white border-[3px]"
@@ -133,7 +131,7 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showMenu) {
               <div
-                class="w-56 flex flex-col z-10 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/60 p-4 gap-y-1 cursor-default"
+                class="w-56 flex flex-col z-10 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default"
               >
                 <div class="flex flex-col items-center">
                   <strong class="text-center">{{ username }}</strong>
@@ -143,14 +141,14 @@ import { UserService } from '@services/user.service';
                 @if (role === 'ADMIN') {
                   <button
                     (click)="router.navigate(['/admin/dashboard'])"
-                    class="text-sm text-black hover:bg-quinary text-start  space-x-2 rounded-lg py-1 px-2"
+                    class="text-sm text-black hover:bg-quinary text-start  flex gap-2 rounded-lg py-1 px-2"
                   >
                     Admin Dashboard
                   </button>
                 }
                 <button
                   (click)="router.navigate(['/mi-perfil'])"
-                  class="text-sm text-black hover:bg-quinary text-start  space-x-2 rounded-lg py-1 px-2"
+                  class="text-sm text-black hover:bg-quinary text-start  flex gap-2 rounded-lg py-1 px-2"
                 >
                   <img
                     class="size-4"
@@ -161,7 +159,7 @@ import { UserService } from '@services/user.service';
                 </button>
                 <button
                   (click)="router.navigate(['/actualizar-informacion'])"
-                  class="text-sm text-black hover:bg-quinary text-start space-x-2 rounded-lg py-1 px-2"
+                  class="text-sm text-black hover:bg-quinary text-start flex gap-2 rounded-lg py-1 px-2"
                 >
                   <img
                     class="size-4"
@@ -176,7 +174,7 @@ import { UserService } from '@services/user.service';
                   Calendario de Tareas
                 </button>
                 <button
-                  class="space-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
+                  class="flex gap-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
                   (click)="logout()"
                 >
                   <svg

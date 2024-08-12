@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '../components/custom-button.component';
 import { QuestionsComponent } from '../components/connection/question.component';
@@ -12,7 +12,6 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
   standalone: true,
   selector: 'app-examen',
   imports: [
-    NgClass,
     NgStyle,
     CustomButtonComponent,
     QuestionsComponent,
@@ -23,7 +22,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
   ],
   template: `
     <header
-      class="bg-[#0b0603] text-white py-2.5 px-4 space-x-4 shadow-sm shadow-black"
+      class="bg-[#0b0603] text-white py-2.5 px-4 flex gap-4 shadow-sm shadow-black"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
       <h1 class="font-bold">
@@ -40,8 +39,8 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         ></div>
       </div>
       <section class="flex md:flex-row flex-col justify-between mx-16 gap-7 ">
-        <div class="flex flex-col gap-y-4 md:w-1/4 ">
-          <div class="flex justify-center gap-x-4">
+        <div class="flex flex-col gap-4 md:w-1/4 ">
+          <div class="flex justify-center gap-4">
             <div
               class="bg-orangelight flex flex-col items-center p-4 rounded-lg w-1/2"
             >
@@ -56,7 +55,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             </div>
           </div>
           <div
-            class="bg-tertiary text-white flex justify-center items-center rounded-lg p-2 gap-x-2"
+            class="bg-tertiary text-white flex justify-center items-center rounded-lg p-2 gap-2"
           >
             <span>Tiempo restante:</span>
             <strong>
@@ -66,12 +65,12 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         </div>
         <div class="flex flex-col md:w-4/5">
           <div
-            class="border border-quinary p-4 rounded-lg flex flex-col gap-y-4 w-full h-80"
+            class="border border-quinary p-4 rounded-lg flex flex-col gap-4 w-full h-80"
           >
             @if (numeroPregunta == 1) {
               <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
 
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col gap-4">
                 <app-question
                   (click)="answersSelected[0] = 'A'"
                   [answerSelected]="answersSelected[0]"
@@ -106,7 +105,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                 enrutamiento dinámico
               </h2>
 
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col gap-4">
                 <app-questions-select
                   [question]="'OSPF'"
                   [answers]="[
@@ -144,7 +143,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               <h2>
                 3. Seleccione tres características sobre una dirección MAC
               </h2>
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col gap-4">
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'A'"
                   [question]="'Tiene 48 bits (6 bytes) de longitud.'"
@@ -202,7 +201,6 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               <app-custom-button
                 [text]="'Anterior'"
                 [color]="'orange'"
-                [hoverColor]="'white'"
                 [moreStyles]="'mt-6 w-52 justify-center text-black'"
                 (click)="
                   router.navigate(['/examen'], {
@@ -214,7 +212,6 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             <app-custom-button
               [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
               [color]="'orange'"
-              [hoverColor]="'white'"
               [moreStyles]="'mt-6 w-52 justify-center text-black'"
               (click)="
                 numeroPregunta < 5
@@ -243,7 +240,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             />
           </svg>
           <div
-            class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-y-4"
+            class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-4"
           >
             <span class="text-center font-light text-sm"
               >Muy bien, has terminado un desafío más para tu aprendizaje.</span
@@ -251,18 +248,15 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             <strong class="text-center text-sm"
               >¿Estás seguro de enviar tus respuestas?</strong
             >
-            <div class="flex justify-center gap-x-4">
+            <div class="flex justify-center gap-4">
               <app-custom-button
                 [text]="'Cancelar'"
                 [color]="'gray'"
-                [hoverColor]="'white'"
                 [moreStyles]="'w-36 justify-center'"
                 (click)="finish = false"
               />
               <app-custom-button
                 [text]="'Enviar'"
-                [color]="'black'"
-                [hoverColor]="'white'"
                 [moreStyles]="'w-36 justify-center'"
                 (click)="router.navigate(['/grade'])"
               />
@@ -271,7 +265,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         </div>
       </div>
       <div
-        class="fixed inset-0 z-40 bg-white/75"
+        class="fixed inset-0 z-40 bg-white opacity-75"
         (click)="finish = false"
       ></div>
     }
@@ -295,26 +289,26 @@ export class ExamenComponent {
   segundosElement!: HTMLElement;
   fechaFinal!: number;
 
-  // ngOnInit() {
-  //   this.fechaFinal = new Date(Date.now() + 600000).getTime();
-  //   this.minutosElement = document.getElementById('minutos') as HTMLElement;
-  //   this.segundosElement = document.getElementById('segundos') as HTMLElement;
-  //   this.tiempoRestante();
-  // }
+  ngOnInit() {
+    this.fechaFinal = new Date(Date.now() + 600000).getTime();
+    this.minutosElement = document.getElementById('minutos') as HTMLElement;
+    this.segundosElement = document.getElementById('segundos') as HTMLElement;
+    this.tiempoRestante();
+  }
 
-  // tiempoRestante() {
-  //   let tiempoRestante = this.fechaFinal - Date.now();
-  //   let minuto = Math.floor(tiempoRestante / 60000)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   let segundo = Math.floor((tiempoRestante % 60000) / 1000)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   this.minutosElement.innerHTML = minuto;
-  //   this.segundosElement.innerHTML = segundo;
+  tiempoRestante() {
+    let tiempoRestante = this.fechaFinal - Date.now();
+    let minuto = Math.floor(tiempoRestante / 60000)
+      .toString()
+      .padStart(2, '0');
+    let segundo = Math.floor((tiempoRestante % 60000) / 1000)
+      .toString()
+      .padStart(2, '0');
+    this.minutosElement.innerHTML = minuto;
+    this.segundosElement.innerHTML = segundo;
 
-  //   if (tiempoRestante < 0) this.router.navigate(['/grade']);
+    if (tiempoRestante < 0) this.router.navigate(['/grade']);
 
-  //   setInterval(() => this.tiempoRestante(), 1000);
-  // }
+    setInterval(() => this.tiempoRestante(), 1000);
+  }
 }

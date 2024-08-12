@@ -4,32 +4,28 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
   selector: 'app-question-line',
   standalone: true,
   template: `
-    <div class="space-x-40 mt-4 ml-4">
-      <div>
-        <ul #questionList class="flex flex-col gap-y-2 select-none">
-          @for (question of questions; track $index) {
-            <li
-              (click)="selectQuestion($index)"
-              class="hover:bg-greenlight/50 rounded-lg p-1"
-            >
-              <strong>{{ $index + 1 }}.</strong>
-              <span class="ml-4 mr-2">{{ question }}</span>
-            </li>
-          }
-        </ul>
-      </div>
-      <div>
-        <ul #answerList class="flex flex-col gap-y-2 select-none">
-          @for (answer of answers; track $index) {
-            <li
-              (click)="selectAnswer($index)"
-              class="hover:bg-greenlight/50 rounded-lg p-1"
-            >
-              <span class="ml-2">{{ answer }}</span>
-            </li>
-          }
-        </ul>
-      </div>
+    <div class="flex gap-40 mt-4 ml-4">
+      <ul #questionList class="flex flex-col gap-2 select-none">
+        @for (question of questions; track $index) {
+          <li
+            (click)="selectQuestion($index)"
+            class="hover:bg-greenlight/50 rounded-lg p-1"
+          >
+            <strong>{{ $index + 1 }}.</strong>
+            <span class="ml-4 mr-2">{{ question }}</span>
+          </li>
+        }
+      </ul>
+      <ul #answerList class="flex flex-col gap-2 select-none">
+        @for (answer of answers; track $index) {
+          <li
+            (click)="selectAnswer($index)"
+            class="hover:bg-greenlight/50 rounded-lg p-1"
+          >
+            <span class="ml-2">{{ answer }}</span>
+          </li>
+        }
+      </ul>
 
       <svg
         class="absolute top-0 left-0 w-full h-full pointer-events-none stroke-[4px]"
