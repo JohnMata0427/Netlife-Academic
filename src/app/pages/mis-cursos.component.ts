@@ -10,12 +10,12 @@ import { CustomTitleComponent } from '@components/custom-title.component';
   template: `
     <app-user-layout>
       <app-custom-title title="Cursos" />
-      <p class="pl-16 my-4 text-sm">
+      <p class="my-4 text-sm sm:pl-16 px-8">
         Información sobre los cursos que estás tomando o que tomaste.
       </p>
-      <section class="pl-16">
+      <section class="sm:pl-16 px-8">
         <h2 class="text-primary font-extrabold">EN PROCESO</h2>
-        <div class="mt-4 flex-wrap flex gap-8">
+        <div class="mt-4 flex-wrap flex gap-8 justify-center sm:justify-start">
           <app-course-info
             id="redes-de-computadoras"
             title="Redes de Computadoras"
@@ -26,7 +26,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           <app-course-info
             id="virtual/inteligencia-artificial"
             title="Inteligencia Artificial"
-            teacher="Ivonne Maldonado"
+            teacher="Vanessa Guevara"
             src="/courses/ia.png"
             progress="22"
           />
@@ -45,9 +45,9 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           />
         </div>
       </section>
-      <section class="pl-16 mt-4">
+      <section class="mt-4 sm:pl-16 px-8">
         <h2 class="text-primary font-extrabold">COMPLETADOS</h2>
-        <div class="mt-4 flex gap-8">
+        <div class="mt-4 flex gap-8 flex-wrap justify-center sm:justify-start">
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
@@ -62,9 +62,9 @@ import { CustomTitleComponent } from '@components/custom-title.component';
           />
         </div>
       </section>
-      <section class="pl-16 mt-4 mb-20">
+      <section class="mt-4 mb-20 sm:pl-16 px-8">
         <h2 class="text-primary font-extrabold">CURSOS RECOMENDADOS PARA TI</h2>
-        <div class="mt-4 flex gap-8">
+        <div class="mt-4 flex gap-8 flex-wrap justify-center sm:justify-start">
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"

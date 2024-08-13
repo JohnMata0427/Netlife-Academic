@@ -35,7 +35,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/dashboard'])"
-                [text]="'Dashboard'"
+                [text]="'Usuarios'"
                 [color]="active === 'dashboard' ? 'white' : 'black'"
                 [hoverColor]="active === 'dashboard' ? 'black' : 'white'"
                 [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
@@ -73,7 +73,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               </app-custom-button>
             </li>
 
-            <li>
+            <!-- <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/usuarios'])"
                 [text]="'Usuarios'"
@@ -92,7 +92,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                   />
                 </svg>
               </app-custom-button>
-            </li>
+            </li> -->
 
             <li>
               <app-custom-button
@@ -135,8 +135,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 </svg>
               </app-custom-button>
             </li>
-
-            <li>
+            <!-- <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/reportes'])"
                 [text]="'Reportes'"
@@ -163,7 +162,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                   />
                 </svg>
               </app-custom-button>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </header>

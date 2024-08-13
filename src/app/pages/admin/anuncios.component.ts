@@ -30,8 +30,8 @@ import { AnnouncementService } from '@services/announcement.service';
     <app-admin-layout>
       <h1 class="text-2xl text-primary font-bold">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
-        <form [formGroup]="form" class="w-full flex mt-4 gap-4">
-          <div class="w-full flex flex-col gap-2">
+        <form [formGroup]="form" class="w-full flex mt-4 gap-4 flex-col lg:flex-row">
+          <div class="w-full flex flex-col gap-2 ">
             <label class="font-bold" for="">Asunto</label>
             <input
               id="subject"

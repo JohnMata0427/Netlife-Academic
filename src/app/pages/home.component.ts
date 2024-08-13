@@ -16,11 +16,11 @@ import { CustomButtonComponent } from "../components/custom-button.component";
       <img class="w-full" src="/banner.webp" alt="Banner de Inicio" />
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
-        <div class="flex gap-20">
-          <aside class="w-1/2 flex flex-col gap-2 ml-16">
+        <div class="flex lg:gap-20  lg:flex-row flex-col">
+          <aside class="lg:w-1/2 flex flex-col gap-2 lg:ml-16 mx-8">
             @for (user of users; track user.id) {
               <div
-                class="bg-quinary flex justify-between items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8"
+                class="bg-quinary flex justify-between items-center shadow-md shadow-black/30 rounded-lg p-2 pr-8"
               >
                 <div class="flex items-center gap-2">
                   @if (users[0] === user) {
@@ -52,7 +52,7 @@ import { CustomButtonComponent } from "../components/custom-button.component";
                   </h4>
                 </div>
                 <div class="flex flex-col items-end">
-                  <strong class="text-sm font-extrabold"
+                  <strong class="text-md font-extrabold"
                     >{{ user?.points }}
                   </strong>
                   <span class="text-xs">puntos</span>
@@ -61,57 +61,56 @@ import { CustomButtonComponent } from "../components/custom-button.component";
             }
           </aside>
           <article class="flex flex-col gap-2">
-            <h2 class="text-primary font-bold">PROXIMAS TAREAS</h2>
-            <app-task [nombre]="'Introducción a las Redes'" [fecha]="{mes:'Julio', dia: '20'}" [hora]="'11:59 PM'"/>
-            <app-task [nombre]="'Aprendizaje Automatico'" [fecha]="{mes:'Julio', dia: '24'}" [hora]="'11:59 PM'"/>
-            <app-task [nombre]="'Analisis de Datos'" [fecha]="{mes:'Julio', dia: '28'}" [hora]="'11:59 PM'"/>
-            
-            <div class="flex gap-2 mt-2">
-              <div class="bg-black flex flex-col gap-2 py-2 px-4 rounded-lg">
-                <span class="text-sm text-white font-light"
-                  >Prioridad de las tareas</span
-                >
-                <div class="flex">
-                  <div class="w-20 flex flex-col gap-1">
-                    <div
-                      class="h-1 bg-secondary w-full rounded-l-lg flex justify-end items-center"
-                    >
-                      <div class="size-2 rounded-full bg-secondary"></div>
+            <h2 class="lg:block hidden text-primary font-bold">PROXIMAS TAREAS</h2>
+            <app-custom-title class="lg:hidden" [title]="'Próximas tareas'"/>
+            <div class="flex flex-col mx-8 items-center">
+              <app-task [nombre]="'Introducción a las Redes'" [fecha]="{mes:'Julio', dia: '20'}" [hora]="'11:59 PM'"/>
+              <app-task [nombre]="'Aprendizaje Automatico'" [fecha]="{mes:'Julio', dia: '24'}" [hora]="'11:59 PM'"/>
+              <app-task [nombre]="'Analisis de Datos'" [fecha]="{mes:'Julio', dia: '28'}" [hora]="'11:59 PM'"/>
+              <div class="flex gap-2 mt-2">
+                <div class="bg-black flex flex-col gap-2 py-2 px-4 rounded-lg">
+                  <span class="text-md text-white font-light"
+                    >Prioridad de las tareas</span
+                  >
+                  <div class="flex">
+                    <div class="w-20 flex flex-col gap-1">
+                      <div
+                        class="h-1 bg-secondary w-full rounded-l-lg flex justify-end items-center"
+                      >
+                        <div class="size-2 rounded-full bg-secondary"></div>
+                      </div>
+                      <span class="text-xs text-white text-end">Por hacer</span>
                     </div>
-                    <span class="text-xs text-white text-end">Por hacer</span>
-                  </div>
-                  <div class="w-20 flex flex-col gap-1">
-                    <div class="h-1 bg-primary flex justify-end items-center">
-                      <div class="size-2 rounded-full bg-primary"></div>
+                    <div class="w-20 flex flex-col gap-1">
+                      <div class="h-1 bg-primary flex justify-end items-center">
+                        <div class="size-2 rounded-full bg-primary"></div>
+                      </div>
+                      <span class="text-xs text-white text-end">Proximo</span>
                     </div>
-                    <span class="text-xs text-white text-end">Proximo</span>
-                  </div>
-                  <div class="w-20 flex flex-col gap-1">
-                    <div class="h-1 bg-tertiary flex justify-end items-center">
-                      <div class="size-2 rounded-full bg-tertiary"></div>
+                    <div class="w-20 flex flex-col gap-1">
+                      <div class="h-1 bg-tertiary flex justify-end items-center">
+                        <div class="size-2 rounded-full bg-tertiary"></div>
+                      </div>
+                      <span class="text-xs text-white text-end">Urgente</span>
                     </div>
-                    <span class="text-xs text-white text-end">Urgente</span>
                   </div>
                 </div>
+  
+                <app-custom-button
+                  [text]="'Ver calendario'"
+                  [moreStyles]="'text-xs justify-center items-center gap-2 h-full group'"
+                >
+                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path class="group-hover:fill-black fill-white" d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"/></svg>
+                </app-custom-button>
               </div>
-
-              <app-custom-button
-                [text]="'Ver calendario'"
-                [moreStyles]="'text-xs justify-center items-center gap-2 h-full group'"
-              >
-              <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path class="group-hover:fill-black fill-white" d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"/></svg>
-              </app-custom-button>
             </div>
           </article>
         </div>
       </section>
-      <section class="mb-20">
+      <section class="mb-20 ">
         <app-custom-title title="Nuevos Cursos" />
 
-        <h2 class="text-primary font-extrabold ml-16">
-          CURSOS RECOMENDADOS PARA TI
-        </h2>
-        <div class="mt-4 flex gap-8 ml-16">
+        <div class="mt-4 flex gap-8 lg:ml-16 flex-wrap justify-center lg:justify-start ">
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"

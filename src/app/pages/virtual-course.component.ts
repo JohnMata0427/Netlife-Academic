@@ -9,12 +9,12 @@ import { NgStyle } from '@angular/common';
   imports: [NgStyle, UserLayout, CustomTitleComponent],
   template: `
     <app-user-layout>
-      <div class="bg-black flex py-10 px-16 justify-center">
-        <div class="w-1/2 flex justify-center">
-          <img class="rounded-lg h-72" src="/courses/ia.png" alt="" />
+      <div class="bg-black flex py-10 px-16 justify-center flex-col md:flex-row">
+        <div class="md:w-1/2 flex justify-center items-center">
+          <img class="rounded-lg " src="/courses/ia.png" alt="" />
         </div>
-        <div class="w-1/2 flex flex-col pl-16">
-          <h1 class="text-white font-extrabold text-4xl">
+        <div class="md:w-1/2 flex flex-col md:pl-16">
+          <h1 class="text-white font-extrabold text-4xl md:text-start text-center  mt-8 md:mt-0">
             INTELIGENCIA ARTIFICIAL
           </h1>
           <div
@@ -73,7 +73,7 @@ import { NgStyle } from '@angular/common';
 
       <section>
         <app-custom-title [title]="'Información del Curso'" />
-        <div class="flex justify-center gap-8 my-10">
+        <div class="flex justify-center gap-8 my-10 flex-wrap">
           <div
             class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
           >
@@ -124,12 +124,14 @@ import { NgStyle } from '@angular/common';
             </p>
           </div>
         </div>
+
+
       </section>
       <section class="mb-10">
         <app-custom-title [title]="'Contenido del Curso'" />
-        <div class="flex gap-8 mx-16 items-start">
+        <div class="flex gap-8 mx-16 items-start flex-col-reverse lg:flex-row ">
           <div
-            class="bg-quinary shadow-sm shadow-black/80 p-4 flex flex-col gap-10 w-[65.5%] rounded-lg"
+            class="bg-quinary shadow-sm shadow-black/80 p-4 flex flex-col gap-10 lg:w-[65.5%] w-full rounded-lg"
           >
             <details open>
               <summary class="font-bold">1. Fundamentos</summary>
@@ -246,9 +248,10 @@ import { NgStyle } from '@angular/common';
               <summary class="font-bold">4. Visión por computadora</summary>
             </details>
           </div>
-          <aside class="w-[30%] flex flex-col gap-4">
+
+          <aside class="lg:w-[30%] flex lg:flex-col flex-col gap-4 md:flex-row">
             <article
-              class="bg-black rounded-lg p-7 flex flex-col items-center gap-4 relative"
+              class="bg-black rounded-lg p-7 flex flex-col items-center gap-4 relative "
             >
               <svg
                 class="size-12 absolute top-4 left-4"
@@ -274,7 +277,7 @@ import { NgStyle } from '@angular/common';
               </svg>
 
               <h3 class="text-white font-bold text-center">Vanessa Guevara</h3>
-              <div class="flex gap-4">
+              <div class="flex gap-4 md:flex-col md:items-center">
                 <img
                   class="size-16 rounded-full"
                   src="/profile.webp"
@@ -334,15 +337,17 @@ import { NgStyle } from '@angular/common';
                 </div>
               </div>
             </article>
-            <div
-              class="bg-orangelight p-4 text-sm rounded-lg shadow-sm shadow-black/50"
-            >
+            <div 
+              class="bg-orangelight p-4 text-sm rounded-lg shadow-sm shadow-black/50 flex items-center"
+            > 
+            <p>
               ¡Hola a todos! Soy <strong>Vanessa Guevara</strong>, y seré su
               instructora para este curso. Estoy emocionada de acompañarlos en
               este viaje de aprendizaje sobre los fundamentos de la inteligencia
               artificial. Juntos exploraremos el fascinante mundo de las redes,
               desde lo básico hasta configuraciones avanzadas.
               <strong>¡Bienvenidos y mucho éxito!</strong>
+            </p>
             </div>
           </aside>
         </div>

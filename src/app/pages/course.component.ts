@@ -11,12 +11,12 @@ import { UserLayout } from '@layouts/user-layout.component';
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
   template: `
     <app-user-layout>
-      <div class="bg-black flex py-10 px-16 justify-center">
-        <div class="w-1/2 flex justify-center">
-          <img class="rounded-lg h-72" src="/courses/redes.jpg" alt="" />
+      <div class="bg-black flex py-10 px-16 justify-center md:flex-row flex-col">
+        <div class="md:w-1/2 flex justify-center items-center">
+          <img class="rounded-lg " src="/courses/redes.jpg" alt="" />
         </div>
-        <div class="w-1/2 flex flex-col pl-16">
-          <h1 class="text-white font-extrabold text-4xl">
+        <div class="md:w-1/2 flex flex-col md:pl-16 mt-8">
+          <h1 class="text-center sm:text-start text-white font-extrabold text-4xl">
             REDES DE COMPUTADORAS
           </h1>
           <div
@@ -75,7 +75,7 @@ import { UserLayout } from '@layouts/user-layout.component';
 
       <section>
         <app-custom-title [title]="'Contenido del Curso'" />
-        <div class="mt-8 flex justify-center gap-1">
+        <div class="mt-8 flex justify-center gap-1 flex-wrap">
           <app-custom-button
             (click)="selectedButton = 'Inicio'"
             [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
@@ -347,12 +347,120 @@ import { UserLayout } from '@layouts/user-layout.component';
           [text]="'Guardar comentario'"
           [moreStyles]="'mx-auto mt-4 mb-10'"
         />
+      } @else {
+        <app-custom-title [title]="'Tema del módulo'" />
+        <div
+          class="relative mx-8 sm:mx-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40  to-white h-24 my-10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-full absolute inset-y-0 left-0"
+            viewBox="0 0 93 122"
+          >
+            <path
+              d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
+            />
+          </svg>
+          <h3 class="text-3xl ml-28 font-bold">Evolución de las redes</h3>
+        </div>
+        <app-custom-title [title]="'Material del módulo'" />
+        <button
+          class="rounded-r-lg w-[90%] mb-4 bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              class="size-7"
+              src="/icons/courses/archive.svg"
+              alt="Icono del examen"
+            />
+            <span>Conceptos básicos de redes </span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="size-7 mr-4"
+            viewBox="0 0 30 32"
+          >
+            <path
+              d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+              class="fill-greenlight"
+            />
+          </svg>
+        </button>
+        <button
+          class="rounded-r-lg w-[90%] bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              class="size-7"
+              src="/icons/courses/archive.svg"
+              alt="Icono del examen"
+            />
+            <span>Topologías y medios de transmisión</span>
+          </div>
+          <svg class="size-7 mr-4"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 32 34"
+          >
+            <path
+              stroke="#72C234"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M31 16.62C31 8 24.28 1 16 1 7.72 1 1 8 1 16.62s6.72 15.61 15 15.61c8.28 0 15-6.99 15-15.61Z"
+            />
+            <path
+              stroke="#72C234"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m23 10.37-9.8 12.5-4.2-5"
+            />
+          </svg>
+        </button>
+
+        <app-custom-title [title]="'Tareas asignadas'" />
+        <button
+            class="mb-4 rounded-r-lg w-[90%] bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+          >
+            <div class="flex gap-4 items-center">
+              <img
+                class="size-7"
+                src="/icons/courses/archive.svg"
+                alt="Icono del examen"
+              />
+              <span>Tarea 1: Conceptos básicos de redes </span>
+            </div>
+            <div class="flex items-center gap-4 ">
+              <app-custom-button
+                (click)="
+                  router.navigate(['/examen'], {
+                    queryParams: { pregunta: '1' },
+                  })
+                "
+                [color]="'yellow'"
+                [text]="'Presentar 15 de agosto'"
+                [moreStyles]="'w-40 justify-center text-[#777] text-xs'"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                class="size-7 mr-4"
+                viewBox="0 0 30 32"
+              >
+                <path
+                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+                  class="fill-greenlight"
+                />
+              </svg>
+            </div>
+          </button>
       }
     </app-user-layout>
   `,
 })
 export class CourseComponent {
-  selectedButton = 'Inicio';
+  selectedButton = 'Módulo 1';
   modules = [1, 2, 3, 4, 5, 6, 7];
 
   constructor(public router: Router) {}

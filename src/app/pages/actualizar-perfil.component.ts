@@ -15,21 +15,17 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     <app-user-layout>
       <div class="relative">
         <div class="relative">
-          <div class="w-screen h-96 bg-profile"></div>
-          <button
-            class="group absolute bottom-4 right-12 flex items-center justify-center gap-2 px-4 text-md rounded-md h-10 overflow-hidden border border-white bg-white text-black shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-black before:transition-all before:duration-500 hover:text-white hover:shadow-black hover:before:left-0 hover:before:w-full text-sm"
-          >
+          <div class="w-full h-96 bg-profile"></div>
+          <app-custom-button [color]="'white'" [hoverColor]="'black'" [text]="'Cambiar el fondo'" [moreStyles]="'group gap-2'" class="absolute right-3 top-3">
             <svg class="z-10 size-7" viewBox="0 0 29 29">
               <path
                 d="m22.84 3.58-17.5-.06a3.5 3.5 0 0 0-3.51 3.49l-.05 14a3.5 3.5 0 0 0 3.48 3.51l17.5.06a3.5 3.5 0 0 0 3.52-3.48l.05-14a3.5 3.5 0 0 0-3.49-3.52Zm-4.39 3.49a2.63 2.63 0 1 1-.02 5.25 2.63 2.63 0 0 1 .02-5.25ZM5.27 22.77a1.75 1.75 0 0 1-1.74-1.76l.01-3.7 5.2-4.59a2.63 2.63 0 0 1 3.6.12l3.54 3.56-6.43 6.39-4.18-.02Zm19.26-1.68a1.75 1.75 0 0 1-1.76 1.74l-10.85-.04 6.67-6.61a2.6 2.6 0 0 1 3.37 0l2.58 2.17-.01 2.74Z"
                 class="group-hover:fill-white"
               />
             </svg>
-
-            <span class="z-10">Cambiar el fondo</span>
-          </button>
+          </app-custom-button>
         </div>
-        <div class="absolute -bottom-28 left-8 flex flex-col items-center w-80">
+        <div class="absolute -bottom-28 lg:left-8 flex flex-col items-center w-80 inset-x-0 mx-auto lg:mx-0">
           <img
             class="rounded-full size-52 border-white border-8"
             [src]="imagePreview"
@@ -56,11 +52,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
         </div>
       </div>
-      <section class="flex justify-center mt-2">
+      <section class="flex justify-center lg:mt-2 mt-28 p-8 lg:ml-16">
         <form
           [formGroup]="form"
           (ngSubmit)="onSubmit()"
-          class="w-1/2 flex flex-col p-8"
+          class="lg:w-1/2 flex flex-col "
         >
           <h1 class="text-2xl text-primary font-semibold">Datos generales</h1>
           <div class="w-full flex mt-5 gap-5">

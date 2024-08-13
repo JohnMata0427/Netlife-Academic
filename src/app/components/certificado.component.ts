@@ -98,7 +98,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               class="fill-red-600"
             />
           </svg>
-          <img src="/certificate.webp" alt="Certificado de {{ title }}" />
+          <div class="relative">
+            <h2 class="absolute bottom-36 text-center w-full font-bold text-2xl uppercase text-white ">John Jairo Mata Manosalvas</h2>
+            <span class="absolute text-white bottom-24  w-2/5 text-end pr-2">13/08/2024</span>
+            <img src="/certificate.png" alt="Certificado de {{ title }}" />
+          </div>
         </div>
       </div>
       <div
@@ -110,7 +114,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 })
 export class CertificadoComponent {
   constructor() {}
-
   @Input() title!: string;
   @Input() src!: string;
   @Input() id!: string;

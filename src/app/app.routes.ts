@@ -22,6 +22,7 @@ import { ExamenComponent } from '@pages/examen.component';
 import { GradeComponent } from '@pages/grade.component';
 import { VirtualCourseComponent } from '@pages/virtual-course.component';
 import { VideoCourseComponent } from '@pages/video-course.component';
+import { AdminCoursesComponent } from '@pages/admin/courses.component';
 
 export const routes: Routes = [
   {
@@ -84,8 +85,10 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'anuncios', component: AdminAnunciosComponent },
+      { path: 'cursos', component: AdminCoursesComponent },
     ],
   },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent, canActivate: [authGuard] },
+
 ];

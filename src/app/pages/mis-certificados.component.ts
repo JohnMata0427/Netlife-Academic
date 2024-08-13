@@ -9,9 +9,9 @@ import { CertificadoComponent } from '@components/certificado.component';
   imports: [UserLayout, CustomTitleComponent, CertificadoComponent],
   template: `
     <app-user-layout>
-      <section class="flex flex-col justify-end">
+      <section class="flex flex-col justify-end ">
         <app-custom-title title="Certificados" />
-        <p class="pl-16 my-4 text-sm">
+        <p class="sm:pl-16 px-8 my-4 text-sm ">
           En este apartado, podrás ver todos tus certificados obtenidos y
           tendrás la opción de descargarlos en formato .pdf o compartirlos en
           tus redes sociales.
@@ -32,7 +32,7 @@ import { CertificadoComponent } from '@components/certificado.component';
             alt="Imagen para indicar que el usuario no tiene certificados"
           />
         </div> -->
-        <div class="flex gap-8 ml-16">
+        <div class="flex gap-8 flex-wrap sm:pl-16 px-8 justify-center sm:justify-start">
           <app-certificado
             [id]="'redes-de-computadoras'"
             [src]="'courses/redes.jpg'"
