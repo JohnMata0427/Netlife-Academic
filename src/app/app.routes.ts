@@ -23,6 +23,8 @@ import { GradeComponent } from '@pages/grade.component';
 import { VirtualCourseComponent } from '@pages/virtual-course.component';
 import { VideoCourseComponent } from '@pages/video-course.component';
 import { AdminCoursesComponent } from '@pages/admin/courses.component';
+import { AdminCertificatesComponent } from '@pages/admin/certificates.component';
+import { CalendarComponent } from '@pages/calendar.component';
 
 export const routes: Routes = [
   {
@@ -80,12 +82,17 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'calendar',
+    component: CalendarComponent
+  },
+  {
     path: 'admin',
     canActivate: [adminGuard],
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'anuncios', component: AdminAnunciosComponent },
       { path: 'cursos', component: AdminCoursesComponent },
+      { path: 'certificados', component: AdminCertificatesComponent },
     ],
   },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },

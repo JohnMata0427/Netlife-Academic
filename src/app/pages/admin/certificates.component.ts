@@ -3,6 +3,7 @@ import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
 import { AdminLayoutComponent } from '../../layouts/admin-layout.component';
 import { CustomButtonComponent } from '../../components/custom-button.component';
+import { CertificadoComponent } from "../../components/certificado.component";
 
 @Component({
   selector: 'app-admin-courses',
@@ -12,18 +13,19 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
     CourseInfoComponent,
     AdminLayoutComponent,
     CustomButtonComponent,
-  ],
+    CertificadoComponent
+],
   template: `
     <app-admin-layout>
       <section class="flex flex-col justify-end ">
-        <h1 class="text-primary text-2xl font-bold ">Nuevos cursos</h1>
+        <h1 class="text-primary text-2xl font-bold ">Plantillas para certificados</h1>
         <p class="my-4 text-sm ">
           Para agregar, eliminar o editar usuarios y sus roles o privilegios. Se
           admite el formato CSV para exportar o importar datos
         </p>
         <app-custom-button
           (click)="mostrarModal = true"
-          [text]="'Crear nuevo curso'"
+          [text]="'Crear nuevo certificado'"
           [color]="'orange'"
           [moreStyles]="'gap-2 group'"
         >
@@ -40,12 +42,12 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
           </svg>
         </app-custom-button>
         <div class="flex gap-8 flex-wrap justify-center sm:justify-start mt-8">
-          <app-course-info
+          <app-certificado
             [id]="'redes-de-computadoras'"
             [src]="'courses/redes.jpg'"
             [title]="'Redes de Computadoras'"
           />
-          <app-course-info
+          <app-certificado
             [id]="'inteligencia-artificial'"
             [src]="'courses/ia.png'"
             [title]="'Inteligencia Artificial'"
@@ -57,31 +59,20 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
           class="z-50 items-center flex flex-col absolute inset-0 justify-center m-10"
         >
           <form action="" class="bg-white flex-col flex gap-2 p-8 rounded-lg ">
-            <h2 class="text-2xl font-bold text-primary text-center ">Crear nuevo curso</h2>
+            <h2 class="text-2xl font-bold text-primary text-center ">Crear nuevo plantilla de certificado</h2>
             <img src="{{imagePreview || 'NetlifeLogo.webp'}}" alt="" class="h-52 w-96 rounded-lg object-cover">
 
-            <label for="">Suba la imagen del curso</label
+            <label for="">Suba la plantilla del certificado</label
             ><input (change)="onFileChange($event)" class="rounded-lg border-black border p-1.5" type="file" />
-            <label for="">Escriba el nombre del curso</label
+            <label for="">Escriba el nombre de la plantilla</label
             ><input
               class="p-1.5 rounded-lg border-black border "
               type="text"
-              placeholder="Nombre del curso"
-            />
-            <label for="">Seleccione el tipo del curso</label
-            ><select class="p-1.5 rounded-lg border-black border ">
-              <option value="virtual">Virtual</option>
-              <option value="presencial">Presencial</option>
-            </select>
-            <label for="">Ingrese el correo del docente</label
-            ><input
-              class="p-1.5 rounded-lg border-black border "
-              type="email"
-              placeholder="docente@email.com"
+              placeholder="Nombre de la plantilla"
             />
             <div class="flex justify-evenly mt-4">
               <app-custom-button [text]="'Cancelar'" (click)="mostrarModal=false"/>
-              <app-custom-button [text]="'Crear curso'" [color]="'orange'" />
+              <app-custom-button [text]="'Crear certificado'" [color]="'orange'" />
             </div>
           </form>
         </div>
@@ -93,11 +84,10 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
     </app-admin-layout>
   `,
 })
-export class AdminCoursesComponent {
+export class AdminCertificatesComponent {
   constructor() {
     
   }
-
   mostrarModal = false;
   imagePreview: any;
   image: any;
