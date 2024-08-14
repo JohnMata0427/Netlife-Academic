@@ -43,14 +43,9 @@ import { CertificadoComponent } from "../../components/certificado.component";
         </app-custom-button>
         <div class="flex gap-8 flex-wrap justify-center sm:justify-start mt-8">
           <app-certificado
-            [id]="'redes-de-computadoras'"
-            [src]="'courses/redes.jpg'"
-            [title]="'Redes de Computadoras'"
-          />
-          <app-certificado
             [id]="'inteligencia-artificial'"
-            [src]="'courses/ia.png'"
-            [title]="'Inteligencia Artificial'"
+            [src]="'certificate.png'"
+            [title]="'Plantilla de certificado de Inteligencia Artificial'"
           />
         </div>
       </section>

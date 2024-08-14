@@ -84,12 +84,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     </article>
     @if (showCertificate) {
       <div
-        class="z-50 items-center flex flex-col absolute inset-0 justify-center m-10"
+        class="z-50 items-center flex flex-col absolute inset-0 justify-center size-full"
       >
-        <div class="flex flex-col items-end relative border border-primary">
+        <div class="flex flex-col justify-start items-center relative size-3/4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="cursor-pointer absolute -top-7 -right-7 z-50 size-4"
+            class="cursor-pointer absolute right-32 -top-8 z-50 size-4"
             viewBox="0 0 273 273"
             (click)="showCertificate = false"
           >
@@ -98,10 +98,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               class="fill-red-600"
             />
           </svg>
-          <div class="relative">
-            <h2 class="absolute bottom-36 text-center w-full font-bold text-2xl uppercase text-white ">John Jairo Mata Manosalvas</h2>
-            <span class="absolute text-white bottom-24  w-2/5 text-end pr-2">13/08/2024</span>
-            <img src="/certificate.png" alt="Certificado de {{ title }}" />
+          <div class="relative size-full flex justify-center">
+            <h2 class="absolute text-center font-bold text-2xl uppercase text-white inset-y-72">John Jairo Mata Manosalvas</h2>
+            <span class="absolute text-white inset-y-96">13/08/2024</span>
+            <img class="size-full object-contain" src="/certificate.png" alt="Certificado de {{ title }}" />
           </div>
         </div>
       </div>
@@ -117,6 +117,6 @@ export class CertificadoComponent {
   @Input() title!: string;
   @Input() src!: string;
   @Input() id!: string;
-  showCertificate = false;
+  showCertificate = true;
   showShare = false;
 }

@@ -80,7 +80,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           class="w-full text-sm border border-quinary shadow-sm shadow-black/30 mt-2"
         >
           <tr
-            class="bg-quinary *:font-medium *:pl-1 *:pr-2 *:py-1 *:text-start"
+            class="bg-black text-white *:font-medium *:pl-1 *:pr-2 *:py-1 *:text-start"
           >
             <th>Identificación</th>
             <th>Nombres y Apellidos</th>
@@ -94,7 +94,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           </tr>
           @for (user of users; track user) {
             <tr
-              class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary"
+              class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary odd:bg-white even:bg-quinary"
             >
               <th>
                 {{ user.identification }}
