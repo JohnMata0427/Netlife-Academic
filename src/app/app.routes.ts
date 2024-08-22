@@ -24,7 +24,6 @@ import { VirtualCourseComponent } from '@pages/virtual-course.component';
 import { VideoCourseComponent } from '@pages/video-course.component';
 import { AdminCoursesComponent } from '@pages/admin/courses.component';
 import { AdminCertificatesComponent } from '@pages/admin/certificates.component';
-import { CalendarComponent } from '@pages/calendar.component';
 
 export const routes: Routes = [
   {
@@ -80,10 +79,6 @@ export const routes: Routes = [
     path: 'mis-certificados',
     component: MisCertificadosComponent,
     canActivate: [authGuard],
-  },
-  {
-    path: 'calendar',
-    component: CalendarComponent
   },
   {
     path: 'admin',

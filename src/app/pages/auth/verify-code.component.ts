@@ -116,7 +116,7 @@ export class VerifyCodeComponent {
     private activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.token = params['token'];
+      this.token = params['t'];
     });
   }
 
