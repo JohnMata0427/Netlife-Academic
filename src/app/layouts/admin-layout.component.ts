@@ -12,26 +12,26 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   imports: [CustomButtonComponent],
   template: `
     <main class="flex">
-      <header class="min-h-screen w-60 p-4 bg-black">
+      <header class="min-h-screen w-60 bg-black p-4">
         <nav class="flex flex-col">
-          <div class="grid place-content-center mt-1">
+          <div class="mt-1 grid place-content-center">
             <img class="h-auto w-48" src="/logo.webp" alt="Logo de Netlife" />
           </div>
-          <div class="flex gap-2 justify-center items-center my-7">
+          <div class="my-7 flex items-center justify-center gap-2">
             <img
               class="size-10 rounded-full border-2 border-white"
               src="{{ user.imageUrl }}"
               alt=""
             />
             <div class="flex flex-col items-center">
-              <h4 class="text-white text-xs">{{ user.email }}</h4>
-              <span class="text-white text-xs">Administrador del sitio</span>
+              <h4 class="text-xs text-white">{{ user.email }}</h4>
+              <span class="text-xs text-white">Administrador del sitio</span>
             </div>
           </div>
-          <strong class="text-white text-xs">GESTION DE:</strong>
+          <strong class="text-xs text-white">GESTION DE:</strong>
           <hr class="border" />
 
-          <ul class="flex flex-col gap-2 mt-6">
+          <ul class="mt-6 flex flex-col gap-2">
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/dashboard'])"
@@ -166,8 +166,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </ul>
         </nav>
       </header>
-      <section class="w-full py-4 px-8">
-        <div class="w-full flex justify-end">
+      <section class="w-full px-8 py-4">
+        <div class="flex w-full justify-end">
           <app-custom-button
             (click)="router.navigate(['/home'])"
             [text]="'Volver al Sitio Principal'"

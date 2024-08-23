@@ -7,9 +7,9 @@ import { UserService } from '@services/user.service';
   selector: 'app-header',
   standalone: true,
   template: `
-    <header class="bg-[#0b0603] py-2 px-4 shadow-sm shadow-black">
-      <nav class="flex relative">
-        <button class="lg:hidden " (click)="mostrarHamburger()">
+    <header class="bg-[#0b0603] px-4 py-2 shadow-sm shadow-black">
+      <nav class="relative flex">
+        <button class="lg:hidden" (click)="mostrarHamburger()">
           <svg
             class="size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,12 +26,12 @@ import { UserService } from '@services/user.service';
           </svg>
         </button>
         @if (showHamburguer) {
-          <div class="bg-white size-48 absolute -bottom-52 rounded-lg p-4 z-30">
+          <div class="absolute -bottom-52 z-30 size-48 rounded-lg bg-white p-4">
             <a href="/home">
               <img src="/NetlifeLogo.webp " alt="Netlife Logo" />
             </a>
-            <hr class="border-quinary border-[1px] my-1">
-            <ul class="text-sm flex flex-col gap-2 *:flex *:gap-2 ">
+            <hr class="my-1 border border-quinary" />
+            <ul class="flex flex-col gap-2 text-sm *:flex *:gap-2">
               <li>
                 <svg
                   class="size-4"
@@ -46,7 +46,8 @@ import { UserService } from '@services/user.service';
                 ><a href="/home">Inicio</a>
               </li>
               <li>
-                <svg class="size-4"
+                <svg
+                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 20 20"
@@ -58,7 +59,8 @@ import { UserService } from '@services/user.service';
                 ><a href="/mi-perfil">Mi perfil</a>
               </li>
               <li>
-                <svg class="size-4"
+                <svg
+                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 20 20"
@@ -70,7 +72,8 @@ import { UserService } from '@services/user.service';
                 ><a href="/mis-cursos">Mis cursos</a>
               </li>
               <li>
-                <svg class="size-4"
+                <svg
+                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 17 20"
@@ -84,14 +87,14 @@ import { UserService } from '@services/user.service';
             </ul>
           </div>
         }
-        <div class="lg:flex lg:items-center lg:w-full hidden">
-          <a class="pr-8 " href="/home">
+        <div class="hidden lg:flex lg:w-full lg:items-center">
+          <a class="pr-8" href="/home">
             <img class="h-9" src="/logo.webp" alt="Netlife Logo" />
           </a>
           <div class="flex gap-8">
             <a
               id="home"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
                 active === 'home'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -102,7 +105,7 @@ import { UserService } from '@services/user.service';
 
             <a
               id="mi-perfil"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
                 active === 'mi-perfil'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -112,7 +115,7 @@ import { UserService } from '@services/user.service';
             >
             <a
               id="mis-cursos"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
                 active === 'mis-cursos'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -122,7 +125,7 @@ import { UserService } from '@services/user.service';
             >
             <a
               id="mis-certificados"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
                 active === 'mis-certificados'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -132,13 +135,13 @@ import { UserService } from '@services/user.service';
             >
           </div>
         </div>
-        <div class="flex justify-end items-center w-full">
-          <div class="flex justify-end items-center mr-4 relative">
+        <div class="flex w-full items-center justify-end">
+          <div class="relative mr-4 flex items-center justify-end">
             <input
               type="search"
               id="search"
               name="search"
-              class="lg:w-96 py-1 px-3 rounded-2xl text-sm focus:outline-none border focus:border-primary"
+              class="rounded-2xl border px-3 py-1 text-sm focus:border-primary focus:outline-none lg:w-96"
               type="text"
               placeholder="Buscar más cursos"
             />
@@ -147,7 +150,7 @@ import { UserService } from '@services/user.service';
               fill="none"
               stroke="#000"
               stroke-width="2.5"
-              class="absolute mr-3 icon icon-tabler icon-tabler-search cursor-pointer hover:scale-105 size-4"
+              class="icon icon-tabler icon-tabler-search absolute mr-3 size-4 cursor-pointer hover:scale-105"
               viewBox="0 0 24 24"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
@@ -155,10 +158,7 @@ import { UserService } from '@services/user.service';
             </svg>
           </div>
           <div class="relative flex gap-3">
-            <button
-              (click)="mostrarNotificaciones()"
-              class="hover:scale-110"
-            >
+            <button (click)="mostrarNotificaciones()" class="hover:scale-110">
               <img
                 class="size-5"
                 src="/icons/header/notify.svg"
@@ -167,15 +167,12 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showNotifications) {
               <div
-                class="w-56 flex flex-col z-30 absolute top-11 right-24 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default"
+                class="absolute right-24 top-11 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <strong>Proximamente...</strong>
               </div>
             }
-            <button
-              (click)="mostrarMensajes()"
-              class="hover:scale-110"
-            >
+            <button (click)="mostrarMensajes()" class="hover:scale-110">
               <img
                 class="size-5"
                 src="/icons/header/message.svg"
@@ -184,7 +181,7 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showMessages) {
               <div
-                class="w-56 flex flex-col z-30 absolute top-11 right-16 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default"
+                class="absolute right-16 top-11 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <strong>Proximamente...</strong>
               </div>
@@ -194,7 +191,7 @@ import { UserService } from '@services/user.service';
               class="relative flex items-center gap-2 hover:scale-105"
             >
               <img
-                class="rounded-full size-8 border-white border-[3px]"
+                class="size-8 rounded-full border-[3px] border-white"
                 src="{{ profile || '/profile.webp' }}"
                 alt="Perfil del Usuario"
               />
@@ -206,7 +203,7 @@ import { UserService } from '@services/user.service';
             </button>
             @if (showMenu) {
               <div
-                class="w-56 flex flex-col z-30 absolute top-12 right-2 bg-white rounded-md shadow shadow-black/50 p-4 gap-1 cursor-default "
+                class="absolute right-2 top-12 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <div class="flex flex-col items-center">
                   <strong class="text-center">{{ username }}</strong>
@@ -216,14 +213,14 @@ import { UserService } from '@services/user.service';
                 @if (role === 'ADMIN') {
                   <button
                     (click)="router.navigate(['/admin/dashboard'])"
-                    class="text-sm text-black hover:bg-quinary text-start  flex gap-2 rounded-lg py-1 px-2"
+                    class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
                   >
                     Admin Dashboard
                   </button>
                 }
                 <button
                   (click)="router.navigate(['/mi-perfil'])"
-                  class="text-sm text-black hover:bg-quinary text-start  flex gap-2 rounded-lg py-1 px-2"
+                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
                 >
                   <img
                     class="size-4"
@@ -234,7 +231,7 @@ import { UserService } from '@services/user.service';
                 </button>
                 <button
                   (click)="router.navigate(['/actualizar-informacion'])"
-                  class="text-sm text-black hover:bg-quinary text-start flex gap-2 rounded-lg py-1 px-2"
+                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
                 >
                   <img
                     class="size-4"
@@ -244,12 +241,12 @@ import { UserService } from '@services/user.service';
                   Configurar Perfil
                 </button>
                 <button
-                  class="text-sm text-black hover:bg-quinary text-start rounded-lg py-1 px-2"
+                  class="rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
                 >
                   Calendario de Tareas
                 </button>
                 <button
-                  class="flex gap-2 text-sm texttertiary hover:bg-quinary text-start rounded-lg py-1 px-2"
+                  class="texttertiary flex gap-2 rounded-lg px-2 py-1 text-start text-sm hover:bg-quinary"
                   (click)="logout()"
                 >
                   <svg

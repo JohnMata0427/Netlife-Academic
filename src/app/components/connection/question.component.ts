@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
       }}"
     >
       <strong class="px-2">{{ answerLetter }}</strong>
-      <div class="rounded-lg bg-white p-2 w-full">
+      <div class="w-full rounded-lg bg-white p-2">
         <span class="select-none">{{ answerText }}</span>
       </div>
     </div>

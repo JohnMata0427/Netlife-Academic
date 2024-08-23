@@ -19,14 +19,14 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl text-primary font-bold">Gestión de usuarios</h1>
-      <div class="flex flex-col text-sm gap-1 mt-4">
+      <h1 class="text-2xl font-bold text-primary">Gestión de usuarios</h1>
+      <div class="mt-4 flex flex-col gap-1 text-sm">
         <span>
           Para agregar, eliminar o editar usuarios y sus roles o privilegios.
         </span>
         <span> Se admite el formato CSV para exportar o importar datos. </span>
       </div>
-      <div class=" mt-4 flex flex-col gap-1">
+      <div class="mt-4 flex flex-col gap-1">
         <h2 class="font-bold">Filtros de búsqueda</h2>
         <label class="text-sm" for="filter"
           ><input
@@ -43,14 +43,14 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           type="search"
           id="search"
           name="search"
-          class="text-sm p-1 border border-quinary rounded-lg w-96"
+          class="w-96 rounded-lg border border-quinary p-1 text-sm"
           placeholder="Coloque aquí su búsqueda"
         />
       </div>
       <article class="mt-2">
-        <div class="flex justify-between items-center w-full">
+        <div class="flex w-full items-center justify-between">
           <h2 class="font-bold">Tabla de Usuarios</h2>
-          <div class="flex gap-2 my-2">
+          <div class="my-2 flex gap-2">
             <app-custom-button
               [text]="'Importar datos (CSV)'"
               [moreStyles]="'text-xs h-8 gap-2 group'"
@@ -77,10 +77,10 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           </div>
         </div>
         <table
-          class="w-full text-sm border border-quinary shadow-sm shadow-black/30 mt-2"
+          class="mt-2 w-full border border-quinary text-sm shadow-sm shadow-black/30"
         >
           <tr
-            class="bg-black text-white *:font-medium *:pl-1 *:pr-2 *:py-1 *:text-start"
+            class="bg-black text-white *:py-1 *:pl-1 *:pr-2 *:text-start *:font-medium"
           >
             <th>Identificación</th>
             <th>Nombres y Apellidos</th>
@@ -94,7 +94,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           </tr>
           @for (user of users; track user) {
             <tr
-              class="*:font-normal *:pl-1 *:pr-2 *:text-start *:border *:border-quinary odd:bg-white even:bg-quinary"
+              class="*:border *:border-quinary *:pl-1 *:pr-2 *:text-start *:font-normal odd:bg-white even:bg-quinary"
             >
               <th>
                 {{ user.identification }}
@@ -127,7 +127,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           }
         </table>
       </article>
-      <div class="flex justify-center gap-4 mt-4">
+      <div class="mt-4 flex justify-center gap-4">
         <app-custom-button
           (click)="selectedButton = 'Agregar'"
           [color]="'orange'"
@@ -154,7 +154,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
             [formControl]="email"
             id="email"
             name="email"
-            class="text-sm p-1 border border-quinary rounded-lg w-96"
+            class="w-96 rounded-lg border border-quinary p-1 text-sm"
             type="text"
             placeholder="Buscar usuario"
           />
@@ -164,7 +164,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               [formControl]="role"
               name="role"
               id="role"
-              class="w-96 border border-quinary rounded-lg p-1 text-sm"
+              class="w-96 rounded-lg border border-quinary p-1 text-sm"
             >
               <option value="STUDENT">Estudiante</option>
               <option value="TEACHER">Docente</option>
@@ -185,7 +185,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
         }
         @if (message) {
           <div
-            class="text-white bg-black opacity-90 p-2 rounded-lg mt-5 max-w-96"
+            class="mt-5 max-w-96 rounded-lg bg-black p-2 text-white opacity-90"
           >
             {{ message }}
           </div>

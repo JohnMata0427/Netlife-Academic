@@ -1,6 +1,12 @@
 import { Component, Input } from '@angular/core';
 
-type ColorVariant = 'black' | 'white' | 'orange' | 'yellow' | 'gray' | 'orangelight';
+type ColorVariant =
+  | 'black'
+  | 'white'
+  | 'orange'
+  | 'yellow'
+  | 'gray'
+  | 'orangelight';
 type HoverColorVariant = 'black' | 'white';
 
 @Component({
@@ -14,20 +20,24 @@ type HoverColorVariant = 'black' | 'white';
     >
       @if (loading) {
         <svg
+          class="size-5 animate-rotate-360 text-white animate-iteration-count-infinite"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
-          aria-hidden="true"
-          class="inline w-4 h-4 me-3 text-{{ color }} animate-spin"
-          viewBox="0 0 100 101"
+          viewBox="0 0 24 24"
         >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
           <path
-            fill="#E5E7EB"
-            d="M100 50.6a50 50 0 1 1-100 0 50 50 0 0 1 100 0Zm-90.92 0a40.92 40.92 0 1 0 81.84 0 40.92 40.92 0 0 0-81.84 0Z"
-          />
-          <path
+            class="opacity-75"
             fill="currentColor"
-            d="M93.97 39.04A4.24 4.24 0 0 0 97 33.55 50 50 0 0 0 41.73 1.28a4.24 4.24 0 0 0-3.28 5.34 4.96 4.96 0 0 0 5.6 3.49 40.92 40.92 0 0 1 44.13 25.77 4.96 4.96 0 0 0 5.79 3.16Z"
-          />
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
         </svg>
       } @else {
         <ng-content></ng-content>
@@ -46,12 +56,14 @@ export class CustomButtonComponent {
   @Input() moreStyles!: string;
 
   variantsColor: Record<ColorVariant, string> = {
-    black: 'border-black bg-black hover:text-black',
-    white: 'border-white bg-white hover:text-white',
-    orange: 'border-primary bg-primary hover:text-primary',
-    gray: 'border-neutral-500 bg-neutral-500 hover:text-neutral-500',
-    orangelight: 'border-orangelight bg-orangelight hover:text-orangelight',
-    yellow: 'border-secondary bg-secondary hover:text-secondary'
+    black: 'border-black bg-black hover:text-black *:fill-black',
+    white: 'border-white bg-white hover:text-white *:fill-white',
+    orange: 'border-primary bg-primary hover:text-primary *:fill-primary',
+    gray: 'border-neutral-500 bg-neutral-500 hover:text-neutral-500 *:fill-neutral-500',
+    orangelight:
+      'border-orangelight bg-orangelight hover:text-orangelight *:fill-orangelight',
+    yellow:
+      'border-secondary bg-secondary hover:text-secondary *:fill-secondary',
   };
   variantsHoverColor: Record<HoverColorVariant, string> = {
     black: 'text-black before:bg-black hover:shadow-black',

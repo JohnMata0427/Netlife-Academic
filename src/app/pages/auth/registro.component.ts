@@ -13,19 +13,19 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-layout>
       <img
-        class="absolute top-0 left-0 w-52 rounded-br-2xl"
+        class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
       <form
         [formGroup]="form"
-        class="flex flex-col gap-3 w-96 my-36"
+        class="my-36 flex w-96 flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-4">Regístrate</h1>
+        <h1 class="mb-4 text-center text-3xl font-bold">Regístrate</h1>
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/user.svg"
             alt="User Icon"
           />
@@ -33,7 +33,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="name"
             name="name"
             formControlName="name"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="text"
             placeholder="Nombre"
             required
@@ -42,7 +42,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/user.svg"
             alt="User Icon"
           />
@@ -50,7 +50,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="lastname"
             name="lastname"
             formControlName="lastname"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="text"
             placeholder="Apellidos"
             required
@@ -59,7 +59,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -67,7 +67,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -76,7 +76,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -84,7 +84,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmEmail"
             name="confirmEmail"
             formControlName="confirmEmail"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="email"
             placeholder="Confirmar Correo Electrónico"
             required
@@ -92,12 +92,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.value !== form.get('confirmEmail')?.value) {
-          <p class="text-tertiary text-xs px-4">Los correos no coinciden</p>
+          <p class="px-4 text-xs text-tertiary">Los correos no coinciden</p>
         }
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/identification.svg"
             alt="Identification Icon"
           />
@@ -105,7 +105,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="identification"
             name="identification"
             formControlName="identification"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="text"
             placeholder="Cédula o Pasaporte"
             required
@@ -113,13 +113,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        <span class="text-gray-500 text-xs font-semibold"
+        <span class="text-xs font-semibold text-gray-500"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
         >
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -127,14 +127,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="password"
             name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+            class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
             src="/icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -142,7 +142,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -150,14 +150,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmPassword"
             name="confirmPassword"
             formControlName="confirmPassword"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
             (click)="toggleConfirmPasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+            class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
             src="/icons/forms/{{ iconConfirmPasswordInput }}.svg"
             alt="Eye Icon"
           />
@@ -166,16 +166,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         @if (
           form.get('password')?.value !== form.get('confirmPassword')?.value
         ) {
-          <p class="text-tertiary text-xs px-4">Las contraseñas no coinciden</p>
+          <p class="px-4 text-xs text-tertiary">Las contraseñas no coinciden</p>
         }
 
-        <span class="text-gray-500 text-xs font-semibold"
+        <span class="text-xs font-semibold text-gray-500"
           >El código es proporcionado por un administrador del sitio.</span
         >
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/verify.svg"
             alt="Verify Code Icon"
           />
@@ -183,7 +183,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="verificationCode"
             name="verificationCode"
             formControlName="verificationCode"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="number"
             placeholder="Código de Verificación"
             maxlength="6"
@@ -192,7 +192,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        <div class="flex gap-2 my-2">
+        <div class="my-2 flex gap-2">
           <input
             formControlName="terms"
             class="accent-primary"
@@ -201,10 +201,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="terms"
             required
           />
-          <label class="text-xs cursor-default" for="terms"
+          <label class="cursor-default text-xs" for="terms"
             >Aceptas los
             <a
-              class="text-primary font-medium hover:underline"
+              class="font-medium text-primary hover:underline"
               href="/terms-and-conditions"
               >términos y condiciones</a
             ></label
@@ -212,7 +212,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="text-tertiary text-xs text-center px-4">
+          <p class="px-4 text-center text-xs text-tertiary">
             {{ errorMessage }}
           </p>
         }
@@ -225,12 +225,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
-          <a class="text-primary font-medium hover:underline" href="/auth/login"
+          <a class="font-medium text-primary hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
         <a
-          class="text-primary font-medium hover:underline text-center text-xs"
+          class="text-center text-xs font-medium text-primary hover:underline"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >

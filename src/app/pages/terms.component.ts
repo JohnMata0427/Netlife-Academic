@@ -9,7 +9,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <section class="flex flex-col justify-start">
       <app-custom-title title="Términos y condiciones" />
-      <p class="pl-16 my-4 text-sm">
+      <p class="my-4 pl-16 text-sm">
         Aquí se mostrarán los términos y condiciones de uso de la plataforma.
       </p>
       <app-custom-button

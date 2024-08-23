@@ -22,7 +22,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
   ],
   template: `
     <header
-      class="bg-[#0b0603] text-white py-2.5 px-4 flex gap-4 shadow-sm shadow-black"
+      class="flex gap-4 bg-[#0b0603] px-4 py-2.5 text-white shadow-sm shadow-black"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
       <h1 class="font-bold">
@@ -30,32 +30,32 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
       </h1>
     </header>
     <main>
-      <div class="mb-7 mt-12 mx-16 h-4 bg-quinary rounded-lg">
+      <div class="mx-16 mb-7 mt-12 h-4 rounded-lg bg-quinary">
         <div
           [ngStyle]="{ 'width.%': (numeroPregunta / 5) * 100 }"
-          class="h-full bg-gradient-to-r from-greenlight to-green-500 rounded-l-lg transition-all duration-500 {{
+          class="h-full bg-gradient-to-r from-greenlight to-green-500 rounded-l-lg {{
             numeroPregunta == 5 ? 'rounded-r-lg' : ''
           }}"
         ></div>
       </div>
-      <section class="flex md:flex-row flex-col justify-between mx-16 gap-7 ">
-        <div class="flex flex-col gap-4 md:w-1/4 ">
+      <section class="mx-16 flex flex-col justify-between gap-7 md:flex-row">
+        <div class="flex flex-col gap-4 md:w-1/4">
           <div class="flex justify-center gap-4">
             <div
-              class="bg-orangelight flex flex-col items-center p-4 rounded-lg w-1/2"
+              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4"
             >
               <h2 class="font-bold">Pregunta</h2>
               <span>{{ numeroPregunta }}/5</span>
             </div>
             <div
-              class="bg-orangelight flex flex-col items-center p-4 rounded-lg  w-1/2"
+              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4"
             >
               <h3 class="font-bold">Puntuación</h3>
               <span>0/5</span>
             </div>
           </div>
           <div
-            class="bg-tertiary text-white flex justify-center items-center rounded-lg p-2 gap-2"
+            class="flex items-center justify-center gap-2 rounded-lg bg-tertiary p-2 text-white"
           >
             <span>Tiempo restante:</span>
             <strong>
@@ -65,7 +65,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         </div>
         <div class="flex flex-col md:w-4/5">
           <div
-            class="border border-quinary p-4 rounded-lg flex flex-col gap-4 w-full h-80"
+            class="flex h-80 w-full flex-col gap-4 rounded-lg border border-quinary p-4"
           >
             @if (numeroPregunta == 1) {
               <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
@@ -226,11 +226,11 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
       </section>
     </main>
     @if (finish) {
-      <div class="z-50 items-center flex absolute inset-0 justify-center">
-        <div class="flex flex-col items-end relative">
+      <div class="absolute inset-0 z-50 flex items-center justify-center">
+        <div class="relative flex flex-col items-end">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="cursor-pointer absolute -top-7 -right-7 z-50 size-4"
+            class="absolute -right-7 -top-7 z-50 size-4 cursor-pointer"
             viewBox="0 0 273 273"
             (click)="finish = false"
           >
@@ -240,9 +240,9 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             />
           </svg>
           <div
-            class="bg-orangelight flex flex-col items-center py-4 px-8 rounded-lg gap-4"
+            class="flex flex-col items-center gap-4 rounded-lg bg-orangelight px-8 py-4"
           >
-            <span class="text-center font-light text-sm"
+            <span class="text-center text-sm font-light"
               >Muy bien, has terminado un desafío más para tu aprendizaje.</span
             >
             <strong class="text-center text-sm"

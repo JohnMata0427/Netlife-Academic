@@ -17,23 +17,23 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-layout>
       <img
-        class="absolute top-0 left-0 w-52 rounded-br-2xl"
+        class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
       <form
         [formGroup]="form"
-        class="flex flex-col gap-3 w-96"
+        class="flex w-96 flex-col gap-3"
         (submit)="onSubmit()"
       >
-        <h1 class="text-3xl font-bold text-center mb-4">Nueva Contraseña</h1>
-        <span class="text-gray-500 text-xs font-semibold"
+        <h1 class="mb-4 text-center text-3xl font-bold">Nueva Contraseña</h1>
+        <span class="text-xs font-semibold text-gray-500"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
         >
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -41,28 +41,28 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="password"
             name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+            class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
             src="/icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
         </div>
 
         @if (form.get('password')?.value && form.get('password')?.invalid) {
-          <p class="text-tertiary text-xs px-4">
+          <p class="px-4 text-xs text-tertiary">
             La contraseña debe tener minimo 8 caracteres
           </p>
         }
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -70,25 +70,25 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="confirmPassword"
             name="confirmPassword"
             formControlName="confirmPassword"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="{{ typeConfirmPasswordInput }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
             (click)="toggleConfirmPasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+            class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
             src="/icons/forms/{{ iconConfirmPasswordInput }}.svg"
             alt="Eye Icon"
           />
         </div>
 
         @if (errorMessage) {
-          <p class="text-tertiary text-xs px-4">{{ errorMessage }}</p>
+          <p class="px-4 text-xs text-tertiary">{{ errorMessage }}</p>
         } @else if (
           form.get('confirmPassword')?.value !== form.get('password')?.value
         ) {
-          <p class="text-tertiary text-xs px-4">Las contraseñas no coinciden</p>
+          <p class="px-4 text-xs text-tertiary">Las contraseñas no coinciden</p>
         }
 
         <app-custom-button
@@ -99,14 +99,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-primary font-medium hover:underline"
+            class="font-medium text-primary hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="text-primary font-medium hover:underline" href="/auth/login"
+          <a class="font-medium text-primary hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >

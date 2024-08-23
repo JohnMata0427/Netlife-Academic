@@ -14,17 +14,17 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     <app-layout>
       <form
         [formGroup]="form"
-        class="flex flex-col gap-3 w-96"
+        class="flex w-96 flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
         <img
-          class="w-3/4 mx-auto"
+          class="mx-auto w-3/4"
           src="/NetlifeLogo.webp"
           alt="Logo de Netlife"
         />
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/email.svg"
             alt="Email Icon"
           />
@@ -32,7 +32,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="email"
             name="email"
             formControlName="email"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm peer"
+            class="peer w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="email"
             placeholder="Correo Electrónico"
             required
@@ -45,7 +45,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <div class="relative">
           <img
-            class="size-3 absolute inset-y-0 my-auto left-3"
+            class="absolute inset-y-0 left-3 my-auto size-3"
             src="/icons/forms/password.svg"
             alt="Password Icon"
           />
@@ -53,21 +53,21 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="password"
             name="password"
             formControlName="password"
-            class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+            class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
             type="{{ typePasswordInput }}"
             placeholder="Contraseña"
             required
           />
           <img
             (click)="togglePasswordVisibility()"
-            class="size-4 absolute inset-y-0 my-auto right-3 cursor-pointer"
+            class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
             src="/icons/forms/{{ iconPasswordInput }}.svg"
             alt="Eye Icon"
           />
         </div>
 
         @if (message) {
-          <p class="text-xs text-tertiary text-center">{{ message }}</p>
+          <p class="text-center text-xs text-tertiary">{{ message }}</p>
         }
 
         <app-custom-button
@@ -79,14 +79,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="text-primary font-medium hover:underline"
+            class="font-medium text-primary hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
 
         <a
-          class="text-primary font-medium hover:underline text-center text-xs"
+          class="text-center text-xs font-medium text-primary hover:underline"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >

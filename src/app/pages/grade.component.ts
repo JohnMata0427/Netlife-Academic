@@ -11,13 +11,13 @@ import { CustomTitleComponent } from '../components/custom-title.component';
       <section>
         <app-custom-title [title]="'Revisión de la prueba'" />
         <h1 class="ml-16 font-bold">Prueba conceptos básicos de redes</h1>
-        <div class="flex flex-col items-center font-light m-16">
+        <div class="m-16 flex flex-col items-center font-light">
           <span>Intentos permitidos</span>
           <span>Este cuestionario se cerró el {{ date }}</span>
           <span>Limite de tiempo: 15 minutos</span>
-          <table class="w-full mt-8">
+          <table class="mt-8 w-full">
             <thead class="bg-quinary">
-              <tr class="*:p-2 *:text-center *:w-1/4">
+              <tr class="*:w-1/4 *:p-2 *:text-center">
                 <th>Estado</th>
                 <th>Puntos</th>
                 <th>Calificación</th>
@@ -31,7 +31,7 @@ import { CustomTitleComponent } from '../components/custom-title.component';
                 <td>8/10</td>
                 <td>
                   <button
-                    class="bg-greenlight py-1 px-7 rounded-lg font-bold text-xs hover:bg-greenlight/50 transition-all"
+                    class="rounded-lg bg-greenlight px-7 py-1 text-xs font-bold hover:bg-greenlight/50"
                   >
                     Revisión de la prueba
                   </button>

@@ -4,8 +4,8 @@ import { Component, Input } from '@angular/core';
   selector: 'app-question-checkbox',
   standalone: true,
   template: `
-    <div class="gap-4 flex flex-col">
-      <div class="flex gap-4 items-center">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-4">
         <input
           class="size-4 accent-greenlight"
           id="{{ answer }}"

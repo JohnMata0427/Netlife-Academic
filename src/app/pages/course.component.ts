@@ -11,63 +11,67 @@ import { UserLayout } from '@layouts/user-layout.component';
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
   template: `
     <app-user-layout>
-      <div class="bg-black flex py-10 px-16 justify-center md:flex-row flex-col">
-        <div class="md:w-1/2 flex justify-center items-center">
-          <img class="rounded-lg " src="/courses/redes.jpg" alt="" />
+      <div
+        class="flex flex-col justify-center bg-black px-16 py-10 md:flex-row"
+      >
+        <div class="flex items-center justify-center md:w-1/2">
+          <img class="rounded-lg" src="/courses/redes.jpg" alt="" />
         </div>
-        <div class="md:w-1/2 flex flex-col md:pl-16 mt-8">
-          <h1 class="text-center sm:text-start text-white font-extrabold text-4xl">
+        <div class="mt-8 flex flex-col md:w-1/2 md:pl-16">
+          <h1
+            class="text-center text-4xl font-extrabold text-white sm:text-start"
+          >
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="text-neutral-800 text-center font-bold text-sm rounded-lg py-1.5 w-32 my-4 px-4 bg-greenlight"
+            class="my-4 w-32 rounded-lg bg-greenlight px-4 py-1.5 text-center text-sm font-bold text-neutral-800"
           >
             En progreso
           </div>
-          <p class="w-11/12 text-white text-sm font-extralight">
+          <p class="w-11/12 text-sm font-extralight text-white">
             Este curso ofrece una introducción integral a los fundamentos de las
             redes de computadoras. A lo largo del curso, los estudiantes
             aprenderán sobre la arquitectura, componentes y operaciones de redes
             de datos.
           </p>
-          <div class="flex gap-2 items-center mt-4">
+          <div class="mt-4 flex items-center gap-2">
             <img
               class="size-4"
               src="/icons/courses/teacher.svg"
               alt="Icono del Profesor"
             />
-            <span class="text-white text-sm font-medium"
+            <span class="text-sm font-medium text-white"
               >Prof. Monica Jimenez</span
             >
           </div>
-          <div class="flex gap-2 items-center mt-4">
+          <div class="mt-4 flex items-center gap-2">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
               alt="Icono del Profesor"
             />
-            <span class="text-white text-sm font-medium"
+            <span class="text-sm font-medium text-white"
               >Publicado el 10 de junio del 2024</span
             >
           </div>
-          <div class="flex gap-2 items-center mt-4">
+          <div class="mt-4 flex items-center gap-2">
             <img
               class="size-4"
               src="/icons/courses/calendar.svg"
               alt="Icono del Profesor"
             />
-            <span class="text-white text-sm font-medium"
+            <span class="text-sm font-medium text-white"
               >Finalizá el 20 de julio del 2024</span
             >
           </div>
         </div>
       </div>
 
-      <section class="flex items-center justify-center gap-4 mt-8">
-        <div class="w-5/6 bg-quinary h-5 rounded">
+      <section class="mt-8 flex items-center justify-center gap-4">
+        <div class="h-5 w-5/6 rounded bg-quinary">
           <div
             [ngStyle]="{ 'width.%': '50' }"
-            class="bg-gradient-to-r from-secondary via-tertiary to-quaternary rounded-l h-full"
+            class="h-full rounded-l bg-gradient-to-r from-secondary via-tertiary to-quaternary"
           ></div>
         </div>
         <h4 class="text-sm">50% Progreso</h4>
@@ -75,7 +79,7 @@ import { UserLayout } from '@layouts/user-layout.component';
 
       <section>
         <app-custom-title [title]="'Contenido del Curso'" />
-        <div class="mt-8 flex justify-center gap-1 flex-wrap">
+        <div class="mt-8 flex flex-wrap justify-center gap-1">
           <app-custom-button
             (click)="selectedButton = 'Inicio'"
             [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
@@ -106,37 +110,37 @@ import { UserLayout } from '@layouts/user-layout.component';
       @if (selectedButton === 'Inicio') {
         <section>
           <app-custom-title [title]="'Docente del Curso'" />
-          <div class="flex gap-10 items-center mx-16">
+          <div class="mx-16 flex items-center gap-10">
             <div
-              class="relative bg-quinary flex items-center shadow-sm shadow-black/30 rounded-lg p-2 pr-8 gap-4 h-32 w-1/2"
+              class="relative flex h-32 w-1/2 items-center gap-4 rounded-lg bg-quinary p-2 pr-8 shadow-sm shadow-black/30"
             >
               <img
-                class="size-12 absolute top-3 left-3"
+                class="absolute left-3 top-3 size-12"
                 src="/presentation-border-1.svg"
                 alt=""
               />
               <img
-                class="size-20 rounded-full ml-5"
+                class="ml-5 size-20 rounded-full"
                 src="/profile.webp"
                 alt="Perfil del Docente"
               />
               <div class="flex flex-col gap-2">
                 <h3 class="text-lg font-bold">Monica Jimenez</h3>
-                <span class="text-sm ml-4"
+                <span class="ml-4 text-sm"
                   ><strong>Titulo académico: </strong>Ing. Sistemas</span
                 >
-                <span class="text-sm ml-4"
+                <span class="ml-4 text-sm"
                   ><strong>Correo eletrónico: </strong
                   >monica.jimenezAgmail.com</span
                 >
               </div>
               <img
-                class="size-12 absolute bottom-3 right-3"
+                class="absolute bottom-3 right-3 size-12"
                 src="/presentation-border-2.svg"
                 alt=""
               />
             </div>
-            <div class="bg-orangelight rounded-lg p-4 text-sm w-1/2">
+            <div class="w-1/2 rounded-lg bg-orangelight p-4 text-sm">
               ¡Hola a todos! Soy <strong>Monica Jimenez</strong>, y seré su
               instructora para este curso. Estoy emocionada de acompañarlos en
               este viaje de aprendizaje sobre redes de computadoras. Juntos
@@ -149,14 +153,14 @@ import { UserLayout } from '@layouts/user-layout.component';
 
         <section>
           <app-custom-title [title]="'Información del Curso'" />
-          <div class="flex justify-center gap-8 my-10">
+          <div class="my-10 flex justify-center gap-8">
             <div
-              class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
+              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
             >
               <div
-                class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
+                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
               >
-                <h3 class="text-white text-xs font-light italic">Objetivos</h3>
+                <h3 class="text-xs font-light italic text-white">Objetivos</h3>
               </div>
               <div class="p-3">
                 <p class="text-sm">
@@ -172,12 +176,12 @@ import { UserLayout } from '@layouts/user-layout.component';
               </div>
             </div>
             <div
-              class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
+              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
             >
               <div
-                class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
+                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
               >
-                <h3 class="text-white text-xs font-light italic">Destrezas</h3>
+                <h3 class="text-xs font-light italic text-white">Destrezas</h3>
               </div>
               <div class="p-3">
                 <p class="text-sm">
@@ -193,12 +197,12 @@ import { UserLayout } from '@layouts/user-layout.component';
               </div>
             </div>
             <div
-              class="w-96 min-h-60 bg-quinary shadow-md shadow-black/50 rounded-lg"
+              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
             >
               <div
-                class="flex items-center justify-center w-36 h-8 bg-black rounded-br-xl rounded-tl-lg"
+                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
               >
-                <h3 class="text-white text-xs font-light italic">
+                <h3 class="text-xs font-light italic text-white">
                   Valores y Actitudes
                 </h3>
               </div>
@@ -215,7 +219,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </section>
         <section class="mb-10">
           <app-custom-title [title]="'Recursos Adicionales'" />
-          <div class="flex flex-col pl-16 mt-10 gap-2">
+          <div class="mt-10 flex flex-col gap-2 pl-16">
             <a class="flex gap-4" href="#">
               <img
                 class="size-7"
@@ -246,24 +250,24 @@ import { UserLayout } from '@layouts/user-layout.component';
         <section>
           <app-custom-title [title]="'Tema de la Clase'" />
           <div
-            class="relative ml-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white h-24 mt-10"
+            class="relative ml-16 mt-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-full absolute inset-y-0 left-0"
+              class="absolute inset-y-0 left-0 h-full"
               viewBox="0 0 93 122"
             >
               <path
                 d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
               />
             </svg>
-            <h3 class="text-3xl ml-28 font-bold">Examen</h3>
+            <h3 class="ml-28 text-3xl font-bold">Examen</h3>
           </div>
         </section>
         <section class="mb-10 flex flex-col">
           <app-custom-title [title]="'Pruebas'" />
           <button
-            class="bg-quinary mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+            class="mx-16 flex h-16 items-center justify-between border-l-8 border-primary bg-quinary pl-4"
           >
             <div class="flex gap-4">
               <img
@@ -301,18 +305,18 @@ import { UserLayout } from '@layouts/user-layout.component';
       } @else if (selectedButton === 'Certificado') {
         <app-custom-title [title]="'Tema del Módulo'" />
         <div
-          class="relative ml-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white h-24 my-10"
+          class="relative my-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-full absolute inset-y-0 left-0"
+            class="absolute inset-y-0 left-0 h-full"
             viewBox="0 0 93 122"
           >
             <path
               d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
             />
           </svg>
-          <h3 class="text-3xl ml-28 font-bold">Finalización del Curso</h3>
+          <h3 class="ml-28 text-3xl font-bold">Finalización del Curso</h3>
         </div>
         <app-custom-title [title]="'Obtencion del certificado'" />
         <p class="ml-16">
@@ -321,7 +325,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           demuestra tus nuevas habilidades al mundo.
         </p>
 
-        <button class="flex gap-4 ml-16 mt-4">
+        <button class="ml-16 mt-4 flex gap-4">
           <svg
             class="size-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -338,10 +342,10 @@ import { UserLayout } from '@layouts/user-layout.component';
               d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
             />
           </svg>
-          <span class="text-primary font-bold">Certificado del curso</span>
+          <span class="font-bold text-primary">Certificado del curso</span>
         </button>
         <app-custom-title [title]="'Comentario personal'" />
-        <textarea class="h-20 mx-16 rounded-lg w-[90%] bg-quinary"></textarea>
+        <textarea class="mx-16 h-20 rounded-lg bg-quinary"></textarea>
         <app-custom-button
           [color]="'orange'"
           [text]="'Guardar comentario'"
@@ -350,22 +354,22 @@ import { UserLayout } from '@layouts/user-layout.component';
       } @else {
         <app-custom-title [title]="'Tema del módulo'" />
         <div
-          class="relative mx-8 sm:mx-16 flex items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40  to-white h-24 my-10"
+          class="relative mx-8 my-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40 to-white sm:mx-16"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-full absolute inset-y-0 left-0"
+            class="absolute inset-y-0 left-0 h-full"
             viewBox="0 0 93 122"
           >
             <path
               d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
             />
           </svg>
-          <h3 class="text-3xl ml-28 font-bold">Evolución de las redes</h3>
+          <h3 class="ml-28 text-3xl font-bold">Evolución de las redes</h3>
         </div>
         <app-custom-title [title]="'Material del módulo'" />
         <button
-          class="rounded-r-lg w-[90%] mb-4 bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+          class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
           <div class="flex items-center gap-4">
             <img
@@ -378,7 +382,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            class="size-7 mr-4"
+            class="mr-4 size-7"
             viewBox="0 0 30 32"
           >
             <path
@@ -388,7 +392,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
         </button>
         <button
-          class="rounded-r-lg w-[90%] bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
+          class="mx-8 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
           <div class="flex items-center gap-4">
             <img
@@ -398,7 +402,8 @@ import { UserLayout } from '@layouts/user-layout.component';
             />
             <span>Topologías y medios de transmisión</span>
           </div>
-          <svg class="size-7 mr-4"
+          <svg
+            class="mr-4 size-7"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 32 34"
@@ -421,40 +426,40 @@ import { UserLayout } from '@layouts/user-layout.component';
 
         <app-custom-title [title]="'Tareas asignadas'" />
         <button
-            class="mb-4 rounded-r-lg w-[90%] bg-quinary mx-8 sm:mx-16 h-16 flex justify-between items-center border-l-8 border-primary pl-4"
-          >
-            <div class="flex gap-4 items-center">
-              <img
-                class="size-7"
-                src="/icons/courses/archive.svg"
-                alt="Icono del examen"
+          class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              class="size-7"
+              src="/icons/courses/archive.svg"
+              alt="Icono del examen"
+            />
+            <span>Tarea 1: Conceptos básicos de redes </span>
+          </div>
+          <div class="flex items-center gap-4">
+            <app-custom-button
+              (click)="
+                router.navigate(['/examen'], {
+                  queryParams: { pregunta: '1' },
+                })
+              "
+              [color]="'yellow'"
+              [text]="'Presentar 15 de agosto'"
+              [moreStyles]="'w-40 justify-center text-neutral-700 text-xs'"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              class="mr-4 size-7"
+              viewBox="0 0 30 32"
+            >
+              <path
+                d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+                class="fill-greenlight"
               />
-              <span>Tarea 1: Conceptos básicos de redes </span>
-            </div>
-            <div class="flex items-center gap-4 ">
-              <app-custom-button
-                (click)="
-                  router.navigate(['/examen'], {
-                    queryParams: { pregunta: '1' },
-                  })
-                "
-                [color]="'yellow'"
-                [text]="'Presentar 15 de agosto'"
-                [moreStyles]="'w-40 justify-center text-[#777] text-xs'"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                class="size-7 mr-4"
-                viewBox="0 0 30 32"
-              >
-                <path
-                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
-                  class="fill-greenlight"
-                />
-              </svg>
-            </div>
-          </button>
+            </svg>
+          </div>
+        </button>
       }
     </app-user-layout>
   `,

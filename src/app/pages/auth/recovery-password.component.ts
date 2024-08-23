@@ -12,30 +12,30 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-layout>
       <img
-        class="absolute top-0 left-0 w-52 rounded-br-2xl"
+        class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
       @if (showModal) {
-        <div class="z-50 items-center flex relative w-96">
+        <div class="relative z-50 flex w-96 items-center">
           <div
-            class="rounded-lg shadow-lg relative flex flex-col bg-black opacity-90 outline-none focus:outline-none p-4"
+            class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
           >
             <h3
-              class="text-xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary"
+              class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-center text-xl font-bold text-transparent"
             >
               Revisa tu correo electrónico
             </h3>
-            <p class="text-white font-light text-sm text-center my-7">
+            <p class="my-7 text-center text-sm font-light text-white">
               Te enviamos un correo electrónico a
               <strong class="font-bold">{{ email.value }}</strong>
               con un código de confirmación para que puedas restablecer tu
               contraseña.
             </p>
-            <span class="text-white text-center text-xs"
+            <span class="text-center text-xs text-white"
               >¿No has recibido el código de confirmación?</span
             >
-            <div class="flex gap-4 justify-center mt-6">
+            <div class="mt-6 flex justify-center gap-4">
               <app-custom-button
                 (click)="showModal = false"
                 [moreStyles]="'w-full'"
@@ -53,15 +53,15 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </div>
           </div>
         </div>
-        <div class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        <div class="fixed inset-0 z-40 bg-black opacity-25"></div>
       } @else {
-        <div class="flex flex-col gap-3 w-96">
-          <h1 class="text-3xl font-bold text-center mb-4">
+        <div class="flex w-96 flex-col gap-3">
+          <h1 class="mb-4 text-center text-3xl font-bold">
             Recuperar Contraseña
           </h1>
           <div class="relative">
             <img
-              class="size-3 absolute inset-y-0 my-auto left-3"
+              class="absolute inset-y-0 left-3 my-auto size-3"
               src="/icons/forms/email.svg"
               alt="Email Icon"
             />
@@ -69,7 +69,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               [formControl]="email"
               id="email"
               name="email"
-              class="p-1.5 pl-8 rounded-lg w-full border-black border text-sm"
+              class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
               type="email"
               placeholder="Correo Electrónico"
               required
@@ -77,11 +77,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           @if (email.value && email.invalid) {
-            <p class="text-tertiary text-xs px-4">
+            <p class="px-4 text-xs text-tertiary">
               Correo electrónico no válido
             </p>
           } @else if (errorMessage) {
-            <p class="text-tertiary text-xs px-4">
+            <p class="px-4 text-xs text-tertiary">
               {{ errorMessage }}
             </p>
           }
@@ -96,7 +96,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿No tienes cuenta?
             <a
-              class="text-primary font-medium hover:underline"
+              class="font-medium text-primary hover:underline"
               href="/auth/register"
               >Regístrate aquí</a
             ></span
@@ -104,7 +104,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿Tienes cuenta?
             <a
-              class="text-primary font-medium hover:underline"
+              class="font-medium text-primary hover:underline"
               href="/auth/login"
               >Inicia sesión aquí</a
             ></span

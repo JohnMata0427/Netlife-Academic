@@ -28,16 +28,19 @@ import { AnnouncementService } from '@services/announcement.service';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl text-primary font-bold">Configuración del Anuncio</h1>
+      <h1 class="text-2xl font-bold text-primary">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
-        <form [formGroup]="form" class="w-full flex mt-4 gap-4 flex-col lg:flex-row">
-          <div class="w-full flex flex-col gap-2 ">
+        <form
+          [formGroup]="form"
+          class="mt-4 flex w-full flex-col gap-4 lg:flex-row"
+        >
+          <div class="flex w-full flex-col gap-2">
             <label class="font-bold" for="">Asunto</label>
             <input
               id="subject"
               name="subject"
               formControlName="subject"
-              class="border border-quinary rounded-lg p-1 text-sm"
+              class="rounded-lg border border-quinary p-1 text-sm"
               type="text"
               required
             />
@@ -45,11 +48,11 @@ import { AnnouncementService } from '@services/announcement.service';
             <angular-editor
               formControlName="content"
               [config]="editorConfig"
-              class="border border-quinary rounded-lg p-1 text-sm"
+              class="rounded-lg border border-quinary p-1 text-sm"
               required
             />
           </div>
-          <div class="w-full flex flex-col gap-2">
+          <div class="flex w-full flex-col gap-2">
             <label class="font-bold" for="">Tipo de aviso</label>
 
             <select
@@ -57,7 +60,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="type"
               id="type"
               name="type"
-              class="border border-quinary rounded-lg p-1 text-sm"
+              class="rounded-lg border border-quinary p-1 text-sm"
               required
             >
               <option value="info">Información o aviso</option>
@@ -70,7 +73,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="role"
               id="role"
               name="role"
-              class="border border-quinary rounded-lg p-1 text-sm"
+              class="rounded-lg border border-quinary p-1 text-sm"
               required
             >
               <option value="ALL">Todos</option>
@@ -105,7 +108,7 @@ import { AnnouncementService } from '@services/announcement.service';
               formControlName="state"
               name="state"
               id="state"
-              class="border border-quinary rounded-lg p-1 text-sm"
+              class="rounded-lg border border-quinary p-1 text-sm"
               required
             >
               <option value="all">Todos</option>
@@ -159,7 +162,7 @@ import { AnnouncementService } from '@services/announcement.service';
                 >Fecha de caducidad del anuncio</label
               >
               <input
-                class="border border-quinary rounded-lg p-1 text-sm"
+                class="rounded-lg border border-quinary p-1 text-sm"
                 type="datetime-local"
                 formControlName="deletedAt"
                 name="deletedAt"
@@ -175,7 +178,7 @@ import { AnnouncementService } from '@services/announcement.service';
           [moreStyles]="'text-sm h-8 mt-8'"
         />
         @if (message) {
-          <div class="text-white bg-black opacity-90 p-2 rounded-lg mt-5">
+          <div class="mt-5 rounded-lg bg-black p-2 text-white opacity-90">
             {{ message }}
           </div>
         }

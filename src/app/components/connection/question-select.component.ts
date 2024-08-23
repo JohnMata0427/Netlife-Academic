@@ -16,7 +16,7 @@ import { Component, Input } from '@angular/core';
             {{ answerSelected }}
           </span>
           <svg
-            class="w-3 mr-2"
+            class="mr-2 w-3"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 13 7"
@@ -33,10 +33,10 @@ import { Component, Input } from '@angular/core';
             showOptions ? '' : 'hidden'
           }}"
         >
-          <ol class="flex flex-col *:pl-5 *:py-2 rounded-lg">
+          <ol class="flex flex-col rounded-lg *:py-2 *:pl-5">
             @for (answer of answers; track $index) {
               <li
-                class="hover:bg-quinary select-none"
+                class="select-none hover:bg-quinary"
                 (click)="answerSelected = answer"
               >
                 {{ answer }}

@@ -4,23 +4,29 @@ import { User } from '@interfaces/user.interface';
 import { UserLayout } from '@layouts/user-layout.component';
 import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
-import { TaskComponent } from "../components/task.component";
-import { CustomButtonComponent } from "../components/custom-button.component";
+import { TaskComponent } from '../components/task.component';
+import { CustomButtonComponent } from '../components/custom-button.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [UserLayout, CourseInfoComponent, CustomTitleComponent, TaskComponent, CustomButtonComponent],
+  imports: [
+    UserLayout,
+    CourseInfoComponent,
+    CustomTitleComponent,
+    TaskComponent,
+    CustomButtonComponent,
+  ],
   template: `
     <app-user-layout>
       <img class="w-full" src="/banner.webp" alt="Banner de Inicio" />
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
-        <div class="flex lg:gap-20  lg:flex-row flex-col">
-          <aside class="lg:w-1/2 flex flex-col gap-2 lg:ml-16 mx-8">
+        <div class="flex flex-col lg:flex-row lg:gap-20">
+          <aside class="mx-8 flex flex-col gap-2 lg:ml-16 lg:w-1/2">
             @for (user of users; track user.id) {
               <div
-                class="bg-quinary flex justify-between items-center shadow-md shadow-black/30 rounded-lg p-2 pr-8"
+                class="flex items-center justify-between rounded-lg bg-quinary p-2 pr-8 shadow-md shadow-black/30"
               >
                 <div class="flex items-center gap-2">
                   @if (users[0] === user) {
@@ -31,19 +37,19 @@ import { CustomButtonComponent } from "../components/custom-button.component";
                     <img class="size-12" src="/3rd.webp" alt="" />
                   } @else if (users[3] === user) {
                     <div
-                      class="size-12 font-bold text-black rounded-full flex items-center justify-center"
+                      class="flex size-12 items-center justify-center rounded-full font-bold text-black"
                     >
                       4
                     </div>
                   } @else {
                     <div
-                      class="size-12 font-bold text-black rounded-full flex items-center justify-center"
+                      class="flex size-12 items-center justify-center rounded-full font-bold text-black"
                     >
                       5
                     </div>
                   }
                   <img
-                    class="rounded-full size-16 border-white border-4"
+                    class="size-16 rounded-full border-4 border-white"
                     src="{{ user.imageUrl || '/profile.webp' }}"
                     alt="Foto de Perfil"
                   />
@@ -61,56 +67,86 @@ import { CustomButtonComponent } from "../components/custom-button.component";
             }
           </aside>
           <article class="flex flex-col gap-2">
-            <h2 class="lg:block hidden text-primary font-bold">PROXIMAS TAREAS</h2>
-            <app-custom-title class="lg:hidden" [title]="'Próximas tareas'"/>
-            <div class="flex flex-col mx-8 items-center">
-              <app-task [nombre]="'Introducción a las Redes'" [fecha]="{mes:'Julio', dia: '20'}" [hora]="'11:59 PM'"/>
-              <app-task [nombre]="'Aprendizaje Automatico'" [fecha]="{mes:'Julio', dia: '24'}" [hora]="'11:59 PM'"/>
-              <app-task [nombre]="'Analisis de Datos'" [fecha]="{mes:'Julio', dia: '28'}" [hora]="'11:59 PM'"/>
-              <div class="flex gap-2 mt-2">
-                <div class="bg-black flex flex-col gap-2 py-2 px-4 rounded-lg">
-                  <span class="text-md text-white font-light"
+            <h2 class="hidden font-bold text-primary lg:block">
+              PROXIMAS TAREAS
+            </h2>
+            <app-custom-title class="lg:hidden" [title]="'Próximas tareas'" />
+            <div class="mx-8 flex flex-col items-center">
+              <app-task
+                [nombre]="'Introducción a las Redes'"
+                [fecha]="{ mes: 'Julio', dia: '20' }"
+                [hora]="'11:59 PM'"
+              />
+              <app-task
+                [nombre]="'Aprendizaje Automatico'"
+                [fecha]="{ mes: 'Julio', dia: '24' }"
+                [hora]="'11:59 PM'"
+              />
+              <app-task
+                [nombre]="'Analisis de Datos'"
+                [fecha]="{ mes: 'Julio', dia: '28' }"
+                [hora]="'11:59 PM'"
+              />
+              <div class="mt-2 flex gap-2">
+                <div class="flex flex-col gap-2 rounded-lg bg-black px-4 py-2">
+                  <span class="text-md font-light text-white"
                     >Prioridad de las tareas</span
                   >
                   <div class="flex">
-                    <div class="w-20 flex flex-col gap-1">
+                    <div class="flex w-20 flex-col gap-1">
                       <div
-                        class="h-1 bg-secondary w-full rounded-l-lg flex justify-end items-center"
+                        class="flex h-1 w-full items-center justify-end rounded-l-lg bg-secondary"
                       >
                         <div class="size-2 rounded-full bg-secondary"></div>
                       </div>
-                      <span class="text-xs text-white text-end">Por hacer</span>
+                      <span class="text-end text-xs text-white">Por hacer</span>
                     </div>
-                    <div class="w-20 flex flex-col gap-1">
-                      <div class="h-1 bg-primary flex justify-end items-center">
+                    <div class="flex w-20 flex-col gap-1">
+                      <div class="flex h-1 items-center justify-end bg-primary">
                         <div class="size-2 rounded-full bg-primary"></div>
                       </div>
-                      <span class="text-xs text-white text-end">Proximo</span>
+                      <span class="text-end text-xs text-white">Proximo</span>
                     </div>
-                    <div class="w-20 flex flex-col gap-1">
-                      <div class="h-1 bg-tertiary flex justify-end items-center">
+                    <div class="flex w-20 flex-col gap-1">
+                      <div
+                        class="flex h-1 items-center justify-end bg-tertiary"
+                      >
                         <div class="size-2 rounded-full bg-tertiary"></div>
                       </div>
-                      <span class="text-xs text-white text-end">Urgente</span>
+                      <span class="text-end text-xs text-white">Urgente</span>
                     </div>
                   </div>
                 </div>
-  
+
                 <app-custom-button
                   [text]="'Ver calendario'"
-                  [moreStyles]="'text-xs justify-center items-center gap-2 h-full group'"
+                  [moreStyles]="
+                    'text-xs justify-center items-center gap-2 h-full group'
+                  "
                 >
-                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path class="group-hover:fill-black fill-white" d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"/></svg>
+                  <svg
+                    class="size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      class="fill-white group-hover:fill-black"
+                      d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"
+                    />
+                  </svg>
                 </app-custom-button>
               </div>
             </div>
           </article>
         </div>
       </section>
-      <section class="mb-20 ">
+      <section class="mb-20">
         <app-custom-title title="Nuevos Cursos" />
 
-        <div class="mt-4 flex gap-8 lg:ml-16 flex-wrap justify-center lg:justify-start ">
+        <div
+          class="mt-4 flex flex-wrap justify-center gap-8 lg:ml-16 lg:justify-start"
+        >
           <app-course-info
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
@@ -145,7 +181,7 @@ import { CustomButtonComponent } from "../components/custom-button.component";
 export class HomeComponent {
   users!: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService

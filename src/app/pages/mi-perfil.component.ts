@@ -14,17 +14,17 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-user-layout>
       <div class="relative">
-        <div class="w-screen h-96 bg-profile"></div>
+        <div class="bg-profile h-96 w-screen"></div>
         <div
-          class="absolute -bottom-56 md:left-8 inset-x-0 mx-auto md:mx-0 flex flex-col items-center w-80"
+          class="absolute inset-x-0 -bottom-56 mx-auto flex w-80 flex-col items-center md:left-8 md:mx-0"
         >
           <img
-            class="rounded-full size-52 border-white border-8"
+            class="size-52 rounded-full border-8 border-white"
             src="{{ user.imageUrl || '/profile.webp' }}"
             alt="Foto de Perfil"
           />
           <div class="flex flex-col items-center justify-between">
-            <h4 class="text-xl font-extrabold text-center">
+            <h4 class="text-center text-xl font-extrabold">
               {{ user.name + ' ' + user.lastname }}
             </h4>
             <small class="my-1">{{ user.state }}</small>
@@ -39,9 +39,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
       </div>
       <section
-        class="md:ml-[360px] md:mt-4 mb-20 flex flex-col items-center mt-72 md:items-start md:mr-16 mx-16"
+        class="mx-16 mb-20 mt-72 flex flex-col items-center md:ml-[360px] md:mr-16 md:mt-4 md:items-start"
       >
-        <div class="flex gap-1 w-full">
+        <div class="flex w-full gap-1">
           <app-custom-button
             (click)="selectedButton = 'sobre-mi'"
             [text]="'Sobre Mí'"
@@ -61,7 +61,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
         <div
-          class="border border-solid border-black min-h-52 min-w-[365px] w-full rounded-lg mt-1 p-4"
+          class="mt-1 min-h-52 w-full min-w-[365px] rounded-lg border border-solid border-black p-4"
         >
           @if (selectedButton === 'sobre-mi') {
             <ul>

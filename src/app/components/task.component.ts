@@ -7,33 +7,37 @@ import { Component, Input } from '@angular/core';
     <a href="/mis-cursos" class="flex gap-4">
       <div class="relative">
         <div
-          class="bg-tertiary vertical-lr text-white font-bold text-xl rounded-lg pt-1 pb-3 uppercase"
+          class="vertical-lr rounded-lg bg-tertiary pb-3 pt-1 text-xl font-bold uppercase text-white"
         >
           {{ fecha.mes.substring(0, 3) }}
         </div>
         <div
-          class="bg-black text-white absolute -bottom-0 -left-1 rounded-full px-2 py-1.5 font-bold min-w-9 text-center"
+          class="absolute -bottom-0 -left-1 min-w-9 rounded-full bg-black px-2 py-1.5 text-center font-bold text-white"
         >
           {{ fecha.dia }}
         </div>
       </div>
       <div
-        class="h-28 w-96 pl-6 flex flex-col justify-center gap-2 rounded-lg shadow-sm shadow-black/40 bg-quinary"
+        class="flex h-28 w-96 flex-col justify-center gap-2 rounded-lg bg-quinary pl-6 shadow-sm shadow-black/40"
       >
         <h3 class="text-sm"><strong>Tarea: </strong> {{ nombre }}</h3>
         <div class="flex gap-2">
-          <img class="size-4" src="/icons/courses/time.svg" alt="Icono hora de entrega" />
+          <img
+            class="size-4"
+            src="/icons/courses/time.svg"
+            alt="Icono hora de entrega"
+          />
           <span class="text-xs">{{ hora }}</span>
         </div>
       </div>
     </a>
   `,
   styles: `
-  .vertical-lr {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-  }
-`,
+    .vertical-lr {
+      writing-mode: vertical-lr;
+      text-orientation: upright;
+    }
+  `,
 })
 export class TaskComponent {
   @Input() nombre!: string;
