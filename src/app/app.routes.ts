@@ -90,6 +90,6 @@ export const routes: Routes = [
       { path: 'certificados', component: AdminCertificatesComponent },
     ],
   },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent, canActivate: [authGuard] },
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
 ];
