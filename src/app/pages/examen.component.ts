@@ -230,9 +230,9 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         <div class="relative flex flex-col items-end">
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            (click)="finish = false"
             class="absolute -right-7 -top-7 z-50 size-4 cursor-pointer"
             viewBox="0 0 273 273"
-            (click)="finish = false"
           >
             <path
               d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"

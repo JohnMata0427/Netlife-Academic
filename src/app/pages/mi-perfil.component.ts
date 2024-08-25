@@ -14,7 +14,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-user-layout>
       <div class="relative">
-        <div class="bg-profile h-96 w-screen"></div>
+        <div class="bg-profile h-96 w-full"></div>
         <div
           class="absolute inset-x-0 -bottom-56 mx-auto flex w-80 flex-col items-center md:left-8 md:mx-0"
         >

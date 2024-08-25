@@ -6,6 +6,7 @@ import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
 import { TaskComponent } from '../components/task.component';
 import { CustomButtonComponent } from '../components/custom-button.component';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,19 @@ import { CustomButtonComponent } from '../components/custom-button.component';
   ],
   template: `
     <app-user-layout>
-      <div class="w-full max-h-[58vh] relative flex justify-center">
-        <img class="w-full object-cover" src="{{images[slide]}}" alt="Banner de Inicio" />
-        <nav class="flex gap-x-1 absolute justify-center bottom-4">
+      <div class="relative flex max-h-[58vh] w-full justify-center">
+        <img
+          class="w-full object-cover"
+          src="{{ images[slide] }}"
+          alt="Banner de Inicio"
+        />
+        <nav class="absolute bottom-4 flex justify-center gap-x-1">
           @for (image of images; track $index) {
             <button
               (click)="slide = $index"
-              class="size-3 rounded-full border-2 border-quinary {{slide == $index ? 'bg-primary' : 'bg-white'}}"
+              class="size-3 rounded-full border-2 border-quinary {{
+                slide == $index ? 'bg-primary' : 'bg-white'
+              }}"
             ></button>
           }
         </nav>
@@ -34,30 +41,27 @@ import { CustomButtonComponent } from '../components/custom-button.component';
         <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex flex-col lg:flex-row lg:gap-20">
           <aside class="mx-8 flex flex-col gap-2 lg:ml-16 lg:w-1/2">
-            @for (user of users; track user.id) {
+            @for (user of users; track $index) {
               <div
-                class="flex items-center justify-between rounded-lg bg-quinary p-2 pr-8 shadow-md shadow-black/30"
+                class="flex items-center justify-between rounded-lg bg-quinary p-2 pr-8 border {{
+                  ownId === user.id ? 'border-primary' : 'border-neutral-300'
+                }}"
               >
                 <div class="flex items-center gap-2">
-                  @if (users[0] === user) {
-                    <img class="size-12" src="/1st.webp" alt="" />
-                  } @else if (users[1] === user) {
-                    <img class="size-12" src="/2nd.webp" alt="" />
-                  } @else if (users[2] === user) {
-                    <img class="size-12" src="/3rd.webp" alt="" />
-                  } @else if (users[3] === user) {
-                    <div
-                      class="flex size-12 items-center justify-center rounded-full font-bold text-black"
-                    >
-                      4
-                    </div>
+                  @if ($index < 3) {
+                    <img
+                      class="size-12"
+                      src="/{{ $index + 1 }}-medall.webp"
+                      alt=""
+                    />
                   } @else {
                     <div
-                      class="flex size-12 items-center justify-center rounded-full font-bold text-black"
+                      class="flex size-10 items-center justify-center rounded-full bg-neutral-300 font-bold text-black"
                     >
-                      5
+                      {{ $index + 1 }}
                     </div>
                   }
+
                   <img
                     class="size-16 rounded-full border-4 border-white"
                     src="{{ user.imageUrl || '/profile.webp' }}"
@@ -69,7 +73,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 </div>
                 <div class="flex flex-col items-end">
                   <strong class="text-md font-extrabold"
-                    >{{ user?.points }}
+                    >{{ user.points }}
                   </strong>
                   <span class="text-xs">puntos</span>
                 </div>
@@ -135,14 +139,14 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                   "
                 >
                   <svg
-                    class="z-10 size-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
+                    class="z-10 size-4"
                     viewBox="0 0 20 20"
                   >
                     <path
-                      class="fill-white group-hover:fill-black"
                       d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"
+                      class="fill-white group-hover:fill-black"
                     />
                   </svg>
                 </app-custom-button>
@@ -190,22 +194,27 @@ import { CustomButtonComponent } from '../components/custom-button.component';
 })
 export class HomeComponent {
   users!: User[];
-  slide = 0
+  ownId!: string;
+  slide = 0;
   images = [
     '/banner.webp',
     'https://as2.ftcdn.net/v2/jpg/03/65/94/79/1000_F_365947947_nBv9Yct5WRbpGrW4mb2UcsuJhVEPIDtw.jpg',
-    'https://www.placementpreparation.io/blog/wp-content/uploads/2024/05/cyber-security-course-desktop-banner-horizontal.webp'
+    'https://www.placementpreparation.io/blog/wp-content/uploads/2024/05/cyber-security-course-desktop-banner-horizontal.webp',
   ];
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    public authService: AuthService,
+  ) {}
 
   ngOnInit() {
-    this.userService
-      .getRankedUsers()
-      .subscribe((users) => (this.users = users));
+    this.userService.getRankedUsers().subscribe((users) => {
+      this.users = users;
+      this.ownId = this.authService.getInfoUser().sub;
+    });
 
     setInterval(() => {
       this.slide = this.slide === this.images.length - 1 ? 0 : this.slide + 1;
-    }, 10000)
+    }, 10000);
   }
 }

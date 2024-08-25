@@ -11,9 +11,9 @@ import { UserService } from '@services/user.service';
       <nav class="relative flex">
         <button class="lg:hidden" (click)="mostrarHamburger()">
           <svg
-            class="size-5"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
+            class="size-5 hover:scale-105"
             viewBox="0 0 30 27"
           >
             <path
@@ -34,55 +34,59 @@ import { UserService } from '@services/user.service';
             <ul class="flex flex-col gap-2 text-sm *:flex *:gap-2">
               <li>
                 <svg
-                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
+                  class="size-4"
                   viewBox="0 0 20 20"
                 >
                   <path
                     fill="#000"
-                    d="M16.25 6.37V.71h-3.13v2.61L10 0 0 10.71h2.5V20h5.63v-7.14h3.74V20h5.63v-9.29H20l-3.75-4.34Z"
-                  /></svg
-                ><a href="/home">Inicio</a>
+                    d="M16.3 6.4V.7H13v2.6L10 0 0 10.7h2.5V20h5.6v-7.1H12V20h5.6v-9.3H20l-3.8-4.3Z"
+                  />
+                </svg>
+                <a href="/home">Inicio</a>
               </li>
               <li>
                 <svg
-                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
+                  class="size-4"
                   viewBox="0 0 20 20"
                 >
                   <path
                     fill="#000"
-                    d="M13.68 1.45A5.14 5.14 0 0 0 10 0C8.55 0 7.24.51 6.3 1.45a4.52 4.52 0 0 0-1.28 3.6C5.22 7.78 7.46 10 10 10c2.54 0 4.77-2.22 4.98-4.95a4.5 4.5 0 0 0-1.3-3.6ZM18.46 20H1.54c-.22 0-.44-.04-.64-.13a1.5 1.5 0 0 1-.87-1.67 7.64 7.64 0 0 1 3.66-5.08c1.77-1.09 4.01-1.7 6.31-1.7s4.54.61 6.3 1.7a7.64 7.64 0 0 1 3.67 5.08 1.5 1.5 0 0 1-.87 1.67c-.2.09-.42.13-.64.13Z"
-                  /></svg
-                ><a href="/mi-perfil">Mi perfil</a>
+                    d="M13.7 1.4A5.1 5.1 0 0 0 10 0C8.6 0 7.2.5 6.3 1.4A4.5 4.5 0 0 0 5 5.2c.2 2.7 2.5 4.9 5 4.9s4.8-2.2 5-5a4.5 4.5 0 0 0-1.3-3.6ZM18.5 20h-17l-.6-.1a1.5 1.5 0 0 1-.9-1.7 7.6 7.6 0 0 1 3.7-5 12.1 12.1 0 0 1 12.6 0 7.6 7.6 0 0 1 3.7 5 1.5 1.5 0 0 1-.9 1.7l-.6.1Z"
+                  />
+                </svg>
+                <a href="/mi-perfil">Mi perfil</a>
               </li>
               <li>
                 <svg
-                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
+                  class="size-4"
                   viewBox="0 0 20 20"
                 >
                   <path
                     fill="#000"
-                    d="M18.89 4.66a.19.19 0 0 0 .07-.07.17.17 0 0 0 0-.18.19.19 0 0 0-.07-.06L11.55.39a3.27 3.27 0 0 0-3.1 0L1.11 4.35a.19.19 0 0 0-.07.06.17.17 0 0 0 0 .18l.07.07 8.8 4.8a.2.2 0 0 0 .19 0l8.79-4.8ZM.29 5.87a.2.2 0 0 0-.2 0 .19.19 0 0 0-.06.07.17.17 0 0 0-.03.09v7.76c0 .37.1.74.3 1.06.2.33.5.6.85.79l7.8 4.34a.2.2 0 0 0 .18 0 .19.19 0 0 0 .07-.07.17.17 0 0 0 .03-.09v-9c0-.04 0-.07-.03-.1a.19.19 0 0 0-.07-.06L.3 5.87Zm10.48 4.98v8.97c0 .03 0 .06.03.09.01.03.04.05.07.06a.2.2 0 0 0 .19 0l7.8-4.34c.34-.18.63-.45.83-.78.2-.32.3-.69.31-1.06V6.03c0-.04 0-.07-.03-.1a.19.19 0 0 0-.07-.06.2.2 0 0 0-.19 0l-8.84 4.82a.19.19 0 0 0-.07.07.17.17 0 0 0-.03.09Z"
-                  /></svg
-                ><a href="/mis-cursos">Mis cursos</a>
+                    d="M18.9 4.7a.2.2 0 0 0 0-.1.2.2 0 0 0 0-.2l-7.3-4a3.3 3.3 0 0 0-3.1 0L1 4.4a.2.2 0 0 0 0 .2l9 5a.2.2 0 0 0 .2 0L19 4.8ZM.3 5.9a.2.2 0 0 0-.2 0A.2.2 0 0 0 0 6v7.8c0 .4.1.7.3 1 .2.4.5.6.8.8L9 20a.2.2 0 0 0 .2 0 .2.2 0 0 0 .1 0 .2.2 0 0 0 0-.2v-9a.2.2 0 0 0 0-.1L.2 5.9Zm10.5 5v9a.2.2 0 0 0 .3 0l7.8-4.3a2.1 2.1 0 0 0 1.1-1.8V6a.2.2 0 0 0-.1-.1.2.2 0 0 0-.2 0L11 10.7a.2.2 0 0 0-.1 0 .2.2 0 0 0 0 .2Z"
+                  />
+                </svg>
+                <a href="/mis-cursos">Mis cursos</a>
               </li>
               <li>
                 <svg
-                  class="size-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
+                  class="size-4"
                   viewBox="0 0 17 20"
                 >
                   <path
                     fill="#000"
-                    d="M9 13.18a5.81 5.81 0 0 1-1.08 0 6.19 6.19 0 0 1-2.73-.96 7.02 7.02 0 0 1-2.17-2.2.14.14 0 0 0-.15 0 .16.16 0 0 0-.05.07l-2.73 5.5a.75.75 0 0 0-.01.67c.05.1.13.2.23.25.1.06.2.09.3.09h2.97c.1 0 .2.02.3.08.08.05.16.13.21.23l1.47 2.75c.05.1.13.19.22.25.1.06.2.09.3.09a.67.67 0 0 0 .55-.4l2.51-6.18a.19.19 0 0 0-.01-.16.16.16 0 0 0-.06-.06.14.14 0 0 0-.08-.02Zm7.91 2.4-2.71-5.5a.16.16 0 0 0-.06-.05.14.14 0 0 0-.15 0 6.87 6.87 0 0 1-3.03 2.66.65.65 0 0 0-.32.34l-1.4 3.45a.37.37 0 0 0 0 .28l1.15 2.83c.1.23.32.4.55.41.1 0 .2-.04.3-.1.09-.06.17-.14.22-.25l1.46-2.74c.11-.2.31-.31.52-.3h3c.25 0 .44-.16.52-.43a.8.8 0 0 0-.05-.6ZM8.5 0C5.47 0 3 2.7 3 6s2.47 6 5.5 6S14 9.3 14 6s-2.47-6-5.5-6Zm0 9.33c-.6 0-1.2-.2-1.7-.56-.5-.36-.9-.89-1.12-1.5a3.62 3.62 0 0 1 .66-3.63c.43-.46.97-.78 1.56-.9.6-.14 1.21-.07 1.77.18s1.03.68 1.37 1.23a3.55 3.55 0 0 1-.38 4.2c-.57.63-1.35.98-2.16.98Z"
-                  /></svg
-                ><a href="/mis-certificados">Mis certificados</a>
+                    d="M9 13.2a5.8 5.8 0 0 1-1 0 6.2 6.2 0 0 1-2.8-1A7 7 0 0 1 3 10a.1.1 0 0 0-.1 0L0 15.7a.8.8 0 0 0 0 .7l.2.2.3.1H4l.2.3 1.5 2.8s0 .2.2.2l.3.1a.7.7 0 0 0 .5-.4l2.5-6.2a.2.2 0 0 0 0-.1.2.2 0 0 0 0-.1.1.1 0 0 0-.1 0Zm8 2.4L14.1 10a.1.1 0 0 0-.2 0 6.9 6.9 0 0 1-3 2.6.7.7 0 0 0-.4.3l-1.4 3.5a.4.4 0 0 0 0 .3l1.2 2.8c0 .2.3.4.5.4l.3-.1.3-.2 1.4-2.8c.1-.2.3-.3.5-.3h3c.3 0 .5-.1.6-.4a.8.8 0 0 0 0-.6ZM8.4 0C5.5 0 3 2.7 3 6s2.5 6 5.5 6S14 9.3 14 6s-2.5-6-5.5-6Zm0 9.3a3 3 0 0 1-1.7-.5c-.5-.4-.9-1-1.1-1.5a3.6 3.6 0 0 1 .6-3.7A3 3 0 0 1 8 2.7c.6-.1 1.2 0 1.8.2s1 .7 1.3 1.3a3.5 3.5 0 0 1-.3 4.2 3 3 0 0 1-2.2 1Z"
+                  />
+                </svg>
+                <a href="/mis-certificados">Mis certificados</a>
               </li>
             </ul>
           </div>
@@ -94,7 +98,7 @@ import { UserService } from '@services/user.service';
           <div class="flex gap-8">
             <a
               id="home"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm font-medium {{
                 active === 'home'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -105,7 +109,7 @@ import { UserService } from '@services/user.service';
 
             <a
               id="mi-perfil"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm font-medium {{
                 active === 'mi-perfil'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -115,7 +119,7 @@ import { UserService } from '@services/user.service';
             >
             <a
               id="mis-cursos"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm font-medium {{
                 active === 'mis-cursos'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -125,7 +129,7 @@ import { UserService } from '@services/user.service';
             >
             <a
               id="mis-certificados"
-              class="text-sm relative inline cursor-pointer font-medium before:bg-primary  before:absolute before:-bottom-1 before:block before:h-0.5 before:w-full before:origin-bottom-right before:scale-x-0 before:before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100 {{
+              class="text-sm font-medium {{
                 active === 'mis-certificados'
                   ? 'text-primary'
                   : 'text-white hover:text-primary'
@@ -141,7 +145,7 @@ import { UserService } from '@services/user.service';
               type="search"
               id="search"
               name="search"
-              class="rounded-2xl border px-3 py-1 text-sm focus:border-primary focus:outline-none lg:w-96"
+              class="rounded-2xl border-2 px-3 py-1 text-sm focus:border-primary focus:outline-none lg:w-96"
               type="text"
               placeholder="Buscar más cursos"
             />
@@ -246,18 +250,21 @@ import { UserService } from '@services/user.service';
                   Calendario de Tareas
                 </button>
                 <button
-                  class="texttertiary flex gap-2 rounded-lg px-2 py-1 text-start text-sm hover:bg-quinary"
+                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-tertiary hover:bg-quinary"
                   (click)="logout()"
                 >
                   <svg
-                    class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
+                    class="size-5"
                     viewBox="0 0 416 352"
                   >
                     <path
-                      d="M112 176a16 16 0 0 1 16-16h144V56c0-32-33.79-56-64-56H56A56.06 56.06 0 0 0 0 56v240a56.06 56.06 0 0 0 56 56h160a56.06 56.06 0 0 0 56-56V192H128a16 16 0 0 1-16-16Zm299.31-11.31-80-80a16 16 0 0 0-22.62 22.62L361.37 160H272v32h89.37l-52.68 52.69a16 16 0 1 0 22.62 22.62l80-80a16 16 0 0 0 0-22.62Z"
-                      class="filltertiary"
+                      class="stroke-tertiary"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="32"
+                      d="M256 256v40a40 40 0 0 1-40 40H56a40 40 0 0 1-40-40V56a40 40 0 0 1 40-40h152c22 0 48 18 48 40v40m64 160 80-80-80-80m-192 80h256"
                     />
                   </svg>
                   Cerrar Sesión

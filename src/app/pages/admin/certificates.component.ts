@@ -31,17 +31,7 @@ import { CertificadoComponent } from '../../components/certificado.component';
           [color]="'orange'"
           [moreStyles]="'gap-2 group'"
         >
-          <svg
-            class="z-10 size-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 25 20"
-          >
-            <path
-              class="fill-white group-hover:fill-primary"
-              d="M22.22 0h-20C1 0 0 .99 0 2.22v13.34c0 1.22.99 2.22 2.22 2.22h5.56V20h8.89v-2.22h5.55c1.22 0 2.21-1 2.21-2.22l.01-13.34c0-1.23-1-2.22-2.22-2.22Zm0 15.56h-20V2.22h20v13.34Zm-5.55-7.78V10h-3.34v3.33h-2.22V10H7.78V7.78h3.33V4.44h2.22v3.34h3.34Z"
-            />
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="z-10 size-6" viewBox="0 0 25 20"><path d="M22.2 0h-20C1 0 0 1 0 2.2v13.4c0 1.2 1 2.2 2.2 2.2h5.6V20h8.9v-2.2h5.5c1.2 0 2.2-1 2.2-2.2V2.2c0-1.2-1-2.2-2.2-2.2Zm0 15.6h-20V2.2h20v13.4Zm-5.5-7.8V10h-3.4v3.3h-2.2V10H7.8V7.8H11V4.4h2.2v3.4h3.4Z" class="fill-white group-hover:fill-primary"/></svg>
         </app-custom-button>
         <div class="mt-8 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-certificado

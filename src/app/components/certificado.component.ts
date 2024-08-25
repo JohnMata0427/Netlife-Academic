@@ -71,7 +71,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 <button class="group size-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                     <path
-                      d="M21.4 3.6A12.4 12.4 0 0 0 12.6 0 12.4 12.4 0 0 0 1.8 18.6L0 25l6.6-1.7A12.4 12.4 0 0 0 21.4 3.7Zm-8.8 19c-1.9 0-3.7-.4-5.3-1.3l-.4-.3-4 1L4 18.4l-.2-.4c-1-1.7-1.6-3.6-1.6-5.5a10.3 10.3 0 0 1 20.7 0c0 5.7-4.6 10.3-10.3 10.3Zm5.6-7.6c-.3-.2-1.8-1-2.1-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.3-.3.3-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.4.1-.6l.5-.5.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5 0 1.6 1 3 1.2 3.2.2.2 2.2 3.4 5.3 4.7l1.8.7c.7.2 1.4.2 2 0 .5 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.5l-.6-.3Z"
+                      d="M21.4 3.6A12.4 12.4 0 0 0 12.6 0 12.4 12.4 0 0 0 1.8 18.6L0 25l6.6-1.7A12.4 12.4 0 0 0 21.4 3.7Zm-8.8 19c-1.9 0-3.7-.4-5.3-1.3l-.4-.3-4 1L4 18.4l-.2-.4a11 11 0 0 1-1.6-5.5 10.3 10.3 0 0 1 20.7 0c0 5.7-4.6 10.3-10.3 10.3Zm5.6-7.6a10 10 0 0 0-2.1-1c-.3-.1-.5-.2-.7.1l-1 1.2c-.2.3-.3.3-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.4.1-.6l.5-.5.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5 0 1.6 1 3 1.2 3.2.2.2 2.2 3.4 5.3 4.7l1.8.7c.7.2 1.4.2 2 0 .5 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.5l-.6-.3Z"
                       class="fill-black group-hover:fill-primary"
                     />
                   </svg>
@@ -88,10 +88,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       >
         <div class="relative flex size-3/4 flex-col items-center justify-start">
           <svg
+            (click)="showCertificate = false"
             xmlns="http://www.w3.org/2000/svg"
             class="absolute -top-8 right-32 z-50 size-4 cursor-pointer"
             viewBox="0 0 273 273"
-            (click)="showCertificate = false"
           >
             <path
               d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
@@ -125,6 +125,6 @@ export class CertificadoComponent {
   @Input() title!: string;
   @Input() src!: string;
   @Input() id!: string;
-  showCertificate = true;
+  showCertificate = false;
   showShare = false;
 }

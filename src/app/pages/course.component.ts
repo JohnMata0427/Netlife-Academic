@@ -252,15 +252,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           <div
             class="relative ml-16 mt-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute inset-y-0 left-0 h-full"
-              viewBox="0 0 93 122"
-            >
-              <path
-                d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
-              />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
             <h3 class="ml-28 text-3xl font-bold">Examen</h3>
           </div>
         </section>
@@ -288,17 +280,7 @@ import { UserLayout } from '@layouts/user-layout.component';
                 [text]="'Resolver'"
                 [moreStyles]="'w-40 justify-center'"
               />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                class="size-7"
-                viewBox="0 0 30 32"
-              >
-                <path
-                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
-                  class="fill-greenlight"
-                />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
             </div>
           </button>
         </section>
@@ -307,15 +289,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <div
           class="relative my-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="absolute inset-y-0 left-0 h-full"
-            viewBox="0 0 93 122"
-          >
-            <path
-              d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
-            />
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
           <h3 class="ml-28 text-3xl font-bold">Finalización del Curso</h3>
         </div>
         <app-custom-title [title]="'Obtencion del certificado'" />
@@ -326,22 +300,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </p>
 
         <button class="ml-16 mt-4 flex gap-4">
-          <svg
-            class="size-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 32 32"
-          >
-            <path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z" />
-            <path
-              fill="#000"
-              d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"
-            />
-            <path
-              fill="#000"
-              d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
-            />
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-5" viewBox="0 0 32 32"><path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z"/><path fill="#000" d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"/><path fill="#000" d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"/></svg>
           <span class="font-bold text-primary">Certificado del curso</span>
         </button>
         <app-custom-title [title]="'Comentario personal'" />
@@ -356,15 +315,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <div
           class="relative mx-8 my-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40 to-white sm:mx-16"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="absolute inset-y-0 left-0 h-full"
-            viewBox="0 0 93 122"
-          >
-            <path
-              d="M90.36 56.81a5 5 0 0 1 0 8.29l-82.2 55.49a5 5 0 0 1-7.8-4.15L.35 5.42a5 5 0 0 1 7.8-4.14L90.35 56.8Z"
-            />
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
           <h3 class="ml-28 text-3xl font-bold">Evolución de las redes</h3>
         </div>
         <app-custom-title [title]="'Material del módulo'" />
@@ -379,17 +330,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             />
             <span>Conceptos básicos de redes </span>
           </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            class="mr-4 size-7"
-            viewBox="0 0 30 32"
-          >
-            <path
-              d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
-              class="fill-greenlight"
-            />
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
         </button>
         <button
           class="mx-8 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
@@ -402,26 +343,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             />
             <span>Topologías y medios de transmisión</span>
           </div>
-          <svg
-            class="mr-4 size-7"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 32 34"
-          >
-            <path
-              stroke="#72C234"
-              stroke-miterlimit="10"
-              stroke-width="2"
-              d="M31 16.62C31 8 24.28 1 16 1 7.72 1 1 8 1 16.62s6.72 15.61 15 15.61c8.28 0 15-6.99 15-15.61Z"
-            />
-            <path
-              stroke="#72C234"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m23 10.37-9.8 12.5-4.2-5"
-            />
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 32 34"><path stroke="#72C234" stroke-miterlimit="10" stroke-width="2" d="M31 16.6C31 8 24.3 1 16 1S1 8 1 16.6s6.7 15.6 15 15.6 15-7 15-15.6Z"/><path stroke="#72C234" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m23 10.4-9.8 12.5-4.2-5"/></svg>
         </button>
 
         <app-custom-title [title]="'Tareas asignadas'" />
@@ -447,17 +369,7 @@ import { UserLayout } from '@layouts/user-layout.component';
               [text]="'Presentar 15 de agosto'"
               [moreStyles]="'w-40 justify-center text-neutral-700 text-xs'"
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              class="mr-4 size-7"
-              viewBox="0 0 30 32"
-            >
-              <path
-                d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
-                class="fill-greenlight"
-              />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
           </div>
         </button>
       }

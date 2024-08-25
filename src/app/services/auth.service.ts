@@ -63,17 +63,12 @@ export class AuthService {
     );
   }
 
-  isAuthenticated(): boolean {
+  isAuthenticated() {
     const token = localStorage.getItem('token');
 
     if (!token) return false;
 
-    if (!(JSON.parse(atob(token.split('.')[1])).exp * 1000 > Date.now())) {
-      localStorage.removeItem('token');
-      return false;
-    }
-
-    return true;
+    return Date.now() < JSON.parse(atob(token.split('.')[1])).exp * 1000;
   }
 
   getInfoUser() {
