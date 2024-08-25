@@ -15,7 +15,17 @@ import { Component, Input } from '@angular/core';
           <span class="ml-2 select-none">
             {{ answerSelected }}
           </span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-2 w-3" viewBox="0 0 13 7"><path fill="#000" d="m.2 1.3 5.6 5.4.3.2a1.1 1.1 0 0 0 .8 0 1 1 0 0 0 .3-.2l5.6-5.4c.5-.5 0-1.3-.8-1.3H1C0 0-.4.8.1 1.3Z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="mr-2 w-3"
+            viewBox="0 0 13 7"
+          >
+            <path
+              fill="#000"
+              d="m.2 1.3 5.6 5.4.3.2a1.1 1.1 0 0 0 .8 0 1 1 0 0 0 .3-.2l5.6-5.4c.5-.5 0-1.3-.8-1.3H1C0 0-.4.8.1 1.3Z"
+            />
+          </svg>
         </div>
 
         <div

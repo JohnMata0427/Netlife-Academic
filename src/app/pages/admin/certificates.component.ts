@@ -27,17 +27,27 @@ import { CertificadoComponent } from '../../components/certificado.component';
         </p>
         <app-custom-button
           (click)="mostrarModal = true"
-          [text]="'Crear nuevo certificado'"
-          [color]="'orange'"
-          [moreStyles]="'gap-2 group'"
+          text="Crear nuevo certificado"
+          color="orange"
+          moreStyles="gap-2 group"
         >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="z-10 size-6" viewBox="0 0 25 20"><path d="M22.2 0h-20C1 0 0 1 0 2.2v13.4c0 1.2 1 2.2 2.2 2.2h5.6V20h8.9v-2.2h5.5c1.2 0 2.2-1 2.2-2.2V2.2c0-1.2-1-2.2-2.2-2.2Zm0 15.6h-20V2.2h20v13.4Zm-5.5-7.8V10h-3.4v3.3h-2.2V10H7.8V7.8H11V4.4h2.2v3.4h3.4Z" class="fill-white group-hover:fill-primary"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="z-10 size-6"
+            viewBox="0 0 25 20"
+          >
+            <path
+              d="M22.2 0h-20C1 0 0 1 0 2.2v13.4c0 1.2 1 2.2 2.2 2.2h5.6V20h8.9v-2.2h5.5c1.2 0 2.2-1 2.2-2.2V2.2c0-1.2-1-2.2-2.2-2.2Zm0 15.6h-20V2.2h20v13.4Zm-5.5-7.8V10h-3.4v3.3h-2.2V10H7.8V7.8H11V4.4h2.2v3.4h3.4Z"
+              class="fill-white group-hover:fill-primary"
+            />
+          </svg>
         </app-custom-button>
         <div class="mt-8 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-certificado
-            [id]="'inteligencia-artificial'"
-            [src]="'certificate.png'"
-            [title]="'Plantilla de certificado de Inteligencia Artificial'"
+            id="inteligencia-artificial"
+            src="certificate.png"
+            title="Plantilla de certificado de Inteligencia Artificial"
           />
         </div>
       </section>
@@ -69,12 +79,12 @@ import { CertificadoComponent } from '../../components/certificado.component';
             />
             <div class="mt-4 flex justify-evenly">
               <app-custom-button
-                [text]="'Cancelar'"
+                text="Cancelar"
                 (click)="mostrarModal = false"
               />
               <app-custom-button
-                [text]="'Crear certificado'"
-                [color]="'orange'"
+                text="Crear certificado"
+                color="orange"
               />
             </div>
           </form>

@@ -23,9 +23,9 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
         </p>
         <app-custom-button
           (click)="mostrarModal = true"
-          [text]="'Crear nuevo curso'"
-          [color]="'orange'"
-          [moreStyles]="'gap-2 group'"
+          text="Crear nuevo curso"
+          color="orange"
+          moreStyles="gap-2 group"
         >
           <svg
             class="z-10 size-6"
@@ -41,14 +41,14 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
         </app-custom-button>
         <div class="mt-8 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-course-info
-            [id]="'redes-de-computadoras'"
-            [src]="'courses/redes.jpg'"
-            [title]="'Redes de Computadoras'"
+            id="redes-de-computadoras"
+            src="courses/redes.jpg"
+            title="Redes de Computadoras"
           />
           <app-course-info
-            [id]="'inteligencia-artificial'"
-            [src]="'courses/ia.png'"
-            [title]="'Inteligencia Artificial'"
+            id="inteligencia-artificial"
+            src="courses/ia.png"
+            title="Inteligencia Artificial"
           />
         </div>
       </section>
@@ -91,10 +91,10 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
             />
             <div class="mt-4 flex justify-evenly">
               <app-custom-button
-                [text]="'Cancelar'"
+                text="Cancelar"
                 (click)="mostrarModal = false"
               />
-              <app-custom-button [text]="'Crear curso'" [color]="'orange'" />
+              <app-custom-button text="Crear curso" color="orange" />
             </div>
           </form>
         </div>

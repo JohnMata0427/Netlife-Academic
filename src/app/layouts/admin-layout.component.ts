@@ -35,10 +35,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/dashboard'])"
-                [text]="'Usuarios'"
+                text="Usuarios"
                 [color]="active === 'dashboard' ? 'white' : 'black'"
                 [hoverColor]="active === 'dashboard' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 18 18">
                   <path
@@ -55,10 +55,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/anuncios'])"
-                [text]="'Anuncios'"
+                text="Anuncios"
                 [color]="active === 'anuncios' ? 'white' : 'black'"
                 [hoverColor]="active === 'anuncios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -76,10 +76,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <!-- <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/usuarios'])"
-                [text]="'Usuarios'"
+                text="Usuarios"
                 [color]="active === 'usuarios' ? 'white' : 'black'"
                 [hoverColor]="active === 'usuarios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 20 20"><path d="M13.7 1.4A5.1 5.1 0 0 0 10 0C8.6 0 7.2.5 6.3 1.4A4.5 4.5 0 0 0 5 5.2c.2 2.7 2.5 4.9 5 4.9s4.8-2.2 5-5a4.5 4.5 0 0 0-1.3-3.6ZM18.5 20h-17l-.6-.1a1.5 1.5 0 0 1-.9-1.7 7.6 7.6 0 0 1 3.7-5 12.1 12.1 0 0 1 12.6 0 7.6 7.6 0 0 1 3.7 5 1.5 1.5 0 0 1-.9 1.7l-.6.1Z" class="{{ active === 'usuarios' ? 'fill-black group-hover:fill-white' : 'fill-white group-hover:fill-black' }}"/></svg>
               </app-custom-button>
@@ -88,10 +88,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/cursos'])"
-                [text]="'Cursos'"
+                text="Cursos"
                 [color]="active === 'cursos' ? 'white' : 'black'"
                 [hoverColor]="active === 'cursos' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -109,10 +109,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/certificados'])"
-                [text]="'Certificados'"
+                text="Certificados"
                 [color]="active === 'certificados' ? 'white' : 'black'"
                 [hoverColor]="active === 'certificados' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -129,10 +129,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <!-- <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/reportes'])"
-                [text]="'Reportes'"
+                text="Reportes"
                 [color]="active === 'reportes' ? 'white' : 'black'"
                 [hoverColor]="active === 'reportes' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
+                moreStyles="w-full text-sm h-8 gap-2 rounded-xl"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20"><path d="M9 .1v6.7a.2.2 0 0 0 .2.2h6.7a.1.1 0 0 0 0-.2L9.3 0A.1.1 0 0 0 9 0Z" class="{{ active === 'reportes' ? 'fill-black group-hover:fill-white' : 'fill-white group-hover:fill-black' }}"/><path d="M8.1 8.6a.4.4 0 0 1-.3-.1.3.3 0 0 1 0-.3V0H.5a.6.6 0 0 0-.4.2L0 .5v19c0 .1 0 .2.2.3l.4.2h15.8a.6.6 0 0 0 .4-.2l.2-.3v-11H8.1Zm5 7.1H4v-1.4h9v1.4Zm0-3.6H4v-1.4h9v1.4Z" class="{{ active === 'reportes' ? 'fill-black group-hover:fill-white' : 'fill-white group-hover:fill-black' }}"/></svg>
               </app-custom-button>
@@ -144,8 +144,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="flex w-full justify-end">
           <app-custom-button
             (click)="router.navigate(['/home'])"
-            [text]="'Volver al Sitio Principal'"
-            [moreStyles]="'text-xs h-8 gap-2 group'"
+            text="Volver al Sitio Principal"
+            moreStyles="text-xs h-8 gap-2 group"
           >
             <svg class="z-10 size-4" viewBox="0 0 18 18">
               <path

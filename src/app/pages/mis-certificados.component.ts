@@ -12,7 +12,9 @@ import { CertificadoComponent } from '@components/certificado.component';
       <section class="flex flex-col justify-end">
         <app-custom-title title="Certificados" />
         <p class="mb-4 px-8 text-sm sm:pl-16">
-        En este apartado, podrás ver todos tus certificados obtenidos y tendrás la opción de descargarlos en formato .pdf o compartirlos en tus redes sociales.
+          En este apartado, podrás ver todos tus certificados obtenidos y
+          tendrás la opción de descargarlos en formato .pdf o compartirlos en
+          tus redes sociales.
         </p>
         <!-- <div class="flex flex-col justify-end items-center gap-4 mt-20">
           <div
@@ -34,14 +36,14 @@ import { CertificadoComponent } from '@components/certificado.component';
           class="flex flex-wrap justify-center gap-8 px-8 sm:justify-start sm:pl-16"
         >
           <app-certificado
-            [id]="'redes-de-computadoras'"
-            [src]="'courses/redes.jpg'"
-            [title]="'Redes de Computadoras'"
+            id="redes-de-computadoras"
+            src="courses/redes.jpg"
+            title="Redes de Computadoras"
           ></app-certificado>
           <app-certificado
-            [id]="'inteligencia-artificial'"
-            [src]="'courses/ia.png'"
-            [title]="'Inteligencia Artificial'"
+            id="inteligencia-artificial"
+            src="courses/ia.png"
+            title="Inteligencia Artificial"
           ></app-certificado>
         </div>
       </section>

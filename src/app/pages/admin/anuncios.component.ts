@@ -173,9 +173,9 @@ import { AnnouncementService } from '@services/announcement.service';
         </form>
         <app-custom-button
           (click)="onSubmit()"
-          [color]="'orange'"
-          [text]="'Guardar Cambios'"
-          [moreStyles]="'text-sm h-8 mt-8'"
+          color="orange"
+          text="Guardar Cambios"
+          moreStyles="text-sm h-8 mt-8"
         />
         @if (message) {
           <div class="mt-5 rounded-lg bg-black p-2 text-white opacity-90">

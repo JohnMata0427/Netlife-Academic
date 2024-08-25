@@ -74,29 +74,29 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                 <app-question
                   (click)="answersSelected[0] = 'A'"
                   [answerSelected]="answersSelected[0]"
-                  [answerLetter]="'A'"
-                  [answerText]="'Saltos'"
+                  answerLetter="A"
+                  answerText="Saltos"
                 />
 
                 <app-question
                   (click)="answersSelected[0] = 'B'"
                   [answerSelected]="answersSelected[0]"
-                  [answerLetter]="'B'"
-                  [answerText]="'Ancho de banda'"
+                  answerLetter="B"
+                  answerText="Ancho de banda"
                 />
 
                 <app-question
                   (click)="answersSelected[0] = 'C'"
                   [answerSelected]="answersSelected[0]"
-                  [answerLetter]="'C'"
-                  [answerText]="'Retardo'"
+                  answerLetter="C"
+                  answerText="Retardo"
                 />
 
                 <app-question
                   (click)="answersSelected[0] = 'D'"
                   [answerSelected]="answersSelected[0]"
-                  [answerLetter]="'D'"
-                  [answerText]="'Ninguna de las Anteriores'"
+                  answerLetter="D"
+                  answerText="Ninguna de las Anteriores"
                 />
               </div>
             } @else if (numeroPregunta == 2) {
@@ -107,7 +107,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
 
               <div class="flex flex-col gap-4">
                 <app-questions-select
-                  [question]="'OSPF'"
+                  question="OSPF"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
@@ -118,7 +118,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                 />
 
                 <app-questions-select
-                  [question]="'RIP v1'"
+                  question="RIP v1"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
@@ -129,7 +129,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
                 />
 
                 <app-questions-select
-                  [question]="'EIGRP'"
+                  question="EIGRP"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
@@ -146,33 +146,33 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               <div class="flex flex-col gap-4">
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'A'"
-                  [question]="'Tiene 48 bits (6 bytes) de longitud.'"
-                  [answer]="'A'"
+                  question="Tiene 48 bits (6 bytes) de longitud."
+                  answer="A"
                 />
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'B'"
                   [question]="
                     'Se expresa generalmente en notación hexadecimal.'
                   "
-                  [answer]="'B'"
+                  answer="B"
                 />
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'C'"
-                  [question]="'Es única para cada dispositivo de red.'"
-                  [answer]="'C'"
+                  question="Es única para cada dispositivo de red."
+                  answer="C"
                 />
                 <app-question-checkbox
                   [question]="
                     'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
                   "
-                  [answer]="'D'"
+                  answer="D"
                 />
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'E'"
                   [question]="
                     'Una dirección MAC está compuesta por 10 dígitos decimales.'
                   "
-                  [answer]="'E'"
+                  answer="E"
                 />
               </div>
             } @else if (numeroPregunta == 4) {
@@ -199,9 +199,9 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
           >
             @if (numeroPregunta > 1) {
               <app-custom-button
-                [text]="'Anterior'"
-                [color]="'orange'"
-                [moreStyles]="'mt-6 w-52 justify-center text-black'"
+                text="Anterior"
+                color="orange"
+                moreStyles="mt-6 w-52 justify-center text-black"
                 (click)="
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: +numeroPregunta - 1 },
@@ -211,8 +211,8 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             }
             <app-custom-button
               [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
-              [color]="'orange'"
-              [moreStyles]="'mt-6 w-52 justify-center text-black'"
+              color="orange"
+              moreStyles="mt-6 w-52 justify-center text-black"
               (click)="
                 numeroPregunta < 5
                   ? router.navigate(['/examen'], {
@@ -250,14 +250,14 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
             >
             <div class="flex justify-center gap-4">
               <app-custom-button
-                [text]="'Cancelar'"
-                [color]="'gray'"
-                [moreStyles]="'w-36 justify-center'"
+                text="Cancelar"
+                color="gray"
+                moreStyles="gap-2 group"
                 (click)="finish = false"
               />
               <app-custom-button
-                [text]="'Enviar'"
-                [moreStyles]="'w-36 justify-center'"
+                text="Enviar"
+                moreStyles="gap-2 group"
                 (click)="router.navigate(['/grade'])"
               />
             </div>
@@ -276,8 +276,8 @@ export class ExamenComponent {
     public router: Router,
     private activatedRoute: ActivatedRoute,
   ) {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.numeroPregunta = params['pregunta'];
+    this.activatedRoute.queryParams.subscribe(({ pregunta }) => {
+      this.numeroPregunta = pregunta;
     });
   }
 

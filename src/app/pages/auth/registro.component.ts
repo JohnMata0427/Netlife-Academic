@@ -128,14 +128,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="password"
             formControlName="password"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ typePasswordInput }}"
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
             placeholder="Contraseña"
             required
           />
           <img
-            (click)="togglePasswordVisibility()"
+            (click)="isPasswordVisible = !isPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ iconPasswordInput }}.svg"
+            src="/icons/forms/{{ isPasswordVisible ? 'eye-off' : 'eye' }}.svg"
             alt="Eye Icon"
           />
         </div>
@@ -151,14 +151,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="confirmPassword"
             formControlName="confirmPassword"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ typeConfirmPasswordInput }}"
+            type="{{ isConfirmPasswordVisible ? 'text' : 'password' }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
-            (click)="toggleConfirmPasswordVisibility()"
+            (click)="isConfirmPasswordVisible = !isConfirmPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ iconConfirmPasswordInput }}.svg"
+            src="/icons/forms/{{ isConfirmPasswordVisible
+      ? 'eye'
+      : 'eye-off' }}.svg"
             alt="Eye Icon"
           />
         </div>
@@ -187,7 +189,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             type="number"
             placeholder="Código de Verificación"
             maxlength="6"
-            autocomplete="off"
             required
           />
         </div>
@@ -218,8 +219,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         }
 
         <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [text]="'Registrate'"
+          moreStyles="w-full justify-center"
+          text="Registrate"
           [loading]="loading"
         />
 
@@ -272,22 +273,6 @@ export class RegistroComponent {
     private route: Router,
     private authService: AuthService,
   ) {}
-
-  togglePasswordVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-    this.typePasswordInput = this.isPasswordVisible ? 'text' : 'password';
-    this.iconPasswordInput = this.isPasswordVisible ? 'eye' : 'eye-off';
-  }
-
-  toggleConfirmPasswordVisibility() {
-    this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
-    this.typeConfirmPasswordInput = this.isConfirmPasswordVisible
-      ? 'text'
-      : 'password';
-    this.iconConfirmPasswordInput = this.isConfirmPasswordVisible
-      ? 'eye'
-      : 'eye-off';
-  }
 
   onSubmit() {
     if (this.form.invalid) {

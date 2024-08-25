@@ -28,9 +28,9 @@ export class UserService {
     return this.httpClient.put<User>(this.urlAPI + '/api/users/' + id, user);
   }
 
-  updatePhoto(image: File | null, id: string) {
+  updatePhoto(image: File, id: string) {
     const formData = new FormData();
-    if (image) formData.append('image', image);
+    formData.append('image', image);
     return this.httpClient.post<MessageResponse>(
       this.urlAPI + '/api/users/' + id + '/upload-image',
       formData,

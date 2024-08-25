@@ -42,14 +42,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="password"
             formControlName="password"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ typePasswordInput }}"
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
             placeholder="Contraseña"
             required
           />
           <img
-            (click)="togglePasswordVisibility()"
+            (click)="isPasswordVisible = !isPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ iconPasswordInput }}.svg"
+            src="/icons/forms/{{ isPasswordVisible ? 'eye' : 'eye-off' }}.svg"
             alt="Eye Icon"
           />
         </div>
@@ -71,14 +71,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="confirmPassword"
             formControlName="confirmPassword"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ typeConfirmPasswordInput }}"
+            type="{{ isConfirmPasswordVisible ? 'text' : 'password' }}"
             placeholder="Confirmar Contraseña"
             required
           />
           <img
-            (click)="toggleConfirmPasswordVisibility()"
+            (click)="isConfirmPasswordVisible = !isConfirmPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ iconConfirmPasswordInput }}.svg"
+            src="/icons/forms/{{
+              isConfirmPasswordVisible ? 'eye' : 'eye-off'
+            }}.svg"
             alt="Eye Icon"
           />
         </div>
@@ -92,8 +94,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         }
 
         <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [text]="'Reestablecer contraseña'"
+          moreStyles="w-full justify-center"
+          text="Reestablecer contraseña"
           [loading]="loading"
         />
         <span class="text-center text-xs"
@@ -142,8 +144,8 @@ export class NewPasswordComponent {
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
   ) {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.token = params['token'];
+    this.activatedRoute.queryParams.subscribe(({ token }) => {
+      this.token = token
     });
   }
 
@@ -163,21 +165,5 @@ export class NewPasswordComponent {
         (this.errorMessage = error.message), (this.loading = false)
       ),
     });
-  }
-
-  togglePasswordVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-    this.typePasswordInput = this.isPasswordVisible ? 'text' : 'password';
-    this.iconPasswordInput = this.isPasswordVisible ? 'eye' : 'eye-off';
-  }
-
-  toggleConfirmPasswordVisibility() {
-    this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
-    this.typeConfirmPasswordInput = this.isConfirmPasswordVisible
-      ? 'text'
-      : 'password';
-    this.iconConfirmPasswordInput = this.isConfirmPasswordVisible
-      ? 'eye'
-      : 'eye-off';
   }
 }

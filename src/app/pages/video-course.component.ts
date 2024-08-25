@@ -21,7 +21,17 @@ import { CustomButtonComponent } from '../components/custom-button.component';
           </h2>
           <div class="flex items-center gap-4">
             <img class="size-12 rounded-full" src="/profile.webp" alt="" />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-4" viewBox="0 0 15 15"><path fill="#000" d="M10.3 1a5 5 0 0 0-2.8-1c-1 0-2 .4-2.8 1-.7.8-1 1.8-1 2.8.2 2 1.9 3.7 3.8 3.7s3.6-1.7 3.7-3.7c.1-1-.2-2-1-2.7Zm3.5 14H1.2a1.2 1.2 0 0 1-1-.4c-.2-.2-.2-.6-.2-1a5.7 5.7 0 0 1 2.8-3.8 9 9 0 0 1 4.7-1.2 9 9 0 0 1 4.7 1.2 6 6 0 0 1 2.8 3.9 1.1 1.1 0 0 1-.7 1.2l-.5.1Z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              class="size-4"
+              viewBox="0 0 15 15"
+            >
+              <path
+                fill="#000"
+                d="M10.3 1a5 5 0 0 0-2.8-1c-1 0-2 .4-2.8 1-.7.8-1 1.8-1 2.8.2 2 1.9 3.7 3.8 3.7s3.6-1.7 3.7-3.7c.1-1-.2-2-1-2.7Zm3.5 14H1.2a1.2 1.2 0 0 1-1-.4c-.2-.2-.2-.6-.2-1a5.7 5.7 0 0 1 2.8-3.8 9 9 0 0 1 4.7-1.2 9 9 0 0 1 4.7 1.2 6 6 0 0 1 2.8 3.9 1.1 1.1 0 0 1-.7 1.2l-.5.1Z"
+              />
+            </svg>
             <span class="text-sm font-bold">Vanessa Guevara</span>
           </div>
           <div>
@@ -69,7 +79,17 @@ import { CustomButtonComponent } from '../components/custom-button.component';
             <header
               class="flex items-center gap-4 rounded-t-lg bg-orangelight px-4 py-2"
             >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-5" viewBox="0 0 22 21"><path fill="#000" d="m0 5 10 4h2l10-4V4L12 0h-2L0 4v1Zm22 5-2-1h-1a5524 5524 0 0 0-8 3h-1L3 9H2l-2 1v1l10 4h2l10-4v-1Zm0 6-2-1h-1l-7 3h-2l-7-3H2l-2 1v1l10 4h2l10-4v-1Z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                class="size-5"
+                viewBox="0 0 22 21"
+              >
+                <path
+                  fill="#000"
+                  d="m0 5 10 4h2l10-4V4L12 0h-2L0 4v1Zm22 5-2-1h-1a5524 5524 0 0 0-8 3h-1L3 9H2l-2 1v1l10 4h2l10-4v-1Zm0 6-2-1h-1l-7 3h-2l-7-3H2l-2 1v1l10 4h2l10-4v-1Z"
+                />
+              </svg>
               <h2 class="font-bold">Contenidos</h2>
             </header>
             <div
@@ -290,8 +310,8 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               ></textarea>
             </div>
             <div class="flex justify-end gap-4">
-              <app-custom-button [color]="'orange'" [text]="'Comenzar'" />
-              <app-custom-button [color]="'gray'" [text]="'Cancelar'" />
+              <app-custom-button color="orange" text="Comenzar" />
+              <app-custom-button color="gray" text="Cancelar" />
             </div>
           </section>
         </aside>

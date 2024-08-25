@@ -17,10 +17,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="relative">
           <div class="bg-profile h-96 w-full"></div>
           <app-custom-button
-            [color]="'white'"
-            [hoverColor]="'black'"
-            [text]="'Cambiar el fondo'"
-            [moreStyles]="'gap-2'"
+            color="white"
+            hoverColor="black"
+            text="Cambiar el fondo"
+            moreStyles="gap-2"
             class="absolute right-3 top-3"
           >
             <svg class="z-10 size-7" viewBox="0 0 29 29">
@@ -176,16 +176,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
           <div class="flex justify-center gap-5">
             <app-custom-button
-              [color]="'orange'"
-              [text]="'Actualizar Perfil'"
-              [moreStyles]="'mt-10 w-40 justify-center'"
+              color="orange"
+              text="Actualizar Perfil"
+              moreStyles="mt-10 w-40 justify-center"
               [loading]="loading"
             />
             <app-custom-button
               (click)="cancel = true"
-              [color]="'gray'"
-              [text]="'Cancelar'"
-              [moreStyles]="'mt-10'"
+              color="gray"
+              text="Cancelar"
+              moreStyles="mt-10"
             />
           </div>
         </form>
@@ -205,7 +205,7 @@ export class ActualizarPerfilComponent {
   id!: string;
   form!: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
-  image: File | null = null;
+  image!: File;
   cancel = false;
   loading = false;
 
@@ -218,9 +218,9 @@ export class ActualizarPerfilComponent {
   ) {}
 
   onFileChange(event: any) {
-    const reader = new FileReader();
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
+      const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => (this.imagePreview = reader.result);
       this.image = file;
@@ -256,8 +256,8 @@ export class ActualizarPerfilComponent {
         area: new FormControl(result.area),
         level: new FormControl(result.level),
         position: new FormControl(result.position),
-        birthdate: new FormControl(result.birthdate || null),
-        state: new FormControl(result.state || null),
+        birthdate: new FormControl(result.birthdate ?? null),
+        state: new FormControl(result.state ?? null),
       });
     });
   }

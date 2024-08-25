@@ -17,7 +17,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         alt="Logo Netlife"
       />
       @if (showModal) {
-        <div class="relative z-50 flex w-96 items-center animate-zoom-in">
+        <div class="relative z-50 flex w-96 animate-zoom-in items-center">
           <div
             class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
           >
@@ -38,22 +38,25 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <div class="mt-6 flex justify-center gap-4">
               <app-custom-button
                 (click)="showModal = false"
-                [moreStyles]="'w-full'"
-                [color]="'gray'"
-                [text]="'Cerrar'"
+                moreStyles="w-full"
+                color="gray"
+                text="Cerrar"
                 [loading]="loading"
               />
               <app-custom-button
                 (click)="onSubmit()"
-                [moreStyles]="'w-full'"
-                [color]="'orange'"
-                [text]="'Reenviar'"
+                moreStyles="w-full"
+                color="orange"
+                text="Reenviar"
                 [loading]="loading"
               />
             </div>
           </div>
         </div>
-        <div (click)="showModal = false" class="fixed inset-0 bg-black opacity-25"></div>
+        <div
+          (click)="showModal = false"
+          class="fixed inset-0 bg-black opacity-25"
+        ></div>
       } @else {
         <div class="flex w-96 flex-col gap-3">
           <h1 class="mb-4 text-center text-3xl font-bold">
@@ -88,8 +91,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
           <app-custom-button
             (click)="onSubmit()"
-            [moreStyles]="'w-full justify-center'"
-            [text]="'Enviar código de verificación'"
+            moreStyles="w-full justify-center"
+            text="Enviar código de verificación"
             [loading]="loading"
           />
 

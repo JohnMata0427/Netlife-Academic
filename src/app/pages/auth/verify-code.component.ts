@@ -53,8 +53,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           }
 
           <app-custom-button
-            [moreStyles]="'w-full justify-center'"
-            [text]="'Verificar código'"
+            moreStyles="w-full justify-center"
+            text="Verificar código"
             [loading]="loading"
           />
           <span class="text-center text-xs"
@@ -115,8 +115,8 @@ export class VerifyCodeComponent {
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
   ) {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.token = params['t'];
+    this.activatedRoute.queryParams.subscribe(({ t }) => {
+      this.token = t;
     });
   }
 
@@ -135,8 +135,9 @@ export class VerifyCodeComponent {
           this.router.navigate(['/auth/new-password'], {
             queryParams: { token: this.token },
           }),
-        error: ({ error }) => (this.errorMessage = error.message),
-        complete: () => (this.loading = false),
+        error: ({ error }) => (
+          (this.errorMessage = error.message), (this.loading = false)
+        ),
       });
   }
 
@@ -144,9 +145,9 @@ export class VerifyCodeComponent {
     this.authService
       .recoveryPassword(localStorage.getItem('email')!)
       .subscribe({
-        next: (result) =>
+        next: ({ token }) =>
           this.router.navigate([], {
-            queryParams: { token: result.token },
+            queryParams: { token },
           }),
         error: ({ error }) => (
           (this.errorMessage = error.message), (this.loading = false)

@@ -76,7 +76,7 @@ import { NgStyle } from '@angular/common';
       </section>
 
       <section>
-        <app-custom-title [title]="'Información del Curso'" />
+        <app-custom-title title="Información del Curso" />
         <div class="my-10 flex flex-wrap justify-center gap-8">
           <div
             class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
@@ -130,7 +130,7 @@ import { NgStyle } from '@angular/common';
         </div>
       </section>
       <section class="mb-10">
-        <app-custom-title [title]="'Contenido del Curso'" />
+        <app-custom-title title="Contenido del Curso" />
         <div class="mx-16 flex flex-col-reverse items-start gap-8 lg:flex-row">
           <div
             class="flex w-full flex-col gap-10 rounded-lg bg-quinary p-4 shadow-sm shadow-black/80 lg:w-[65.5%]"

@@ -1,6 +1,6 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CustomButtonComponent } from "./custom-button.component";
+import { CustomButtonComponent } from './custom-button.component';
 
 @Component({
   selector: 'app-course-info',
@@ -51,7 +51,9 @@ import { CustomButtonComponent } from "./custom-button.component";
               {{ progress }}% Completado
             </h4>
           } @else {
-            <span class="text-xs font-extralight text-white"> 100% Completado</span>
+            <span class="text-xs font-extralight text-white">
+              100% Completado</span
+            >
           }
         </div>
       </div>

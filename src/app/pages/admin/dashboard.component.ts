@@ -52,8 +52,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           <h2 class="font-bold">Tabla de Usuarios</h2>
           <div class="my-2 flex gap-2">
             <app-custom-button
-              [text]="'Importar datos (CSV)'"
-              [moreStyles]="'text-xs h-8 gap-2 group'"
+              text="Importar datos (CSV)"
+              moreStyles="text-xs h-8 gap-2"
             >
               <svg class="z-10 size-4" viewBox="0 0 15 19">
                 <path
@@ -63,9 +63,9 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               </svg>
             </app-custom-button>
             <app-custom-button
-              [color]="'orange'"
-              [text]="'Exportar datos (CSV)'"
-              [moreStyles]="'text-xs h-8 gap-2 group'"
+              color="orange"
+              text="Exportar datos (CSV)"
+              moreStyles="text-xs h-8 gap-2"
             >
               <svg class="z-10 size-4" viewBox="0 0 16 16">
                 <path
@@ -130,15 +130,15 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       <div class="mt-4 flex justify-center gap-4">
         <app-custom-button
           (click)="selectedButton = 'Agregar'"
-          [color]="'orange'"
-          [text]="'Agregar usuario'"
-          [moreStyles]="'text-xs h-8'"
+          color="orange"
+          text="Agregar usuario"
+          moreStyles="text-xs h-8"
         />
         <app-custom-button
           (click)="selectedButton = 'Bloquear'"
-          [color]="'orange'"
-          [text]="'Bloquear usuario'"
-          [moreStyles]="'text-xs h-8'"
+          color="orange"
+          text="Bloquear usuario"
+          moreStyles="text-xs h-8"
         />
       </div>
 
@@ -180,7 +180,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                   : null
             "
             [text]="selectedButton"
-            [moreStyles]="'text-xs h-8'"
+            moreStyles="text-xs h-8"
           />
         }
         @if (message) {
@@ -210,23 +210,21 @@ export class AdminDashboardComponent {
   }
 
   createUser() {
-    this.userService
-      .createUser(this.email.value!, this.role.value!)
-      .subscribe({
-        next: (result) => {
-          this.message = 'Usuario creado con éxito';
-          setTimeout(() => {
-            this.message = '';
-          }, 5000);
-          this.users = [...this.users, result];
-        },
-        error: ({ error }) => {
-          this.message = error.message;
-          setTimeout(() => {
-            this.message = '';
-          }, 5000);
-        },
-      });
+    this.userService.createUser(this.email.value!, this.role.value!).subscribe({
+      next: (result) => {
+        this.message = 'Usuario creado con éxito';
+        setTimeout(() => {
+          this.message = '';
+        }, 5000);
+        this.users = [...this.users, result];
+      },
+      error: ({ error }) => {
+        this.message = error.message;
+        setTimeout(() => {
+          this.message = '';
+        }, 5000);
+      },
+    });
   }
 
   blockUser() {

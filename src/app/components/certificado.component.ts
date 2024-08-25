@@ -20,13 +20,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="relative flex justify-center gap-4">
           <app-custom-button
             (click)="showCertificate = true"
-            [color]="'orange'"
-            [text]="'Descargar'"
+            color="orange"
+            text="Descargar"
           />
           <app-custom-button
             (click)="showShare = !showShare"
-            [color]="'orange'"
-            [text]="'Compartir'"
+            color="orange"
+            text="Compartir"
           />
           @if (showShare) {
             <div

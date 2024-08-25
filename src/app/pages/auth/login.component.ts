@@ -54,14 +54,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="password"
             formControlName="password"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ typePasswordInput }}"
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
             placeholder="Contraseña"
             required
           />
           <img
-            (click)="togglePasswordVisibility()"
+            (click)="isPasswordVisible = !isPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ iconPasswordInput }}.svg"
+            src="/icons/forms/{{ isPasswordVisible ? 'eye-off' : 'eye' }}.svg"
             alt="Eye Icon"
           />
         </div>
@@ -71,8 +71,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         }
 
         <app-custom-button
-          [moreStyles]="'w-full justify-center'"
-          [text]="'Iniciar sesión'"
+          moreStyles="w-full justify-center"
+          text="Iniciar sesión"
           [loading]="loading"
         />
 
@@ -133,11 +133,5 @@ export class LoginComponent {
         (this.message = error.message), (this.loading = false)
       ),
     });
-  }
-
-  togglePasswordVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-    this.typePasswordInput = this.isPasswordVisible ? 'text' : 'password';
-    this.iconPasswordInput = this.isPasswordVisible ? 'eye-off' : 'eye';
   }
 }

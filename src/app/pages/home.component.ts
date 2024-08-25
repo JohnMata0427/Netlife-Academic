@@ -84,22 +84,22 @@ import { AuthService } from '@services/auth.service';
             <h2 class="hidden font-bold text-primary lg:block">
               PROXIMAS TAREAS
             </h2>
-            <app-custom-title class="lg:hidden" [title]="'Próximas tareas'" />
+            <app-custom-title class="lg:hidden" title="Próximas tareas" />
             <div class="mx-8 flex flex-col items-center gap-4">
               <app-task
-                [nombre]="'Introducción a las Redes'"
+                nombre="Introducción a las Redes"
                 [fecha]="{ mes: 'Julio', dia: '20' }"
-                [hora]="'11:59 PM'"
+                hora="11:59 PM"
               />
               <app-task
-                [nombre]="'Aprendizaje Automatico'"
+                nombre="Aprendizaje Automatico"
                 [fecha]="{ mes: 'Julio', dia: '24' }"
-                [hora]="'11:59 PM'"
+                hora="11:59 PM"
               />
               <app-task
-                [nombre]="'Analisis de Datos'"
+                nombre="Analisis de Datos"
                 [fecha]="{ mes: 'Julio', dia: '28' }"
-                [hora]="'11:59 PM'"
+                hora="11:59 PM"
               />
               <div class="mt-2 flex gap-2">
                 <div class="flex flex-col gap-2 rounded-lg bg-black px-4 py-2">
@@ -133,10 +133,8 @@ import { AuthService } from '@services/auth.service';
                 </div>
 
                 <app-custom-button
-                  [text]="'Ver calendario'"
-                  [moreStyles]="
-                    'text-xs justify-center items-center gap-2 h-full'
-                  "
+                  text="Ver calendario"
+                  moreStyles="text-xs justify-center items-center gap-2 h-full"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -9,7 +9,7 @@ import { CustomTitleComponent } from '../components/custom-title.component';
   template: `
     <app-user-layout>
       <section>
-        <app-custom-title [title]="'Revisión de la prueba'" />
+        <app-custom-title title="Revisión de la prueba" />
         <h1 class="ml-16 font-bold">Prueba conceptos básicos de redes</h1>
         <div class="m-16 flex flex-col items-center font-light">
           <span>Intentos permitidos</span>

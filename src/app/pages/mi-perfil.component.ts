@@ -14,7 +14,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-user-layout>
       <div class="relative">
-        <div class="bg-profile bg-cover bg-center bg-no-repeat h-96 w-full"></div>
+        <div
+          class="bg-profile h-96 w-full bg-cover bg-center bg-no-repeat"
+        ></div>
         <div
           class="absolute inset-x-0 -bottom-56 mx-auto flex w-80 flex-col items-center md:left-8 md:mx-0"
         >
@@ -31,9 +33,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <p class="text-sm">{{ user.email }}</p>
             <app-custom-button
               (click)="router.navigate(['/actualizar-informacion'])"
-              [color]="'orange'"
-              [text]="'Editar Perfil'"
-              [moreStyles]="'mt-4'"
+              color="orange"
+              text="Editar Perfil"
+              moreStyles="mt-4"
             />
           </div>
         </div>
@@ -44,20 +46,20 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <div class="flex w-full gap-1">
           <app-custom-button
             (click)="selectedButton = 'sobre-mi'"
-            [text]="'Sobre Mí'"
-            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            text="Sobre Mí"
+            moreStyles="w-full rounded-none rounded-tr-lg"
           />
 
           <app-custom-button
             (click)="selectedButton = 'mis-cursos'"
-            [text]="'Mis Cursos'"
-            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            text="Mis Cursos"
+            moreStyles="w-full rounded-none rounded-tr-lg"
           />
 
           <app-custom-button
             (click)="selectedButton = 'mis-certificados'"
-            [text]="'Mis Certificados'"
-            [moreStyles]="'w-full rounded-none rounded-tr-lg'"
+            text="Mis Certificados"
+            moreStyles="w-full rounded-none rounded-tr-lg"
           />
         </div>
         <div

@@ -78,12 +78,12 @@ import { UserLayout } from '@layouts/user-layout.component';
       </section>
 
       <section>
-        <app-custom-title [title]="'Contenido del Curso'" />
+        <app-custom-title title="Contenido del Curso" />
         <div class="mt-8 flex flex-wrap justify-center gap-1">
           <app-custom-button
             (click)="selectedButton = 'Inicio'"
             [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
-            [text]="'Inicio'"
+            text="Inicio"
           />
           @for (module of modules; track module) {
             <app-custom-button
@@ -91,25 +91,25 @@ import { UserLayout } from '@layouts/user-layout.component';
               [color]="
                 selectedButton === 'Módulo ' + module ? 'orange' : 'black'
               "
-              [text]="'Módulo ' + module"
+              text="Módulo ' + module"
             />
           }
           <app-custom-button
             (click)="selectedButton = 'Examen'"
             [color]="selectedButton === 'Examen' ? 'orange' : 'black'"
-            [text]="'Examenes'"
+            text="Examenes"
           />
           <app-custom-button
             (click)="selectedButton = 'Certificado'"
             [color]="selectedButton === 'Certificado' ? 'orange' : 'black'"
-            [text]="'Fin del Curso'"
+            text="Fin del Curso"
           />
         </div>
       </section>
 
       @if (selectedButton === 'Inicio') {
         <section>
-          <app-custom-title [title]="'Docente del Curso'" />
+          <app-custom-title title="Docente del Curso" />
           <div class="mx-16 flex items-center gap-10">
             <div
               class="relative flex h-32 w-1/2 items-center gap-4 rounded-lg bg-quinary p-2 pr-8 shadow-sm shadow-black/30"
@@ -152,7 +152,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </section>
 
         <section>
-          <app-custom-title [title]="'Información del Curso'" />
+          <app-custom-title title="Información del Curso" />
           <div class="my-10 flex justify-center gap-8">
             <div
               class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
@@ -218,7 +218,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </div>
         </section>
         <section class="mb-10">
-          <app-custom-title [title]="'Recursos Adicionales'" />
+          <app-custom-title title="Recursos Adicionales" />
           <div class="mt-10 flex flex-col gap-2 pl-16">
             <a class="flex gap-4" href="#">
               <img
@@ -248,16 +248,24 @@ import { UserLayout } from '@layouts/user-layout.component';
         </section>
       } @else if (selectedButton === 'Examen') {
         <section>
-          <app-custom-title [title]="'Tema de la Clase'" />
+          <app-custom-title title="Tema de la Clase" />
           <div
             class="relative ml-16 mt-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute inset-y-0 left-0 h-full"
+              viewBox="0 0 93 122"
+            >
+              <path
+                d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"
+              />
+            </svg>
             <h3 class="ml-28 text-3xl font-bold">Examen</h3>
           </div>
         </section>
         <section class="mb-10 flex flex-col">
-          <app-custom-title [title]="'Pruebas'" />
+          <app-custom-title title="Pruebas" />
           <button
             class="mx-16 flex h-16 items-center justify-between border-l-8 border-primary bg-quinary pl-4"
           >
@@ -276,23 +284,41 @@ import { UserLayout } from '@layouts/user-layout.component';
                     queryParams: { pregunta: '1' },
                   })
                 "
-                [color]="'orange'"
-                [text]="'Resolver'"
-                [moreStyles]="'w-40 justify-center'"
+                color="orange"
+                text="Resolver"
+                moreStyles="w-40 justify-center"
               />
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                class="size-7"
+                viewBox="0 0 30 32"
+              >
+                <path
+                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+                  class="fill-greenlight"
+                />
+              </svg>
             </div>
           </button>
         </section>
       } @else if (selectedButton === 'Certificado') {
-        <app-custom-title [title]="'Tema del Módulo'" />
+        <app-custom-title title="Tema del Módulo" />
         <div
           class="relative my-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
         >
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute inset-y-0 left-0 h-full"
+            viewBox="0 0 93 122"
+          >
+            <path
+              d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"
+            />
+          </svg>
           <h3 class="ml-28 text-3xl font-bold">Finalización del Curso</h3>
         </div>
-        <app-custom-title [title]="'Obtencion del certificado'" />
+        <app-custom-title title="Obtencion del certificado" />
         <p class="ml-16">
           ¡Felicidades por completar el curso! Ahora,
           <span class="font-bold text-primary">obtén tu certificado</span> y
@@ -300,25 +326,48 @@ import { UserLayout } from '@layouts/user-layout.component';
         </p>
 
         <button class="ml-16 mt-4 flex gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="size-5" viewBox="0 0 32 32"><path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z"/><path fill="#000" d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"/><path fill="#000" d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="size-5"
+            viewBox="0 0 32 32"
+          >
+            <path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z" />
+            <path
+              fill="#000"
+              d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"
+            />
+            <path
+              fill="#000"
+              d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
+            />
+          </svg>
           <span class="font-bold text-primary">Certificado del curso</span>
         </button>
-        <app-custom-title [title]="'Comentario personal'" />
+        <app-custom-title title="Comentario personal" />
         <textarea class="mx-16 h-20 rounded-lg bg-quinary"></textarea>
         <app-custom-button
-          [color]="'orange'"
-          [text]="'Guardar comentario'"
-          [moreStyles]="'mx-auto mt-4 mb-10'"
+          color="orange"
+          text="Guardar comentario"
+          moreStyles="mx-auto mt-4 mb-10"
         />
       } @else {
-        <app-custom-title [title]="'Tema del módulo'" />
+        <app-custom-title title="Tema del módulo" />
         <div
           class="relative mx-8 my-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40 to-white sm:mx-16"
         >
-        <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-0 h-full" viewBox="0 0 93 122"><path d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute inset-y-0 left-0 h-full"
+            viewBox="0 0 93 122"
+          >
+            <path
+              d="M90.4 56.8a5 5 0 0 1 0 8.3L8.2 120.6a5 5 0 0 1-7.8-4.2V5.4a5 5 0 0 1 7.8-4.1l82.1 55.5Z"
+            />
+          </svg>
           <h3 class="ml-28 text-3xl font-bold">Evolución de las redes</h3>
         </div>
-        <app-custom-title [title]="'Material del módulo'" />
+        <app-custom-title title="Material del módulo" />
         <button
           class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
@@ -330,7 +379,17 @@ import { UserLayout } from '@layouts/user-layout.component';
             />
             <span>Conceptos básicos de redes </span>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="mr-4 size-7"
+            viewBox="0 0 30 32"
+          >
+            <path
+              d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+              class="fill-greenlight"
+            />
+          </svg>
         </button>
         <button
           class="mx-8 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
@@ -343,10 +402,29 @@ import { UserLayout } from '@layouts/user-layout.component';
             />
             <span>Topologías y medios de transmisión</span>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 32 34"><path stroke="#72C234" stroke-miterlimit="10" stroke-width="2" d="M31 16.6C31 8 24.3 1 16 1S1 8 1 16.6s6.7 15.6 15 15.6 15-7 15-15.6Z"/><path stroke="#72C234" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m23 10.4-9.8 12.5-4.2-5"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="mr-4 size-7"
+            viewBox="0 0 32 34"
+          >
+            <path
+              stroke="#72C234"
+              stroke-miterlimit="10"
+              stroke-width="2"
+              d="M31 16.6C31 8 24.3 1 16 1S1 8 1 16.6s6.7 15.6 15 15.6 15-7 15-15.6Z"
+            />
+            <path
+              stroke="#72C234"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m23 10.4-9.8 12.5-4.2-5"
+            />
+          </svg>
         </button>
 
-        <app-custom-title [title]="'Tareas asignadas'" />
+        <app-custom-title title="Tareas asignadas" />
         <button
           class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
@@ -365,11 +443,21 @@ import { UserLayout } from '@layouts/user-layout.component';
                   queryParams: { pregunta: '1' },
                 })
               "
-              [color]="'yellow'"
-              [text]="'Presentar 15 de agosto'"
-              [moreStyles]="'w-40 justify-center text-neutral-700 text-xs'"
+              color="yellow"
+              text="Presentar 15 de agosto"
+              moreStyles="w-40 justify-center text-neutral-700 text-xs"
             />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="mr-4 size-7" viewBox="0 0 30 32"><path d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z" class="fill-greenlight"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              class="mr-4 size-7"
+              viewBox="0 0 30 32"
+            >
+              <path
+                d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
+                class="fill-greenlight"
+              />
+            </svg>
           </div>
         </button>
       }
