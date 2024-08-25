@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
       <img
         class="h-auto w-80"
         src="/title-layout.webp"
-        alt="Título: {{ title }}"
       />
       <h1 class="absolute left-16 top-2 font-semibold text-white">
         {{ title }}

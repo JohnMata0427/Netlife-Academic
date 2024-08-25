@@ -158,9 +158,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <img
             (click)="isConfirmPasswordVisible = !isConfirmPasswordVisible"
             class="absolute inset-y-0 right-3 my-auto size-4 cursor-pointer"
-            src="/icons/forms/{{ isConfirmPasswordVisible
-      ? 'eye'
-      : 'eye-off' }}.svg"
+            src="/icons/forms/{{
+              isConfirmPasswordVisible ? 'eye' : 'eye-off'
+            }}.svg"
             alt="Eye Icon"
           />
         </div>

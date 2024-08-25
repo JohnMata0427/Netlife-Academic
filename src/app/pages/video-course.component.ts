@@ -304,14 +304,14 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               <img class="size-12 rounded-full" src="/profile.webp" alt="" />
               <textarea
                 class="w-full rounded-lg border border-neutral-400 p-2 text-sm"
-                name=""
-                id=""
+                name="comentario"
+                id="comentario"
                 placeholder="En esta sección, puedes escribir comentarios sobre esta clase."
               ></textarea>
             </div>
             <div class="flex justify-end gap-4">
-              <app-custom-button color="orange" text="Comenzar" />
-              <app-custom-button color="gray" text="Cancelar" />
+              <app-custom-button [color]="'orange'" [text]="'Comenzar'" />
+              <app-custom-button [color]="'gray'" [text]="'Cancelar'" />
             </div>
           </section>
         </aside>

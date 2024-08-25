@@ -293,6 +293,9 @@ export class HeaderComponent {
     const target = event.target as HTMLElement;
     if (!target.closest('.relative')) {
       this.showMenu = false;
+      this.showMessages = false;
+      this.showNotifications = false;
+      this.showHamburguer = false;
     }
   }
 
@@ -320,7 +323,7 @@ export class HeaderComponent {
       .getUserById(this.authService.getInfoUser().sub)
       .subscribe(({ imageUrl, name, lastname, email, role }) => {
         this.profile = imageUrl;
-        this.username = name + ' ' + lastname;
+        this.username = `${name} ${lastname}`;
         this.email = email;
         this.role = role;
       });

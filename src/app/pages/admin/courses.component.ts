@@ -110,12 +110,12 @@ export class AdminCoursesComponent {
   constructor() {}
 
   mostrarModal = false;
-  imagePreview: any;
-  image: any;
+  imagePreview: string | ArrayBuffer | null = null;
+  image!: File;
 
   onFileChange(event: any) {
-    const reader = new FileReader();
     if (event.target.files && event.target.files.length) {
+      const reader = new FileReader();
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => (this.imagePreview = reader.result);

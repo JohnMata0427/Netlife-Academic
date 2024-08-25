@@ -15,9 +15,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <app-custom-button
         (click)="goBack()"
         text="Volver"
-        color="black"
-        hoverColor="white"
-        class="pl-16"
+        moreStyles="pl-16"
       />
     </section>
   `,
@@ -25,7 +23,5 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 export class TermsComponent {
   constructor() {}
 
-  goBack() {
-    window.history.back();
-  }
+  goBack = () => window.history.back();
 }

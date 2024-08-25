@@ -16,7 +16,7 @@ type HoverColorVariant = 'black' | 'white';
     <button
       class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group {{
         moreStyles
-      }} {{ variantsColor[color][0] }} {{ variantsColor[hoverColor][2] }} group"
+      }} {{ variantsColor[color][0] }} {{ variantsColor[hoverColor][2] }}"
     >
       @if (loading) {
         <svg

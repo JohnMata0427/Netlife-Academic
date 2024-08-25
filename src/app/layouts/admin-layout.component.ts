@@ -173,8 +173,8 @@ export class AdminLayoutComponent {
     private authService: AuthService,
     private userService: UserService,
   ) {
-    this.activatedRouter.url.subscribe((url) => {
-      this.active = url[0]['path'];
+    this.activatedRouter.url.subscribe(([url]) => {
+      this.active = url['path'];
     });
   }
 

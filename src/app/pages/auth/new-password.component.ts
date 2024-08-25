@@ -145,7 +145,7 @@ export class NewPasswordComponent {
     private activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.queryParams.subscribe(({ token }) => {
-      this.token = token
+      this.token = token;
     });
   }
 

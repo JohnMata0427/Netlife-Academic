@@ -82,10 +82,7 @@ import { CertificadoComponent } from '../../components/certificado.component';
                 text="Cancelar"
                 (click)="mostrarModal = false"
               />
-              <app-custom-button
-                text="Crear certificado"
-                color="orange"
-              />
+              <app-custom-button text="Crear certificado" color="orange" />
             </div>
           </form>
         </div>
@@ -100,12 +97,12 @@ import { CertificadoComponent } from '../../components/certificado.component';
 export class AdminCertificatesComponent {
   constructor() {}
   mostrarModal = false;
-  imagePreview: any;
-  image: any;
+  imagePreview: string | ArrayBuffer | null = null;
+  image!: File;
 
   onFileChange(event: any) {
-    const reader = new FileReader();
     if (event.target.files && event.target.files.length) {
+      const reader = new FileReader();
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => (this.imagePreview = reader.result);
