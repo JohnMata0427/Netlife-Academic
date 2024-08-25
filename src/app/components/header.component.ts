@@ -312,10 +312,10 @@ export class HeaderComponent {
     this.userService
       .getUserById(this.authService.getInfoUser().sub)
       .subscribe(({ imageUrl, name, lastname, email, role }) => {
-        this.profile = imageUrl as string;
+        this.profile = imageUrl;
         this.username = name + ' ' + lastname;
-        this.email = email as string;
-        this.role = role as string;
+        this.email = email;
+        this.role = role;
       });
   }
 

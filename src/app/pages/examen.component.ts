@@ -291,8 +291,8 @@ export class ExamenComponent {
 
   ngOnInit() {
     this.fechaFinal = new Date(Date.now() + 600000).getTime();
-    this.minutosElement = document.getElementById('minutos') as HTMLElement;
-    this.segundosElement = document.getElementById('segundos') as HTMLElement;
+    this.minutosElement = document.getElementById('minutos')!;
+    this.segundosElement = document.getElementById('segundos')!;
     this.tiempoRestante();
   }
 

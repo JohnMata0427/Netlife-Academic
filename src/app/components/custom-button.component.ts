@@ -14,13 +14,15 @@ type HoverColorVariant = 'black' | 'white';
   standalone: true,
   template: `
     <button
-      class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center {{
+      class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group {{
         moreStyles
-      }} {{ variantsColor[color] }} {{ variantsHoverColor[hoverColor] }}"
+      }} {{ variantsColor[color][0] }} {{ variantsColor[hoverColor][2] }} group"
     >
       @if (loading) {
         <svg
-          class="size-5 animate-rotate-360 text-white animate-iteration-count-infinite"
+          class="size-5 animate-rotate-360 text-white animate-iteration-count-infinite {{
+            variantsColor[color][1]
+          }}"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -55,18 +57,32 @@ export class CustomButtonComponent {
   @Input() loading = false;
   @Input() moreStyles!: string;
 
-  variantsColor: Record<ColorVariant, string> = {
-    black: 'border-black bg-black hover:text-black *:fill-black',
-    white: 'border-white bg-white hover:text-white *:fill-white',
-    orange: 'border-primary bg-primary hover:text-primary *:fill-primary',
-    gray: 'border-neutral-500 bg-neutral-500 hover:text-neutral-500 *:fill-neutral-500',
-    orangelight:
-      'border-orangelight bg-orangelight hover:text-orangelight *:fill-orangelight',
-    yellow:
-      'border-secondary bg-secondary hover:text-secondary *:fill-secondary',
-  };
-  variantsHoverColor: Record<HoverColorVariant, string> = {
-    black: 'text-black before:bg-black hover:shadow-black',
-    white: 'text-white before:bg-white hover:shadow-white',
+  variantsColor: Record<ColorVariant, string[]> = {
+    black: [
+      'border-black bg-black hover:text-black',
+      'group-hover:text-black',
+      'text-black before:bg-black hover:shadow-black',
+    ],
+    white: [
+      'border-white bg-white hover:text-white',
+      'group-hover:text-white',
+      'text-white before:bg-white hover:shadow-white',
+    ],
+    orange: [
+      'border-primary bg-primary hover:text-primary',
+      'group-hover:text-primary',
+    ],
+    gray: [
+      'border-neutral-500 bg-neutral-500 hover:text-neutral-500',
+      'group-hover:text-neutral-500',
+    ],
+    orangelight: [
+      'border-orangelight bg-orangelight hover:text-orangelight',
+      'group-hover:text-orangelight',
+    ],
+    yellow: [
+      'border-secondary bg-secondary hover:text-secondary',
+      'group-hover:text-secondary',
+    ],
   };
 }

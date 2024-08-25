@@ -19,7 +19,17 @@ import { CustomButtonComponent } from '../components/custom-button.component';
   ],
   template: `
     <app-user-layout>
-      <img class="w-full" src="/banner.webp" alt="Banner de Inicio" />
+      <div class="w-full max-h-[58vh] relative flex justify-center">
+        <img class="w-full object-cover" src="{{images[slide]}}" alt="Banner de Inicio" />
+        <nav class="flex gap-x-1 absolute justify-center bottom-4">
+          @for (image of images; track $index) {
+            <button
+              (click)="slide = $index"
+              class="size-3 rounded-full border-2 border-quinary {{slide == $index ? 'bg-primary' : 'bg-white'}}"
+            ></button>
+          }
+        </nav>
+      </div>
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex flex-col lg:flex-row lg:gap-20">
@@ -71,7 +81,7 @@ import { CustomButtonComponent } from '../components/custom-button.component';
               PROXIMAS TAREAS
             </h2>
             <app-custom-title class="lg:hidden" [title]="'Próximas tareas'" />
-            <div class="mx-8 flex flex-col items-center">
+            <div class="mx-8 flex flex-col items-center gap-4">
               <app-task
                 [nombre]="'Introducción a las Redes'"
                 [fecha]="{ mes: 'Julio', dia: '20' }"
@@ -121,11 +131,11 @@ import { CustomButtonComponent } from '../components/custom-button.component';
                 <app-custom-button
                   [text]="'Ver calendario'"
                   [moreStyles]="
-                    'text-xs justify-center items-center gap-2 h-full group'
+                    'text-xs justify-center items-center gap-2 h-full'
                   "
                 >
                   <svg
-                    class="size-4"
+                    class="z-10 size-4"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 20 20"
@@ -180,6 +190,12 @@ import { CustomButtonComponent } from '../components/custom-button.component';
 })
 export class HomeComponent {
   users!: User[];
+  slide = 0
+  images = [
+    '/banner.webp',
+    'https://as2.ftcdn.net/v2/jpg/03/65/94/79/1000_F_365947947_nBv9Yct5WRbpGrW4mb2UcsuJhVEPIDtw.jpg',
+    'https://www.placementpreparation.io/blog/wp-content/uploads/2024/05/cyber-security-course-desktop-banner-horizontal.webp'
+  ];
 
   constructor(private userService: UserService) {}
 
@@ -187,5 +203,9 @@ export class HomeComponent {
     this.userService
       .getRankedUsers()
       .subscribe((users) => (this.users = users));
+
+    setInterval(() => {
+      this.slide = this.slide === this.images.length - 1 ? 0 : this.slide + 1;
+    }, 10000)
   }
 }

@@ -211,7 +211,7 @@ export class AdminDashboardComponent {
 
   createUser() {
     this.userService
-      .createUser(this.email.value as string, this.role.value as string)
+      .createUser(this.email.value!, this.role.value!)
       .subscribe({
         next: (result) => {
           this.message = 'Usuario creado con éxito';

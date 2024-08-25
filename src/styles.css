@@ -19,6 +19,9 @@
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+* {
   transition: all 0.3s;
 }
 /* @import "../node_modules/angular-calendar/css/angular-calendar.css" */

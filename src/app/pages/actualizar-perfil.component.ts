@@ -20,7 +20,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             [color]="'white'"
             [hoverColor]="'black'"
             [text]="'Cambiar el fondo'"
-            [moreStyles]="'group gap-2'"
+            [moreStyles]="'gap-2'"
             class="absolute right-3 top-3"
           >
             <svg class="z-10 size-7" viewBox="0 0 29 29">
@@ -41,7 +41,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
           <div
             (click)="fileChooser()"
-            class="group absolute bottom-3 right-16 size-12 overflow-hidden rounded-full border border-black bg-black shadow-2xl before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:w-0 before:bg-white before:duration-500 hover:shadow-white hover:before:left-0 hover:before:w-full"
+            class="absolute bottom-3 right-16 size-12 overflow-hidden rounded-full border border-black bg-black shadow-2xl before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:w-0 before:bg-white before:duration-500 hover:shadow-white hover:before:left-0 hover:before:w-full"
           >
             <input
               type="file"

@@ -17,7 +17,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         alt="Logo Netlife"
       />
       @if (showModal) {
-        <div class="relative z-50 flex w-96 items-center">
+        <div class="relative z-50 flex w-96 items-center animate-zoom-in">
           <div
             class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
           >
@@ -53,7 +53,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </div>
           </div>
         </div>
-        <div class="fixed inset-0 z-40 bg-black opacity-25"></div>
+        <div (click)="showModal = false" class="fixed inset-0 bg-black opacity-25"></div>
       } @else {
         <div class="flex w-96 flex-col gap-3">
           <h1 class="mb-4 text-center text-3xl font-bold">
@@ -132,7 +132,7 @@ export class RecoveryPasswordComponent {
       next: () => {
         this.showModal = true;
         this.loading = false;
-        localStorage.setItem('email', this.email.value as string);
+        localStorage.setItem('email', this.email.value!);
       },
       error: ({ error }) => (
         (this.errorMessage = error.message), (this.loading = false)

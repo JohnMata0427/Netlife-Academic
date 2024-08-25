@@ -38,7 +38,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Usuarios'"
                 [color]="active === 'dashboard' ? 'white' : 'black'"
                 [hoverColor]="active === 'dashboard' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 18 18">
                   <path
@@ -58,7 +58,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Anuncios'"
                 [color]="active === 'anuncios' ? 'white' : 'black'"
                 [hoverColor]="active === 'anuncios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -79,7 +79,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Usuarios'"
                 [color]="active === 'usuarios' ? 'white' : 'black'"
                 [hoverColor]="active === 'usuarios' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 20 20">
                   <path
@@ -100,7 +100,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Cursos'"
                 [color]="active === 'cursos' ? 'white' : 'black'"
                 [hoverColor]="active === 'cursos' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -121,7 +121,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Certificados'"
                 [color]="active === 'certificados' ? 'white' : 'black'"
                 [hoverColor]="active === 'certificados' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
@@ -141,7 +141,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 [text]="'Reportes'"
                 [color]="active === 'reportes' ? 'white' : 'black'"
                 [hoverColor]="active === 'reportes' ? 'black' : 'white'"
-                [moreStyles]="'w-full text-sm h-8 gap-2 group rounded-xl'"
+                [moreStyles]="'w-full text-sm h-8 gap-2 rounded-xl'"
               >
                 <svg class="z-10 size-4" viewBox="0 0 17 20">
                   <path
