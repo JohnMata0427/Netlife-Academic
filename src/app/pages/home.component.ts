@@ -155,31 +155,35 @@ import { AuthService } from '@services/auth.service';
           </article>
         </div>
       </section>
-      <section class="mb-20">
+      <section>
         <app-custom-title title="Nuevos Cursos" />
 
         <div
           class="mt-4 flex flex-wrap justify-center gap-8 lg:ml-16 lg:justify-start"
         >
           <app-course-info
-            title="Redes de Computadoras"
-            teacher="Ivonne Maldonado"
-            src="/courses/sql.png"
+            title="Control de Versiones"
+            teacher="Gabriel García"
+            src="https://fireship.io/courses/git/img/featured.png"
+            [newc]="true"
           />
           <app-course-info
-            title="Analisis de Datos"
+            title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
-            src="/courses/analisis.png"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
+            [newc]="true"
           />
           <app-course-info
-            title="Analisis de Datos"
-            teacher="Ivonne Maldonado"
-            src="/courses/analisis.png"
+            title="HTML y CSS"
+            teacher="Katherine Díaz"
+            src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
+            [newc]="true"
           />
           <app-course-info
-            title="Analisis de Datos"
+            title="Python desde cero"
             teacher="Ivonne Maldonado"
-            src="/courses/analisis.png"
+            src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
+            [newc]="true"
           />
         </div>
       </section>

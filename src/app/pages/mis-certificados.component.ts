@@ -11,10 +11,8 @@ import { CertificadoComponent } from '@components/certificado.component';
     <app-user-layout>
       <section class="flex flex-col justify-end">
         <app-custom-title title="Certificados" />
-        <p class="my-4 px-8 text-sm sm:pl-16">
-          En este apartado, podrás ver todos tus certificados obtenidos y
-          tendrás la opción de descargarlos en formato .pdf o compartirlos en
-          tus redes sociales.
+        <p class="mb-4 px-8 text-sm sm:pl-16">
+        En este apartado, podrás ver todos tus certificados obtenidos y tendrás la opción de descargarlos en formato .pdf o compartirlos en tus redes sociales.
         </p>
         <!-- <div class="flex flex-col justify-end items-center gap-4 mt-20">
           <div

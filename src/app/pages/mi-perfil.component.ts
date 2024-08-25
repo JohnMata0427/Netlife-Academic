@@ -14,7 +14,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   template: `
     <app-user-layout>
       <div class="relative">
-        <div class="bg-profile h-96 w-full"></div>
+        <div class="bg-profile bg-cover bg-center bg-no-repeat h-96 w-full"></div>
         <div
           class="absolute inset-x-0 -bottom-56 mx-auto flex w-80 flex-col items-center md:left-8 md:mx-0"
         >
@@ -39,7 +39,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
       </div>
       <section
-        class="mx-16 mb-20 mt-72 flex flex-col items-center md:ml-[360px] md:mr-16 md:mt-4 md:items-start"
+        class="mx-16 mt-72 flex flex-col items-center md:ml-[360px] md:mt-4"
       >
         <div class="flex w-full gap-1">
           <app-custom-button
@@ -95,9 +95,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   styles: `
     .bg-profile {
       background-image: url('/banner-profile.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
   `,
 })
