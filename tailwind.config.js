@@ -15,10 +15,7 @@ export default {
         quinary: "#ECECEC", // Gris
         greenlight: "#72C234", // Verde
         orangelight: "#FAAB00", // Naranja claro
-      },
-      fontFamily: {
-        roboto: ["Roboto"],
-      },
+      }
     },
   },
   plugins: [

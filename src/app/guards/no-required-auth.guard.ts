@@ -6,7 +6,7 @@ export const noAuthGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (!authService.isAuthenticated()) return false;
+  if (!authService.isAuthenticated()) return true;
 
   if (authService.getInfoUser().role !== 'ADMIN')
     return router.createUrlTree(['/home']);
