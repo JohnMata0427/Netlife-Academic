@@ -4,7 +4,6 @@ import '@justinribeiro/lite-youtube';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div class="relative flex min-h-screen">

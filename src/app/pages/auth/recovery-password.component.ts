@@ -137,9 +137,10 @@ export class RecoveryPasswordComponent {
         this.loading = false;
         localStorage.setItem('email', this.email.value!);
       },
-      error: ({ error }) => (
-        (this.errorMessage = error.message), (this.loading = false)
-      ),
+      error: ({ error }) => {
+        this.errorMessage = error.message
+        this.loading = false
+      },
     });
   }
 }

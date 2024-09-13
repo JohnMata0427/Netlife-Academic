@@ -135,9 +135,10 @@ export class VerifyCodeComponent {
           this.router.navigate(['/auth/new-password'], {
             queryParams: { token: this.token },
           }),
-        error: ({ error }) => (
-          (this.errorMessage = error.message), (this.loading = false)
-        ),
+        error: ({ error }) => {
+          this.errorMessage = error.message
+          this.loading = false
+        },
       });
   }
 
@@ -149,9 +150,10 @@ export class VerifyCodeComponent {
           this.router.navigate([], {
             queryParams: { token },
           }),
-        error: ({ error }) => (
-          (this.errorMessage = error.message), (this.loading = false)
-        ),
+        error: ({ error }) => {
+          this.errorMessage = error.message
+          this.loading = false
+        }
       });
   }
 }

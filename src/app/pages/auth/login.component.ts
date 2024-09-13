@@ -66,8 +66,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           />
         </div>
 
-        @if (message) {
-          <p class="text-center text-xs text-tertiary">{{ message }}</p>
+        @if (errorMessage) {
+          <p class="text-center text-xs text-tertiary">{{ errorMessage }}</p>
         }
 
         <app-custom-button
@@ -103,7 +103,7 @@ export class LoginComponent {
     ]),
   });
   loading = false;
-  message!: string;
+  errorMessage!: string;
 
   isPasswordVisible = false;
   typePasswordInput = 'password';
@@ -116,7 +116,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.form.invalid) {
-      this.message = 'Por favor, completa los campos correctamente';
+      this.errorMessage = 'Por favor, completa los campos correctamente';
       return;
     }
 
@@ -129,9 +129,10 @@ export class LoginComponent {
             : '/admin/dashboard',
         ]);
       },
-      error: ({ error }) => (
-        (this.message = error.message), (this.loading = false)
-      ),
+      error: ({ error }) => {
+        this.errorMessage = error.message
+        this.loading = false
+      },
     });
   }
 }

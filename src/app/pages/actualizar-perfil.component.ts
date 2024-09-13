@@ -208,7 +208,6 @@ export class ActualizarPerfilComponent {
   image!: File;
   cancel = false;
   loading = false;
-
   user!: User;
 
   constructor(
@@ -233,8 +232,7 @@ export class ActualizarPerfilComponent {
       return;
     }
 
-    if (this.image)
-      this.userService.updatePhoto(this.image, this.id).subscribe();
+    if (this.image) this.userService.updatePhoto(this.image, this.id).subscribe();
 
     this.loading = true;
     this.userService.updateUser(this.form.value, this.id).subscribe({

@@ -14,7 +14,7 @@ import { CustomButtonComponent } from './custom-button.component';
           src="{{ src }}"
           alt="{{ title }}"
         />
-        @if (newc) {
+        @if (newCourse) {
           <span
             class="absolute left-2 top-2 rounded-lg bg-greenlight px-2 py-0.5 text-xs text-white"
           >
@@ -59,7 +59,6 @@ import { CustomButtonComponent } from './custom-button.component';
       </div>
     </article>
   `,
-  styles: ``,
 })
 export class CourseInfoComponent {
   constructor() {}
@@ -69,5 +68,5 @@ export class CourseInfoComponent {
   @Input() src!: string;
   @Input() id!: string;
   @Input() progress!: number;
-  @Input() newc!: boolean;
+  @Input() newCourse!: boolean;
 }

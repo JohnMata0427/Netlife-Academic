@@ -9,21 +9,22 @@ import { MisCursosComponent } from '@pages/mis-cursos.component';
 import { MiPerfilComponent } from '@pages/mi-perfil.component';
 import { CourseComponent } from '@pages/course.component';
 import { ActualizarPerfilComponent } from '@pages/actualizar-perfil.component';
-import { authGuard } from '@guards/required-auth.guard';
-import { noAuthGuard } from '@guards/no-required-auth.guard';
 import { MisCertificadosComponent } from '@pages/mis-certificados.component';
 import { AdminDashboardComponent } from '@pages/admin/dashboard.component';
-import { adminGuard } from '@guards/required-admin.guard';
-import { requiredCodeGuard } from '@guards/required-code.guard';
 import { AdminAnunciosComponent } from '@pages/admin/anuncios.component';
 import { NotFoundComponent } from '@pages/not-found.component';
-import { TermsComponent } from '@pages/terms.component';
+import { TermsComponent } from '@pages/auth/terms.component';
 import { ExamenComponent } from '@pages/examen.component';
 import { GradeComponent } from '@pages/grade.component';
 import { VirtualCourseComponent } from '@pages/virtual-course.component';
 import { VideoCourseComponent } from '@pages/video-course.component';
 import { AdminCoursesComponent } from '@pages/admin/courses.component';
 import { AdminCertificatesComponent } from '@pages/admin/certificates.component';
+
+import { authGuard } from '@guards/required-auth.guard';
+import { noAuthGuard } from '@guards/no-required-auth.guard';
+import { adminGuard } from '@guards/required-admin.guard';
+import { requiredCodeGuard } from '@guards/required-code.guard';
 
 export const routes: Routes = [
   {
@@ -82,7 +83,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [adminGuard],
+    canActivate: [authGuard, adminGuard],
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'anuncios', component: AdminAnunciosComponent },

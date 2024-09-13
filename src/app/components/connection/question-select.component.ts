@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-questions-select',
@@ -8,8 +8,10 @@ import { Component, Input } from '@angular/core';
       <strong>{{ question }}</strong>
       <div (click)="showOptions = !showOptions" class="relative w-3/4">
         <div
-          class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer hover:border-greenlight/50 {{
-            showOptions ? 'border-greenlight' : 'border-quinary'
+          class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer {{
+            showOptions
+              ? 'border-greenlight'
+              : 'border-quinary hover:border-greenlight/50'
           }}"
         >
           <span class="ml-2 select-none">
@@ -36,7 +38,7 @@ import { Component, Input } from '@angular/core';
           <ol class="flex flex-col rounded-lg *:py-2 *:pl-5">
             @for (answer of answers; track $index) {
               <li
-                class="select-none hover:bg-quinary"
+                class="cursor-pointer select-none hover:bg-greenlight/50"
                 (click)="answerSelected = answer"
               >
                 {{ answer }}
@@ -55,4 +57,13 @@ export class QuestionsSelectComponent {
   @Input() answers!: string[];
   @Input() answerSelected!: string;
   @Input() question!: string;
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick({ target }: MouseEvent) {
+    if (
+      target instanceof HTMLElement &&
+      !target.closest('app-questions-select')
+    )
+      this.showOptions = false;
+  }
 }

@@ -71,25 +71,25 @@ import { CustomTitleComponent } from '@components/custom-title.component';
             title="Control de Versiones"
             teacher="Gabriel García"
             src="https://fireship.io/courses/git/img/featured.png"
-            [newc]="true"
+            [newCourse]="true"
           />
           <app-course-info
             title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
-            [newc]="true"
+            [newCourse]="true"
           />
           <app-course-info
             title="HTML y CSS"
             teacher="Katherine Díaz"
             src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
-            [newc]="true"
+            [newCourse]="true"
           />
           <app-course-info
             title="Python desde cero"
             teacher="Ivonne Maldonado"
             src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
-            [newc]="true"
+            [newCourse]="true"
           />
         </div>
       </section>

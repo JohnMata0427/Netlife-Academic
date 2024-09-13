@@ -7,6 +7,7 @@ import { QuestionsSelectComponent } from '../components/connection/question-sele
 import { QuestionsCheckboxComponent } from '../components/connection/question-checkbox.component';
 import { QuestionsBooleanComponent } from '@components/connection/question-boolean.component';
 import { QuestionsLineComponent } from '../components/connection/question-line.component';
+import { FooterComponent } from "../components/footer.component";
 
 @Component({
   standalone: true,
@@ -19,13 +20,14 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
     QuestionsCheckboxComponent,
     QuestionsBooleanComponent,
     QuestionsLineComponent,
-  ],
+    FooterComponent
+],
   template: `
     <header
-      class="flex gap-4 bg-[#0b0603] px-4 py-2.5 text-white shadow-sm shadow-black"
+      class="flex gap-4 bg-[#0b0603] md:px-4 py-2.5 text-white shadow-sm shadow-black md:flex-row flex-col items-center"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
-      <h1 class="font-bold">
+      <h1 class="font-bold text-center">
         Evaluación 1: Introducción a las redes de computadores
       </h1>
     </header>
@@ -48,10 +50,10 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
               <span>{{ numeroPregunta }}/5</span>
             </div>
             <div
-              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4"
+              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4 text-center"
             >
               <h3 class="font-bold">Puntuación</h3>
-              <span>0/5</span>
+              <span>5 puntos</span>
             </div>
           </div>
           <div
@@ -195,7 +197,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
           <div
             class="flex {{
               numeroPregunta > 1 ? 'justify-between' : 'justify-end'
-            }}"
+            }} md:flex-row flex-col items-center mb-20"
           >
             @if (numeroPregunta > 1) {
               <app-custom-button
@@ -225,6 +227,7 @@ import { QuestionsLineComponent } from '../components/connection/question-line.c
         </div>
       </section>
     </main>
+    <app-footer />
     @if (finish) {
       <div class="absolute inset-0 z-50 flex items-center justify-center">
         <div class="relative flex flex-col items-end">
@@ -293,22 +296,22 @@ export class ExamenComponent {
     this.fechaFinal = new Date(Date.now() + 600000).getTime();
     this.minutosElement = document.getElementById('minutos')!;
     this.segundosElement = document.getElementById('segundos')!;
-    this.tiempoRestante();
+    // this.tiempoRestante();
   }
 
-  tiempoRestante() {
-    let tiempoRestante = this.fechaFinal - Date.now();
-    let minuto = Math.floor(tiempoRestante / 60000)
-      .toString()
-      .padStart(2, '0');
-    let segundo = Math.floor((tiempoRestante % 60000) / 1000)
-      .toString()
-      .padStart(2, '0');
-    this.minutosElement.innerHTML = minuto;
-    this.segundosElement.innerHTML = segundo;
+  // tiempoRestante () {
+  //   let tiempoRestante = this.fechaFinal - Date.now();
+  //   let minuto = Math.floor(tiempoRestante / 60000)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   let segundo = Math.floor((tiempoRestante % 60000) / 1000)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   this.minutosElement.innerHTML = minuto;
+  //   this.segundosElement.innerHTML = segundo;
 
-    if (tiempoRestante < 0) this.router.navigate(['/grade']);
+  //   if (tiempoRestante < 0) this.router.navigate(['/grade']);
 
-    setInterval(() => this.tiempoRestante(), 1000);
-  }
+  //   setInterval(() => this.tiempoRestante(), 1000);
+  // }
 }

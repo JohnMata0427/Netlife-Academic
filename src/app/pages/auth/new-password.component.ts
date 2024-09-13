@@ -161,9 +161,10 @@ export class NewPasswordComponent {
         localStorage.removeItem('email');
         this.router.navigate(['/auth/login']);
       },
-      error: ({ error }) => (
-        (this.errorMessage = error.message), (this.loading = false)
-      ),
+      error: ({ error }) => {
+        this.errorMessage = error.message
+        this.loading = false
+      },
     });
   }
 }

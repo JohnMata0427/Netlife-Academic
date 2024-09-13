@@ -91,7 +91,7 @@ import { UserLayout } from '@layouts/user-layout.component';
               [color]="
                 selectedButton === 'Módulo ' + module ? 'orange' : 'black'
               "
-              text="Módulo ' + module"
+              text="Módulo {{module}}"
             />
           }
           <app-custom-button

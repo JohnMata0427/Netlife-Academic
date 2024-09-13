@@ -333,24 +333,28 @@ export class HeaderComponent {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
+  
   mostrarNotificaciones() {
     this.showNotifications = !this.showNotifications;
     this.showMessages = false;
     this.showMenu = false;
     this.showHamburguer = false;
   }
+
   mostrarMensajes() {
     this.showNotifications = false;
     this.showMessages = !this.showMessages;
     this.showMenu = false;
     this.showHamburguer = false;
   }
+
   mostrarMenu() {
     this.showNotifications = false;
     this.showMessages = false;
     this.showMenu = !this.showMenu;
     this.showHamburguer = false;
   }
+
   mostrarHamburger() {
     this.showNotifications = false;
     this.showMessages = false;

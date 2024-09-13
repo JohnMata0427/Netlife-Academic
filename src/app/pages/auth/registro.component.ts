@@ -285,9 +285,10 @@ export class RegistroComponent {
     this.loading = true;
     this.authService.registerUser(this.form.value).subscribe({
       next: () => this.route.navigate(['/home']),
-      error: ({ error }) => (
-        (this.errorMessage = error.message), (this.loading = false)
-      ),
+      error: ({ error }) => {
+        this.errorMessage = error.message
+        this.loading = false
+      },
     });
   }
 }
