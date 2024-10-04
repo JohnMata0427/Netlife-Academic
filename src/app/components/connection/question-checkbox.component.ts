@@ -8,11 +8,11 @@ import { Component, Input } from '@angular/core';
       <div class="flex items-center gap-4">
         <input
           class="size-4 accent-greenlight"
-          id="{{ answer }}"
-          name="{{ answer }}"
+          [id]="answer"
+          [name]="answer"
           type="checkbox"
         />
-        <label class="select-none" for="{{ answer }}">{{ question }}</label>
+        <label class="select-none" [htmlFor]="answer">{{ question }}</label>
       </div>
     </div>
   `,

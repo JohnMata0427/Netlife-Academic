@@ -155,7 +155,7 @@ import { FooterComponent } from '@components/footer.component';
                   (click)="answersSelected[2] = 'B'"
                   [question]="
                     'Se expresa generalmente en notación hexadecimal.'
-                  "
+                 "
                   answer="B"
                 />
                 <app-question-checkbox
@@ -166,14 +166,14 @@ import { FooterComponent } from '@components/footer.component';
                 <app-question-checkbox
                   [question]="
                     'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
-                  "
+                 "
                   answer="D"
                 />
                 <app-question-checkbox
                   (click)="answersSelected[2] = 'E'"
                   [question]="
                     'Una dirección MAC está compuesta por 10 dígitos decimales.'
-                  "
+                 "
                   answer="E"
                 />
               </div>
@@ -208,7 +208,7 @@ import { FooterComponent } from '@components/footer.component';
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: +numeroPregunta - 1 },
                   })
-                "
+               "
               />
             }
             <app-custom-button
@@ -221,7 +221,7 @@ import { FooterComponent } from '@components/footer.component';
                       queryParams: { pregunta: +numeroPregunta + 1 },
                     })
                   : (finish = true)
-              "
+             "
             />
           </div>
         </div>

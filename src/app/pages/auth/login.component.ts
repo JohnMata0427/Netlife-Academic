@@ -54,7 +54,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             name="password"
             formControlName="password"
             class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
-            type="{{ isPasswordVisible ? 'text' : 'password' }}"
+            [type]="isPasswordVisible ? 'text' : 'password'"
             placeholder="Contraseña"
             required
           />

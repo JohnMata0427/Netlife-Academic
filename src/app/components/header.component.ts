@@ -28,7 +28,7 @@ import { UserService } from '@services/user.service';
         @if (showHamburguer) {
           <div class="absolute -bottom-52 z-30 size-48 rounded-lg bg-white p-4">
             <a href="/home">
-              <img src="/NetlifeLogo.webp " alt="Netlife Logo" />
+              <img src="/NetlifeLogo.webp" alt="Netlife Logo" />
             </a>
             <hr class="my-1 border border-quinary" />
             <ul class="flex flex-col gap-2 text-sm *:flex *:gap-2">
@@ -196,7 +196,7 @@ import { UserService } from '@services/user.service';
             >
               <img
                 class="size-8 rounded-full border-[3px] border-white"
-                src="{{ profile || '/profile.webp' }}"
+                [src]="profile || '/profile.webp'"
                 alt="Perfil del Usuario"
               />
               <img

@@ -120,7 +120,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               <th>
                 {{ user.role }}
               </th>
-              <th class="{{ !user.deleted ? 'bg-green-500' : 'bg-tertiary' }}">
+              <th [className]="!user.deleted ? 'bg-green-500' : 'bg-tertiary'">
                 {{ user.deleted ? 'Bloqueado' : 'Activo' }}
               </th>
             </tr>
@@ -178,7 +178,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                 : selectedButton === 'Bloquear'
                   ? blockUser()
                   : null
-            "
+           "
             [text]="selectedButton"
             moreStyles="text-xs h-8"
           />

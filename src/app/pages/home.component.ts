@@ -7,6 +7,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { TaskComponent } from '@components/task.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { AuthService } from '@services/auth.service';
+import { SliderComponent } from '../components/slider.component';
 
 @Component({
   selector: 'app-home',
@@ -17,26 +18,11 @@ import { AuthService } from '@services/auth.service';
     CustomTitleComponent,
     TaskComponent,
     CustomButtonComponent,
-  ],
+    SliderComponent
+],
   template: `
     <app-user-layout>
-      <div class="relative flex max-h-[58vh] w-full justify-center">
-        <img
-          class="w-full object-cover"
-          src="{{ images[slide] }}"
-          alt="Banner de Inicio"
-        />
-        <nav class="absolute bottom-4 flex justify-center gap-x-1">
-          @for (image of images; track $index) {
-            <button
-              (click)="slide = $index"
-              class="size-3 rounded-full border-2 border-quinary {{
-                slide == $index ? 'bg-primary' : 'bg-white'
-              }}"
-            ></button>
-          }
-        </nav>
-      </div>
+      <app-slider />
       <section>
         <app-custom-title title="Ranking de Estudiantes" />
         <div class="flex flex-col lg:flex-row lg:gap-20">
@@ -45,7 +31,7 @@ import { AuthService } from '@services/auth.service';
               <div
                 class="flex items-center justify-between rounded-lg bg-quinary p-2 pr-8 border {{
                   ownId === user.id ? 'border-primary' : 'border-neutral-300'
-                }}"
+              "
               >
                 <div class="flex items-center gap-2">
                   @if ($index < 3) {
@@ -64,7 +50,7 @@ import { AuthService } from '@services/auth.service';
 
                   <img
                     class="size-16 rounded-full border-4 border-white"
-                    src="{{ user.imageUrl || '/profile.webp' }}"
+                    [src]="user.imageUrl || '/profile.webp'"
                     alt="Foto de Perfil"
                   />
                   <h4 class="text-md font-bold">
@@ -190,12 +176,6 @@ import { AuthService } from '@services/auth.service';
 export class HomeComponent {
   users!: User[];
   ownId!: string;
-  slide = 0;
-  images = [
-    '/banner.webp',
-    'https://as2.ftcdn.net/v2/jpg/03/65/94/79/1000_F_365947947_nBv9Yct5WRbpGrW4mb2UcsuJhVEPIDtw.jpg',
-    'https://www.placementpreparation.io/blog/wp-content/uploads/2024/05/cyber-security-course-desktop-banner-horizontal.webp',
-  ];
 
   constructor(
     private userService: UserService,
@@ -207,9 +187,5 @@ export class HomeComponent {
       this.users = users;
       this.ownId = this.authService.getInfoUser().sub;
     });
-
-    setInterval(() => {
-      this.slide = this.slide === this.images.length - 1 ? 0 : this.slide + 1;
-    }, 10000);
   }
 }

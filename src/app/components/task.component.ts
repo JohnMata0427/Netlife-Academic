@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
       <div
         class="flex h-28 w-96 flex-col justify-center gap-2 rounded-lg bg-quinary pl-6 shadow-sm shadow-black/40"
       >
-        <h3 class="text-sm"><strong>Tarea: </strong> {{ nombre }}</h3>
+        <h3 class="text-sm"><strong>Tarea: </strong>{{ nombre }}</h3>
         <div class="flex gap-2">
           <img
             class="size-4"

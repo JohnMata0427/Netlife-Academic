@@ -10,7 +10,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       class="w-64 rounded-lg shadow-md shadow-black/50 first:rounded-t-lg last:rounded-b-lg"
     >
       <a href="/mis-cursos/{{ id }}">
-        <img class="h-32 w-full" src="{{ src }}" alt="{{ title }}" />
+        <img class="h-32 w-full" [src]="src" [alt]="title" />
       </a>
 
       <div class="flex flex-col gap-2 bg-black px-4 py-3">

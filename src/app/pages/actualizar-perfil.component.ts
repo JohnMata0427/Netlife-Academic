@@ -78,7 +78,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="name"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.name }}"
+                [value]="user.name"
                 placeholder="Coloca tu nombre aquí"
               />
             </div>
@@ -90,7 +90,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="lastname"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.lastname }}"
+                [value]="user.lastname"
                 placeholder="Coloca tus apellidos aquí"
               />
             </div>
@@ -104,7 +104,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="company"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.company }}"
+                [value]="user.company"
                 placeholder="Coloca tu empresa aquí"
               />
             </div>
@@ -116,7 +116,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="area"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.area }}"
+                [value]="user.area"
                 placeholder="Coloca tu área aquí"
               />
             </div>
@@ -130,7 +130,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="level"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.level }}"
+                [value]="user.level"
                 placeholder="Coloca tu nivel aquí"
               />
             </div>
@@ -142,7 +142,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="position"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.position }}"
+                [value]="user.position"
                 placeholder="Coloca tu cargo aquí"
               />
             </div>
@@ -156,7 +156,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="birthdate"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="date"
-                value="{{ user.birthdate }}"
+                [value]="user.birthdate"
                 placeholder="Coloca tu fecha de nacimiento aquí"
               />
             </div>
@@ -168,7 +168,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 formControlName="state"
                 class="mt-2 rounded-lg border border-black p-1"
                 type="text"
-                value="{{ user.state }}"
+                [value]="user.state"
                 placeholder="Coloca tu estado aquí"
               />
             </div>

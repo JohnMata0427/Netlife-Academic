@@ -61,7 +61,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               Crear nuevo curso
             </h2>
             <img
-              src="{{ imagePreview || 'NetlifeLogo.webp' }}"
+              [src]="imagePreview || 'NetlifeLogo.webp'"
               alt=""
               class="h-52 w-96 rounded-lg object-cover"
             />

@@ -90,7 +90,7 @@ import { UserLayout } from '@layouts/user-layout.component';
               (click)="selectedButton = 'Módulo ' + module"
               [color]="
                 selectedButton === 'Módulo ' + module ? 'orange' : 'black'
-              "
+             "
               text="Módulo {{ module }}"
             />
           }
@@ -283,7 +283,7 @@ import { UserLayout } from '@layouts/user-layout.component';
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: '1' },
                   })
-                "
+               "
                 color="orange"
                 text="Resolver"
                 moreStyles="w-40 justify-center"
@@ -442,7 +442,7 @@ import { UserLayout } from '@layouts/user-layout.component';
                 router.navigate(['/examen'], {
                   queryParams: { pregunta: '1' },
                 })
-              "
+             "
               color="yellow"
               text="Presentar 15 de agosto"
               moreStyles="w-40 justify-center text-neutral-700 text-xs"

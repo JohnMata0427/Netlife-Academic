@@ -11,8 +11,8 @@ import { CustomButtonComponent } from './custom-button.component';
       <a class="relative" href="/mis-cursos/{{ id }}">
         <img
           class="h-32 w-full rounded-t-lg object-cover"
-          src="{{ src }}"
-          alt="{{ title }}"
+          [src]="src"
+          [alt]="title"
         />
         @if (newCourse) {
           <span

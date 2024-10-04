@@ -22,7 +22,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         >
           <img
             class="size-52 rounded-full border-8 border-white"
-            src="{{ user.imageUrl || '/profile.webp' }}"
+            [src]="user.imageUrl || '/profile.webp'"
             alt="Foto de Perfil"
           />
           <div class="flex flex-col items-center justify-between">
@@ -67,11 +67,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         >
           @if (selectedButton === 'sobre-mi') {
             <ul>
-              <li><strong>Rol:</strong> {{ user.role }}</li>
-              <li><strong>Compañia:</strong> {{ user.company }}</li>
-              <li><strong>Area:</strong> {{ user.area }}</li>
-              <li><strong>Nivel:</strong> {{ user.level }}</li>
-              <li><strong>Cargo:</strong> {{ user.position }}</li>
+              <li><strong>Rol:</strong>{{ user.role }}</li>
+              <li><strong>Compañia:</strong>{{ user.company }}</li>
+              <li><strong>Area:</strong>{{ user.area }}</li>
+              <li><strong>Nivel:</strong>{{ user.level }}</li>
+              <li><strong>Cargo:</strong>{{ user.position }}</li>
               <li>
                 <strong>Fecha de Cumpleaños:</strong>
                 {{ birthdate }}

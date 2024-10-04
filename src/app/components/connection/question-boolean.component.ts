@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
           type="radio"
           id="true"
           name="answer"
-          value="{{ answerSelected }}"
+          [value]="answerSelected"
         />
         <label class="select-none" for="true">Verdadero</label>
       </div>
@@ -21,7 +21,7 @@ import { Component, Input } from '@angular/core';
           type="radio"
           id="false"
           name="answer"
-          value="{{ answerSelected }}"
+          [value]="answerSelected"
         /><label class="select-none" for="false">Falso</label>
       </div>
     </div>

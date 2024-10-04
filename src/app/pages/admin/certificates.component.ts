@@ -60,7 +60,7 @@ import { CertificadoComponent } from '@components/certificado.component';
               Crear nuevo plantilla de certificado
             </h2>
             <img
-              src="{{ imagePreview || 'NetlifeLogo.webp' }}"
+              [src]="imagePreview || 'NetlifeLogo.webp'"
               alt=""
               class="h-52 w-96 rounded-lg object-cover"
             />

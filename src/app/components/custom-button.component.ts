@@ -43,7 +43,7 @@ type HoverColorVariant = 'black' | 'white';
         </svg>
       } @else {
         <ng-content></ng-content>
-        <span class="relative z-10"> {{ text }} </span>
+        <span class="relative z-10">{{ text }}</span>
       }
     </button>
   `,
