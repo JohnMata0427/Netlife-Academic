@@ -162,8 +162,8 @@ export class NewPasswordComponent {
         this.router.navigate(['/auth/login']);
       },
       error: ({ error }) => {
-        this.errorMessage = error.message
-        this.loading = false
+        this.errorMessage = error.message;
+        this.loading = false;
       },
     });
   }

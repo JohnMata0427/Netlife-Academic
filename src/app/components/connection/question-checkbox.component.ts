@@ -18,8 +18,6 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class QuestionsCheckboxComponent {
-  constructor() {}
-
   @Input() question!: string;
   @Input() answer!: string;
 }

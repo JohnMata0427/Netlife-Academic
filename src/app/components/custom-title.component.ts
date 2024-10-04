@@ -5,10 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   template: `
     <div class="relative mb-5 mt-10">
-      <img
-        class="h-auto w-80"
-        src="/title-layout.webp"
-      />
+      <img class="h-auto w-80" src="/title-layout.webp" />
       <h1 class="absolute left-16 top-2 font-semibold text-white">
         {{ title }}
       </h1>

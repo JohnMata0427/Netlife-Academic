@@ -72,7 +72,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 </svg>
               </app-custom-button>
             </li>
-
             <!-- <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/usuarios'])"
@@ -84,7 +83,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 <svg class="z-10 size-4" viewBox="0 0 20 20"><path d="M13.7 1.4A5.1 5.1 0 0 0 10 0C8.6 0 7.2.5 6.3 1.4A4.5 4.5 0 0 0 5 5.2c.2 2.7 2.5 4.9 5 4.9s4.8-2.2 5-5a4.5 4.5 0 0 0-1.3-3.6ZM18.5 20h-17l-.6-.1a1.5 1.5 0 0 1-.9-1.7 7.6 7.6 0 0 1 3.7-5 12.1 12.1 0 0 1 12.6 0 7.6 7.6 0 0 1 3.7 5 1.5 1.5 0 0 1-.9 1.7l-.6.1Z" class="{{ active === 'usuarios' ? 'fill-black group-hover:fill-white' : 'fill-white group-hover:fill-black' }}"/></svg>
               </app-custom-button>
             </li> -->
-
             <li>
               <app-custom-button
                 (click)="router.navigate(['/admin/cursos'])"

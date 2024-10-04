@@ -28,7 +28,5 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class QuestionsBooleanComponent {
-  constructor() {}
-
   @Input() answerSelected!: string;
 }

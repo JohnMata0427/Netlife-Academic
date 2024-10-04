@@ -96,6 +96,4 @@ import { CustomTitleComponent } from '@components/custom-title.component';
     </app-user-layout>
   `,
 })
-export class MisCursosComponent {
-  constructor() {}
-}
+export class MisCursosComponent {}

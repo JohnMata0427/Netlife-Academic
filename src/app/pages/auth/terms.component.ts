@@ -12,16 +12,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <p class="my-4 pl-16 text-sm">
         Aquí se mostrarán los términos y condiciones de uso de la plataforma.
       </p>
-      <app-custom-button
-        (click)="goBack()"
-        text="Volver"
-        moreStyles="pl-16"
-      />
+      <app-custom-button (click)="goBack()" text="Volver" moreStyles="pl-16" />
     </section>
   `,
 })
 export class TermsComponent {
-  constructor() {}
-
   goBack = () => window.history.back();
 }

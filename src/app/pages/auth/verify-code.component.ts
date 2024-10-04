@@ -136,8 +136,8 @@ export class VerifyCodeComponent {
             queryParams: { token: this.token },
           }),
         error: ({ error }) => {
-          this.errorMessage = error.message
-          this.loading = false
+          this.errorMessage = error.message;
+          this.loading = false;
         },
       });
   }
@@ -151,9 +151,9 @@ export class VerifyCodeComponent {
             queryParams: { token },
           }),
         error: ({ error }) => {
-          this.errorMessage = error.message
-          this.loading = false
-        }
+          this.errorMessage = error.message;
+          this.loading = false;
+        },
       });
   }
 }

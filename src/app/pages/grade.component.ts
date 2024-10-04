@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserLayout } from '@layouts/user-layout.component';
-import { CustomTitleComponent } from '../components/custom-title.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
   standalone: true,
@@ -46,6 +46,4 @@ import { CustomTitleComponent } from '../components/custom-title.component';
 })
 export class GradeComponent {
   date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
-
-  constructor() {}
 }

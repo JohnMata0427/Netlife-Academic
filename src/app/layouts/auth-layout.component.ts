@@ -56,7 +56,5 @@ import '@justinribeiro/lite-youtube';
   `,
 })
 export class LayoutComponent {
-  constructor() {}
-
   cookies = false;
 }

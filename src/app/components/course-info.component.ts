@@ -61,8 +61,6 @@ import { CustomButtonComponent } from './custom-button.component';
   `,
 })
 export class CourseInfoComponent {
-  constructor() {}
-
   @Input() title!: string;
   @Input() teacher!: string;
   @Input() src!: string;

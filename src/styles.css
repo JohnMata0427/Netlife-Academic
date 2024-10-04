@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900');
 
 /* Principal Typography */
 @font-face {
-  font-family: "Avant Garde Demi";
-  src: url("./assets/fonts/AvantGardeDemi.ttf") format("truetype");
+  font-family: 'Avant Garde Demi';
+  src: url('./assets/fonts/AvantGardeDemi.ttf') format('truetype');
 }
 
 /* Text Typography */
 @font-face {
-  font-family: "Chalet Paris Nineteen Sixty";
-  src: url("./assets/fonts/ChaletParisNeneteenSixty.otf") format("opentype");
+  font-family: 'Chalet Paris Nineteen Sixty';
+  src: url('./assets/fonts/ChaletParisNeneteenSixty.otf') format('opentype');
 }
 
 @tailwind base;
@@ -17,7 +17,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 * {

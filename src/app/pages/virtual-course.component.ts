@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '../layouts/user-layout.component';
-import { CustomTitleComponent } from '../components/custom-title.component';
+import { UserLayout } from '@layouts/user-layout.component';
+import { CustomTitleComponent } from '@components/custom-title.component';
 import { NgStyle } from '@angular/common';
 
 @Component({
@@ -357,6 +357,4 @@ import { NgStyle } from '@angular/common';
     </app-user-layout>
   `,
 })
-export class VirtualCourseComponent {
-  constructor() {}
-}
+export class VirtualCourseComponent {}

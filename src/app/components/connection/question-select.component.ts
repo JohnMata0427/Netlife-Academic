@@ -51,7 +51,6 @@ import { Component, HostListener, Input } from '@angular/core';
   `,
 })
 export class QuestionsSelectComponent {
-  constructor() {}
   showOptions = false;
 
   @Input() answers!: string[];

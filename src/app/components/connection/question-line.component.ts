@@ -44,7 +44,6 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
   `,
 })
 export class QuestionsLineComponent {
-  constructor() {}
   selectedQuestion: any = null;
   selectedAnswer: any = null;
   lines: any[] = [];

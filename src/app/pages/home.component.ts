@@ -4,8 +4,8 @@ import { User } from '@interfaces/user.interface';
 import { UserLayout } from '@layouts/user-layout.component';
 import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
-import { TaskComponent } from '../components/task.component';
-import { CustomButtonComponent } from '../components/custom-button.component';
+import { TaskComponent } from '@components/task.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 import { AuthService } from '@services/auth.service';
 
 @Component({

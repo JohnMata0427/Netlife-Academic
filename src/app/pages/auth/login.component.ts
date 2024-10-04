@@ -130,8 +130,8 @@ export class LoginComponent {
         ]);
       },
       error: ({ error }) => {
-        this.errorMessage = error.message
-        this.loading = false
+        this.errorMessage = error.message;
+        this.loading = false;
       },
     });
   }

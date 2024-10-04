@@ -138,8 +138,8 @@ export class RecoveryPasswordComponent {
         localStorage.setItem('email', this.email.value!);
       },
       error: ({ error }) => {
-        this.errorMessage = error.message
-        this.loading = false
+        this.errorMessage = error.message;
+        this.loading = false;
       },
     });
   }

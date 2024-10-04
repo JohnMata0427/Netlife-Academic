@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
-import { AdminLayoutComponent } from '../../layouts/admin-layout.component';
-import { CustomButtonComponent } from '../../components/custom-button.component';
+import { AdminLayoutComponent } from '@layouts/admin-layout.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-admin-courses',
@@ -107,8 +107,6 @@ import { CustomButtonComponent } from '../../components/custom-button.component'
   `,
 })
 export class AdminCoursesComponent {
-  constructor() {}
-
   mostrarModal = false;
   imagePreview: string | ArrayBuffer | null = null;
   image!: File;

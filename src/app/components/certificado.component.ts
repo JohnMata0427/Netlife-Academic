@@ -121,7 +121,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class CertificadoComponent {
-  constructor() {}
   @Input() title!: string;
   @Input() src!: string;
   @Input() id!: string;

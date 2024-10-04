@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomButtonComponent } from '../components/custom-button.component';
-import { QuestionsComponent } from '../components/connection/question.component';
-import { QuestionsSelectComponent } from '../components/connection/question-select.component';
-import { QuestionsCheckboxComponent } from '../components/connection/question-checkbox.component';
+import { CustomButtonComponent } from '@components/custom-button.component';
+import { QuestionsComponent } from '@components/connection/question.component';
+import { QuestionsSelectComponent } from '@components/connection/question-select.component';
+import { QuestionsCheckboxComponent } from '@components/connection/question-checkbox.component';
 import { QuestionsBooleanComponent } from '@components/connection/question-boolean.component';
-import { QuestionsLineComponent } from '../components/connection/question-line.component';
-import { FooterComponent } from "../components/footer.component";
+import { QuestionsLineComponent } from '@components/connection/question-line.component';
+import { FooterComponent } from '@components/footer.component';
 
 @Component({
   standalone: true,
@@ -20,14 +20,14 @@ import { FooterComponent } from "../components/footer.component";
     QuestionsCheckboxComponent,
     QuestionsBooleanComponent,
     QuestionsLineComponent,
-    FooterComponent
-],
+    FooterComponent,
+  ],
   template: `
     <header
-      class="flex gap-4 bg-[#0b0603] md:px-4 py-2.5 text-white shadow-sm shadow-black md:flex-row flex-col items-center"
+      class="flex flex-col items-center gap-4 bg-[#0b0603] py-2.5 text-white shadow-sm shadow-black md:flex-row md:px-4"
     >
       <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
-      <h1 class="font-bold text-center">
+      <h1 class="text-center font-bold">
         Evaluación 1: Introducción a las redes de computadores
       </h1>
     </header>

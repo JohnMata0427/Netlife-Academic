@@ -19,8 +19,6 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class QuestionsComponent {
-  constructor() {}
-
   @Input() answerSelected!: string;
   @Input() answerLetter!: string;
   @Input() answerText!: string;

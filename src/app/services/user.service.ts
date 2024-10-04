@@ -28,7 +28,7 @@ export class UserService {
     return this.httpClient.put<User>(this.urlAPI + '/api/users/' + id, user);
   }
 
-  updatePhoto(image: File, id: string) {
+  updatePhoto = (image: File, id: string) => {
     const formData = new FormData();
     formData.append('image', image);
     return this.httpClient.post<MessageResponse>(
@@ -39,7 +39,7 @@ export class UserService {
         observe: 'events',
       },
     );
-  }
+  };
 
   createUser(email: string, role: string) {
     return this.httpClient.post<User>(this.urlAPI + '/api/users', {

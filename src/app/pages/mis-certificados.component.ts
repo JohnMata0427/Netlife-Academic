@@ -50,6 +50,4 @@ import { CertificadoComponent } from '@components/certificado.component';
     </app-user-layout>
   `,
 })
-export class MisCertificadosComponent {
-  constructor() {}
-}
+export class MisCertificadosComponent {}

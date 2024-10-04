@@ -333,7 +333,7 @@ export class HeaderComponent {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
-  
+
   mostrarNotificaciones() {
     this.showNotifications = !this.showNotifications;
     this.showMessages = false;

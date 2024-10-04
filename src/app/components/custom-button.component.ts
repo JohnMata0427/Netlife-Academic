@@ -49,8 +49,6 @@ type HoverColorVariant = 'black' | 'white';
   `,
 })
 export class CustomButtonComponent {
-  constructor() {}
-
   @Input() text!: string;
   @Input() color: ColorVariant = 'black';
   @Input() hoverColor: HoverColorVariant = 'white';
