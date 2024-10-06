@@ -262,12 +262,7 @@ export class RegistroComponent {
   errorMessage!: string;
 
   isPasswordVisible = false;
-  typePasswordInput = 'password';
-  iconPasswordInput = 'eye';
-
   isConfirmPasswordVisible = false;
-  typeConfirmPasswordInput = 'password';
-  iconConfirmPasswordInput = 'eye';
 
   constructor(
     private route: Router,

@@ -7,7 +7,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { TaskComponent } from '@components/task.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { AuthService } from '@services/auth.service';
-import { SliderComponent } from '../components/slider.component';
+import { SliderComponent } from '@components/slider.component';
 
 @Component({
   selector: 'app-home',

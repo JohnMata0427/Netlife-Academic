@@ -104,10 +104,7 @@ export class LoginComponent {
   });
   loading = false;
   errorMessage!: string;
-
   isPasswordVisible = false;
-  typePasswordInput = 'password';
-  iconPasswordInput = 'eye';
 
   constructor(
     private route: Router,

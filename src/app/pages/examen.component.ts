@@ -296,22 +296,22 @@ export class ExamenComponent {
     this.fechaFinal = new Date(Date.now() + 600000).getTime();
     this.minutosElement = document.getElementById('minutos')!;
     this.segundosElement = document.getElementById('segundos')!;
-    // this.tiempoRestante();
+    this.tiempoRestante();
   }
 
-  // tiempoRestante () {
-  //   let tiempoRestante = this.fechaFinal - Date.now();
-  //   let minuto = Math.floor(tiempoRestante / 60000)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   let segundo = Math.floor((tiempoRestante % 60000) / 1000)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   this.minutosElement.innerHTML = minuto;
-  //   this.segundosElement.innerHTML = segundo;
+  tiempoRestante () {
+    let tiempoRestante = this.fechaFinal - Date.now();
+    let minuto = Math.floor(tiempoRestante / 60000)
+      .toString()
+      .padStart(2, '0');
+    let segundo = Math.floor((tiempoRestante % 60000) / 1000)
+      .toString()
+      .padStart(2, '0');
+    this.minutosElement.innerHTML = minuto;
+    this.segundosElement.innerHTML = segundo;
 
-  //   if (tiempoRestante < 0) this.router.navigate(['/grade']);
+    if (tiempoRestante < 0) this.router.navigate(['/grade']);
 
-  //   setInterval(() => this.tiempoRestante(), 1000);
-  // }
+    setInterval(() => this.tiempoRestante(), 1000);
+  }
 }

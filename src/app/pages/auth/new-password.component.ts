@@ -132,12 +132,7 @@ export class NewPasswordComponent {
   loading = false;
 
   isPasswordVisible = false;
-  typePasswordInput = 'password';
-  iconPasswordInput = 'eye';
-
   isConfirmPasswordVisible = false;
-  typeConfirmPasswordInput = 'password';
-  iconConfirmPasswordInput = 'eye';
 
   constructor(
     private router: Router,
