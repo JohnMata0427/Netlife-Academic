@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { UserService } from '@services/user.service';
 @Component({
-  selector: 'app-header',
+  selector: 'app-header-component',
   standalone: true,
   template: `
     <header class="bg-[#0b0603] px-4 py-2 shadow-sm shadow-black">

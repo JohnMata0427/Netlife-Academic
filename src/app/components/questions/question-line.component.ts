@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-question-line',
+  selector: 'app-line-question',
   standalone: true,
   template: `
     <div class="ml-4 mt-4 flex gap-40">

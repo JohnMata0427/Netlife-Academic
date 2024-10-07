@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-questions-select',
+  selector: 'app-select-question',
   standalone: true,
   template: `
     <div class="flex gap-4">
@@ -59,10 +59,7 @@ export class QuestionsSelectComponent {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick({ target }: MouseEvent) {
-    if (
-      target instanceof HTMLElement &&
-      !target.closest('app-questions-select')
-    )
+    if (target instanceof HTMLElement && !target.closest('app-select-question'))
       this.showOptions = false;
   }
 }

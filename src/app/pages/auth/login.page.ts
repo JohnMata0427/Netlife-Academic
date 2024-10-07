@@ -3,15 +3,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '@layouts/auth-layout.component';
+import { UserLayout } from '@layouts/auth-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, LayoutComponent, CustomButtonComponent],
+  imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
-    <app-layout>
+    <app-auth-layout>
       <form
         [formGroup]="form"
         class="flex w-96 flex-col gap-3"
@@ -70,7 +69,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <p class="text-center text-xs text-tertiary">{{ errorMessage }}</p>
         }
 
-        <app-custom-button
+        <app-button-component
           moreStyles="w-full justify-center"
           text="Iniciar sesión"
           [loading]="loading"
@@ -91,10 +90,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           >¿Olvidaste tu contraseña?</a
         >
       </form>
-    </app-layout>
+    </app-auth-layout>
   `,
 })
-export class LoginComponent {
+export class LoginPage {
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [

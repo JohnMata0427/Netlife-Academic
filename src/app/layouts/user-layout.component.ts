@@ -8,11 +8,11 @@ import { FooterComponent } from '@components/footer.component';
   standalone: true,
   imports: [HeaderComponent, CourseInfoComponent, FooterComponent],
   template: `
-    <app-header />
+    <app-header-component />
     <main class="min-h-screen">
       <ng-content></ng-content>
     </main>
-    <app-footer />
+    <app-footer-component />
   `,
 })
 export class UserLayout {}

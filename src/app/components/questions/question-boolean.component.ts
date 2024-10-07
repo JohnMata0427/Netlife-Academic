@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-question-boolean',
+  selector: 'app-boolean-question',
   standalone: true,
   template: `
     <div class="flex flex-col gap-2">

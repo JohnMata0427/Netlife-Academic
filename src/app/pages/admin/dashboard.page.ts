@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminLayoutComponent } from '@layouts/admin-layout.component';
+import { AdminLayout } from '@layouts/admin-layout.component';
 import { UserService } from '@services/user.service';
 import { User } from '@interfaces/user.interface';
 
@@ -8,10 +8,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-admin-dashboard',
   standalone: true,
   imports: [
-    AdminLayoutComponent,
+    AdminLayout,
 
     FooterComponent,
     CustomButtonComponent,
@@ -51,7 +50,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
         <div class="flex w-full items-center justify-between">
           <h2 class="font-bold">Tabla de Usuarios</h2>
           <div class="my-2 flex gap-2">
-            <app-custom-button
+            <app-button-component
               text="Importar datos (CSV)"
               moreStyles="text-xs h-8 gap-2"
             >
@@ -61,8 +60,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                   class="fill-white group-hover:fill-black"
                 />
               </svg>
-            </app-custom-button>
-            <app-custom-button
+            </app-button-component>
+            <app-button-component
               color="orange"
               text="Exportar datos (CSV)"
               moreStyles="text-xs h-8 gap-2"
@@ -73,7 +72,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
                   class="fill-white group-hover:fill-primary"
                 />
               </svg>
-            </app-custom-button>
+            </app-button-component>
           </div>
         </div>
         <table
@@ -128,13 +127,13 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
         </table>
       </article>
       <div class="mt-4 flex justify-center gap-4">
-        <app-custom-button
+        <app-button-component
           (click)="selectedButton = 'Agregar'"
           color="orange"
           text="Agregar usuario"
           moreStyles="text-xs h-8"
         />
-        <app-custom-button
+        <app-button-component
           (click)="selectedButton = 'Bloquear'"
           color="orange"
           text="Bloquear usuario"
@@ -171,14 +170,14 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
               <option value="ADMIN">Administrador</option>
             </select>
           }
-          <app-custom-button
+          <app-button-component
             (click)="
               selectedButton === 'Agregar'
                 ? createUser()
                 : selectedButton === 'Bloquear'
                   ? blockUser()
                   : null
-           "
+            "
             [text]="selectedButton"
             moreStyles="text-xs h-8"
           />
@@ -194,7 +193,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
     </app-admin-layout>
   `,
 })
-export class AdminDashboardComponent {
+export class AdminDashboardPage {
   users!: User[];
   selectedButton!: string;
   email = new FormControl('', Validators.required);

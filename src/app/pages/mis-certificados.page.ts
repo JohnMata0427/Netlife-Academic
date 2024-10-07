@@ -4,13 +4,12 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { CertificadoComponent } from '@components/certificado.component';
 
 @Component({
-  selector: 'app-mis-certificados',
   standalone: true,
   imports: [UserLayout, CustomTitleComponent, CertificadoComponent],
   template: `
     <app-user-layout>
       <section class="flex flex-col justify-end">
-        <app-custom-title title="Certificados" />
+        <app-title-component title="Certificados" />
         <p class="mb-4 px-8 text-sm sm:pl-16">
           En este apartado, podrás ver todos tus certificados obtenidos y
           tendrás la opción de descargarlos en formato .pdf o compartirlos en
@@ -35,19 +34,19 @@ import { CertificadoComponent } from '@components/certificado.component';
         <div
           class="flex flex-wrap justify-center gap-8 px-8 sm:justify-start sm:pl-16"
         >
-          <app-certificado
+          <app-certificado-component
             id="redes-de-computadoras"
             src="courses/redes.jpg"
             title="Redes de Computadoras"
-          ></app-certificado>
-          <app-certificado
+          ></app-certificado-component>
+          <app-certificado-component
             id="inteligencia-artificial"
             src="courses/ia.png"
             title="Inteligencia Artificial"
-          ></app-certificado>
+          ></app-certificado-component>
         </div>
       </section>
     </app-user-layout>
   `,
 })
-export class MisCertificadosComponent {}
+export class MisCertificadosPage {}

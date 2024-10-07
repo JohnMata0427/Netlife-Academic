@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-question',
+  selector: 'app-answer-question',
   standalone: true,
   template: `
     <div

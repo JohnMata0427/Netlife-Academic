@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import '@justinribeiro/lite-youtube';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'app-auth-layout',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
@@ -55,6 +55,6 @@ import '@justinribeiro/lite-youtube';
     }
   `,
 })
-export class LayoutComponent {
+export class UserLayout {
   cookies = false;
 }

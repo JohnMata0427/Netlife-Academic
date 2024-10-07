@@ -6,7 +6,6 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
-  selector: 'app-course',
   standalone: true,
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
   template: `
@@ -78,28 +77,28 @@ import { UserLayout } from '@layouts/user-layout.component';
       </section>
 
       <section>
-        <app-custom-title title="Contenido del Curso" />
+        <app-title-component title="Contenido del Curso" />
         <div class="mt-8 flex flex-wrap justify-center gap-1">
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'Inicio'"
             [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
             text="Inicio"
           />
           @for (module of modules; track module) {
-            <app-custom-button
+            <app-button-component
               (click)="selectedButton = 'Módulo ' + module"
               [color]="
                 selectedButton === 'Módulo ' + module ? 'orange' : 'black'
-             "
+              "
               text="Módulo {{ module }}"
             />
           }
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'Examen'"
             [color]="selectedButton === 'Examen' ? 'orange' : 'black'"
             text="Examenes"
           />
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'Certificado'"
             [color]="selectedButton === 'Certificado' ? 'orange' : 'black'"
             text="Fin del Curso"
@@ -109,7 +108,7 @@ import { UserLayout } from '@layouts/user-layout.component';
 
       @if (selectedButton === 'Inicio') {
         <section>
-          <app-custom-title title="Docente del Curso" />
+          <app-title-component title="Docente del Curso" />
           <div class="mx-16 flex items-center gap-10">
             <div
               class="relative flex h-32 w-1/2 items-center gap-4 rounded-lg bg-quinary p-2 pr-8 shadow-sm shadow-black/30"
@@ -152,7 +151,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </section>
 
         <section>
-          <app-custom-title title="Información del Curso" />
+          <app-title-component title="Información del Curso" />
           <div class="my-10 flex justify-center gap-8">
             <div
               class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
@@ -218,7 +217,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </div>
         </section>
         <section class="mb-10">
-          <app-custom-title title="Recursos Adicionales" />
+          <app-title-component title="Recursos Adicionales" />
           <div class="mt-10 flex flex-col gap-2 pl-16">
             <a class="flex gap-4" href="#">
               <img
@@ -248,7 +247,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </section>
       } @else if (selectedButton === 'Examen') {
         <section>
-          <app-custom-title title="Tema de la Clase" />
+          <app-title-component title="Tema de la Clase" />
           <div
             class="relative ml-16 mt-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
@@ -265,7 +264,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </div>
         </section>
         <section class="mb-10 flex flex-col">
-          <app-custom-title title="Pruebas" />
+          <app-title-component title="Pruebas" />
           <button
             class="mx-16 flex h-16 items-center justify-between border-l-8 border-primary bg-quinary pl-4"
           >
@@ -278,12 +277,12 @@ import { UserLayout } from '@layouts/user-layout.component';
               <span>Prueba 1: Conceptos básicos de redes </span>
             </div>
             <div class="flex gap-4">
-              <app-custom-button
+              <app-button-component
                 (click)="
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: '1' },
                   })
-               "
+                "
                 color="orange"
                 text="Resolver"
                 moreStyles="w-40 justify-center"
@@ -303,7 +302,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </button>
         </section>
       } @else if (selectedButton === 'Certificado') {
-        <app-custom-title title="Tema del Módulo" />
+        <app-title-component title="Tema del Módulo" />
         <div
           class="relative my-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
         >
@@ -318,7 +317,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
           <h3 class="ml-28 text-3xl font-bold">Finalización del Curso</h3>
         </div>
-        <app-custom-title title="Obtencion del certificado" />
+        <app-title-component title="Obtencion del certificado" />
         <p class="ml-16">
           ¡Felicidades por completar el curso! Ahora,
           <span class="font-bold text-primary">obtén tu certificado</span> y
@@ -344,15 +343,15 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
           <span class="font-bold text-primary">Certificado del curso</span>
         </button>
-        <app-custom-title title="Comentario personal" />
+        <app-title-component title="Comentario personal" />
         <textarea class="mx-16 h-20 rounded-lg bg-quinary"></textarea>
-        <app-custom-button
+        <app-button-component
           color="orange"
           text="Guardar comentario"
           moreStyles="mx-auto mt-4 mb-10"
         />
       } @else {
-        <app-custom-title title="Tema del módulo" />
+        <app-title-component title="Tema del módulo" />
         <div
           class="relative mx-8 my-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40 to-white sm:mx-16"
         >
@@ -367,7 +366,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
           <h3 class="ml-28 text-3xl font-bold">Evolución de las redes</h3>
         </div>
-        <app-custom-title title="Material del módulo" />
+        <app-title-component title="Material del módulo" />
         <button
           class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
@@ -424,7 +423,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
         </button>
 
-        <app-custom-title title="Tareas asignadas" />
+        <app-title-component title="Tareas asignadas" />
         <button
           class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
         >
@@ -437,12 +436,12 @@ import { UserLayout } from '@layouts/user-layout.component';
             <span>Tarea 1: Conceptos básicos de redes </span>
           </div>
           <div class="flex items-center gap-4">
-            <app-custom-button
+            <app-button-component
               (click)="
                 router.navigate(['/examen'], {
                   queryParams: { pregunta: '1' },
                 })
-             "
+              "
               color="yellow"
               text="Presentar 15 de agosto"
               moreStyles="w-40 justify-center text-neutral-700 text-xs"
@@ -464,7 +463,7 @@ import { UserLayout } from '@layouts/user-layout.component';
     </app-user-layout>
   `,
 })
-export class CourseComponent {
+export class CoursePage {
   selectedButton = 'Módulo 1';
   modules = [1, 2, 3, 4, 5, 6, 7];
 

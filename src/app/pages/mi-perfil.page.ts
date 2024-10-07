@@ -8,7 +8,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-mi-perfil',
   standalone: true,
   imports: [UserLayout, CustomButtonComponent],
   template: `
@@ -31,7 +30,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </h4>
             <small class="my-1">{{ user.state }}</small>
             <p class="text-sm">{{ user.email }}</p>
-            <app-custom-button
+            <app-button-component
               (click)="router.navigate(['/actualizar-informacion'])"
               color="orange"
               text="Editar Perfil"
@@ -44,19 +43,19 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         class="mx-16 mt-72 flex flex-col items-center md:ml-[360px] md:mt-4"
       >
         <div class="flex w-full gap-1">
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'sobre-mi'"
             text="Sobre Mí"
             moreStyles="w-full rounded-none rounded-tr-lg"
           />
 
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'mis-cursos'"
             text="Mis Cursos"
             moreStyles="w-full rounded-none rounded-tr-lg"
           />
 
-          <app-custom-button
+          <app-button-component
             (click)="selectedButton = 'mis-certificados'"
             text="Mis Certificados"
             moreStyles="w-full rounded-none rounded-tr-lg"
@@ -100,7 +99,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     }
   `,
 })
-export class MiPerfilComponent {
+export class MiPerfilPage {
   selectedButton = 'sobre-mi';
   user!: User;
   date!: string;

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
-  selector: 'app-not-found',
   standalone: true,
   imports: [UserLayout],
   template: ` <app-user-layout>
@@ -18,4 +17,4 @@ import { UserLayout } from '@layouts/user-layout.component';
     </section>
   </app-user-layout>`,
 })
-export class NotFoundComponent {}
+export class NotFoundPage {}

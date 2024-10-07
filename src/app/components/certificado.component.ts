@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-certificado',
+  selector: 'app-certificado-component',
   standalone: true,
   imports: [CustomButtonComponent],
   template: `
@@ -18,12 +18,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           Certificado de {{ title }}
         </h3>
         <div class="relative flex justify-center gap-4">
-          <app-custom-button
+          <app-button-component
             (click)="showCertificate = true"
             color="orange"
             text="Descargar"
           />
-          <app-custom-button
+          <app-button-component
             (click)="showShare = !showShare"
             color="orange"
             text="Compartir"

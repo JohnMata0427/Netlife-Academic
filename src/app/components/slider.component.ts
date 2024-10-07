@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   standalone: true,
   imports: [],
-  selector: 'app-slider',
+  selector: 'app-slider-component',
   template: `
     <div class="relative hidden max-h-[58vh] w-full">
       <div

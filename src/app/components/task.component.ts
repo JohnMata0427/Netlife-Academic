@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-task',
+  selector: 'app-task-component',
   standalone: true,
   template: `
     <a href="/mis-cursos" class="flex gap-4">

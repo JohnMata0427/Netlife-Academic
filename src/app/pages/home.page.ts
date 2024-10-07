@@ -10,7 +10,6 @@ import { AuthService } from '@services/auth.service';
 import { SliderComponent } from '@components/slider.component';
 
 @Component({
-  selector: 'app-home',
   standalone: true,
   imports: [
     UserLayout,
@@ -18,13 +17,13 @@ import { SliderComponent } from '@components/slider.component';
     CustomTitleComponent,
     TaskComponent,
     CustomButtonComponent,
-    SliderComponent
-],
+    SliderComponent,
+  ],
   template: `
     <app-user-layout>
-      <app-slider />
+      <app-slider-component />
       <section>
-        <app-custom-title title="Ranking de Estudiantes" />
+        <app-title-component title="Ranking de Estudiantes" />
         <div class="flex flex-col lg:flex-row lg:gap-20">
           <aside class="mx-8 flex flex-col gap-2 lg:ml-16 lg:w-1/2">
             @for (user of users; track $index) {
@@ -70,19 +69,19 @@ import { SliderComponent } from '@components/slider.component';
             <h2 class="hidden font-bold text-primary lg:block">
               PROXIMAS TAREAS
             </h2>
-            <app-custom-title class="lg:hidden" title="Próximas tareas" />
+            <app-title-component class="lg:hidden" title="Próximas tareas" />
             <div class="mx-8 flex flex-col items-center gap-4">
-              <app-task
+              <app-task-component
                 nombre="Introducción a las Redes"
                 [fecha]="{ mes: 'Julio', dia: '20' }"
                 hora="11:59 PM"
               />
-              <app-task
+              <app-task-component
                 nombre="Aprendizaje Automatico"
                 [fecha]="{ mes: 'Julio', dia: '24' }"
                 hora="11:59 PM"
               />
-              <app-task
+              <app-task-component
                 nombre="Analisis de Datos"
                 [fecha]="{ mes: 'Julio', dia: '28' }"
                 hora="11:59 PM"
@@ -118,7 +117,7 @@ import { SliderComponent } from '@components/slider.component';
                   </div>
                 </div>
 
-                <app-custom-button
+                <app-button-component
                   text="Ver calendario"
                   moreStyles="text-xs justify-center items-center gap-2 h-full"
                 >
@@ -133,36 +132,36 @@ import { SliderComponent } from '@components/slider.component';
                       class="fill-white group-hover:fill-black"
                     />
                   </svg>
-                </app-custom-button>
+                </app-button-component>
               </div>
             </div>
           </article>
         </div>
       </section>
       <section>
-        <app-custom-title title="Nuevos Cursos" />
+        <app-title-component title="Nuevos Cursos" />
         <div
           class="mt-4 flex flex-wrap justify-center gap-8 lg:ml-16 lg:justify-start"
         >
-          <app-course-info
+          <app-courseinfo-component
             title="Control de Versiones"
             teacher="Gabriel García"
             src="https://fireship.io/courses/git/img/featured.png"
             [newCourse]="true"
           />
-          <app-course-info
+          <app-courseinfo-component
             title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             [newCourse]="true"
           />
-          <app-course-info
+          <app-courseinfo-component
             title="HTML y CSS"
             teacher="Katherine Díaz"
             src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             [newCourse]="true"
           />
-          <app-course-info
+          <app-courseinfo-component
             title="Python desde cero"
             teacher="Ivonne Maldonado"
             src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
@@ -173,7 +172,7 @@ import { SliderComponent } from '@components/slider.component';
     </app-user-layout>
   `,
 })
-export class HomeComponent {
+export class HomePage {
   users!: User[];
   ownId!: string;
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminLayoutComponent } from '@layouts/admin-layout.component';
+import { AdminLayout } from '@layouts/admin-layout.component';
 
 import { FooterComponent } from '@components/footer.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
@@ -16,10 +16,9 @@ import {
 import { AnnouncementService } from '@services/announcement.service';
 
 @Component({
-  selector: 'app-admin-anuncios',
   standalone: true,
   imports: [
-    AdminLayoutComponent,
+    AdminLayout,
 
     FooterComponent,
     CustomButtonComponent,
@@ -171,7 +170,7 @@ import { AnnouncementService } from '@services/announcement.service';
             }
           </div>
         </form>
-        <app-custom-button
+        <app-button-component
           (click)="onSubmit()"
           color="orange"
           text="Guardar Cambios"
@@ -186,7 +185,7 @@ import { AnnouncementService } from '@services/announcement.service';
     </app-admin-layout>
   `,
 })
-export class AdminAnunciosComponent {
+export class AdminAnunciosPage {
   form = new FormGroup({
     content: new FormControl('', Validators.required),
     subject: new FormControl('', Validators.required),

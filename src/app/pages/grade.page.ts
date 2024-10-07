@@ -4,12 +4,11 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
   standalone: true,
-  selector: 'app-grade',
   imports: [UserLayout, CustomTitleComponent],
   template: `
     <app-user-layout>
       <section>
-        <app-custom-title title="Revisión de la prueba" />
+        <app-title-component title="Revisión de la prueba" />
         <h1 class="ml-16 font-bold">Prueba conceptos básicos de redes</h1>
         <div class="m-16 flex flex-col items-center font-light">
           <span>Intentos permitidos</span>
@@ -44,6 +43,6 @@ import { CustomTitleComponent } from '@components/custom-title.component';
     </app-user-layout>
   `,
 })
-export class GradeComponent {
+export class GradePage {
   date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
 }

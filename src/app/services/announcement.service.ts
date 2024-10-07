@@ -5,6 +5,7 @@ import { environment } from '@environments/environment';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AnnouncementService {
   private urlAPI = environment.BACKEND_URL;
 

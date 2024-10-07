@@ -5,17 +5,16 @@ import {
   Validators,
   FormGroup,
 } from '@angular/forms';
-import { LayoutComponent } from '@layouts/auth-layout.component';
+import { UserLayout } from '@layouts/auth-layout.component';
 import { AuthService } from '@services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-new-password',
   standalone: true,
-  imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
+  imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
-    <app-layout>
+    <app-auth-layout>
       <img
         class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
@@ -93,7 +92,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <p class="px-4 text-xs text-tertiary">Las contraseñas no coinciden</p>
         }
 
-        <app-custom-button
+        <app-button-component
           moreStyles="w-full justify-center"
           text="Reestablecer contraseña"
           [loading]="loading"
@@ -113,10 +112,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           ></span
         >
       </form>
-    </app-layout>
+    </app-auth-layout>
   `,
 })
-export class NewPasswordComponent {
+export class NewPasswordPage {
   form = new FormGroup({
     password: new FormControl('', [
       Validators.required,

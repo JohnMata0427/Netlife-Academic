@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-custom-title',
+  selector: 'app-title-component',
   standalone: true,
   template: `
     <div class="relative mb-5 mt-10">

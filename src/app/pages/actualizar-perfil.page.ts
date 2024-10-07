@@ -8,7 +8,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-actualizar-perfil',
   standalone: true,
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
@@ -16,7 +15,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
       <div class="relative">
         <div class="relative">
           <div class="bg-profile h-96 w-full"></div>
-          <app-custom-button
+          <app-button-component
             color="white"
             hoverColor="black"
             text="Cambiar el fondo"
@@ -29,7 +28,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 class="group-hover:fill-white"
               />
             </svg>
-          </app-custom-button>
+          </app-button-component>
         </div>
         <div
           class="absolute inset-x-0 -bottom-28 mx-auto flex w-80 flex-col items-center lg:left-8 lg:mx-0"
@@ -175,13 +174,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           <div class="flex justify-center gap-5">
-            <app-custom-button
+            <app-button-component
               color="orange"
               text="Actualizar Perfil"
               moreStyles="mt-10 w-40 justify-center"
               [loading]="loading"
             />
-            <app-custom-button
+            <app-button-component
               (click)="cancel = true"
               color="gray"
               text="Cancelar"
@@ -201,7 +200,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     }
   `,
 })
-export class ActualizarPerfilComponent {
+export class ActualizarPerfilPage {
   id!: string;
   form!: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;

@@ -2,15 +2,14 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
-import { LayoutComponent } from '@layouts/auth-layout.component';
+import { UserLayout } from '@layouts/auth-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-verify-code',
   standalone: true,
-  imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
+  imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
-    <app-layout>
+    <app-auth-layout>
       <img
         class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
@@ -52,7 +51,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </p>
           }
 
-          <app-custom-button
+          <app-button-component
             moreStyles="w-full justify-center"
             text="Verificar código"
             [loading]="loading"
@@ -98,10 +97,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
         </div>
       }
-    </app-layout>
+    </app-auth-layout>
   `,
 })
-export class VerifyCodeComponent {
+export class VerifyCodePage {
   verificationCode = new FormControl('', [
     Validators.required,
     Validators.maxLength(6),

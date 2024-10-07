@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { CourseInfoComponent } from '@components/course-info.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
-import { AdminLayoutComponent } from '@layouts/admin-layout.component';
+import { AdminLayout } from '@layouts/admin-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { CertificadoComponent } from '@components/certificado.component';
 
 @Component({
-  selector: 'app-admin-courses',
   standalone: true,
   imports: [
     CustomTitleComponent,
     CourseInfoComponent,
-    AdminLayoutComponent,
+    AdminLayout,
     CustomButtonComponent,
     CertificadoComponent,
   ],
@@ -25,7 +24,7 @@ import { CertificadoComponent } from '@components/certificado.component';
           Para agregar, eliminar o editar usuarios y sus roles o privilegios. Se
           admite el formato CSV para exportar o importar datos
         </p>
-        <app-custom-button
+        <app-button-component
           (click)="mostrarModal = true"
           text="Crear nuevo certificado"
           color="orange"
@@ -42,9 +41,9 @@ import { CertificadoComponent } from '@components/certificado.component';
               class="fill-white group-hover:fill-primary"
             />
           </svg>
-        </app-custom-button>
+        </app-button-component>
         <div class="mt-8 flex flex-wrap justify-center gap-8 sm:justify-start">
-          <app-certificado
+          <app-certificado-component
             id="inteligencia-artificial"
             src="certificate.png"
             title="Plantilla de certificado de Inteligencia Artificial"
@@ -78,11 +77,11 @@ import { CertificadoComponent } from '@components/certificado.component';
               placeholder="Nombre de la plantilla"
             />
             <div class="mt-4 flex justify-evenly">
-              <app-custom-button
+              <app-button-component
                 text="Cancelar"
                 (click)="mostrarModal = false"
               />
-              <app-custom-button text="Crear certificado" color="orange" />
+              <app-button-component text="Crear certificado" color="orange" />
             </div>
           </form>
         </div>
@@ -94,7 +93,7 @@ import { CertificadoComponent } from '@components/certificado.component';
     </app-admin-layout>
   `,
 })
-export class AdminCertificatesComponent {
+export class AdminCertificatesPage {
   mostrarModal = false;
   imagePreview: string | ArrayBuffer | null = null;
   image!: File;

@@ -10,7 +10,7 @@ type ColorVariant =
 type HoverColorVariant = 'black' | 'white';
 
 @Component({
-  selector: 'app-custom-button',
+  selector: 'app-button-component',
   standalone: true,
   template: `
     <button

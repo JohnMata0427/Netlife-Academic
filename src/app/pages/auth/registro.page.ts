@@ -3,15 +3,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '@layouts/auth-layout.component';
+import { UserLayout } from '@layouts/auth-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-registro',
   standalone: true,
-  imports: [ReactiveFormsModule, LayoutComponent, CustomButtonComponent],
+  imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
-    <app-layout>
+    <app-auth-layout>
       <img
         class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
@@ -218,7 +217,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </p>
         }
 
-        <app-custom-button
+        <app-button-component
           moreStyles="w-full justify-center"
           text="Registrate"
           [loading]="loading"
@@ -236,10 +235,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           >¿Olvidaste tu contraseña?</a
         >
       </form>
-    </app-layout>
+    </app-auth-layout>
   `,
 })
-export class RegistroComponent {
+export class RegistroPage {
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),

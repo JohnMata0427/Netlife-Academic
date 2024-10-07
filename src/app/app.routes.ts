@@ -1,25 +1,26 @@
 import { Routes } from '@angular/router';
-import { RegistroComponent } from '@pages/auth/registro.component';
-import { LoginComponent } from '@pages/auth/login.component';
-import { HomeComponent } from '@pages/home.component';
-import { RecoveryPasswordComponent } from '@pages/auth/recovery-password.component';
-import { VerifyCodeComponent } from '@pages/auth/verify-code.component';
-import { NewPasswordComponent } from '@pages/auth/new-password.component';
-import { MisCursosComponent } from '@pages/mis-cursos.component';
-import { MiPerfilComponent } from '@pages/mi-perfil.component';
-import { CourseComponent } from '@pages/course.component';
-import { ActualizarPerfilComponent } from '@pages/actualizar-perfil.component';
-import { MisCertificadosComponent } from '@pages/mis-certificados.component';
-import { AdminDashboardComponent } from '@pages/admin/dashboard.component';
-import { AdminAnunciosComponent } from '@pages/admin/anuncios.component';
-import { NotFoundComponent } from '@pages/not-found.component';
-import { TermsComponent } from '@pages/auth/terms.component';
-import { ExamenComponent } from '@pages/examen.component';
-import { GradeComponent } from '@pages/grade.component';
-import { VirtualCourseComponent } from '@pages/virtual-course.component';
-import { VideoCourseComponent } from '@pages/video-course.component';
-import { AdminCoursesComponent } from '@pages/admin/courses.component';
-import { AdminCertificatesComponent } from '@pages/admin/certificates.component';
+
+import { RegistroPage } from '@pages/auth/registro.page';
+import { LoginPage } from '@pages/auth/login.page';
+import { HomePage } from '@pages/home.page';
+import { RecoveryPasswordPage } from '@pages/auth/recovery-password.page';
+import { VerifyCodePage } from '@pages/auth/verify-code.page';
+import { NewPasswordPage } from '@pages/auth/new-password.page';
+import { MisCursosPage } from '@pages/mis-cursos.page';
+import { MiPerfilPage } from '@pages/mi-perfil.page';
+import { CoursePage } from '@pages/course.page';
+import { ActualizarPerfilPage } from '@pages/actualizar-perfil.page';
+import { MisCertificadosPage } from '@pages/mis-certificados.page';
+import { AdminDashboardPage } from '@pages/admin/dashboard.page';
+import { AdminAnunciosPage } from '@pages/admin/anuncios.page';
+import { NotFoundPage } from '@pages/not-found.page';
+import { TermsPage } from '@pages/auth/terms.page';
+import { ExamenPage } from '@pages/examen.page';
+import { GradePage } from '@pages/grade.page';
+import { VirtualCoursePage } from '@pages/virtual-course.page';
+import { VideoCoursePage } from '@pages/video-course.page';
+import { AdminCoursesPage } from '@pages/admin/courses.page';
+import { AdminCertificatesPage } from '@pages/admin/certificates.page';
 
 import { authGuard } from '@guards/required-auth.guard';
 import { noAuthGuard } from '@guards/no-required-auth.guard';
@@ -31,66 +32,66 @@ export const routes: Routes = [
     path: 'auth',
     canActivate: [noAuthGuard],
     children: [
-      { path: 'register', component: RegistroComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'recovery-password', component: RecoveryPasswordComponent },
+      { path: 'register', component: RegistroPage },
+      { path: 'login', component: LoginPage },
+      { path: 'recovery-password', component: RecoveryPasswordPage },
       {
         path: 'verify-code',
-        component: VerifyCodeComponent,
+        component: VerifyCodePage,
         canActivate: [requiredCodeGuard],
       },
       {
         path: 'new-password',
-        component: NewPasswordComponent,
+        component: NewPasswordPage,
         canActivate: [requiredCodeGuard],
       },
     ],
   },
-  { path: 'terms-and-conditions', component: TermsComponent },
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'terms-and-conditions', component: TermsPage },
+  { path: 'home', component: HomePage, canActivate: [authGuard] },
   {
     path: 'mis-cursos/virtual/video',
-    component: VideoCourseComponent,
+    component: VideoCoursePage,
     canActivate: [authGuard],
   },
   {
     path: 'mis-cursos/virtual/:id',
-    component: VirtualCourseComponent,
+    component: VirtualCoursePage,
     canActivate: [authGuard],
   },
   {
     path: 'mis-cursos/:id',
-    component: CourseComponent,
+    component: CoursePage,
     canActivate: [authGuard],
   },
   {
     path: 'mis-cursos',
-    component: MisCursosComponent,
+    component: MisCursosPage,
     canActivate: [authGuard],
   },
-  { path: 'examen', component: ExamenComponent, canActivate: [authGuard] },
-  { path: 'grade', component: GradeComponent, canActivate: [authGuard] },
+  { path: 'examen', component: ExamenPage, canActivate: [authGuard] },
+  { path: 'grade', component: GradePage, canActivate: [authGuard] },
   {
     path: 'actualizar-informacion',
-    component: ActualizarPerfilComponent,
+    component: ActualizarPerfilPage,
     canActivate: [authGuard],
   },
-  { path: 'mi-perfil', component: MiPerfilComponent, canActivate: [authGuard] },
+  { path: 'mi-perfil', component: MiPerfilPage, canActivate: [authGuard] },
   {
     path: 'mis-certificados',
-    component: MisCertificadosComponent,
+    component: MisCertificadosPage,
     canActivate: [authGuard],
   },
   {
     path: 'admin',
     canActivate: [authGuard, adminGuard],
     children: [
-      { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'anuncios', component: AdminAnunciosComponent },
-      { path: 'cursos', component: AdminCoursesComponent },
-      { path: 'certificados', component: AdminCertificatesComponent },
+      { path: 'dashboard', component: AdminDashboardPage },
+      { path: 'anuncios', component: AdminAnunciosPage },
+      { path: 'cursos', component: AdminCoursesPage },
+      { path: 'certificados', component: AdminCertificatesPage },
     ],
   },
-  { path: '**', component: NotFoundComponent, canActivate: [authGuard] },
+  { path: '**', component: NotFoundPage, canActivate: [authGuard] },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
 ];

@@ -3,7 +3,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-video-course',
   standalone: true,
   imports: [UserLayout, CustomButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -310,8 +309,8 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               ></textarea>
             </div>
             <div class="flex justify-end gap-4">
-              <app-custom-button color="orange" text="Comenzar" />
-              <app-custom-button color="gray" text="Cancelar" />
+              <app-button-component color="orange" text="Comenzar" />
+              <app-button-component color="gray" text="Cancelar" />
             </div>
           </section>
         </aside>
@@ -319,4 +318,4 @@ import { CustomButtonComponent } from '@components/custom-button.component';
     </app-user-layout>
   `,
 })
-export class VideoCourseComponent {}
+export class VideoCoursePage {}

@@ -7,6 +7,7 @@ import { tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   private urlAPI = environment.BACKEND_URL;
 

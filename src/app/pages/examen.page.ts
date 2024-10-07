@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '@components/custom-button.component';
-import { QuestionsComponent } from '@components/connection/question.component';
-import { QuestionsSelectComponent } from '@components/connection/question-select.component';
-import { QuestionsCheckboxComponent } from '@components/connection/question-checkbox.component';
-import { QuestionsBooleanComponent } from '@components/connection/question-boolean.component';
-import { QuestionsLineComponent } from '@components/connection/question-line.component';
+import { QuestionsComponent } from '@components/questions/question.component';
+import { QuestionsSelectComponent } from '@components/questions/question-select.component';
+import { QuestionsCheckboxComponent } from '@components/questions/question-checkbox.component';
+import { QuestionsBooleanComponent } from '@components/questions/question-boolean.component';
+import { QuestionsLineComponent } from '@components/questions/question-line.component';
 import { FooterComponent } from '@components/footer.component';
 
 @Component({
   standalone: true,
-  selector: 'app-examen',
   imports: [
     NgStyle,
     CustomButtonComponent,
@@ -73,28 +72,28 @@ import { FooterComponent } from '@components/footer.component';
               <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
 
               <div class="flex flex-col gap-4">
-                <app-question
+                <app-answer-question
                   (click)="answersSelected[0] = 'A'"
                   [answerSelected]="answersSelected[0]"
                   answerLetter="A"
                   answerText="Saltos"
                 />
 
-                <app-question
+                <app-answer-question
                   (click)="answersSelected[0] = 'B'"
                   [answerSelected]="answersSelected[0]"
                   answerLetter="B"
                   answerText="Ancho de banda"
                 />
 
-                <app-question
+                <app-answer-question
                   (click)="answersSelected[0] = 'C'"
                   [answerSelected]="answersSelected[0]"
                   answerLetter="C"
                   answerText="Retardo"
                 />
 
-                <app-question
+                <app-answer-question
                   (click)="answersSelected[0] = 'D'"
                   [answerSelected]="answersSelected[0]"
                   answerLetter="D"
@@ -108,7 +107,7 @@ import { FooterComponent } from '@components/footer.component';
               </h2>
 
               <div class="flex flex-col gap-4">
-                <app-questions-select
+                <app-select-question
                   question="OSPF"
                   [answers]="[
                     'Saltos',
@@ -119,7 +118,7 @@ import { FooterComponent } from '@components/footer.component';
                   [answerSelected]="answersSelected[1]"
                 />
 
-                <app-questions-select
+                <app-select-question
                   question="RIP v1"
                   [answers]="[
                     'Saltos',
@@ -130,7 +129,7 @@ import { FooterComponent } from '@components/footer.component';
                   [answerSelected]="answersSelected[1]"
                 />
 
-                <app-questions-select
+                <app-select-question
                   question="EIGRP"
                   [answers]="[
                     'Saltos',
@@ -146,43 +145,43 @@ import { FooterComponent } from '@components/footer.component';
                 3. Seleccione tres características sobre una dirección MAC
               </h2>
               <div class="flex flex-col gap-4">
-                <app-question-checkbox
+                <app-checkbox-question
                   (click)="answersSelected[2] = 'A'"
                   question="Tiene 48 bits (6 bytes) de longitud."
                   answer="A"
                 />
-                <app-question-checkbox
+                <app-checkbox-question
                   (click)="answersSelected[2] = 'B'"
                   [question]="
                     'Se expresa generalmente en notación hexadecimal.'
-                 "
+                  "
                   answer="B"
                 />
-                <app-question-checkbox
+                <app-checkbox-question
                   (click)="answersSelected[2] = 'C'"
                   question="Es única para cada dispositivo de red."
                   answer="C"
                 />
-                <app-question-checkbox
+                <app-checkbox-question
                   [question]="
                     'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
-                 "
+                  "
                   answer="D"
                 />
-                <app-question-checkbox
+                <app-checkbox-question
                   (click)="answersSelected[2] = 'E'"
                   [question]="
                     'Una dirección MAC está compuesta por 10 dígitos decimales.'
-                 "
+                  "
                   answer="E"
                 />
               </div>
             } @else if (numeroPregunta == 4) {
               <h2>4. Una mascara clase C tiene 256 redes</h2>
-              <app-question-boolean [answerSelected]="answersSelected[3]" />
+              <app-boolean-question [answerSelected]="answersSelected[3]" />
             } @else if (numeroPregunta == 5) {
               <h2>5. Une cada protoclo de red con su función principal</h2>
-              <app-question-line
+              <app-line-question
                 [questions]="['HTTP', 'DHCP', 'DNS', 'SMTP', 'FTP']"
                 [answers]="[
                   'Protocolo de transferencia de archivos',
@@ -200,7 +199,7 @@ import { FooterComponent } from '@components/footer.component';
             }} md:flex-row flex-col items-center mb-20"
           >
             @if (numeroPregunta > 1) {
-              <app-custom-button
+              <app-button-component
                 text="Anterior"
                 color="orange"
                 moreStyles="mt-6 w-52 justify-center text-black"
@@ -208,10 +207,10 @@ import { FooterComponent } from '@components/footer.component';
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: +numeroPregunta - 1 },
                   })
-               "
+                "
               />
             }
-            <app-custom-button
+            <app-button-component
               [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
               color="orange"
               moreStyles="mt-6 w-52 justify-center text-black"
@@ -221,13 +220,13 @@ import { FooterComponent } from '@components/footer.component';
                       queryParams: { pregunta: +numeroPregunta + 1 },
                     })
                   : (finish = true)
-             "
+              "
             />
           </div>
         </div>
       </section>
     </main>
-    <app-footer />
+    <app-footer-component />
     @if (finish) {
       <div class="absolute inset-0 z-50 flex items-center justify-center">
         <div class="relative flex flex-col items-end">
@@ -252,13 +251,13 @@ import { FooterComponent } from '@components/footer.component';
               >¿Estás seguro de enviar tus respuestas?</strong
             >
             <div class="flex justify-center gap-4">
-              <app-custom-button
+              <app-button-component
                 text="Cancelar"
                 color="gray"
                 moreStyles="gap-2 group"
                 (click)="finish = false"
               />
-              <app-custom-button
+              <app-button-component
                 text="Enviar"
                 moreStyles="gap-2 group"
                 (click)="router.navigate(['/grade'])"
@@ -274,7 +273,7 @@ import { FooterComponent } from '@components/footer.component';
     }
   `,
 })
-export class ExamenComponent {
+export class ExamenPage {
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -299,7 +298,7 @@ export class ExamenComponent {
     this.tiempoRestante();
   }
 
-  tiempoRestante () {
+  tiempoRestante() {
     let tiempoRestante = this.fechaFinal - Date.now();
     let minuto = Math.floor(tiempoRestante / 60000)
       .toString()

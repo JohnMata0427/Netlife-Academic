@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LayoutComponent } from '@layouts/auth-layout.component';
+import { UserLayout } from '@layouts/auth-layout.component';
 import { AuthService } from '@services/auth.service';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  selector: 'app-recovery-password',
   standalone: true,
-  imports: [LayoutComponent, ReactiveFormsModule, CustomButtonComponent],
+  imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
-    <app-layout>
+    <app-auth-layout>
       <img
         class="absolute left-0 top-0 w-52 rounded-br-2xl"
         src="/logo.webp"
@@ -36,14 +35,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               >¿No has recibido el código de confirmación?</span
             >
             <div class="mt-6 flex justify-center gap-4">
-              <app-custom-button
+              <app-button-component
                 (click)="showModal = false"
                 moreStyles="w-full"
                 color="gray"
                 text="Cerrar"
                 [loading]="loading"
               />
-              <app-custom-button
+              <app-button-component
                 (click)="onSubmit()"
                 moreStyles="w-full"
                 color="orange"
@@ -89,7 +88,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </p>
           }
 
-          <app-custom-button
+          <app-button-component
             (click)="onSubmit()"
             moreStyles="w-full justify-center"
             text="Enviar código de verificación"
@@ -114,10 +113,10 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           >
         </div>
       }
-    </app-layout>
+    </app-auth-layout>
   `,
 })
-export class RecoveryPasswordComponent {
+export class RecoveryPasswordPage {
   email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage!: string;
   showModal = false;

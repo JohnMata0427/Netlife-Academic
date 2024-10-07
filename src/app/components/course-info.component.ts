@@ -1,11 +1,12 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CustomButtonComponent } from './custom-button.component';
+import { ProgressBarComponent } from './progressbar.component';
 
 @Component({
-  selector: 'app-course-info',
+  selector: 'app-courseinfo-component',
   standalone: true,
-  imports: [NgStyle, CustomButtonComponent],
+  imports: [NgStyle, CustomButtonComponent, ProgressBarComponent],
   template: `
     <article class="w-[275px] rounded-lg shadow-md shadow-black/50">
       <a class="relative" href="/mis-cursos/{{ id }}">
@@ -35,25 +36,20 @@ import { CustomButtonComponent } from './custom-button.component';
         </div>
         <div class="mt-2 flex flex-col gap-1">
           @if (!progress) {
-            <app-custom-button
+            <app-button-component
               color="orange"
               text="Más Información"
               moreStyles="text-xs h-8 mx-auto"
             />
           } @else if (progress < 100) {
-            <div class="h-2.5 w-full rounded-lg border border-white bg-quinary">
-              <div
-                [ngStyle]="{ 'width.%': progress }"
-                class="h-full rounded-l bg-gradient-to-r from-secondary via-tertiary to-quaternary"
-              ></div>
-            </div>
+            <app-progressbar-component [progress]="progress" />
             <h4 class="text-end text-xs font-extralight text-white">
               {{ progress }}% Completado
             </h4>
           } @else {
             <span class="text-xs font-extralight text-white">
-              100% Completado</span
-            >
+              100% Completado
+            </span>
           }
         </div>
       </div>
