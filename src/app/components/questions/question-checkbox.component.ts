@@ -1,28 +1,20 @@
-import { Component, Input } from '@angular/core';
-
-type Question = {
-  question: string,
-  answers: string[]
-}
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox-question',
-  standalone: true,
   template: `
     <div class="flex items-center gap-4">
-      @for (answer of question.answers; track $index) {
         <input
         class="size-4 accent-greenlight"
-        [id]="answer"
-        [name]="userAnswer"
+        [id]="answer()"
+        [name]="answer()"
         type="checkbox"
         />
-        <label class="select-none" [htmlFor]="userAnswer">{{ answer }}</label>
-      }
+        <label class="select-none" [htmlFor]="answer()">{{ answer() }}</label>
     </div>
   `,
 })
 export class QuestionsCheckboxComponent {
-  @Input() question!: Question
-  @Input() userAnswer!: string
+  readonly question = input.required<string>();
+  readonly answer = input.required<string>();
 }

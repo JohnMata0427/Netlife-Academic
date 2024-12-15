@@ -3,7 +3,6 @@ import '@justinribeiro/lite-youtube';
 
 @Component({
   selector: 'app-auth-layout',
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div class="relative flex min-h-screen">
@@ -56,5 +55,5 @@ import '@justinribeiro/lite-youtube';
   `,
 })
 export class UserLayout {
-  cookies = false;
+  public cookies = false;
 }

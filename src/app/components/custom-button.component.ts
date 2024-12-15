@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 type ColorVariant =
   | 'black'
@@ -11,17 +11,16 @@ type HoverColorVariant = 'black' | 'white';
 
 @Component({
   selector: 'app-button-component',
-  standalone: true,
   template: `
     <button
       class="font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group {{
-        moreStyles
-      }} {{ variantsColor[color][0] }} {{ variantsColor[hoverColor][2] }}"
+        moreStyles()
+      }} {{ variantsColor[color()][0] }} {{ variantsColor[hoverColor()][2] }}"
     >
-      @if (loading) {
+      @if (loading()) {
         <svg
           class="size-5 animate-rotate-360 text-white animate-iteration-count-infinite {{
-            variantsColor[color][1]
+            variantsColor[color()][1]
           }}"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -43,19 +42,19 @@ type HoverColorVariant = 'black' | 'white';
         </svg>
       } @else {
         <ng-content></ng-content>
-        <span class="relative z-10">{{ text }}</span>
+        <span class="relative z-10">{{ text() }}</span>
       }
     </button>
   `,
 })
 export class CustomButtonComponent {
-  @Input() text!: string;
-  @Input() color: ColorVariant = 'black';
-  @Input() hoverColor: HoverColorVariant = 'white';
-  @Input() loading = false;
-  @Input() moreStyles!: string;
+  readonly text = input.required<string>();
+  readonly color = input<ColorVariant>('black');
+  readonly hoverColor = input<HoverColorVariant>('white');
+  readonly loading = input(false);
+  readonly moreStyles = input<string>();
 
-  variantsColor: Record<ColorVariant, string[]> = {
+  public variantsColor: Record<ColorVariant, string[]> = {
     black: [
       'border-black bg-black hover:text-black',
       'group-hover:text-black',

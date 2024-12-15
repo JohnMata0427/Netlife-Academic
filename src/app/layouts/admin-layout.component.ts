@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '@interfaces/user.interface';
@@ -8,7 +8,6 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-admin-layout',
-  standalone: true,
   imports: [CustomButtonComponent],
   template: `
     <main class="flex">
@@ -161,22 +160,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class AdminLayout {
-  user!: User;
-  active!: string;
+  public user!: User;
+  public active!: string;
+  public router = inject(Router);
+  private title = inject(Title);
+  private activatedRouter = inject(ActivatedRoute);
+  private authService = inject(AuthService);
+  private userService = inject(UserService);
 
-  constructor(
-    private title: Title,
-    private activatedRouter: ActivatedRoute,
-    public router: Router,
-    private authService: AuthService,
-    private userService: UserService,
-  ) {
-    this.activatedRouter.url.subscribe(([url]) => {
-      this.active = url['path'];
-    });
-  }
-
-  ngOnInit() {
+  public ngOnInit() {
+    this.active = this.activatedRouter.snapshot.url.map((url) => url['path'])[0];
     this.userService
       .getUserById(this.authService.getInfoUser().sub)
       .subscribe((user) => {
@@ -185,8 +178,7 @@ export class AdminLayout {
 
     this.title.setTitle(
       'Admin ' +
-        this.active
-          .split('-')
+        this.active?.split('-')
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ') +
         ' | Netlife Academic',

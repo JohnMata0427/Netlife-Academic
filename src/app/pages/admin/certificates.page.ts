@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { CourseInfoComponent } from '@components/course-info.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
 import { AdminLayout } from '@layouts/admin-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { CertificadoComponent } from '@components/certificado.component';
 
 @Component({
-  standalone: true,
   imports: [
-    CustomTitleComponent,
-    CourseInfoComponent,
     AdminLayout,
     CustomButtonComponent,
     CertificadoComponent,
@@ -94,17 +89,17 @@ import { CertificadoComponent } from '@components/certificado.component';
   `,
 })
 export class AdminCertificatesPage {
-  mostrarModal = false;
-  imagePreview: string | ArrayBuffer | null = null;
-  image!: File;
+  public mostrarModal = false;
+  public imagePreview: string | ArrayBuffer | null = null;
+  // private image!: File;
 
-  onFileChange(event: any) {
+  public onFileChange(event: any) {
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader();
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => (this.imagePreview = reader.result);
-      this.image = file;
+      // this.image = file;
     }
   }
 }

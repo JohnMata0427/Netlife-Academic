@@ -4,7 +4,6 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { CertificadoComponent } from '@components/certificado.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, CustomTitleComponent, CertificadoComponent],
   template: `
     <app-user-layout>

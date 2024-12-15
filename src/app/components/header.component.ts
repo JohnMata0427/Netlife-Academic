@@ -1,11 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { UserService } from '@services/user.service';
 @Component({
   selector: 'app-header-component',
-  standalone: true,
   template: `
     <header class="bg-[#0b0603] px-4 py-2 shadow-sm shadow-black">
       <nav class="relative flex">
@@ -278,18 +277,24 @@ import { UserService } from '@services/user.service';
   `,
 })
 export class HeaderComponent {
-  active!: string;
-  profile!: string;
-  username!: string;
-  email!: string;
-  role!: string;
-  showMenu = false;
-  showMessages = false;
-  showNotifications = false;
-  showHamburguer = false;
+  public active!: string;
+  public profile!: string;
+  public username!: string;
+  public email!: string;
+  public role!: string;
+  public showMenu = false;
+  public showMessages = false;
+  public showNotifications = false;
+  public showHamburguer = false;
+
+  public authService = inject(AuthService);
+  public router = inject(Router);
+  private userService = inject(UserService);
+  private activatedRouter = inject(ActivatedRoute);
+  private title = inject(Title);
 
   @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent) {
+  public onClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
     if (!target.closest('.relative')) {
       this.showMenu = false;
@@ -299,15 +304,7 @@ export class HeaderComponent {
     }
   }
 
-  constructor(
-    public authService: AuthService,
-    public router: Router,
-    private activatedRouter: ActivatedRoute,
-    private title: Title,
-    private userService: UserService,
-  ) {}
-
-  ngOnInit() {
+  public ngOnInit() {
     this.activatedRouter.url.subscribe(([url]) => {
       this.active = url['path'];
     });
@@ -329,33 +326,33 @@ export class HeaderComponent {
       });
   }
 
-  logout() {
+  public logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
 
-  mostrarNotificaciones() {
+  public mostrarNotificaciones() {
     this.showNotifications = !this.showNotifications;
     this.showMessages = false;
     this.showMenu = false;
     this.showHamburguer = false;
   }
 
-  mostrarMensajes() {
+  public mostrarMensajes() {
     this.showNotifications = false;
     this.showMessages = !this.showMessages;
     this.showMenu = false;
     this.showHamburguer = false;
   }
 
-  mostrarMenu() {
+  public mostrarMenu() {
     this.showNotifications = false;
     this.showMessages = false;
     this.showMenu = !this.showMenu;
     this.showHamburguer = false;
   }
 
-  mostrarHamburger() {
+  public mostrarHamburger() {
     this.showNotifications = false;
     this.showMessages = false;
     this.showMenu = false;

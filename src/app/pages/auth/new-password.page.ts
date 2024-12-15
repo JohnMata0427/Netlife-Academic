@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   ReactiveFormsModule,
@@ -11,7 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
@@ -116,7 +115,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class NewPasswordPage {
-  form = new FormGroup({
+  public form = new FormGroup({
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -126,24 +125,21 @@ export class NewPasswordPage {
       Validators.minLength(8),
     ]),
   });
-  errorMessage!: string;
-  token!: string;
-  loading = false;
+  public errorMessage!: string;
+  public loading = false;
+  public isPasswordVisible = false;
+  public isConfirmPasswordVisible = false;
 
-  isPasswordVisible = false;
-  isConfirmPasswordVisible = false;
+  private token!: string;
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  private activatedRoute = inject(ActivatedRoute);
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute,
-  ) {
-    this.activatedRoute.queryParams.subscribe(({ token }) => {
-      this.token = token;
-    });
+  public ngOnInit() {
+    this.token = this.activatedRoute.snapshot.queryParams['token'];
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (this.form.invalid) {
       this.errorMessage = 'Por favor, completa los campos correctamente.';
       return;

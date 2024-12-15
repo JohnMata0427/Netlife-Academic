@@ -1,11 +1,10 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-select-question',
-  standalone: true,
   template: `
     <div class="flex gap-4">
-      <strong>{{ question }}</strong>
+      <strong>{{ question() }}</strong>
       <div (click)="showOptions = !showOptions" class="relative w-3/4">
         <div
           class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer {{
@@ -36,7 +35,7 @@ import { Component, HostListener, Input } from '@angular/core';
           }}"
         >
           <ol class="flex flex-col rounded-lg *:py-2 *:pl-5">
-            @for (answer of answers; track $index) {
+            @for (answer of answers(); track $index) {
               <li
                 class="cursor-pointer select-none hover:bg-greenlight/50"
                 (click)="answerSelected = answer"
@@ -53,9 +52,11 @@ import { Component, HostListener, Input } from '@angular/core';
 export class QuestionsSelectComponent {
   showOptions = false;
 
-  @Input() answers!: string[];
+  readonly answers = input.required<string[]>();
+  // TODO: Skipped for migration because:
+  //  Your application code writes to the input. This prevents migration.
   @Input() answerSelected!: string;
-  @Input() question!: string;
+  readonly question = input.required<string>();
 
   @HostListener('document:click', ['$event'])
   onDocumentClick({ target }: MouseEvent) {

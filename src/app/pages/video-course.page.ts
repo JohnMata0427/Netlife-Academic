@@ -3,7 +3,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, CustomButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `

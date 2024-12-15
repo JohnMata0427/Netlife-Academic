@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '@services/user.service';
@@ -8,7 +8,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
     <app-user-layout>
@@ -201,21 +200,19 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class ActualizarPerfilPage {
-  id!: string;
-  form!: FormGroup;
-  imagePreview: string | ArrayBuffer | null = null;
-  image!: File;
-  cancel = false;
-  loading = false;
-  user!: User;
+  public form!: FormGroup;
+  public imagePreview: string | ArrayBuffer | null = null;
+  public cancel = false;
+  public loading = false;
+  public user!: User;
+  
+  private id!: string;
+  private image!: File;
+  private router = inject(Router);
+  private userService = inject(UserService);
+  private authService = inject(AuthService);
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private authService: AuthService,
-  ) {}
-
-  onFileChange(event: any) {
+  public onFileChange(event: any) {
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       const reader = new FileReader();
@@ -225,7 +222,7 @@ export class ActualizarPerfilPage {
     }
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (this.cancel) {
       this.router.navigate(['/mi-perfil']);
       return;
@@ -241,7 +238,7 @@ export class ActualizarPerfilPage {
     });
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.id = this.authService.getInfoUser().sub;
     this.userService.getUserById(this.id).subscribe((result) => {
       this.user = result;

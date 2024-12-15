@@ -3,7 +3,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, CustomTitleComponent],
   template: `
     <app-user-layout>
@@ -44,5 +43,5 @@ import { CustomTitleComponent } from '@components/custom-title.component';
   `,
 })
 export class GradePage {
-  date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
+  public date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
 }

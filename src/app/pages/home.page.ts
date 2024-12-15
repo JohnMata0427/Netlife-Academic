@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UserService } from '@services/user.service';
 import { User } from '@interfaces/user.interface';
 import { UserLayout } from '@layouts/user-layout.component';
@@ -10,7 +10,6 @@ import { AuthService } from '@services/auth.service';
 import { SliderComponent } from '@components/slider.component';
 
 @Component({
-  standalone: true,
   imports: [
     UserLayout,
     CourseInfoComponent,
@@ -144,24 +143,28 @@ import { SliderComponent } from '@components/slider.component';
           class="mt-4 flex flex-wrap justify-center gap-8 lg:ml-16 lg:justify-start"
         >
           <app-courseinfo-component
+            id="control-de-versiones"
             title="Control de Versiones"
             teacher="Gabriel García"
             src="https://fireship.io/courses/git/img/featured.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
+            id="metodologias-agiles"
             title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
+            id="html-y-css"
             title="HTML y CSS"
             teacher="Katherine Díaz"
             src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             [newCourse]="true"
           />
           <app-courseinfo-component
+            id="python-desde-cero"
             title="Python desde cero"
             teacher="Ivonne Maldonado"
             src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
@@ -173,15 +176,13 @@ import { SliderComponent } from '@components/slider.component';
   `,
 })
 export class HomePage {
-  users!: User[];
-  ownId!: string;
+  public users!: User[];
+  public ownId!: string;
 
-  constructor(
-    private userService: UserService,
-    public authService: AuthService,
-  ) {}
-
-  ngOnInit() {
+  private userService = inject(UserService);
+  private authService = inject(AuthService);
+              
+  public ngOnInit() {
     this.userService.getRankedUsers().subscribe((users) => {
       this.users = users;
       this.ownId = this.authService.getInfoUser().sub;

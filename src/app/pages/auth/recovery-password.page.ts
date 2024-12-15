@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserLayout } from '@layouts/auth-layout.component';
@@ -6,7 +6,6 @@ import { AuthService } from '@services/auth.service';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
@@ -117,14 +116,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class RecoveryPasswordPage {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  errorMessage!: string;
-  showModal = false;
-  loading = false;
+  public email = new FormControl('', [Validators.required, Validators.email]);
+  public errorMessage!: string;
+  public showModal = false;
+  public loading = false;
 
-  constructor(private authService: AuthService) {}
+  private authService = inject(AuthService);
 
-  onSubmit() {
+  public onSubmit() {
     if (this.email.invalid) {
       this.errorMessage = 'Correo electrónico no válido';
       return;

@@ -4,7 +4,6 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { NgStyle } from '@angular/common';
 
 @Component({
-  standalone: true,
   imports: [NgStyle, UserLayout, CustomTitleComponent],
   template: `
     <app-user-layout>

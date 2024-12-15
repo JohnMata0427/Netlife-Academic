@@ -3,7 +3,6 @@ import { CustomTitleComponent } from '@components/custom-title.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [CustomTitleComponent, CustomButtonComponent],
   template: `
     <section class="flex flex-col justify-start">
@@ -20,5 +19,5 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class TermsPage {
-  goBack = () => window.history.back();
+  public goBack = () => window.history.back();
 }

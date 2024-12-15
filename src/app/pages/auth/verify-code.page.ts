@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
@@ -6,7 +6,6 @@ import { UserLayout } from '@layouts/auth-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
@@ -101,25 +100,23 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class VerifyCodePage {
-  verificationCode = new FormControl('', [
+  public verificationCode = new FormControl('', [
     Validators.required,
     Validators.maxLength(6),
   ]);
-  errorMessage!: string;
-  token!: string;
-  loading = false;
+  public errorMessage!: string;
+  public loading = false;
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute,
-  ) {
-    this.activatedRoute.queryParams.subscribe(({ t }) => {
-      this.token = t;
-    });
+  token!: string;
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  private activatedRoute = inject(ActivatedRoute);
+
+  public ngOnInit() {
+    this.token = this.activatedRoute.snapshot.queryParams['t'];
   }
 
-  onSubmit(event: Event) {
+  public onSubmit(event: Event) {
     event.preventDefault();
     if (this.verificationCode.invalid) {
       this.errorMessage = 'Por favor, introduzca un código válido';
@@ -141,7 +138,7 @@ export class VerifyCodePage {
       });
   }
 
-  resendVerifyCode() {
+  public resendVerifyCode() {
     this.authService
       .recoveryPassword(localStorage.getItem('email')!)
       .subscribe({

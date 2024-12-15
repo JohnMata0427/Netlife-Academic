@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '@components/custom-button.component';
@@ -10,7 +10,6 @@ import { QuestionsLineComponent } from '@components/questions/question-line.comp
 import { FooterComponent } from '@components/footer.component';
 
 @Component({
-  standalone: true,
   imports: [
     NgStyle,
     CustomButtonComponent,
@@ -152,9 +151,7 @@ import { FooterComponent } from '@components/footer.component';
                 />
                 <app-checkbox-question
                   (click)="answersSelected[2] = 'B'"
-                  [question]="
-                    'Se expresa generalmente en notación hexadecimal.'
-                  "
+                  question="Se expresa generalmente en notación hexadecimal."
                   answer="B"
                 />
                 <app-checkbox-question
@@ -163,16 +160,12 @@ import { FooterComponent } from '@components/footer.component';
                   answer="C"
                 />
                 <app-checkbox-question
-                  [question]="
-                    'Las direcciones MAC cambian cada vez que se reinicia el dispositivo.'
-                  "
+                  question="Las direcciones MAC cambian cada vez que se reinicia el dispositivo."
                   answer="D"
                 />
                 <app-checkbox-question
                   (click)="answersSelected[2] = 'E'"
-                  [question]="
-                    'Una dirección MAC está compuesta por 10 dígitos decimales.'
-                  "
+                  question="Una dirección MAC está compuesta por 10 dígitos decimales."
                   answer="E"
                 />
               </div>
@@ -274,31 +267,27 @@ import { FooterComponent } from '@components/footer.component';
   `,
 })
 export class ExamenPage {
-  constructor(
-    public router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
+  public finish = false;
+  public numeroPregunta!: number;
+  public answersSelected = ['', '', '', '', ''];
+  public router = inject(Router);
+
+  private activatedRoute = inject(ActivatedRoute);
+  private minutosElement!: HTMLElement;
+  private segundosElement!: HTMLElement;
+  private fechaFinal!: number;
+
+  public ngOnInit() {
     this.activatedRoute.queryParams.subscribe(({ pregunta }) => {
       this.numeroPregunta = pregunta;
     });
-  }
-
-  finish = false;
-  numeroPregunta!: number;
-  answersSelected = ['', '', '', '', ''];
-
-  minutosElement!: HTMLElement;
-  segundosElement!: HTMLElement;
-  fechaFinal!: number;
-
-  ngOnInit() {
     this.fechaFinal = new Date(Date.now() + 600000).getTime();
     this.minutosElement = document.getElementById('minutos')!;
     this.segundosElement = document.getElementById('segundos')!;
     this.tiempoRestante();
   }
 
-  tiempoRestante() {
+  private tiempoRestante() {
     let tiempoRestante = this.fechaFinal - Date.now();
     let minuto = Math.floor(tiempoRestante / 60000)
       .toString()

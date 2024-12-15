@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 
 @Injectable({
@@ -8,14 +8,13 @@ import { environment } from '@environments/environment';
 
 export class AnnouncementService {
   private urlAPI = environment.BACKEND_URL;
+  private httpClient = inject(HttpClient);
 
-  constructor(private httpClient: HttpClient) {}
-
-  getAllAnnouncements() {
+  public getAllAnnouncements() {
     return this.httpClient.get(this.urlAPI + '/api/announcements');
   }
 
-  createAnnouncement(obj: any) {
+  public createAnnouncement(obj: any) {
     return this.httpClient.post(this.urlAPI + '/api/announcements', obj);
   }
 }

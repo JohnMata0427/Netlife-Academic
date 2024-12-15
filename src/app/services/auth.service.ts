@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { MessageResponse } from '@interfaces/message-response.interface';
 import { tap } from 'rxjs';
@@ -10,11 +10,10 @@ import { tap } from 'rxjs';
 
 export class AuthService {
   private urlAPI = environment.BACKEND_URL;
+  private httpClient = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
-
-  registerUser(user: any) {
-    return this.http
+  public registerUser(user: any) {
+    return this.httpClient
       .post<MessageResponse>(this.urlAPI + '/auth/register', user)
       .pipe(
         tap(({ token }) => {
@@ -23,10 +22,10 @@ export class AuthService {
       );
   }
 
-  loginUser(
+  public loginUser(
     loginData: Partial<{ email: string | null; password: string | null }>,
   ) {
-    return this.http
+    return this.httpClient
       .post<MessageResponse>(this.urlAPI + '/auth/login', loginData)
       .pipe(
         tap(({ token }) => {
@@ -35,46 +34,44 @@ export class AuthService {
       );
   }
 
-  recoveryPassword(email: string) {
-    return this.http.post<MessageResponse>(
+  public recoveryPassword(email: string) {
+    return this.httpClient.post<MessageResponse>(
       this.urlAPI + '/auth/recovery-password',
       { email },
     );
   }
 
-  verifyCode(verificationCode: string, token: string) {
-    return this.http.post<MessageResponse>(
+  public verifyCode(verificationCode: string, token: string) {
+    return this.httpClient.post<MessageResponse>(
       this.urlAPI + '/auth/verify-code',
       { verificationCode },
       { params: new HttpParams().set('token', token) },
     );
   }
 
-  newPassword(
+  public newPassword(
     changePassword: Partial<{
       password: string | null;
       confirmPassword: string | null;
     }>,
     token: string,
   ) {
-    return this.http.post<MessageResponse>(
+    return this.httpClient.post<MessageResponse>(
       this.urlAPI + '/auth/new-password',
       changePassword,
       { params: new HttpParams().set('token', token) },
     );
   }
 
-  isAuthenticated() {
+  public isAuthenticated() {
     const token = localStorage.getItem('token');
-
     if (!token) return false;
 
     return Date.now() < JSON.parse(atob(token.split('.')[1])).exp * 1000;
   }
 
-  getInfoUser() {
+  public getInfoUser() {
     const token = localStorage.getItem('token');
-
     if (!token) return null;
     
     return JSON.parse(atob(token.split('.')[1]));

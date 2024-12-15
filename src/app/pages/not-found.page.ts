@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout],
   template: ` <app-user-layout>
     <section class="flex h-screen flex-col items-center justify-center">

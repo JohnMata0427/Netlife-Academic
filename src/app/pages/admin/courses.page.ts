@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { CourseInfoComponent } from '@components/course-info.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
 import { AdminLayout } from '@layouts/admin-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [
-    CustomTitleComponent,
     CourseInfoComponent,
     AdminLayout,
     CustomButtonComponent,
@@ -43,11 +40,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             id="redes-de-computadoras"
             src="courses/redes.jpg"
             title="Redes de Computadoras"
+            teacher="Monica Jimenez"
           />
           <app-courseinfo-component
             id="inteligencia-artificial"
             src="courses/ia.png"
             title="Inteligencia Artificial"
+            teacher="Vanessa Guevara"
           />
         </div>
       </section>
@@ -106,17 +105,17 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class AdminCoursesPage {
-  mostrarModal = false;
-  imagePreview: string | ArrayBuffer | null = null;
-  image!: File;
+  public mostrarModal = false;
+  public imagePreview: string | ArrayBuffer | null = null;
+  // private image!: File;
 
-  onFileChange(event: any) {
+  public onFileChange(event: any) {
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader();
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => (this.imagePreview = reader.result);
-      this.image = file;
+      // this.image = file;
     }
   }
 }

@@ -1,12 +1,11 @@
-import { Component, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, input, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-line-question',
-  standalone: true,
   template: `
     <div class="ml-4 mt-4 flex gap-40">
       <ul #questionList class="flex select-none flex-col gap-2">
-        @for (question of questions; track $index) {
+        @for (question of questions(); track $index) {
           <li
             (click)="selectQuestion($index)"
             class="rounded-lg p-1 hover:bg-greenlight/50"
@@ -17,7 +16,7 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
         }
       </ul>
       <ul #answerList class="flex select-none flex-col gap-2">
-        @for (answer of answers; track $index) {
+        @for (answer of answers(); track $index) {
           <li
             (click)="selectAnswer($index)"
             class="rounded-lg p-1 hover:bg-greenlight/50"
@@ -44,39 +43,39 @@ import { Component, ViewChild, ElementRef, Input } from '@angular/core';
   `,
 })
 export class QuestionsLineComponent {
-  selectedQuestion: any = null;
-  selectedAnswer: any = null;
-  lines: any[] = [];
-  answersSelected: any[] = [];
+  private selectedQuestion: any = null;
+  private selectedAnswer: any = null;
+  public lines: any[] = [];
+  public answersSelected: any[] = [];
 
-  @Input() questions!: string[];
-  @Input() answers!: string[];
+  readonly questions = input.required<string[]>();
+  readonly answers = input.required<string[]>();
 
-  @ViewChild('questionList', { static: true }) questionList!: ElementRef;
-  @ViewChild('answerList', { static: true }) answerList!: ElementRef;
+  readonly questionList = viewChild.required<ElementRef>('questionList');
+  readonly answerList = viewChild.required<ElementRef>('answerList');
 
-  selectQuestion(question: any) {
-    this.questionList.nativeElement.children[question].classList.add(
+  public selectQuestion(question: any) {
+    this.questionList().nativeElement.children[question].classList.add(
       'bg-greenlight',
     );
     this.selectedQuestion = question + 1;
     this.checkSelection();
   }
 
-  selectAnswer(answer: any) {
-    this.answerList.nativeElement.children[answer].classList.add(
+  public selectAnswer(answer: any) {
+    this.answerList().nativeElement.children[answer].classList.add(
       'bg-greenlight',
     );
     this.selectedAnswer = answer + 1;
     this.checkSelection();
   }
 
-  checkSelection() {
+  private checkSelection() {
     if (this.selectedQuestion && this.selectedAnswer) {
       const questionElement =
-        this.questionList.nativeElement.children[this.selectedQuestion - 1];
+        this.questionList().nativeElement.children[this.selectedQuestion - 1];
       const answerElement =
-        this.answerList.nativeElement.children[this.selectedAnswer - 1];
+        this.answerList().nativeElement.children[this.selectedAnswer - 1];
 
       const questionRect = questionElement.getBoundingClientRect();
       const answerRect = answerElement.getBoundingClientRect();

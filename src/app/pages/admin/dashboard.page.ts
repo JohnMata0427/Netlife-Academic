@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AdminLayout } from '@layouts/admin-layout.component';
 import { UserService } from '@services/user.service';
 import { User } from '@interfaces/user.interface';
 
-import { FooterComponent } from '@components/footer.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  standalone: true,
   imports: [
     AdminLayout,
-
-    FooterComponent,
     CustomButtonComponent,
     ReactiveFormsModule,
   ],
@@ -194,21 +190,21 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   `,
 })
 export class AdminDashboardPage {
-  users!: User[];
-  selectedButton!: string;
-  email = new FormControl('', Validators.required);
-  role = new FormControl('STUDENT');
-  message!: string;
+  public users!: User[];
+  public selectedButton!: string;
+  public email = new FormControl('', Validators.required);
+  public role = new FormControl('STUDENT');
+  public message!: string;
 
-  constructor(private userService: UserService) {}
+  private userService = inject(UserService);
 
-  ngOnInit() {
+  public ngOnInit() {
     this.userService.getAllUsers().subscribe({
       next: (result) => (this.users = result),
     });
   }
 
-  createUser() {
+  public createUser() {
     this.userService.createUser(this.email.value!, this.role.value!).subscribe({
       next: (result) => {
         this.message = 'Usuario creado con éxito';
@@ -226,7 +222,7 @@ export class AdminDashboardPage {
     });
   }
 
-  blockUser() {
+  public blockUser() {
     this.userService.blockUser(this.email.value!).subscribe({
       next: () => {
         this.message = 'Usuario bloqueado con éxito';

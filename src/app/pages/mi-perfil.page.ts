@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { User } from '@interfaces/user.interface';
@@ -8,7 +8,6 @@ import { UserLayout } from '@layouts/user-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [UserLayout, CustomButtonComponent],
   template: `
     <app-user-layout>
@@ -100,18 +99,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class MiPerfilPage {
-  selectedButton = 'sobre-mi';
-  user!: User;
-  date!: string;
-  birthdate!: string;
+  public selectedButton = 'sobre-mi';
+  public user!: User;
+  public date!: string;
+  public birthdate!: string;
+  public router = inject(Router);
 
-  constructor(
-    private authService: AuthService,
-    private userService: UserService,
-    public router: Router,
-  ) {}
+  private authService = inject(AuthService);
+  private userService = inject(UserService);
 
-  ngOnInit() {
+  public ngOnInit() {
     this.userService.getUserById(this.authService.getInfoUser().sub).subscribe({
       next: (result) => {
         this.user = result;

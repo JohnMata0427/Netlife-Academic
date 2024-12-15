@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  standalone: true,
-  imports: [],
   selector: 'app-slider-component',
   template: `
     <div class="relative hidden max-h-[58vh] w-full">
@@ -36,24 +34,24 @@ import { Component } from '@angular/core';
   `,
 })
 export class SliderComponent {
-  images = [
+  readonly images = [
     '/banner.webp',
     'https://as2.ftcdn.net/v2/jpg/03/65/94/79/1000_F_365947947_nBv9Yct5WRbpGrW4mb2UcsuJhVEPIDtw.jpg',
     'https://www.placementpreparation.io/blog/wp-content/uploads/2024/05/cyber-security-course-desktop-banner-horizontal.webp',
   ];
-  slide = 0;
+  public slide = 0;
 
-  ngOnInit() {
+  public ngOnInit() {
     setInterval(() => {
       this.nextSlide();
     }, 5000);
   }
 
-  nextSlide() {
+  public nextSlide() {
     this.slide = (this.slide + 1) % this.images.length;
   }
 
-  prevSlide() {
+  public prevSlide() {
     this.slide = (this.slide - 1 + this.images.length) % this.images.length;
   }
 }

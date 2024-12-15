@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
@@ -7,7 +7,6 @@ import { UserLayout } from '@layouts/auth-layout.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
-  standalone: true,
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
     <app-auth-layout>
@@ -94,23 +93,21 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class LoginPage {
-  form = new FormGroup({
+  public form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
     ]),
   });
-  loading = false;
-  errorMessage!: string;
-  isPasswordVisible = false;
+  public loading = false;
+  public errorMessage!: string;
+  public isPasswordVisible = false;
 
-  constructor(
-    private route: Router,
-    private authService: AuthService,
-  ) {}
+  private route = inject(Router);
+  private authService = inject(AuthService);
 
-  onSubmit() {
+  public onSubmit() {
     if (this.form.invalid) {
       this.errorMessage = 'Por favor, completa los campos correctamente';
       return;

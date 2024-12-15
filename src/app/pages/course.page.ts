@@ -1,12 +1,11 @@
 import { NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import { CustomTitleComponent } from '@components/custom-title.component';
 import { UserLayout } from '@layouts/user-layout.component';
 
 @Component({
-  standalone: true,
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
   template: `
     <app-user-layout>
@@ -464,8 +463,7 @@ import { UserLayout } from '@layouts/user-layout.component';
   `,
 })
 export class CoursePage {
-  selectedButton = 'Módulo 1';
-  modules = [1, 2, 3, 4, 5, 6, 7];
-
-  constructor(public router: Router) {}
+  public selectedButton = 'Módulo 1';
+  public modules = [1, 2, 3, 4, 5, 6, 7];
+  public router = inject(Router);
 }

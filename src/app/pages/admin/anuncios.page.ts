@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AdminLayout } from '@layouts/admin-layout.component';
-
-import { FooterComponent } from '@components/footer.component';
 import { CustomButtonComponent } from '@components/custom-button.component';
 import {
   FormControl,
@@ -16,11 +14,8 @@ import {
 import { AnnouncementService } from '@services/announcement.service';
 
 @Component({
-  standalone: true,
   imports: [
     AdminLayout,
-
-    FooterComponent,
     CustomButtonComponent,
     ReactiveFormsModule,
     AngularEditorModule,
@@ -186,7 +181,7 @@ import { AnnouncementService } from '@services/announcement.service';
   `,
 })
 export class AdminAnunciosPage {
-  form = new FormGroup({
+  public form = new FormGroup({
     content: new FormControl('', Validators.required),
     subject: new FormControl('', Validators.required),
     type: new FormControl('info', Validators.required),
@@ -198,11 +193,10 @@ export class AdminAnunciosPage {
     publishHome: new FormControl(false, Validators.required),
     deletedAt: new FormControl(''),
   });
-  message!: string;
+  public message!: string;
+  private announcementSerice = inject(AnnouncementService);
 
-  constructor(private announcementSerice: AnnouncementService) {}
-
-  onSubmit() {
+  public onSubmit() {
     if (this.form.invalid) {
       this.message = 'Por favor, complete todos los campos';
       setTimeout(() => {
@@ -228,7 +222,7 @@ export class AdminAnunciosPage {
     });
   }
 
-  editorConfig: AngularEditorConfig = {
+  public editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
     height: 'auto',

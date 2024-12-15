@@ -1,21 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CustomButtonComponent } from '@components/custom-button.component';
 
 @Component({
   selector: 'app-certificado-component',
-  standalone: true,
   imports: [CustomButtonComponent],
   template: `
     <article
       class="w-64 rounded-lg shadow-md shadow-black/50 first:rounded-t-lg last:rounded-b-lg"
     >
-      <a href="/mis-cursos/{{ id }}">
-        <img class="h-32 w-full" [src]="src" [alt]="title" />
+      <a href="/mis-cursos/{{ id() }}">
+        <img class="h-32 w-full" [src]="src()" [alt]="title()" />
       </a>
 
       <div class="flex flex-col gap-2 bg-black px-4 py-3">
         <h3 class="text-center text-sm text-white">
-          Certificado de {{ title }}
+          Certificado de {{ title() }}
         </h3>
         <div class="relative flex justify-center gap-4">
           <app-button-component
@@ -108,7 +107,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <img
               class="size-full object-contain"
               src="/certificate.png"
-              alt="Certificado de {{ title }}"
+              alt="Certificado de {{ title() }}"
             />
           </div>
         </div>
@@ -121,9 +120,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
   `,
 })
 export class CertificadoComponent {
-  @Input() title!: string;
-  @Input() src!: string;
-  @Input() id!: string;
-  showCertificate = false;
-  showShare = false;
+  readonly title = input.required<string>();
+  readonly src = input.required<string>();
+  readonly id = input.required<string>();
+  public showCertificate = false;
+  public showShare = false;
 }
