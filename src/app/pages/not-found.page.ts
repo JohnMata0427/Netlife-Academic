@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '@layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user-layout.component';
 
 @Component({
   imports: [UserLayout],
   template: ` <app-user-layout>
     <section class="flex h-screen flex-col items-center justify-center">
-      <h1 class="text-4xl font-bold text-primary">404</h1>
-      <h2 class="text-2xl font-bold text-primary">Página no encontrada</h2>
+      <h1 class="text-primary text-4xl font-bold">404</h1>
+      <h2 class="text-primary text-2xl font-bold">Página no encontrada</h2>
       <p class="mt-4 text-center">
         Lo sentimos, la página que buscas no existe. Por favor, verifica la URL
         e intenta de nuevo.

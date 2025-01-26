@@ -1,17 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '@services/auth.service';
+import { AuthService } from '@/services/auth.service';
 import { Router } from '@angular/router';
-import { UserLayout } from '@layouts/auth-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserLayout } from '@/layouts/auth-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
   template: `
     <app-auth-layout>
       <img
-        class="absolute left-0 top-0 w-52 rounded-br-2xl"
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
@@ -90,7 +90,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.value !== form.get('confirmEmail')?.value) {
-          <p class="px-4 text-xs text-tertiary">Los correos no coinciden</p>
+          <p class="text-tertiary px-4 text-xs">Los correos no coinciden</p>
         }
 
         <div class="relative">
@@ -166,7 +166,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         @if (
           form.get('password')?.value !== form.get('confirmPassword')?.value
         ) {
-          <p class="px-4 text-xs text-tertiary">Las contraseñas no coinciden</p>
+          <p class="text-tertiary px-4 text-xs">Las contraseñas no coinciden</p>
         }
 
         <span class="text-xs font-semibold text-gray-500"
@@ -203,7 +203,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <label class="cursor-default text-xs" for="terms"
             >Aceptas los
             <a
-              class="font-medium text-primary hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/terms-and-conditions"
               >términos y condiciones</a
             ></label
@@ -211,7 +211,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="px-4 text-center text-xs text-tertiary">
+          <p class="text-tertiary px-4 text-center text-xs">
             {{ errorMessage }}
           </p>
         }
@@ -224,12 +224,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
 
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
-          <a class="font-medium text-primary hover:underline" href="/auth/login"
+          <a class="text-primary font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
         <a
-          class="text-center text-xs font-medium text-primary hover:underline"
+          class="text-primary text-center text-xs font-medium hover:underline"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >
@@ -262,7 +262,7 @@ export class RegistroPage {
 
   private route = inject(Router);
   private authService = inject(AuthService);
-  
+
   public onSubmit() {
     if (this.form.invalid) {
       this.errorMessage = this.form.value.terms

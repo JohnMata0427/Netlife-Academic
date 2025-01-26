@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '@services/user.service';
-import { User } from '@interfaces/user.interface';
-import { AuthService } from '@services/auth.service';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserService } from '@/services/user.service';
+import { User } from '@/interfaces/user.interface';
+import { AuthService } from '@/services/auth.service';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
@@ -19,7 +19,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             hoverColor="black"
             text="Cambiar el fondo"
             moreStyles="gap-2"
-            class="absolute right-3 top-3"
+            class="absolute top-3 right-3"
           >
             <svg class="z-10 size-7" viewBox="0 0 29 29">
               <path
@@ -48,7 +48,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             />
 
             <div
-              class="group absolute bottom-3 right-16 grid size-12 cursor-pointer place-content-center overflow-hidden rounded-full border border-black bg-black shadow-2xl before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:w-0 before:bg-white before:duration-500 hover:shadow-white hover:before:left-0 hover:before:w-full"
+              class="group absolute right-16 bottom-3 grid size-12 cursor-pointer place-content-center overflow-hidden rounded-full border border-black bg-black shadow-2xl before:absolute before:top-0 before:bottom-0 before:left-0 before:z-0 before:w-0 before:bg-white before:duration-500 hover:shadow-white hover:before:left-0 hover:before:w-full"
             >
               <svg class="z-10 size-7" viewBox="0 0 29 21">
                 <path
@@ -60,13 +60,13 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </label>
         </div>
       </div>
-      <section class="mt-28 flex justify-center p-8 lg:ml-16 lg:mt-2">
+      <section class="mt-28 flex justify-center p-8 lg:mt-2 lg:ml-16">
         <form
           [formGroup]="form"
           (ngSubmit)="onSubmit()"
           class="flex flex-col lg:w-1/2"
         >
-          <h1 class="text-2xl font-semibold text-primary">Datos generales</h1>
+          <h1 class="text-primary text-2xl font-semibold">Datos generales</h1>
           <div class="mt-5 flex w-full gap-5">
             <div class="flex w-1/2 flex-col">
               <label for="">Nombre</label>
@@ -205,7 +205,7 @@ export class ActualizarPerfilPage {
   public cancel = false;
   public loading = false;
   public user!: User;
-  
+
   private id!: string;
   private image!: File;
   private router = inject(Router);

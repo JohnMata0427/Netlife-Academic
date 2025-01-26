@@ -1,31 +1,31 @@
 import { Routes } from '@angular/router';
 
-import { RegistroPage } from '@pages/auth/registro.page';
-import { LoginPage } from '@pages/auth/login.page';
-import { HomePage } from '@pages/home.page';
-import { RecoveryPasswordPage } from '@pages/auth/recovery-password.page';
-import { VerifyCodePage } from '@pages/auth/verify-code.page';
-import { NewPasswordPage } from '@pages/auth/new-password.page';
-import { MisCursosPage } from '@pages/mis-cursos.page';
-import { MiPerfilPage } from '@pages/mi-perfil.page';
-import { CoursePage } from '@pages/course.page';
-import { ActualizarPerfilPage } from '@pages/actualizar-perfil.page';
-import { MisCertificadosPage } from '@pages/mis-certificados.page';
-import { AdminDashboardPage } from '@pages/admin/dashboard.page';
-import { AdminAnunciosPage } from '@pages/admin/anuncios.page';
-import { NotFoundPage } from '@pages/not-found.page';
-import { TermsPage } from '@pages/auth/terms.page';
-import { ExamenPage } from '@pages/examen.page';
-import { GradePage } from '@pages/grade.page';
-import { VirtualCoursePage } from '@pages/virtual-course.page';
-import { VideoCoursePage } from '@pages/video-course.page';
-import { AdminCoursesPage } from '@pages/admin/courses.page';
-import { AdminCertificatesPage } from '@pages/admin/certificates.page';
+import { RegistroPage } from '@/pages/auth/registro.page';
+import { LoginPage } from '@/pages/auth/login.page';
+import { HomePage } from '@/pages/home.page';
+import { RecoveryPasswordPage } from '@/pages/auth/recovery-password.page';
+import { VerifyCodePage } from '@/pages/auth/verify-code.page';
+import { NewPasswordPage } from '@/pages/auth/new-password.page';
+import { MisCursosPage } from '@/pages/mis-cursos.page';
+import { MiPerfilPage } from '@/pages/mi-perfil.page';
+import { CoursePage } from '@/pages/course.page';
+import { ActualizarPerfilPage } from '@/pages/actualizar-perfil.page';
+import { MisCertificadosPage } from '@/pages/mis-certificados.page';
+import { AdminDashboardPage } from '@/pages/admin/dashboard.page';
+import { AdminAnunciosPage } from '@/pages/admin/anuncios.page';
+import { NotFoundPage } from '@/pages/not-found.page';
+import { TermsPage } from '@/pages/auth/terms.page';
+import { ExamenPage } from '@/pages/examen.page';
+import { GradePage } from '@/pages/grade.page';
+import { VirtualCoursePage } from '@/pages/virtual-course.page';
+import { VideoCoursePage } from '@/pages/video-course.page';
+import { AdminCoursesPage } from '@/pages/admin/courses.page';
+import { AdminCertificatesPage } from '@/pages/admin/certificates.page';
 
-import { authGuard } from '@guards/required-auth.guard';
-import { noAuthGuard } from '@guards/no-required-auth.guard';
-import { adminGuard } from '@guards/required-admin.guard';
-import { requiredCodeGuard } from '@guards/required-code.guard';
+import { authGuard } from '@/guards/required-auth.guard';
+import { noAuthGuard } from '@/guards/no-required-auth.guard';
+import { adminGuard } from '@/guards/required-admin.guard';
+import { requiredCodeGuard } from '@/guards/required-code.guard';
 
 export const routes: Routes = [
   {

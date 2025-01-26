@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomTitleComponent } from '@/components/custom-title.component';
 
 @Component({
   imports: [UserLayout, CustomTitleComponent],
@@ -29,7 +29,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
                 <td>8/10</td>
                 <td>
                   <button
-                    class="rounded-lg bg-greenlight px-7 py-1 text-xs font-bold hover:bg-greenlight/50"
+                    class="bg-greenlight hover:bg-greenlight/50 rounded-lg px-7 py-1 text-xs font-bold"
                   >
                     Revisión de la prueba
                   </button>
@@ -43,5 +43,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
   `,
 })
 export class GradePage {
-  public date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(Date.now());
+  public date = Intl.DateTimeFormat('es-EC', { dateStyle: 'full' }).format(
+    Date.now(),
+  );
 }

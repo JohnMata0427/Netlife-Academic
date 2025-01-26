@@ -1,9 +1,9 @@
 import { NgStyle } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomButtonComponent } from '@components/custom-button.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
-import { UserLayout } from '@layouts/user-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
+import { CustomTitleComponent } from '@/components/custom-title.component';
+import { UserLayout } from '@/layouts/user-layout.component';
 
 @Component({
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
@@ -22,7 +22,7 @@ import { UserLayout } from '@layouts/user-layout.component';
             REDES DE COMPUTADORAS
           </h1>
           <div
-            class="my-4 w-32 rounded-lg bg-greenlight px-4 py-1.5 text-center text-sm font-bold text-neutral-800"
+            class="bg-greenlight my-4 w-32 rounded-lg px-4 py-1.5 text-center text-sm font-bold text-neutral-800"
           >
             En progreso
           </div>
@@ -66,10 +66,10 @@ import { UserLayout } from '@layouts/user-layout.component';
       </div>
 
       <section class="mt-8 flex items-center justify-center gap-4">
-        <div class="h-5 w-5/6 rounded bg-quinary">
+        <div class="bg-quinary h-5 w-5/6 rounded">
           <div
             [ngStyle]="{ 'width.%': '50' }"
-            class="h-full rounded-l bg-gradient-to-r from-secondary via-tertiary to-quaternary"
+            class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
           ></div>
         </div>
         <h4 class="text-sm">50% Progreso</h4>
@@ -110,10 +110,10 @@ import { UserLayout } from '@layouts/user-layout.component';
           <app-title-component title="Docente del Curso" />
           <div class="mx-16 flex items-center gap-10">
             <div
-              class="relative flex h-32 w-1/2 items-center gap-4 rounded-lg bg-quinary p-2 pr-8 shadow-sm shadow-black/30"
+              class="bg-quinary relative flex h-32 w-1/2 items-center gap-4 rounded-lg p-2 pr-8 shadow-sm shadow-black/30"
             >
               <img
-                class="absolute left-3 top-3 size-12"
+                class="absolute top-3 left-3 size-12"
                 src="/presentation-border-1.svg"
                 alt=""
               />
@@ -133,12 +133,12 @@ import { UserLayout } from '@layouts/user-layout.component';
                 >
               </div>
               <img
-                class="absolute bottom-3 right-3 size-12"
+                class="absolute right-3 bottom-3 size-12"
                 src="/presentation-border-2.svg"
                 alt=""
               />
             </div>
-            <div class="w-1/2 rounded-lg bg-orangelight p-4 text-sm">
+            <div class="bg-orangelight w-1/2 rounded-lg p-4 text-sm">
               ¡Hola a todos! Soy <strong>Monica Jimenez</strong>, y seré su
               instructora para este curso. Estoy emocionada de acompañarlos en
               este viaje de aprendizaje sobre redes de computadoras. Juntos
@@ -153,12 +153,12 @@ import { UserLayout } from '@layouts/user-layout.component';
           <app-title-component title="Información del Curso" />
           <div class="my-10 flex justify-center gap-8">
             <div
-              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+              class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
             >
               <div
-                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+                class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
               >
-                <h3 class="text-xs font-light italic text-white">Objetivos</h3>
+                <h3 class="text-xs font-light text-white italic">Objetivos</h3>
               </div>
               <div class="p-3">
                 <p class="text-sm">
@@ -174,12 +174,12 @@ import { UserLayout } from '@layouts/user-layout.component';
               </div>
             </div>
             <div
-              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+              class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
             >
               <div
-                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+                class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
               >
-                <h3 class="text-xs font-light italic text-white">Destrezas</h3>
+                <h3 class="text-xs font-light text-white italic">Destrezas</h3>
               </div>
               <div class="p-3">
                 <p class="text-sm">
@@ -195,12 +195,12 @@ import { UserLayout } from '@layouts/user-layout.component';
               </div>
             </div>
             <div
-              class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+              class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
             >
               <div
-                class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+                class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
               >
-                <h3 class="text-xs font-light italic text-white">
+                <h3 class="text-xs font-light text-white italic">
                   Valores y Actitudes
                 </h3>
               </div>
@@ -248,7 +248,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <section>
           <app-title-component title="Tema de la Clase" />
           <div
-            class="relative ml-16 mt-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
+            class="relative mt-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +265,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         <section class="mb-10 flex flex-col">
           <app-title-component title="Pruebas" />
           <button
-            class="mx-16 flex h-16 items-center justify-between border-l-8 border-primary bg-quinary pl-4"
+            class="border-primary bg-quinary mx-16 flex h-16 items-center justify-between border-l-8 pl-4"
           >
             <div class="flex gap-4">
               <img
@@ -319,11 +319,11 @@ import { UserLayout } from '@layouts/user-layout.component';
         <app-title-component title="Obtencion del certificado" />
         <p class="ml-16">
           ¡Felicidades por completar el curso! Ahora,
-          <span class="font-bold text-primary">obtén tu certificado</span> y
+          <span class="text-primary font-bold">obtén tu certificado</span> y
           demuestra tus nuevas habilidades al mundo.
         </p>
 
-        <button class="ml-16 mt-4 flex gap-4">
+        <button class="mt-4 ml-16 flex gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -340,10 +340,10 @@ import { UserLayout } from '@layouts/user-layout.component';
               d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
             />
           </svg>
-          <span class="font-bold text-primary">Certificado del curso</span>
+          <span class="text-primary font-bold">Certificado del curso</span>
         </button>
         <app-title-component title="Comentario personal" />
-        <textarea class="mx-16 h-20 rounded-lg bg-quinary"></textarea>
+        <textarea class="bg-quinary mx-16 h-20 rounded-lg"></textarea>
         <app-button-component
           color="orange"
           text="Guardar comentario"
@@ -367,7 +367,7 @@ import { UserLayout } from '@layouts/user-layout.component';
         </div>
         <app-title-component title="Material del módulo" />
         <button
-          class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
+          class="border-primary bg-quinary mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 pl-4 sm:mx-16"
         >
           <div class="flex items-center gap-4">
             <img
@@ -390,7 +390,7 @@ import { UserLayout } from '@layouts/user-layout.component';
           </svg>
         </button>
         <button
-          class="mx-8 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
+          class="border-primary bg-quinary mx-8 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 pl-4 sm:mx-16"
         >
           <div class="flex items-center gap-4">
             <img
@@ -424,7 +424,7 @@ import { UserLayout } from '@layouts/user-layout.component';
 
         <app-title-component title="Tareas asignadas" />
         <button
-          class="mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 border-primary bg-quinary pl-4 sm:mx-16"
+          class="border-primary bg-quinary mx-8 mb-4 flex h-16 w-[90%] items-center justify-between rounded-r-lg border-l-8 pl-4 sm:mx-16"
         >
           <div class="flex items-center gap-4">
             <img

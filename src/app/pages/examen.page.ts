@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomButtonComponent } from '@components/custom-button.component';
-import { QuestionsComponent } from '@components/questions/question.component';
-import { QuestionsSelectComponent } from '@components/questions/question-select.component';
-import { QuestionsCheckboxComponent } from '@components/questions/question-checkbox.component';
-import { QuestionsBooleanComponent } from '@components/questions/question-boolean.component';
-import { QuestionsLineComponent } from '@components/questions/question-line.component';
-import { FooterComponent } from '@components/footer.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
+import { QuestionsComponent } from '@/components/questions/question.component';
+import { QuestionsSelectComponent } from '@/components/questions/question-select.component';
+import { QuestionsCheckboxComponent } from '@/components/questions/question-checkbox.component';
+import { QuestionsBooleanComponent } from '@/components/questions/question-boolean.component';
+import { QuestionsLineComponent } from '@/components/questions/question-line.component';
+import { FooterComponent } from '@/components/footer.component';
 
 @Component({
   imports: [
@@ -30,7 +30,7 @@ import { FooterComponent } from '@components/footer.component';
       </h1>
     </header>
     <main>
-      <div class="mx-16 mb-7 mt-12 h-4 rounded-lg bg-quinary">
+      <div class="bg-quinary mx-16 mt-12 mb-7 h-4 rounded-lg">
         <div
           [ngStyle]="{ 'width.%': (numeroPregunta / 5) * 100 }"
           class="h-full bg-gradient-to-r from-greenlight to-green-500 rounded-l-lg {{
@@ -42,20 +42,20 @@ import { FooterComponent } from '@components/footer.component';
         <div class="flex flex-col gap-4 md:w-1/4">
           <div class="flex justify-center gap-4">
             <div
-              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4"
+              class="bg-orangelight flex w-1/2 flex-col items-center rounded-lg p-4"
             >
               <h2 class="font-bold">Pregunta</h2>
               <span>{{ numeroPregunta }}/5</span>
             </div>
             <div
-              class="flex w-1/2 flex-col items-center rounded-lg bg-orangelight p-4 text-center"
+              class="bg-orangelight flex w-1/2 flex-col items-center rounded-lg p-4 text-center"
             >
               <h3 class="font-bold">Puntuación</h3>
               <span>5 puntos</span>
             </div>
           </div>
           <div
-            class="flex items-center justify-center gap-2 rounded-lg bg-tertiary p-2 text-white"
+            class="bg-tertiary flex items-center justify-center gap-2 rounded-lg p-2 text-white"
           >
             <span>Tiempo restante:</span>
             <strong>
@@ -65,7 +65,7 @@ import { FooterComponent } from '@components/footer.component';
         </div>
         <div class="flex flex-col md:w-4/5">
           <div
-            class="flex h-80 w-full flex-col gap-4 rounded-lg border border-quinary p-4"
+            class="border-quinary flex h-80 w-full flex-col gap-4 rounded-lg border p-4"
           >
             @if (numeroPregunta == 1) {
               <h2>1. Cual de las siguientes metricas representa a RIP v1</h2>
@@ -226,7 +226,7 @@ import { FooterComponent } from '@components/footer.component';
           <svg
             xmlns="http://www.w3.org/2000/svg"
             (click)="finish = false"
-            class="absolute -right-7 -top-7 z-50 size-4 cursor-pointer"
+            class="absolute -top-7 -right-7 z-50 size-4 cursor-pointer"
             viewBox="0 0 273 273"
           >
             <path
@@ -235,7 +235,7 @@ import { FooterComponent } from '@components/footer.component';
             />
           </svg>
           <div
-            class="flex flex-col items-center gap-4 rounded-lg bg-orangelight px-8 py-4"
+            class="bg-orangelight flex flex-col items-center gap-4 rounded-lg px-8 py-4"
           >
             <span class="text-center text-sm font-light"
               >Muy bien, has terminado un desafío más para tu aprendizaje.</span

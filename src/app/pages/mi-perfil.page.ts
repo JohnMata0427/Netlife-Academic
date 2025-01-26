@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@services/auth.service';
-import { User } from '@interfaces/user.interface';
-import { UserService } from '@services/user.service';
+import { AuthService } from '@/services/auth.service';
+import { User } from '@/interfaces/user.interface';
+import { UserService } from '@/services/user.service';
 
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [UserLayout, CustomButtonComponent],
@@ -39,7 +39,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
       </div>
       <section
-        class="mx-16 mt-72 flex flex-col items-center md:ml-[360px] md:mt-4"
+        class="mx-16 mt-72 flex flex-col items-center md:mt-4 md:ml-[360px]"
       >
         <div class="flex w-full gap-1">
           <app-button-component

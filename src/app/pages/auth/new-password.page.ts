@@ -5,17 +5,17 @@ import {
   Validators,
   FormGroup,
 } from '@angular/forms';
-import { UserLayout } from '@layouts/auth-layout.component';
-import { AuthService } from '@services/auth.service';
+import { UserLayout } from '@/layouts/auth-layout.component';
+import { AuthService } from '@/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
       <img
-        class="absolute left-0 top-0 w-52 rounded-br-2xl"
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
@@ -53,7 +53,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('password')?.value && form.get('password')?.invalid) {
-          <p class="px-4 text-xs text-tertiary">
+          <p class="text-tertiary px-4 text-xs">
             La contraseña debe tener minimo 8 caracteres
           </p>
         }
@@ -84,11 +84,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="px-4 text-xs text-tertiary">{{ errorMessage }}</p>
+          <p class="text-tertiary px-4 text-xs">{{ errorMessage }}</p>
         } @else if (
           form.get('confirmPassword')?.value !== form.get('password')?.value
         ) {
-          <p class="px-4 text-xs text-tertiary">Las contraseñas no coinciden</p>
+          <p class="text-tertiary px-4 text-xs">Las contraseñas no coinciden</p>
         }
 
         <app-button-component
@@ -99,14 +99,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="font-medium text-primary hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
         <span class="text-center text-xs"
           >¿Tienes cuenta?
-          <a class="font-medium text-primary hover:underline" href="/auth/login"
+          <a class="text-primary font-medium hover:underline" href="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >

@@ -4,13 +4,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@interfaces/*": ["./src/app/interfaces/*"],
-      "@services/*": ["./src/app/services/*"],
-      "@components/*": ["./src/app/components/*"],
-      "@environments/*": ["./src/environments/*"],
-      "@layouts/*": ["./src/app/layouts/*"],
-      "@pages/*": ["./src/app/pages/*"],
-      "@guards/*": ["./src/app/guards/*"]
+      "@/*": ["./src/app/*"],
+      "@/environments/*": ["./src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
@@ -19,22 +14,18 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "sourceMap": true,
-    "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"]
+    "module": "ES2022"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "strictStandalone": true
+    "strictTemplates": true
   }
 }

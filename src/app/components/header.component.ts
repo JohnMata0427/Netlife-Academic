@@ -1,8 +1,9 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@services/auth.service';
-import { UserService } from '@services/user.service';
+import { AuthService } from '@/services/auth.service';
+import { UserService } from '@/services/user.service';
+
 @Component({
   selector: 'app-header-component',
   template: `

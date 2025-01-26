@@ -10,7 +10,7 @@ import '@justinribeiro/lite-youtube';
         class="bg-auth hidden w-3/5 bg-cover bg-center bg-no-repeat sm:flex sm:items-center sm:justify-center"
       >
         <div class="flex w-3/4">
-          <lite-youtube class="rounded-xl" videoid="m9lp16bzjmU"></lite-youtube>
+          <lite-youtube class="rounded-xl" videoid="STRX58eJDag"></lite-youtube>
         </div>
       </div>
       <div

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { AdminLayout } from '@layouts/admin-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { AdminLayout } from '@/layouts/admin-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 import {
   FormControl,
   FormGroup,
@@ -11,7 +11,7 @@ import {
   AngularEditorConfig,
   AngularEditorModule,
 } from '@kolkov/angular-editor';
-import { AnnouncementService } from '@services/announcement.service';
+import { AnnouncementService } from '@/services/announcement.service';
 
 @Component({
   imports: [
@@ -22,7 +22,7 @@ import { AnnouncementService } from '@services/announcement.service';
   ],
   template: `
     <app-admin-layout>
-      <h1 class="text-2xl font-bold text-primary">Configuración del Anuncio</h1>
+      <h1 class="text-primary text-2xl font-bold">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
         <form
           [formGroup]="form"
@@ -34,7 +34,7 @@ import { AnnouncementService } from '@services/announcement.service';
               id="subject"
               name="subject"
               formControlName="subject"
-              class="rounded-lg border border-quinary p-1 text-sm"
+              class="border-quinary rounded-lg border p-1 text-sm"
               type="text"
               required
             />
@@ -42,7 +42,7 @@ import { AnnouncementService } from '@services/announcement.service';
             <angular-editor
               formControlName="content"
               [config]="editorConfig"
-              class="rounded-lg border border-quinary p-1 text-sm"
+              class="border-quinary rounded-lg border p-1 text-sm"
               required
             />
           </div>
@@ -54,7 +54,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="type"
               id="type"
               name="type"
-              class="rounded-lg border border-quinary p-1 text-sm"
+              class="border-quinary rounded-lg border p-1 text-sm"
               required
             >
               <option value="info">Información o aviso</option>
@@ -67,7 +67,7 @@ import { AnnouncementService } from '@services/announcement.service';
               name="role"
               id="role"
               name="role"
-              class="rounded-lg border border-quinary p-1 text-sm"
+              class="border-quinary rounded-lg border p-1 text-sm"
               required
             >
               <option value="ALL">Todos</option>
@@ -85,7 +85,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
               Excluir a usuarios
             </label>
@@ -102,7 +102,7 @@ import { AnnouncementService } from '@services/announcement.service';
               formControlName="state"
               name="state"
               id="state"
-              class="rounded-lg border border-quinary p-1 text-sm"
+              class="border-quinary rounded-lg border p-1 text-sm"
               required
             >
               <option value="all">Todos</option>
@@ -119,7 +119,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
               Excluir a usuarios invitados
             </label>
@@ -134,7 +134,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
               Enviar por correo electrónico </label
             ><label class="relative inline-flex cursor-pointer items-center">
@@ -147,7 +147,7 @@ import { AnnouncementService } from '@services/announcement.service';
               />
               <label for="switch-3" class="hidden"></label>
               <div
-                class="peer h-6 w-11 rounded-full border bg-slate-400 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-quinary after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"
+                class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
               Envío a la Pantalla Principal/Inicio del aplicativo
             </label>
@@ -156,7 +156,7 @@ import { AnnouncementService } from '@services/announcement.service';
                 >Fecha de caducidad del anuncio</label
               >
               <input
-                class="rounded-lg border border-quinary p-1 text-sm"
+                class="border-quinary rounded-lg border p-1 text-sm"
                 type="datetime-local"
                 formControlName="deletedAt"
                 name="deletedAt"

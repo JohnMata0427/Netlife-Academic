@@ -1,26 +1,26 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserLayout } from '@layouts/auth-layout.component';
-import { AuthService } from '@services/auth.service';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserLayout } from '@/layouts/auth-layout.component';
+import { AuthService } from '@/services/auth.service';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
       <img
-        class="absolute left-0 top-0 w-52 rounded-br-2xl"
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
       @if (showModal) {
-        <div class="relative z-50 flex w-96 animate-zoom-in items-center">
+        <div class="animate-zoom-in relative z-50 flex w-96 items-center">
           <div
             class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
           >
             <h3
-              class="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-center text-xl font-bold text-transparent"
+              class="from-primary via-secondary to-primary bg-gradient-to-r bg-clip-text text-center text-xl font-bold text-transparent"
             >
               Revisa tu correo electrónico
             </h3>
@@ -78,11 +78,11 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           @if (email.value && email.invalid) {
-            <p class="px-4 text-xs text-tertiary">
+            <p class="text-tertiary px-4 text-xs">
               Correo electrónico no válido
             </p>
           } @else if (errorMessage) {
-            <p class="px-4 text-xs text-tertiary">
+            <p class="text-tertiary px-4 text-xs">
               {{ errorMessage }}
             </p>
           }
@@ -97,7 +97,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿No tienes cuenta?
             <a
-              class="font-medium text-primary hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/auth/register"
               >Regístrate aquí</a
             ></span
@@ -105,7 +105,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿Tienes cuenta?
             <a
-              class="font-medium text-primary hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/auth/login"
               >Inicia sesión aquí</a
             ></span

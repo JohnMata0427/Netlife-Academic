@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "netlife": {
+    "netlife-academic-system": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/netlife",
+            "outputPath": "dist/netlife-academic-system",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -22,11 +22,6 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@kolkov/angular-editor/assets/",
-                "output": "./assets/fonts/"
               }
             ],
             "styles": ["src/styles.css"],
@@ -42,8 +37,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -66,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "netlife:build:production"
+              "buildTarget": "netlife-academic-system:build:production"
             },
             "development": {
-              "buildTarget": "netlife:build:development"
+              "buildTarget": "netlife-academic-system:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,8 +89,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

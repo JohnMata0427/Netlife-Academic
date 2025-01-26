@@ -1,13 +1,13 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [UserLayout, CustomButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <app-user-layout>
-      <div class="mx-8 mb-10 mt-8 flex gap-4">
+      <div class="mx-8 mt-8 mb-10 flex gap-4">
         <section class="w-3/5">
           <lite-youtube
             class="rounded-lg"
@@ -33,9 +33,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             <span class="text-sm font-bold">Vanessa Guevara</span>
           </div>
           <div>
-            <h3 class="mt-4 font-bold text-primary">Información del Curso</h3>
-            <hr class="mb-4 w-1/4 border-2 border-primary" />
-            <div class="flex flex-col gap-8 rounded-lg bg-quinary p-12">
+            <h3 class="text-primary mt-4 font-bold">Información del Curso</h3>
+            <hr class="border-primary mb-4 w-1/4 border-2" />
+            <div class="bg-quinary flex flex-col gap-8 rounded-lg p-12">
               <div class="flex items-center">
                 <img
                   class="size-48"
@@ -44,16 +44,16 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                 />
                 <div class="flex flex-col gap-4">
                   <h4 class="text-xl font-extrabold">
-                    ¿QUÉ ES LA <br /><span class="text-3xl text-primary"
+                    ¿QUÉ ES LA <br /><span class="text-primary text-3xl"
                       >INTELIGENCIA ARTIFICIAL</span
                     >?
                   </h4>
-                  <div class="ml-8 rounded-lg bg-secondary/80 p-4 text-sm">
+                  <div class="bg-secondary/80 ml-8 rounded-lg p-4 text-sm">
                     Es la capacidad de una máquina para imitar eI comportamiento
                     humano a través de algoritmos sacando provecho de los datos
                     y el poder computacional.
                   </div>
-                  <div class="rounded-lg bg-primary/80 p-4 text-sm">
+                  <div class="bg-primary/80 rounded-lg p-4 text-sm">
                     IA no es igual que Machine Learning. La IA es la capacidad
                     de las computadoras de mostrar un comportamiento
                     inteligente, ML es la técnica para crear y mejorar dicho
@@ -75,7 +75,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <aside class="flex w-2/5 flex-col gap-4">
           <div class="flex flex-col rounded-lg shadow-sm shadow-black/50">
             <header
-              class="flex items-center gap-4 rounded-t-lg bg-orangelight px-4 py-2"
+              class="bg-orangelight flex items-center gap-4 rounded-t-lg px-4 py-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               <h2 class="font-bold">Contenidos</h2>
             </header>
             <div
-              class="flex flex-col gap-2 bg-quinary p-8 text-white *:select-none *:bg-zinc-600 *:p-4"
+              class="bg-quinary flex flex-col gap-2 p-8 text-white *:bg-zinc-600 *:p-4 *:select-none"
             >
               <details open>
                 <summary class="flex gap-2">
@@ -107,7 +107,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                     /></svg
                   ><span>1. Fundamentos</span>
                 </summary>
-                <ul class="ml-4 mt-4 flex flex-col gap-2">
+                <ul class="mt-4 ml-4 flex flex-col gap-2">
                   <li class="flex justify-between">
                     <div class="flex gap-2">
                       <svg
@@ -127,12 +127,12 @@ import { CustomButtonComponent } from '@components/custom-button.component';
                         />
                       </svg>
                       <a
-                        class="text-sm text-greenlight"
+                        class="text-greenlight text-sm"
                         href="/mis-cursos/virtual/video"
                         >1.1 Bienvenida del curso</a
                       >
                     </div>
-                    <strong class="text-xs font-light text-greenlight"
+                    <strong class="text-greenlight text-xs font-light"
                       >00:10 min</strong
                     >
                   </li>
@@ -297,7 +297,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
               Comentarios
             </h4>
             <div
-              class="flex items-start gap-4 rounded-lg bg-quinary px-4 pb-4 shadow-sm shadow-black/50"
+              class="bg-quinary flex items-start gap-4 rounded-lg px-4 pb-4 shadow-sm shadow-black/50"
             >
               <img class="size-12 rounded-full" src="/profile.webp" alt="" />
               <textarea

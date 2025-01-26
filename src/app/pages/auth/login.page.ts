@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '@services/auth.service';
+import { AuthService } from '@/services/auth.service';
 import { Router } from '@angular/router';
-import { UserLayout } from '@layouts/auth-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { UserLayout } from '@/layouts/auth-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
@@ -38,7 +38,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (form.get('email')?.invalid && form.get('email')?.value) {
-          <p class="text-xs text-tertiary">El correo electrónico es inválido</p>
+          <p class="text-tertiary text-xs">El correo electrónico es inválido</p>
         }
 
         <div class="relative">
@@ -65,7 +65,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         </div>
 
         @if (errorMessage) {
-          <p class="text-center text-xs text-tertiary">{{ errorMessage }}</p>
+          <p class="text-tertiary text-center text-xs">{{ errorMessage }}</p>
         }
 
         <app-button-component
@@ -77,14 +77,14 @@ import { CustomButtonComponent } from '@components/custom-button.component';
         <span class="text-center text-xs"
           >¿No tienes cuenta?
           <a
-            class="font-medium text-primary hover:underline"
+            class="text-primary font-medium hover:underline"
             href="/auth/register"
             >Regístrate aquí</a
           ></span
         >
 
         <a
-          class="text-center text-xs font-medium text-primary hover:underline"
+          class="text-primary text-center text-xs font-medium hover:underline"
           href="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >

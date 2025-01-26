@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CourseInfoComponent } from '@components/course-info.component';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
+import { CourseInfoComponent } from '@/components/course-info.component';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomTitleComponent } from '@/components/custom-title.component';
 
 @Component({
   imports: [CourseInfoComponent, UserLayout, CustomTitleComponent],
@@ -12,7 +12,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         Información sobre los cursos que estás tomando o que tomaste.
       </p>
       <section class="px-8 sm:pl-16">
-        <h2 class="font-extrabold uppercase text-primary">Cursos Pendientes</h2>
+        <h2 class="text-primary font-extrabold uppercase">Cursos Pendientes</h2>
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-courseinfo-component
             id="redes-de-computadoras"
@@ -45,7 +45,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="mt-8 px-8 sm:pl-16">
-        <h2 class="font-extrabold uppercase text-primary">
+        <h2 class="text-primary font-extrabold uppercase">
           Cursos Completados
         </h2>
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
@@ -66,7 +66,7 @@ import { CustomTitleComponent } from '@components/custom-title.component';
         </div>
       </section>
       <section class="mt-8 px-8 sm:pl-16">
-        <h2 class="font-extrabold text-primary">CURSOS RECOMENDADOS PARA TI</h2>
+        <h2 class="text-primary font-extrabold">CURSOS RECOMENDADOS PARA TI</h2>
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-courseinfo-component
             id="control-de-versiones"

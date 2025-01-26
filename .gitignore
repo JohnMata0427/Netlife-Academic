@@ -1,6 +1,7 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# src/environments/*.ts
+# Environments
+/src/environments/*.ts
 
 # Compiled output
 /dist
@@ -42,4 +43,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-.vercel

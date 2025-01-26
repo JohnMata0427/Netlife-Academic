@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '@interfaces/user.interface';
-import { AuthService } from '@services/auth.service';
-import { UserService } from '@services/user.service';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { User } from '@/interfaces/user.interface';
+import { AuthService } from '@/services/auth.service';
+import { UserService } from '@/services/user.service';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   selector: 'app-admin-layout',
@@ -169,7 +169,9 @@ export class AdminLayout {
   private userService = inject(UserService);
 
   public ngOnInit() {
-    this.active = this.activatedRouter.snapshot.url.map((url) => url['path'])[0];
+    this.active = this.activatedRouter.snapshot.url.map(
+      (url) => url['path'],
+    )[0];
     this.userService
       .getUserById(this.authService.getInfoUser().sub)
       .subscribe((user) => {
@@ -178,7 +180,8 @@ export class AdminLayout {
 
     this.title.setTitle(
       'Admin ' +
-        this.active?.split('-')
+        this.active
+          ?.split('-')
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ') +
         ' | Netlife Academic',

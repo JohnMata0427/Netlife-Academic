@@ -1,13 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '@environments/environment';
-import { MessageResponse } from '@interfaces/message-response.interface';
+import { environment } from '@/environments/environment';
+import { MessageResponse } from '@/interfaces/message-response.interface';
 import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   private urlAPI = environment.BACKEND_URL;
   private httpClient = inject(HttpClient);
@@ -73,7 +72,7 @@ export class AuthService {
   public getInfoUser() {
     const token = localStorage.getItem('token');
     if (!token) return null;
-    
+
     return JSON.parse(atob(token.split('.')[1]));
   }
 }

@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '@services/user.service';
-import { User } from '@interfaces/user.interface';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CourseInfoComponent } from '@components/course-info.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
-import { TaskComponent } from '@components/task.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
-import { AuthService } from '@services/auth.service';
-import { SliderComponent } from '@components/slider.component';
+import { UserService } from '@/services/user.service';
+import { User } from '@/interfaces/user.interface';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CourseInfoComponent } from '@/components/course-info.component';
+import { CustomTitleComponent } from '@/components/custom-title.component';
+import { TaskComponent } from '@/components/task.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
+import { AuthService } from '@/services/auth.service';
+import { SliderComponent } from '@/components/slider.component';
 
 @Component({
   imports: [
@@ -65,7 +65,7 @@ import { SliderComponent } from '@components/slider.component';
             }
           </aside>
           <article class="flex flex-col gap-2">
-            <h2 class="hidden font-bold text-primary lg:block">
+            <h2 class="text-primary hidden font-bold lg:block">
               PROXIMAS TAREAS
             </h2>
             <app-title-component class="lg:hidden" title="Próximas tareas" />
@@ -93,23 +93,23 @@ import { SliderComponent } from '@components/slider.component';
                   <div class="flex">
                     <div class="flex w-20 flex-col gap-1">
                       <div
-                        class="flex h-1 w-full items-center justify-end rounded-l-lg bg-secondary"
+                        class="bg-secondary flex h-1 w-full items-center justify-end rounded-l-lg"
                       >
-                        <div class="size-2 rounded-full bg-secondary"></div>
+                        <div class="bg-secondary size-2 rounded-full"></div>
                       </div>
                       <span class="text-end text-xs text-white">Por hacer</span>
                     </div>
                     <div class="flex w-20 flex-col gap-1">
-                      <div class="flex h-1 items-center justify-end bg-primary">
-                        <div class="size-2 rounded-full bg-primary"></div>
+                      <div class="bg-primary flex h-1 items-center justify-end">
+                        <div class="bg-primary size-2 rounded-full"></div>
                       </div>
                       <span class="text-end text-xs text-white">Proximo</span>
                     </div>
                     <div class="flex w-20 flex-col gap-1">
                       <div
-                        class="flex h-1 items-center justify-end bg-tertiary"
+                        class="bg-tertiary flex h-1 items-center justify-end"
                       >
-                        <div class="size-2 rounded-full bg-tertiary"></div>
+                        <div class="bg-tertiary size-2 rounded-full"></div>
                       </div>
                       <span class="text-end text-xs text-white">Urgente</span>
                     </div>
@@ -181,7 +181,7 @@ export class HomePage {
 
   private userService = inject(UserService);
   private authService = inject(AuthService);
-              
+
   public ngOnInit() {
     this.userService.getRankedUsers().subscribe((users) => {
       this.users = users;

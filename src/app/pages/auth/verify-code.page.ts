@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '@services/auth.service';
-import { UserLayout } from '@layouts/auth-layout.component';
-import { CustomButtonComponent } from '@components/custom-button.component';
+import { AuthService } from '@/services/auth.service';
+import { UserLayout } from '@/layouts/auth-layout.component';
+import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
   imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
   template: `
     <app-auth-layout>
       <img
-        class="absolute left-0 top-0 w-52 rounded-br-2xl"
+        class="absolute top-0 left-0 w-52 rounded-br-2xl"
         src="/logo.webp"
         alt="Logo Netlife"
       />
@@ -43,9 +43,9 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           </div>
 
           @if (errorMessage) {
-            <p class="px-4 text-xs text-tertiary">{{ errorMessage }}</p>
+            <p class="text-tertiary px-4 text-xs">{{ errorMessage }}</p>
           } @else if (verificationCode.value && verificationCode.invalid) {
-            <p class="px-4 text-xs text-tertiary">
+            <p class="text-tertiary px-4 text-xs">
               El código debe tener 6 números
             </p>
           }
@@ -58,7 +58,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿No tienes cuenta?
             <a
-              class="font-medium text-primary hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/auth/register"
               >Regístrate aquí</a
             ></span
@@ -66,7 +66,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
           <span class="text-center text-xs"
             >¿Tienes cuenta?
             <a
-              class="font-medium text-primary hover:underline"
+              class="text-primary font-medium hover:underline"
               href="/auth/login"
               >Inicia sesión aquí</a
             ></span
@@ -89,7 +89,7 @@ import { CustomButtonComponent } from '@components/custom-button.component';
             </button>
             <button
               (click)="resendVerifyCode()"
-              class="w-32 rounded-lg bg-gradient-to-r from-secondary to-primary py-2 text-sm"
+              class="from-secondary to-primary w-32 rounded-lg bg-gradient-to-r py-2 text-sm"
             >
               Reenviar
             </button>

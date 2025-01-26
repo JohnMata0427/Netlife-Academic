@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '@layouts/user-layout.component';
-import { CustomTitleComponent } from '@components/custom-title.component';
+import { UserLayout } from '@/layouts/user-layout.component';
+import { CustomTitleComponent } from '@/components/custom-title.component';
 import { NgStyle } from '@angular/common';
 
 @Component({
@@ -20,7 +20,7 @@ import { NgStyle } from '@angular/common';
             INTELIGENCIA ARTIFICIAL
           </h1>
           <div
-            class="my-4 w-32 rounded-lg bg-greenlight px-4 py-1.5 text-center text-sm font-bold text-neutral-800"
+            class="bg-greenlight my-4 w-32 rounded-lg px-4 py-1.5 text-center text-sm font-bold text-neutral-800"
           >
             En progreso
           </div>
@@ -64,10 +64,10 @@ import { NgStyle } from '@angular/common';
       </div>
 
       <section class="mt-8 flex items-center justify-center gap-4">
-        <div class="h-5 w-5/6 rounded bg-quinary">
+        <div class="bg-quinary h-5 w-5/6 rounded">
           <div
             [ngStyle]="{ 'width.%': '90' }"
-            class="h-full rounded-l bg-gradient-to-r from-secondary via-tertiary to-quaternary"
+            class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
           ></div>
         </div>
         <h4 class="text-sm">90% Progreso</h4>
@@ -77,12 +77,12 @@ import { NgStyle } from '@angular/common';
         <app-title-component title="Información del Curso" />
         <div class="my-10 flex flex-wrap justify-center gap-8">
           <div
-            class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+            class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
           >
             <div
-              class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+              class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
             >
-              <h3 class="text-xs font-light italic text-white">Objetivos</h3>
+              <h3 class="text-xs font-light text-white italic">Objetivos</h3>
             </div>
             <p class="my-auto p-3 text-sm">
               Comprender los conceptos fundamentales de la inteligencia
@@ -91,12 +91,12 @@ import { NgStyle } from '@angular/common';
             </p>
           </div>
           <div
-            class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+            class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
           >
             <div
-              class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+              class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
             >
-              <h3 class="text-xs font-light italic text-white">Destrezas</h3>
+              <h3 class="text-xs font-light text-white italic">Destrezas</h3>
             </div>
             <p class="p-3 text-sm">
               Desarrollar la habilidad de identificar y analizar algoritmos de
@@ -107,12 +107,12 @@ import { NgStyle } from '@angular/common';
             </p>
           </div>
           <div
-            class="min-h-60 w-96 rounded-lg bg-quinary shadow-md shadow-black/50"
+            class="bg-quinary min-h-60 w-96 rounded-lg shadow-md shadow-black/50"
           >
             <div
-              class="flex h-8 w-36 items-center justify-center rounded-br-xl rounded-tl-lg bg-black"
+              class="flex h-8 w-36 items-center justify-center rounded-tl-lg rounded-br-xl bg-black"
             >
-              <h3 class="text-xs font-light italic text-white">
+              <h3 class="text-xs font-light text-white italic">
                 Valores y Actitudes
               </h3>
             </div>
@@ -131,11 +131,11 @@ import { NgStyle } from '@angular/common';
         <app-title-component title="Contenido del Curso" />
         <div class="mx-16 flex flex-col-reverse items-start gap-8 lg:flex-row">
           <div
-            class="flex w-full flex-col gap-10 rounded-lg bg-quinary p-4 shadow-sm shadow-black/80 lg:w-[65.5%]"
+            class="bg-quinary flex w-full flex-col gap-10 rounded-lg p-4 shadow-sm shadow-black/80 lg:w-[65.5%]"
           >
             <details open>
               <summary class="font-bold">1. Fundamentos</summary>
-              <ul class="ml-4 mt-4 flex flex-col gap-2">
+              <ul class="mt-4 ml-4 flex flex-col gap-2">
                 <li class="flex justify-between">
                   <div class="flex gap-2">
                     <svg
@@ -155,7 +155,7 @@ import { NgStyle } from '@angular/common';
                       />
                     </svg>
                     <a
-                      class="text-sm text-greenlight"
+                      class="text-greenlight text-sm"
                       href="/mis-cursos/virtual/video"
                       >1.1 Bienvenida del curso</a
                     >
@@ -254,7 +254,7 @@ import { NgStyle } from '@angular/common';
               class="relative flex flex-col items-center gap-4 rounded-lg bg-black p-7"
             >
               <svg
-                class="absolute left-4 top-4 size-12"
+                class="absolute top-4 left-4 size-12"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 61 60"
@@ -265,7 +265,7 @@ import { NgStyle } from '@angular/common';
                 />
               </svg>
               <svg
-                class="absolute bottom-4 right-4 size-12"
+                class="absolute right-4 bottom-4 size-12"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 56 66"
@@ -338,7 +338,7 @@ import { NgStyle } from '@angular/common';
               </div>
             </article>
             <div
-              class="flex items-center rounded-lg bg-orangelight p-4 text-sm shadow-sm shadow-black/50"
+              class="bg-orangelight flex items-center rounded-lg p-4 text-sm shadow-sm shadow-black/50"
             >
               <p>
                 ¡Hola a todos! Soy <strong>Vanessa Guevara</strong>, y seré su
