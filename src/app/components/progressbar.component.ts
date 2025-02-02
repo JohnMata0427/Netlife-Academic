@@ -5,10 +5,10 @@ import { Component, input } from '@angular/core';
   selector: 'app-progressbar-component',
   imports: [NgStyle],
   template: `
-    <div class="h-2.5 w-full rounded-lg border border-white bg-quinary">
+    <div class="bg-quinary h-2.5 w-full rounded-lg border border-white">
       <div
         [ngStyle]="{ 'width.%': progress() }"
-        class="h-full rounded-l bg-gradient-to-r from-secondary via-tertiary to-quaternary"
+        class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
       ></div>
     </div>
   `,

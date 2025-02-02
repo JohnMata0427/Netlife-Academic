@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminLayout } from '@/layouts/admin-layout.component';
+import { AdminLayout } from '@/layouts/admin.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 import { CertificadoComponent } from '@/components/certificado.component';
 

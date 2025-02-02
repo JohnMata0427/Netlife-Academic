@@ -37,7 +37,7 @@ import { Component, HostListener, Input, input } from '@angular/core';
           <ol class="flex flex-col rounded-lg *:py-2 *:pl-5">
             @for (answer of answers(); track $index) {
               <li
-                class="cursor-pointer select-none hover:bg-greenlight/50"
+                class="hover:bg-greenlight/50 cursor-pointer select-none"
                 (click)="answerSelected = answer"
               >
                 {{ answer }}

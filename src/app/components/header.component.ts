@@ -30,7 +30,7 @@ import { UserService } from '@/services/user.service';
             <a href="/home">
               <img src="/NetlifeLogo.webp" alt="Netlife Logo" />
             </a>
-            <hr class="my-1 border border-quinary" />
+            <hr class="border-quinary my-1 border" />
             <ul class="flex flex-col gap-2 text-sm *:flex *:gap-2">
               <li>
                 <svg
@@ -145,7 +145,7 @@ import { UserService } from '@/services/user.service';
               type="search"
               id="search"
               name="search"
-              class="rounded-2xl border-2 px-3 py-1 text-sm focus:border-primary focus:outline-none lg:w-96"
+              class="focus:border-primary rounded-2xl border-2 px-3 py-1 text-sm focus:outline-none lg:w-96"
               type="text"
               placeholder="Buscar más cursos"
             />
@@ -171,7 +171,7 @@ import { UserService } from '@/services/user.service';
             </button>
             @if (showNotifications) {
               <div
-                class="absolute right-24 top-11 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
+                class="absolute top-11 right-24 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <strong>Proximamente...</strong>
               </div>
@@ -185,7 +185,7 @@ import { UserService } from '@/services/user.service';
             </button>
             @if (showMessages) {
               <div
-                class="absolute right-16 top-11 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
+                class="absolute top-11 right-16 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <strong>Proximamente...</strong>
               </div>
@@ -207,7 +207,7 @@ import { UserService } from '@/services/user.service';
             </button>
             @if (showMenu) {
               <div
-                class="absolute right-2 top-12 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
+                class="absolute top-12 right-2 z-30 flex w-56 cursor-default flex-col gap-1 rounded-md bg-white p-4 shadow shadow-black/50"
               >
                 <div class="flex flex-col items-center">
                   <strong class="text-center">{{ username }}</strong>
@@ -217,14 +217,14 @@ import { UserService } from '@/services/user.service';
                 @if (role === 'ADMIN') {
                   <button
                     (click)="router.navigate(['/admin/dashboard'])"
-                    class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
+                    class="hover:bg-quinary flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black"
                   >
                     Admin Dashboard
                   </button>
                 }
                 <button
                   (click)="router.navigate(['/mi-perfil'])"
-                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
+                  class="hover:bg-quinary flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black"
                 >
                   <img
                     class="size-4"
@@ -235,7 +235,7 @@ import { UserService } from '@/services/user.service';
                 </button>
                 <button
                   (click)="router.navigate(['/actualizar-informacion'])"
-                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
+                  class="hover:bg-quinary flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-black"
                 >
                   <img
                     class="size-4"
@@ -245,12 +245,12 @@ import { UserService } from '@/services/user.service';
                   Configurar Perfil
                 </button>
                 <button
-                  class="rounded-lg px-2 py-1 text-start text-sm text-black hover:bg-quinary"
+                  class="hover:bg-quinary rounded-lg px-2 py-1 text-start text-sm text-black"
                 >
                   Calendario de Tareas
                 </button>
                 <button
-                  class="flex gap-2 rounded-lg px-2 py-1 text-start text-sm text-tertiary hover:bg-quinary"
+                  class="text-tertiary hover:bg-quinary flex gap-2 rounded-lg px-2 py-1 text-start text-sm"
                   (click)="logout()"
                 >
                   <svg

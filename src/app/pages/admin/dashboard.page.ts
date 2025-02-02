@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AdminLayout } from '@/layouts/admin-layout.component';
+import { AdminLayout } from '@/layouts/admin.layout';
 import { UserService } from '@/services/user.service';
 import { User } from '@/interfaces/user.interface';
 

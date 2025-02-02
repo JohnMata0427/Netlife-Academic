@@ -3,23 +3,23 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
 @Component({
   selector: 'app-line-question',
   template: `
-    <div class="ml-4 mt-4 flex gap-40">
-      <ul #questionList class="flex select-none flex-col gap-2">
+    <div class="mt-4 ml-4 flex gap-40">
+      <ul #questionList class="flex flex-col gap-2 select-none">
         @for (question of questions(); track $index) {
           <li
             (click)="selectQuestion($index)"
-            class="rounded-lg p-1 hover:bg-greenlight/50"
+            class="hover:bg-greenlight/50 rounded-lg p-1"
           >
             <strong>{{ $index + 1 }}.</strong>
-            <span class="ml-4 mr-2">{{ question }}</span>
+            <span class="mr-2 ml-4">{{ question }}</span>
           </li>
         }
       </ul>
-      <ul #answerList class="flex select-none flex-col gap-2">
+      <ul #answerList class="flex flex-col gap-2 select-none">
         @for (answer of answers(); track $index) {
           <li
             (click)="selectAnswer($index)"
-            class="rounded-lg p-1 hover:bg-greenlight/50"
+            class="hover:bg-greenlight/50 rounded-lg p-1"
           >
             <span class="ml-2">{{ answer }}</span>
           </li>
@@ -27,7 +27,7 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
       </ul>
 
       <svg
-        class="pointer-events-none absolute left-0 top-0 h-full w-full stroke-[4px]"
+        class="pointer-events-none absolute top-0 left-0 h-full w-full stroke-[4px]"
       >
         @for (line of lines; track $index) {
           <line

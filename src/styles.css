@@ -1,23 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-primary: #ED7004;
-  --color-secondary: #FFED00;
-  --color-tertiary: #E30613;
-  --color-quaternary: #4D1053;
-  --color-quinary: #ECECEC;
-  --color-greenlight: #72C234;
-  --color-orangelight: #FAAB00;
+  --color-primary: #ed7004;
+  --color-secondary: #ffed00;
+  --color-tertiary: #e30613;
+  --color-quaternary: #4d1053;
+  --color-quinary: #ececec;
+  --color-greenlight: #72c234;
+  --color-orangelight: #faab00;
   --font-inter: 'Inter', sans-serif;
+  --animate-rotate-360: rotate 1s linear infinite;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ddd;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {

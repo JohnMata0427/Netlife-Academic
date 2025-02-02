@@ -153,7 +153,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           </app-button-component>
         </div>
         <div>
-          <ng-content></ng-content>
+          <ng-content />
         </div>
       </section>
     </main>

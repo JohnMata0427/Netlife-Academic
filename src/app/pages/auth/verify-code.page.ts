@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@/services/auth.service';
-import { UserLayout } from '@/layouts/auth-layout.component';
+import { UserLayout } from '@/layouts/auth.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
@@ -16,11 +16,13 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
       />
       @if (errorMessage !== 'Código de verificación incorrecto') {
         <form class="flex w-96 flex-col gap-3" (submit)="onSubmit($event)">
-          <h1 class="mb-4 text-center text-3xl font-bold">
+          <h1
+            class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-3xl font-bold text-transparent"
+          >
             Código de verificación
           </h1>
 
-          <span class="mb-2 text-center text-sm"
+          <span class="text-center text-xs font-semibold text-gray-500"
             >Introduce el código de verificación enviado a tu correo
             electrónico</span
           >

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@/services/auth.service';
 import { Router } from '@angular/router';
-import { UserLayout } from '@/layouts/auth-layout.component';
+import { UserLayout } from '@/layouts/auth.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({
@@ -20,7 +20,11 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         class="my-36 flex w-96 flex-col gap-3"
         (ngSubmit)="onSubmit()"
       >
-        <h1 class="mb-4 text-center text-3xl font-bold">Regístrate</h1>
+        <h1
+          class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-3xl font-bold text-transparent"
+        >
+          Regístrate
+        </h1>
         <div class="relative">
           <img
             class="absolute inset-y-0 left-3 my-auto size-3"

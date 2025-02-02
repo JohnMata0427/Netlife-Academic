@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CourseInfoComponent } from '@/components/course-info.component';
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 import { CustomTitleComponent } from '@/components/custom-title.component';
 
 @Component({

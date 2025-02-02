@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserLayout } from '@/layouts/auth-layout.component';
+import { UserLayout } from '@/layouts/auth.layout';
 import { AuthService } from '@/services/auth.service';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
@@ -20,7 +20,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
           >
             <h3
-              class="from-primary via-secondary to-primary bg-gradient-to-r bg-clip-text text-center text-xl font-bold text-transparent"
+              class="from-secondary to-primary bg-gradient-to-r bg-clip-text text-center text-xl font-bold text-transparent"
             >
               Revisa tu correo electrónico
             </h3>
@@ -57,7 +57,9 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         ></div>
       } @else {
         <div class="flex w-96 flex-col gap-3">
-          <h1 class="mb-4 text-center text-3xl font-bold">
+          <h1
+            class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl"
+          >
             Recuperar Contraseña
           </h1>
           <div class="relative">

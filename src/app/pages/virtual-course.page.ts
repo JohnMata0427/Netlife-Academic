@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 import { CustomTitleComponent } from '@/components/custom-title.component';
 import { NgStyle } from '@angular/common';
 

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AdminLayout } from '@/layouts/admin-layout.component';
+import { AdminLayout } from '@/layouts/admin.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 import {
   FormControl,
@@ -7,19 +7,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  AngularEditorConfig,
-  AngularEditorModule,
-} from '@kolkov/angular-editor';
 import { AnnouncementService } from '@/services/announcement.service';
 
 @Component({
-  imports: [
-    AdminLayout,
-    CustomButtonComponent,
-    ReactiveFormsModule,
-    AngularEditorModule,
-  ],
+  imports: [AdminLayout, CustomButtonComponent, ReactiveFormsModule],
   template: `
     <app-admin-layout>
       <h1 class="text-primary text-2xl font-bold">Configuración del Anuncio</h1>
@@ -39,12 +30,6 @@ import { AnnouncementService } from '@/services/announcement.service';
               required
             />
             <label class="font-bold" for="">Contenido del Asunto</label>
-            <angular-editor
-              formControlName="content"
-              [config]="editorConfig"
-              class="border-quinary rounded-lg border p-1 text-sm"
-              required
-            />
           </div>
           <div class="flex w-full flex-col gap-2">
             <label class="font-bold" for="">Tipo de aviso</label>
@@ -221,47 +206,4 @@ export class AdminAnunciosPage {
       },
     });
   }
-
-  public editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: 'auto',
-    minHeight: '0',
-    maxHeight: 'auto',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
-    enableToolbar: true,
-    showToolbar: true,
-    placeholder: 'Ingrese el contenido del anuncio aquí...',
-    defaultParagraphSeparator: '',
-    defaultFontName: '',
-    defaultFontSize: '',
-    fonts: [
-      { class: 'arial', name: 'Arial' },
-      { class: 'times-new-roman', name: 'Times New Roman' },
-      { class: 'calibri', name: 'Calibri' },
-      { class: 'comic-sans-ms', name: 'Comic Sans MS' },
-    ],
-    customClasses: [
-      {
-        name: 'quote',
-        class: 'quote',
-      },
-      {
-        name: 'redText',
-        class: 'redText',
-      },
-      {
-        name: 'titleText',
-        class: 'titleText',
-        tag: 'h1',
-      },
-    ],
-    uploadUrl: 'v1/image',
-    uploadWithCredentials: false,
-    sanitize: true,
-    toolbarPosition: 'top',
-    toolbarHiddenButtons: [['bold', 'italic'], ['fontSize']],
-  };
 }

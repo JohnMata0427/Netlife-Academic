@@ -15,7 +15,7 @@ import { ProgressBarComponent } from './progressbar.component';
         />
         @if (newCourse()) {
           <span
-            class="absolute left-2 top-2 rounded-lg bg-greenlight px-2 py-0.5 text-xs text-white"
+            class="bg-greenlight absolute top-2 left-2 rounded-lg px-2 py-0.5 text-xs text-white"
           >
             Nuevo
           </span>
@@ -30,7 +30,9 @@ import { ProgressBarComponent } from './progressbar.component';
             src="/icons/courses/teacher.svg"
             alt="Icono de Profesor"
           />
-          <span class="text-xs font-light text-white">Prof. {{ teacher() }}</span>
+          <span class="text-xs font-light text-white"
+            >Prof. {{ teacher() }}</span
+          >
         </div>
         <div class="mt-2 flex flex-col gap-1">
           @if (!progress()) {

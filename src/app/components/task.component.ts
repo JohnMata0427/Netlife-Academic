@@ -6,7 +6,7 @@ import { Component, input } from '@angular/core';
     <a href="/mis-cursos" class="flex gap-4">
       <div class="relative">
         <div
-          class="vertical-lr rounded-lg bg-tertiary pb-3 pt-1 text-xl font-bold uppercase text-white"
+          class="vertical-lr bg-tertiary rounded-lg pt-1 pb-3 text-xl font-bold text-white uppercase"
         >
           {{ fecha().mes.substring(0, 3) }}
         </div>
@@ -17,7 +17,7 @@ import { Component, input } from '@angular/core';
         </div>
       </div>
       <div
-        class="flex h-28 w-96 flex-col justify-center gap-2 rounded-lg bg-quinary pl-6 shadow-sm shadow-black/40"
+        class="bg-quinary flex h-28 w-96 flex-col justify-center gap-2 rounded-lg pl-6 shadow-sm shadow-black/40"
       >
         <h3 class="text-sm"><strong>Tarea: </strong>{{ nombre() }}</h3>
         <div class="flex gap-2">
@@ -43,6 +43,6 @@ export class TaskComponent {
   readonly fecha = input.required<{
     dia: string;
     mes: string;
-}>();
+  }>();
   readonly hora = input.required<string>();
 }

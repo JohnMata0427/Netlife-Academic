@@ -4,7 +4,7 @@ import { AuthService } from '@/services/auth.service';
 import { User } from '@/interfaces/user.interface';
 import { UserService } from '@/services/user.service';
 
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({

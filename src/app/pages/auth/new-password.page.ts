@@ -5,7 +5,7 @@ import {
   Validators,
   FormGroup,
 } from '@angular/forms';
-import { UserLayout } from '@/layouts/auth-layout.component';
+import { UserLayout } from '@/layouts/auth.layout';
 import { AuthService } from '@/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomButtonComponent } from '@/components/custom-button.component';
@@ -24,7 +24,11 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         class="flex w-96 flex-col gap-3"
         (submit)="onSubmit()"
       >
-        <h1 class="mb-4 text-center text-3xl font-bold">Nueva Contraseña</h1>
+        <h1
+          class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-3xl font-bold text-transparent"
+        >
+          Nueva Contraseña
+        </h1>
         <span class="text-xs font-semibold text-gray-500"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
         >
@@ -86,7 +90,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         @if (errorMessage) {
           <p class="text-tertiary px-4 text-xs">{{ errorMessage }}</p>
         } @else if (
-          form.get('confirmPassword')?.value !== form.get('password')?.value
+          form.get('confirmPassword')?.value !== form.get('password')?.value &&
+          form.get('confirmPassword')?.value
         ) {
           <p class="text-tertiary px-4 text-xs">Las contraseñas no coinciden</p>
         }

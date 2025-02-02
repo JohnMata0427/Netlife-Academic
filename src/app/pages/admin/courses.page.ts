@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CourseInfoComponent } from '@/components/course-info.component';
-import { AdminLayout } from '@/layouts/admin-layout.component';
+import { AdminLayout } from '@/layouts/admin.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 
 @Component({

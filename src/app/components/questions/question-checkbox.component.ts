@@ -4,13 +4,13 @@ import { Component, input } from '@angular/core';
   selector: 'app-checkbox-question',
   template: `
     <div class="flex items-center gap-4">
-        <input
-        class="size-4 accent-greenlight"
+      <input
+        class="accent-greenlight size-4"
         [id]="answer()"
         [name]="answer()"
         type="checkbox"
-        />
-        <label class="select-none" [htmlFor]="answer()">{{ answer() }}</label>
+      />
+      <label class="select-none" [htmlFor]="answer()">{{ answer() }}</label>
     </div>
   `,
 })

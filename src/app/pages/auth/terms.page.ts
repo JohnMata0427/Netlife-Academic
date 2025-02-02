@@ -5,15 +5,15 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
 @Component({
   imports: [CustomTitleComponent, CustomButtonComponent],
   template: `
-    <section class="flex flex-col justify-start">
+    <section class="flex flex-col">
       <app-title-component title="Términos y condiciones" />
-      <p class="my-4 pl-16 text-sm">
+      <p class="my-4 ml-16 text-sm">
         Aquí se mostrarán los términos y condiciones de uso de la plataforma.
       </p>
       <app-button-component
         (click)="goBack()"
         text="Volver"
-        moreStyles="pl-16"
+        moreStyles="ml-16 px-8"
       />
     </section>
   `,

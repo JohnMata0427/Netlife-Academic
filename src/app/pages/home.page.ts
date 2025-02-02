@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '@/services/user.service';
 import { User } from '@/interfaces/user.interface';
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 import { CourseInfoComponent } from '@/components/course-info.component';
 import { CustomTitleComponent } from '@/components/custom-title.component';
 import { TaskComponent } from '@/components/task.component';

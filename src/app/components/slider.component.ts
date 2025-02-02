@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-slider-component',
   template: `
-    <div class="relative hidden max-h-[58vh] w-full">
+    <div class="relative hidden h-[58vh] w-full">
       <div
         class="flex transition-transform duration-500 ease-in-out"
         [style.transform]="'translateX(-' + slide * 100 + '%)'"

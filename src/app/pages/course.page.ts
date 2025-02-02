@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 import { CustomTitleComponent } from '@/components/custom-title.component';
-import { UserLayout } from '@/layouts/user-layout.component';
+import { UserLayout } from '@/layouts/user.layout';
 
 @Component({
   imports: [NgStyle, CustomButtonComponent, CustomTitleComponent, UserLayout],
