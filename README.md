@@ -1,5 +1,5 @@
-# Netlife Academic
+<h1 align="center">
+  <img height="80px" src="https://github.com/user-attachments/assets/d4f78249-339f-44ed-b91b-1acb2789d255" alt="Netlife Academic">
+</h1>
 
-![image](https://github.com/user-attachments/assets/4aebed31-94f6-4d49-91ad-ccef7f103c99)
-
- <!-- ![image](https://github.com/user-attachments/assets/d0069fd8-50b0-47ca-a677-7403c980e9ab) -->
+<img src="https://github.com/user-attachments/assets/235dbbb6-3730-4120-9210-c269835df2ff">
