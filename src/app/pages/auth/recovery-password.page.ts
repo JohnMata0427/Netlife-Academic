@@ -4,27 +4,37 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserLayout } from '@/layouts/auth.layout';
 import { AuthService } from '@/services/auth.service';
 import { CustomButtonComponent } from '@/components/custom-button.component';
+import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  imports: [UserLayout, ReactiveFormsModule, CustomButtonComponent],
+  imports: [
+    UserLayout,
+    ReactiveFormsModule,
+    CustomButtonComponent,
+    RouterLink,
+    NgOptimizedImage,
+  ],
   template: `
     <app-auth-layout>
       <img
         class="absolute top-0 left-0 w-52 rounded-br-2xl"
-        src="/logo.webp"
+        ngSrc="/logo.webp"
         alt="Logo Netlife"
+        width="512"
+        height="111"
       />
-      @if (showModal) {
-        <div class="animate-zoom-in relative z-50 flex w-96 items-center">
+      <div class="flex w-96 flex-col gap-y-3">
+        @if (showModal) {
           <div
-            class="relative flex flex-col rounded-lg bg-black p-4 opacity-90 shadow-lg outline-none focus:outline-none"
+            class="flex flex-col rounded-lg bg-black p-4 z-10 opacity-90 gap-y-5"
           >
             <h3
               class="from-secondary to-primary bg-gradient-to-r bg-clip-text text-center text-xl font-bold text-transparent"
             >
               Revisa tu correo electrónico
             </h3>
-            <p class="my-7 text-center text-sm font-light text-white">
+            <p class="text-center text-sm font-light text-white">
               Te enviamos un correo electrónico a
               <strong class="font-bold">{{ email.value }}</strong>
               con un código de confirmación para que puedas restablecer tu
@@ -33,49 +43,51 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             <span class="text-center text-xs text-white"
               >¿No has recibido el código de confirmación?</span
             >
-            <div class="mt-6 flex justify-center gap-4">
+            <div class="flex justify-center gap-x-4">
               <app-button-component
-                (click)="showModal = false"
+                text="Cerrar"
                 moreStyles="w-full"
                 color="gray"
-                text="Cerrar"
                 [loading]="loading"
+                (click)="showModal = false"
               />
               <app-button-component
-                (click)="onSubmit()"
+                text="Reenviar"
                 moreStyles="w-full"
                 color="orange"
-                text="Reenviar"
                 [loading]="loading"
+                (click)="onSubmit()"
               />
             </div>
           </div>
-        </div>
-        <div
-          (click)="showModal = false"
-          class="fixed inset-0 bg-black opacity-25"
-        ></div>
-      } @else {
-        <div class="flex w-96 flex-col gap-3">
+          <div
+            class="fixed inset-0 bg-black opacity-25"
+            (click)="showModal = false"
+          ></div>
+        } @else {
           <h1
             class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl"
           >
             Recuperar Contraseña
           </h1>
           <div class="relative">
-            <img
-              class="absolute inset-y-0 left-3 my-auto size-3"
-              src="/icons/forms/email.svg"
-              alt="Email Icon"
-            />
+            <!-- Email Icon -->
+            <svg
+              class="absolute inset-y-0 left-3 my-auto size-3 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 11 9"
+            >
+              <path
+                d="M10.6 0H.4L.1.1a.4.4 0 0 0-.1.3v8.2l.1.3.3.1h10.2l.3-.1a.4.4 0 0 0 .1-.3V.4l-.1-.3a.4.4 0 0 0-.3-.1ZM5.8 5.2a.4.4 0 0 1-.5 0l-3.9-3 .5-.7 3.6 2.9 3.6-3 .5.7-3.9 3.1Z"
+              />
+            </svg>
             <input
-              [formControl]="email"
+              class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm focus:outline-primary"
               id="email"
               name="email"
-              class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
               type="email"
               placeholder="Correo Electrónico"
-              required
+              [formControl]="email"
             />
           </div>
 
@@ -90,17 +102,17 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           }
 
           <app-button-component
-            (click)="onSubmit()"
+            text="Enviar correo"
             moreStyles="w-full justify-center"
-            text="Enviar código de verificación"
             [loading]="loading"
+            (click)="onSubmit()"
           />
 
           <span class="text-center text-xs"
             >¿No tienes cuenta?
             <a
               class="text-primary font-medium hover:underline"
-              href="/auth/register"
+              routerLink="/auth/register"
               >Regístrate aquí</a
             ></span
           >
@@ -108,39 +120,36 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             >¿Tienes cuenta?
             <a
               class="text-primary font-medium hover:underline"
-              href="/auth/login"
+              routerLink="/auth/login"
               >Inicia sesión aquí</a
             ></span
           >
-        </div>
-      }
+        }
+      </div>
     </app-auth-layout>
   `,
 })
 export class RecoveryPasswordPage {
-  public email = new FormControl('', [Validators.required, Validators.email]);
-  public errorMessage!: string;
+  public email = new FormControl('', [Validators.email, Validators.required]);
+  public errorMessage = '';
   public showModal = false;
   public loading = false;
 
   private authService = inject(AuthService);
 
   public onSubmit() {
-    if (this.email.invalid) {
-      this.errorMessage = 'Correo electrónico no válido';
-      return;
+    if (this.email.valid) {
+      this.loading = true;
+      this.authService
+        .recoveryPassword(this.email.value!)
+        .subscribe({
+          next: () => {
+            this.showModal = true;
+            localStorage.setItem('email', this.email.value!);
+          },
+          error: ({ error }) => (this.errorMessage = error.message),
+        })
+        .add(() => (this.loading = false));
     }
-    this.loading = true;
-    this.authService.recoveryPassword(this.email.value!).subscribe({
-      next: () => {
-        this.showModal = true;
-        this.loading = false;
-        localStorage.setItem('email', this.email.value!);
-      },
-      error: ({ error }) => {
-        this.errorMessage = error.message;
-        this.loading = false;
-      },
-    });
   }
 }

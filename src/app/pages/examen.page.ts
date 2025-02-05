@@ -24,7 +24,7 @@ import { FooterComponent } from '@/components/footer.component';
     <header
       class="flex flex-col items-center gap-4 bg-[#0b0603] py-2.5 text-white shadow-sm shadow-black md:flex-row md:px-4"
     >
-      <img src="/logo.webp" alt="Logo de la empresa" class="h-8" />
+      <img class="h-8" src="/logo.webp" alt="Logo de la empresa" />
       <h1 class="text-center font-bold">
         Evaluación 1: Introducción a las redes de computadores
       </h1>
@@ -32,10 +32,10 @@ import { FooterComponent } from '@/components/footer.component';
     <main>
       <div class="bg-quinary mx-16 mt-12 mb-7 h-4 rounded-lg">
         <div
-          [ngStyle]="{ 'width.%': (numeroPregunta / 5) * 100 }"
           class="h-full bg-gradient-to-r from-greenlight to-green-500 rounded-l-lg {{
             numeroPregunta == 5 ? 'rounded-r-lg' : ''
           }}"
+          [ngStyle]="{ 'width.%': (numeroPregunta / 5) * 100 }"
         ></div>
       </div>
       <section class="mx-16 flex flex-col justify-between gap-7 md:flex-row">
@@ -72,31 +72,31 @@ import { FooterComponent } from '@/components/footer.component';
 
               <div class="flex flex-col gap-4">
                 <app-answer-question
-                  (click)="answersSelected[0] = 'A'"
-                  [answerSelected]="answersSelected[0]"
-                  answerLetter="A"
                   answerText="Saltos"
+                  answerLetter="A"
+                  [answerSelected]="answersSelected[0]"
+                  (click)="answersSelected[0] = 'A'"
                 />
 
                 <app-answer-question
-                  (click)="answersSelected[0] = 'B'"
-                  [answerSelected]="answersSelected[0]"
-                  answerLetter="B"
                   answerText="Ancho de banda"
+                  answerLetter="B"
+                  [answerSelected]="answersSelected[0]"
+                  (click)="answersSelected[0] = 'B'"
                 />
 
                 <app-answer-question
-                  (click)="answersSelected[0] = 'C'"
-                  [answerSelected]="answersSelected[0]"
-                  answerLetter="C"
                   answerText="Retardo"
+                  answerLetter="C"
+                  [answerSelected]="answersSelected[0]"
+                  (click)="answersSelected[0] = 'C'"
                 />
 
                 <app-answer-question
-                  (click)="answersSelected[0] = 'D'"
-                  [answerSelected]="answersSelected[0]"
-                  answerLetter="D"
                   answerText="Ninguna de las Anteriores"
+                  answerLetter="D"
+                  [answerSelected]="answersSelected[0]"
+                  (click)="answersSelected[0] = 'D'"
                 />
               </div>
             } @else if (numeroPregunta == 2) {
@@ -108,35 +108,35 @@ import { FooterComponent } from '@/components/footer.component';
               <div class="flex flex-col gap-4">
                 <app-select-question
                   question="OSPF"
+                  [answerSelected]="answersSelected[1]"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
                     'Retardo',
                     'Ninguna de las Anteriores',
                   ]"
-                  [answerSelected]="answersSelected[1]"
                 />
 
                 <app-select-question
                   question="RIP v1"
+                  [answerSelected]="answersSelected[1]"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
                     'Retardo',
                     'Ninguna de las Anteriores',
                   ]"
-                  [answerSelected]="answersSelected[1]"
                 />
 
                 <app-select-question
                   question="EIGRP"
+                  [answerSelected]="answersSelected[1]"
                   [answers]="[
                     'Saltos',
                     'Ancho de banda',
                     'Retardo',
                     'Ninguna de las Anteriores',
                   ]"
-                  [answerSelected]="answersSelected[1]"
                 />
               </div>
             } @else if (numeroPregunta == 3) {
@@ -145,28 +145,28 @@ import { FooterComponent } from '@/components/footer.component';
               </h2>
               <div class="flex flex-col gap-4">
                 <app-checkbox-question
-                  (click)="answersSelected[2] = 'A'"
                   question="Tiene 48 bits (6 bytes) de longitud."
                   answer="A"
+                  (click)="answersSelected[2] = 'A'"
                 />
                 <app-checkbox-question
-                  (click)="answersSelected[2] = 'B'"
                   question="Se expresa generalmente en notación hexadecimal."
                   answer="B"
+                  (click)="answersSelected[2] = 'B'"
                 />
                 <app-checkbox-question
-                  (click)="answersSelected[2] = 'C'"
                   question="Es única para cada dispositivo de red."
                   answer="C"
+                  (click)="answersSelected[2] = 'C'"
                 />
                 <app-checkbox-question
                   question="Las direcciones MAC cambian cada vez que se reinicia el dispositivo."
                   answer="D"
                 />
                 <app-checkbox-question
-                  (click)="answersSelected[2] = 'E'"
                   question="Una dirección MAC está compuesta por 10 dígitos decimales."
                   answer="E"
+                  (click)="answersSelected[2] = 'E'"
                 />
               </div>
             } @else if (numeroPregunta == 4) {
@@ -194,8 +194,8 @@ import { FooterComponent } from '@/components/footer.component';
             @if (numeroPregunta > 1) {
               <app-button-component
                 text="Anterior"
-                color="orange"
                 moreStyles="mt-6 w-52 justify-center text-black"
+                color="orange"
                 (click)="
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: +numeroPregunta - 1 },
@@ -204,9 +204,9 @@ import { FooterComponent } from '@/components/footer.component';
               />
             }
             <app-button-component
-              [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
-              color="orange"
               moreStyles="mt-6 w-52 justify-center text-black"
+              color="orange"
+              [text]="numeroPregunta < 5 ? 'Siguiente' : 'Finalizar'"
               (click)="
                 numeroPregunta < 5
                   ? router.navigate(['/examen'], {
@@ -224,14 +224,14 @@ import { FooterComponent } from '@/components/footer.component';
       <div class="absolute inset-0 z-50 flex items-center justify-center">
         <div class="relative flex flex-col items-end">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            (click)="finish = false"
             class="absolute -top-7 -right-7 z-50 size-4 cursor-pointer"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 273 273"
+            (click)="finish = false"
           >
             <path
-              d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
               class="filltertiary"
+              d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
             />
           </svg>
           <div
@@ -246,8 +246,8 @@ import { FooterComponent } from '@/components/footer.component';
             <div class="flex justify-center gap-4">
               <app-button-component
                 text="Cancelar"
-                color="gray"
                 moreStyles="gap-2 group"
+                color="gray"
                 (click)="finish = false"
               />
               <app-button-component

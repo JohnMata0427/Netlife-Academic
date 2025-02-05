@@ -37,9 +37,9 @@ import { ProgressBarComponent } from './progressbar.component';
         <div class="mt-2 flex flex-col gap-1">
           @if (!progress()) {
             <app-button-component
-              color="orange"
               text="Más Información"
               moreStyles="text-xs h-8 mx-auto"
+              color="orange"
             />
           } @else if (progress() < 100) {
             <app-progressbar-component [progress]="progress()" />

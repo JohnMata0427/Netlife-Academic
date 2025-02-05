@@ -16,30 +16,30 @@ import { CustomTitleComponent } from '@/components/custom-title.component';
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-courseinfo-component
             id="redes-de-computadoras"
+            src="/courses/redes.jpg"
             title="Redes de Computadoras"
             teacher="Monica Jimenez"
-            src="/courses/redes.jpg"
             [progress]="14"
           />
           <app-courseinfo-component
             id="virtual/inteligencia-artificial"
+            src="/courses/ia.png"
             title="Inteligencia Artificial"
             teacher="Vanessa Guevara"
-            src="/courses/ia.png"
             [progress]="45"
           />
           <app-courseinfo-component
             id="analisis-de-datos"
+            src="https://miro.medium.com/v2/resize:fit:730/0*SOW9caZs9ouRukN8.jpg"
             title="Sistemas Operativos"
             teacher="Ivonne Maldonado"
-            src="https://miro.medium.com/v2/resize:fit:730/0*SOW9caZs9ouRukN8.jpg"
             [progress]="74"
           />
           <app-courseinfo-component
             id="aplicaciones-distribuidas"
+            src="https://www.axigen.com/usr/files/articles/x117.png.pagespeed.ic.MlTzHrA5On.png"
             title="Aplicaciones Distribuidas"
             teacher="Byron Loarte"
-            src="https://www.axigen.com/usr/files/articles/x117.png.pagespeed.ic.MlTzHrA5On.png"
             [progress]="90"
           />
         </div>
@@ -51,16 +51,16 @@ import { CustomTitleComponent } from '@/components/custom-title.component';
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-courseinfo-component
             id="redes-de-computadoras"
+            src="/courses/java.png"
             title="Redes de Computadoras"
             teacher="Ivonne Maldonado"
-            src="/courses/java.png"
             [progress]="100"
           />
           <app-courseinfo-component
             id="analisis-de-datos"
+            src="/courses/google-analytics.png"
             title="Analisis de Datos"
             teacher="Ivonne Maldonado"
-            src="/courses/google-analytics.png"
             [progress]="100"
           />
         </div>
@@ -70,30 +70,30 @@ import { CustomTitleComponent } from '@/components/custom-title.component';
         <div class="mt-4 flex flex-wrap justify-center gap-8 sm:justify-start">
           <app-courseinfo-component
             id="control-de-versiones"
+            src="https://fireship.io/courses/git/img/featured.png"
             title="Control de Versiones"
             teacher="Gabriel García"
-            src="https://fireship.io/courses/git/img/featured.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="metodologias-agiles"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="html-y-css"
+            src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             title="HTML y CSS"
             teacher="Katherine Díaz"
-            src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="python-desde-cero"
+            src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
             title="Python desde cero"
             teacher="Ivonne Maldonado"
-            src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
             [newCourse]="true"
           />
         </div>

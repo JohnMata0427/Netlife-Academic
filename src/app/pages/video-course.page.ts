@@ -20,13 +20,13 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           <div class="flex items-center gap-4">
             <img class="size-12 rounded-full" src="/profile.webp" alt="" />
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               class="size-4"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 15 15"
+              fill="none"
             >
               <path
-                fill="#000"
+                class="fill-black"
                 d="M10.3 1a5 5 0 0 0-2.8-1c-1 0-2 .4-2.8 1-.7.8-1 1.8-1 2.8.2 2 1.9 3.7 3.8 3.7s3.6-1.7 3.7-3.7c.1-1-.2-2-1-2.7Zm3.5 14H1.2a1.2 1.2 0 0 1-1-.4c-.2-.2-.2-.6-.2-1a5.7 5.7 0 0 1 2.8-3.8 9 9 0 0 1 4.7-1.2 9 9 0 0 1 4.7 1.2 6 6 0 0 1 2.8 3.9 1.1 1.1 0 0 1-.7 1.2l-.5.1Z"
               />
             </svg>
@@ -78,13 +78,13 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
               class="bg-orangelight flex items-center gap-4 rounded-t-lg px-4 py-2"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 class="size-5"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 22 21"
+                fill="none"
               >
                 <path
-                  fill="#000"
+                  class="fill-black"
                   d="m0 5 10 4h2l10-4V4L12 0h-2L0 4v1Zm22 5-2-1h-1a5524 5524 0 0 0-8 3h-1L3 9H2l-2 1v1l10 4h2l10-4v-1Zm0 6-2-1h-1l-7 3h-2l-7-3H2l-2 1v1l10 4h2l10-4v-1Z"
                 />
               </svg>
@@ -98,8 +98,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 18 18"
+                    fill="none"
                   >
                     <path
                       class="fill-greenlight"
@@ -113,8 +113,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 15 15"
+                        fill="none"
                       >
                         <path
                           class="fill-greenlight"
@@ -141,8 +141,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 15 15"
+                        fill="none"
                       >
                         <path
                           class="fill-white"
@@ -167,8 +167,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 15 15"
+                        fill="none"
                       >
                         <path
                           class="fill-white"
@@ -193,8 +193,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 15 15"
+                        fill="none"
                       >
                         <path
                           class="fill-white"
@@ -221,8 +221,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 18 18"
+                    fill="none"
                   >
                     <path
                       class="fill-white"
@@ -239,8 +239,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 18 18"
+                    fill="none"
                   >
                     <path
                       class="fill-white"
@@ -257,8 +257,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 18 18"
+                    fill="none"
                   >
                     <path
                       class="fill-white"
@@ -275,8 +275,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
                   <svg
                     class="size-4"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 18 18"
+                    fill="none"
                   >
                     <path
                       class="fill-white"
@@ -302,14 +302,14 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
               <img class="size-12 rounded-full" src="/profile.webp" alt="" />
               <textarea
                 class="w-full rounded-lg border border-neutral-400 p-2 text-sm"
-                name="comentario"
                 id="comentario"
+                name="comentario"
                 placeholder="En esta sección, puedes escribir comentarios sobre esta clase."
               ></textarea>
             </div>
             <div class="flex justify-end gap-4">
-              <app-button-component color="orange" text="Comenzar" />
-              <app-button-component color="gray" text="Cancelar" />
+              <app-button-component text="Comenzar" color="orange" />
+              <app-button-component text="Cancelar" color="gray" />
             </div>
           </section>
         </aside>

@@ -10,16 +10,6 @@
   --color-greenlight: #72c234;
   --color-orangelight: #faab00;
   --font-inter: 'Inter', sans-serif;
-  --animate-rotate-360: rotate 1s linear infinite;
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 }
 
 ::-webkit-scrollbar {

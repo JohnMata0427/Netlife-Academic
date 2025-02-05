@@ -11,9 +11,9 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         Aquí se mostrarán los términos y condiciones de uso de la plataforma.
       </p>
       <app-button-component
-        (click)="goBack()"
         text="Volver"
         moreStyles="ml-16 px-8"
+        (click)="goBack()"
       />
     </section>
   `,

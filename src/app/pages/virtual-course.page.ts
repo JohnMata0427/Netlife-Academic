@@ -66,8 +66,8 @@ import { NgStyle } from '@angular/common';
       <section class="mt-8 flex items-center justify-center gap-4">
         <div class="bg-quinary h-5 w-5/6 rounded">
           <div
-            [ngStyle]="{ 'width.%': '90' }"
             class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
+            [ngStyle]="{ 'width.%': '90' }"
           ></div>
         </div>
         <h4 class="text-sm">90% Progreso</h4>
@@ -141,8 +141,8 @@ import { NgStyle } from '@angular/common';
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
                       viewBox="0 0 15 15"
+                      fill="none"
                     >
                       <path
                         class="fill-greenlight"
@@ -167,8 +167,8 @@ import { NgStyle } from '@angular/common';
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
                       viewBox="0 0 15 15"
+                      fill="none"
                     >
                       <path
                         class="fill-black"
@@ -191,8 +191,8 @@ import { NgStyle } from '@angular/common';
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
                       viewBox="0 0 15 15"
+                      fill="none"
                     >
                       <path
                         class="fill-black"
@@ -215,8 +215,8 @@ import { NgStyle } from '@angular/common';
                     <svg
                       class="size-4"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
                       viewBox="0 0 15 15"
+                      fill="none"
                     >
                       <path
                         class="fill-black"
@@ -256,8 +256,8 @@ import { NgStyle } from '@angular/common';
               <svg
                 class="absolute top-4 left-4 size-12"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 viewBox="0 0 61 60"
+                fill="none"
               >
                 <path
                   fill="#fff"
@@ -267,8 +267,8 @@ import { NgStyle } from '@angular/common';
               <svg
                 class="absolute right-4 bottom-4 size-12"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 viewBox="0 0 56 66"
+                fill="none"
               >
                 <path
                   fill="#fff"
@@ -291,8 +291,8 @@ import { NgStyle } from '@angular/common';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 20 15"
+                        fill="none"
                       >
                         <path
                           fill="#fff"
@@ -309,8 +309,8 @@ import { NgStyle } from '@angular/common';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 20 15"
+                        fill="none"
                       >
                         <path
                           fill="#fff"
@@ -323,8 +323,8 @@ import { NgStyle } from '@angular/common';
                       <svg
                         class="size-4"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
                         viewBox="0 0 15 15"
+                        fill="none"
                       >
                         <path
                           fill="#fff"

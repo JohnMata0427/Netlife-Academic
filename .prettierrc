@@ -1,5 +1,15 @@
 {
-  "plugins": ["prettier-plugin-tailwindcss"],
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-attributes"
+  ],
+  "attributeGroups": [
+    "$DEFAULT",
+    "^[a-z]",
+    "$ANGULAR_INPUT",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$ANGULAR_OUTPUT"
+  ],
   "tabWidth": 2,
   "singleQuote": true
 }

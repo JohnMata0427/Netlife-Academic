@@ -20,8 +20,8 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         >
           <img
             class="size-52 rounded-full border-8 border-white"
-            [src]="user.imageUrl || '/profile.webp'"
             alt="Foto de Perfil"
+            [src]="user.imageUrl || '/profile.webp'"
           />
           <div class="flex flex-col items-center justify-between">
             <h4 class="text-center text-xl font-extrabold">
@@ -30,10 +30,10 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             <small class="my-1">{{ user.state }}</small>
             <p class="text-sm">{{ user.email }}</p>
             <app-button-component
-              (click)="router.navigate(['/actualizar-informacion'])"
-              color="orange"
               text="Editar Perfil"
               moreStyles="mt-4"
+              color="orange"
+              (click)="router.navigate(['/actualizar-informacion'])"
             />
           </div>
         </div>
@@ -43,21 +43,21 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
       >
         <div class="flex w-full gap-1">
           <app-button-component
-            (click)="selectedButton = 'sobre-mi'"
             text="Sobre Mí"
             moreStyles="w-full rounded-none rounded-tr-lg"
+            (click)="selectedButton = 'sobre-mi'"
           />
 
           <app-button-component
-            (click)="selectedButton = 'mis-cursos'"
             text="Mis Cursos"
             moreStyles="w-full rounded-none rounded-tr-lg"
+            (click)="selectedButton = 'mis-cursos'"
           />
 
           <app-button-component
-            (click)="selectedButton = 'mis-certificados'"
             text="Mis Certificados"
             moreStyles="w-full rounded-none rounded-tr-lg"
+            (click)="selectedButton = 'mis-certificados'"
           />
         </div>
         <div

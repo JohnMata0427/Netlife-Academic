@@ -15,7 +15,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         alt="Logo Netlife"
       />
       @if (errorMessage !== 'Código de verificación incorrecto') {
-        <form class="flex w-96 flex-col gap-3" (submit)="onSubmit($event)">
+        <div class="flex w-96 flex-col gap-3">
           <h1
             class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-3xl font-bold text-transparent"
           >
@@ -23,24 +23,29 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           </h1>
 
           <span class="text-center text-xs font-semibold text-gray-500"
-            >Introduce el código de verificación enviado a tu correo
-            electrónico</span
+            >Revise su correo electrónico y coloca el código de
+            verificación.</span
           >
 
           <div class="relative">
-            <img
-              class="absolute inset-y-0 left-3 my-auto size-3"
-              src="/icons/forms/verify.svg"
-              alt="Lock Icon"
-            />
+            <!-- Verification Code Icon -->
+            <svg
+              class="absolute inset-y-0 left-3 my-auto size-3 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 31 31"
+            >
+              <path
+                d="M30.7 12a15.2 15.2 0 0 0-5.4-8.6 15.7 15.7 0 0 0-21 1.2 15 15 0 0 0-1.8 18.8l.3.4L1 31l8-2 .2.1a18.2 18.2 0 0 0 6.4 1.4 15.3 15.3 0 0 0 15-18.4ZM8.9 17.8a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4Zm6.6 0a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4Zm6.6 0a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4Z"
+              />
+            </svg>
             <input
-              [formControl]="verificationCode"
+              class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
               id="verificationCode"
               name="verificationCode"
-              class="w-full rounded-lg border border-black p-1.5 pl-8 text-sm"
               type="text"
               placeholder="Código de Verificación"
-              required
+              [formControl]="verificationCode"
+              [maxlength]="6"
             />
           </div>
 
@@ -53,9 +58,10 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           }
 
           <app-button-component
-            moreStyles="w-full justify-center"
             text="Verificar código"
+            moreStyles="w-full justify-center"
             [loading]="loading"
+            (click)="onSubmit()"
           />
           <span class="text-center text-xs"
             >¿No tienes cuenta?
@@ -73,7 +79,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
               >Inicia sesión aquí</a
             ></span
           >
-        </form>
+        </div>
       } @else {
         <div class="flex flex-col items-center rounded-lg bg-black px-10 py-5">
           <p class="text-center text-sm font-extralight text-white">
@@ -84,14 +90,14 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           >
           <div class="flex gap-4">
             <button
-              (click)="errorMessage = ''"
               class="w-32 rounded-lg py-2 text-sm"
+              (click)="errorMessage = ''"
             >
               Cerrar
             </button>
             <button
-              (click)="resendVerifyCode()"
               class="from-secondary to-primary w-32 rounded-lg bg-gradient-to-r py-2 text-sm"
+              (click)="resendVerifyCode()"
             >
               Reenviar
             </button>
@@ -103,13 +109,13 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
 })
 export class VerifyCodePage {
   public verificationCode = new FormControl('', [
+    Validators.minLength(6),
     Validators.required,
-    Validators.maxLength(6),
   ]);
-  public errorMessage!: string;
+  public errorMessage = '';
   public loading = false;
 
-  token!: string;
+  private token = '';
   private router = inject(Router);
   private authService = inject(AuthService);
   private activatedRoute = inject(ActivatedRoute);
@@ -118,26 +124,20 @@ export class VerifyCodePage {
     this.token = this.activatedRoute.snapshot.queryParams['t'];
   }
 
-  public onSubmit(event: Event) {
-    event.preventDefault();
-    if (this.verificationCode.invalid) {
-      this.errorMessage = 'Por favor, introduzca un código válido';
-      return;
-    }
-
-    this.loading = true;
-    this.authService
-      .verifyCode(this.verificationCode.value!, this.token)
-      .subscribe({
-        next: () =>
-          this.router.navigate(['/auth/new-password'], {
-            queryParams: { token: this.token },
-          }),
-        error: ({ error }) => {
-          this.errorMessage = error.message;
-          this.loading = false;
-        },
-      });
+  public onSubmit() {
+    if (this.verificationCode.valid) {
+      this.loading = true;
+      this.authService
+        .verifyCode(this.verificationCode.value!, this.token)
+        .subscribe({
+          next: () =>
+            this.router.navigate(['/auth/new-password'], {
+              queryParams: { token: this.token },
+            }),
+          error: ({ error }) => (this.errorMessage = error.message),
+        })
+        .add(() => (this.loading = false));
+    } else this.errorMessage = 'Por favor, introduzca un código válido';
   }
 
   public resendVerifyCode() {
@@ -146,12 +146,9 @@ export class VerifyCodePage {
       .subscribe({
         next: ({ token }) =>
           this.router.navigate([], {
-            queryParams: { token },
+            queryParams: { t: token },
           }),
-        error: ({ error }) => {
-          this.errorMessage = error.message;
-          this.loading = false;
-        },
+        error: ({ error }) => (this.errorMessage = error.message),
       });
   }
 }

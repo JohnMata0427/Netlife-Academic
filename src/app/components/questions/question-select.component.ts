@@ -5,7 +5,7 @@ import { Component, HostListener, Input, input } from '@angular/core';
   template: `
     <div class="flex gap-4">
       <strong>{{ question() }}</strong>
-      <div (click)="showOptions = !showOptions" class="relative w-3/4">
+      <div class="relative w-3/4" (click)="showOptions = !showOptions">
         <div
           class="flex justify-between w-full border-4 rounded-lg border-greenlight min-h-12 items-center cursor-pointer {{
             showOptions
@@ -17,13 +17,13 @@ import { Component, HostListener, Input, input } from '@angular/core';
             {{ answerSelected }}
           </span>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             class="mr-2 w-3"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 13 7"
+            fill="none"
           >
             <path
-              fill="#000"
+              class="fill-black"
               d="m.2 1.3 5.6 5.4.3.2a1.1 1.1 0 0 0 .8 0 1 1 0 0 0 .3-.2l5.6-5.4c.5-.5 0-1.3-.8-1.3H1C0 0-.4.8.1 1.3Z"
             />
           </svg>

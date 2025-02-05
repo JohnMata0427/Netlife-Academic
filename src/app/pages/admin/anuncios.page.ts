@@ -16,18 +16,17 @@ import { AnnouncementService } from '@/services/announcement.service';
       <h1 class="text-primary text-2xl font-bold">Configuración del Anuncio</h1>
       <div class="flex flex-col items-center">
         <form
-          [formGroup]="form"
           class="mt-4 flex w-full flex-col gap-4 lg:flex-row"
+          [formGroup]="form"
         >
           <div class="flex w-full flex-col gap-2">
             <label class="font-bold" for="">Asunto</label>
             <input
+              class="border-quinary rounded-lg border p-1 text-sm"
               id="subject"
               name="subject"
-              formControlName="subject"
-              class="border-quinary rounded-lg border p-1 text-sm"
               type="text"
-              required
+              formControlName="subject"
             />
             <label class="font-bold" for="">Contenido del Asunto</label>
           </div>
@@ -35,12 +34,11 @@ import { AnnouncementService } from '@/services/announcement.service';
             <label class="font-bold" for="">Tipo de aviso</label>
 
             <select
-              formControlName="type"
-              name="type"
+              class="border-quinary rounded-lg border p-1 text-sm"
               id="type"
               name="type"
-              class="border-quinary rounded-lg border p-1 text-sm"
-              required
+              name="type"
+              formControlName="type"
             >
               <option value="info">Información o aviso</option>
               <option value="warning">Advertencia</option>
@@ -48,12 +46,11 @@ import { AnnouncementService } from '@/services/announcement.service';
 
             <label class="font-bold" for="">Tipo de usuario</label>
             <select
-              formControlName="role"
-              name="role"
+              class="border-quinary rounded-lg border p-1 text-sm"
               id="role"
               name="role"
-              class="border-quinary rounded-lg border p-1 text-sm"
-              required
+              name="role"
+              formControlName="role"
             >
               <option value="ALL">Todos</option>
               <option value="STUDENT">Estudiantes</option>
@@ -62,13 +59,13 @@ import { AnnouncementService } from '@/services/announcement.service';
 
             <label class="relative inline-flex cursor-pointer items-center">
               <input
-                formControlName="exclude"
-                mame="exclude"
+                class="peer sr-only"
                 id="switch"
                 type="checkbox"
-                class="peer sr-only"
+                mame="exclude"
+                formControlName="exclude"
               />
-              <label for="switch" class="hidden"></label>
+              <label class="hidden" for="switch"></label>
               <div
                 class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
@@ -84,11 +81,10 @@ import { AnnouncementService } from '@/services/announcement.service';
               >Estado del usuario en el campus al que llegará el anuncio</label
             >
             <select
-              formControlName="state"
-              name="state"
-              id="state"
               class="border-quinary rounded-lg border p-1 text-sm"
-              required
+              id="state"
+              name="state"
+              formControlName="state"
             >
               <option value="all">Todos</option>
               <option value="active">Activos</option>
@@ -96,13 +92,13 @@ import { AnnouncementService } from '@/services/announcement.service';
             </select>
             <label class="relative inline-flex cursor-pointer items-center">
               <input
-                formControlName="guest"
-                name="guest"
-                id="switch"
-                type="checkbox"
                 class="peer sr-only"
+                id="switch"
+                name="guest"
+                type="checkbox"
+                formControlName="guest"
               />
-              <label for="switch" class="hidden"></label>
+              <label class="hidden" for="switch"></label>
               <div
                 class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
@@ -111,26 +107,26 @@ import { AnnouncementService } from '@/services/announcement.service';
             <span class="font-bold">Medio de envío</span>
             <label class="relative inline-flex cursor-pointer items-center">
               <input
-                formControlName="sendEmail"
-                name="sendEmail"
-                id="switch"
-                type="checkbox"
                 class="peer sr-only"
+                id="switch"
+                name="sendEmail"
+                type="checkbox"
+                formControlName="sendEmail"
               />
-              <label for="switch" class="hidden"></label>
+              <label class="hidden" for="switch"></label>
               <div
                 class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
               Enviar por correo electrónico </label
             ><label class="relative inline-flex cursor-pointer items-center">
               <input
-                formControlName="publishHome"
+                class="peer sr-only"
                 id="switch-3"
                 name="publishHome"
                 type="checkbox"
-                class="peer sr-only"
+                formControlName="publishHome"
               />
-              <label for="switch-3" class="hidden"></label>
+              <label class="hidden" for="switch-3"></label>
               <div
                 class="peer after:border-quinary h-6 w-11 rounded-full border bg-slate-400 peer-checked:bg-green-500 peer-focus:ring-green-300 after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
               ></div>
@@ -142,19 +138,19 @@ import { AnnouncementService } from '@/services/announcement.service';
               >
               <input
                 class="border-quinary rounded-lg border p-1 text-sm"
+                id="deletedAt"
+                name="deletedAt"
                 type="datetime-local"
                 formControlName="deletedAt"
-                name="deletedAt"
-                id="deletedAt"
               />
             }
           </div>
         </form>
         <app-button-component
-          (click)="onSubmit()"
-          color="orange"
           text="Guardar Cambios"
           moreStyles="text-sm h-8 mt-8"
+          color="orange"
+          (click)="onSubmit()"
         />
         @if (message) {
           <div class="mt-5 rounded-lg bg-black p-2 text-white opacity-90">

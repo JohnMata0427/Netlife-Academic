@@ -13,26 +13,25 @@ type HoverColorVariant = 'black' | 'white';
   selector: 'app-button-component',
   template: `
     <button
-      class="cursor-pointer font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group {{
+      class="cursor-pointer font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group select-none {{
         moreStyles()
       }} {{ variantsColor[color()][0] }} {{ variantsColor[hoverColor()][2] }}"
+      [disabled]="loading()"
     >
       @if (loading()) {
         <svg
-          class="size-5 animate-rotate-360 text-white {{
-            variantsColor[color()][1]
-          }}"
+          class="size-5 animate-spin text-white {{ variantsColor[color()][1] }}"
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
           viewBox="0 0 24 24"
+          fill="none"
         >
           <circle
             class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
             stroke-width="4"
+            stroke="currentColor"
+            r="10"
+            cy="12"
+            cx="12"
           />
           <path
             class="opacity-75"
@@ -41,7 +40,7 @@ type HoverColorVariant = 'black' | 'white';
           />
         </svg>
       } @else {
-        <ng-content></ng-content>
+        <ng-content />
         <span class="relative z-10">{{ text() }}</span>
       }
     </button>

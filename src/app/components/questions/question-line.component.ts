@@ -7,8 +7,8 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
       <ul #questionList class="flex flex-col gap-2 select-none">
         @for (question of questions(); track $index) {
           <li
-            (click)="selectQuestion($index)"
             class="hover:bg-greenlight/50 rounded-lg p-1"
+            (click)="selectQuestion($index)"
           >
             <strong>{{ $index + 1 }}.</strong>
             <span class="mr-2 ml-4">{{ question }}</span>
@@ -18,8 +18,8 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
       <ul #answerList class="flex flex-col gap-2 select-none">
         @for (answer of answers(); track $index) {
           <li
-            (click)="selectAnswer($index)"
             class="hover:bg-greenlight/50 rounded-lg p-1"
+            (click)="selectAnswer($index)"
           >
             <span class="ml-2">{{ answer }}</span>
           </li>
@@ -31,11 +31,11 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
       >
         @for (line of lines; track $index) {
           <line
-            [attr.x1]="line.x1"
+            stroke="#72C234"
+            [attr.y2]="line.y2"
             [attr.y1]="line.y1"
             [attr.x2]="line.x2"
-            [attr.y2]="line.y2"
-            stroke="#72C234"
+            [attr.x1]="line.x1"
           />
         }
       </svg>

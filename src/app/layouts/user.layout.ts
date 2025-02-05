@@ -8,7 +8,7 @@ import { FooterComponent } from '@/components/footer.component';
   template: `
     <app-header-component />
     <main class="min-h-screen">
-      <ng-content></ng-content>
+      <ng-content />
     </main>
     <app-footer-component />
   `,

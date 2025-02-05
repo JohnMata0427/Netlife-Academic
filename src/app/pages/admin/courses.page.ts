@@ -14,16 +14,16 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
           admite el formato CSV para exportar o importar datos
         </p>
         <app-button-component
-          (click)="mostrarModal = true"
           text="Crear nuevo curso"
-          color="orange"
           moreStyles="gap-2 group"
+          color="orange"
+          (click)="mostrarModal = true"
         >
           <svg
             class="z-10 size-6"
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             viewBox="0 0 25 20"
+            fill="none"
           >
             <path
               class="group-hover:fill-primary fill-white"
@@ -50,21 +50,21 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         <div
           class="absolute inset-0 z-50 m-10 flex flex-col items-center justify-center"
         >
-          <form action="" class="flex flex-col gap-2 rounded-lg bg-white p-8">
+          <form class="flex flex-col gap-2 rounded-lg bg-white p-8" action="">
             <h2 class="text-primary text-center text-2xl font-bold">
               Crear nuevo curso
             </h2>
             <img
-              [src]="imagePreview || 'NetlifeLogo.webp'"
-              alt=""
               class="h-52 w-96 rounded-lg object-cover"
+              alt=""
+              [src]="imagePreview || 'NetlifeLogo.webp'"
             />
 
             <label for="">Suba la imagen del curso</label
             ><input
-              (change)="onFileChange($event)"
               class="rounded-lg border border-black p-1.5"
               type="file"
+              (change)="onFileChange($event)"
             />
             <label for="">Escriba el nombre del curso</label
             ><input

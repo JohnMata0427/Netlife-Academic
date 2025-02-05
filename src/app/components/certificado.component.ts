@@ -18,14 +18,14 @@ import { CustomButtonComponent } from './custom-button.component';
         </h3>
         <div class="relative flex justify-center gap-4">
           <app-button-component
-            (click)="showCertificate = true"
-            color="orange"
             text="Descargar"
+            color="orange"
+            (click)="showCertificate = true"
           />
           <app-button-component
-            (click)="showShare = !showShare"
-            color="orange"
             text="Compartir"
+            color="orange"
+            (click)="showShare = !showShare"
           />
           @if (showShare) {
             <div
@@ -37,32 +37,32 @@ import { CustomButtonComponent } from './custom-button.component';
                 <button class="group size-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                     <path
-                      d="M25 13c0-7-6-13-12-13C6 0 0 6 0 13c0 6 5 11 11 12v-9H7v-3h4v-3c0-3 1-5 4-5h3v3h-2l-2 2v3h4l-1 3h-3v9c6-1 11-6 11-12Z"
                       class="group-hover:fill-primary fill-black"
+                      d="M25 13c0-7-6-13-12-13C6 0 0 6 0 13c0 6 5 11 11 12v-9H7v-3h4v-3c0-3 1-5 4-5h3v3h-2l-2 2v3h4l-1 3h-3v9c6-1 11-6 11-12Z"
                     />
                   </svg>
                 </button>
                 <button class="group size-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 463">
                     <path
-                      d="M403 0h79L310 196l202 267H354L230 301 89 463H10l184-210L0 0h162l112 148L403 0zm-27 416h43L138 45H92l284 371z"
                       class="group-hover:fill-primary fill-black"
+                      d="M403 0h79L310 196l202 267H354L230 301 89 463H10l184-210L0 0h162l112 148L403 0zm-27 416h43L138 45H92l284 371z"
                     />
                   </svg>
                 </button>
                 <button class="group size-full">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
                     class="*:fill-black"
+                    xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 25 25"
                   >
                     <path
-                      d="M18 2a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h11Zm0-2H7C3 0 0 3 0 7v11c0 4 3 7 7 7h11c4 0 7-3 7-7V7c0-4-3-7-7-7Z"
                       class="group-hover:fill-primary"
+                      d="M18 2a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h11Zm0-2H7C3 0 0 3 0 7v11c0 4 3 7 7 7h11c4 0 7-3 7-7V7c0-4-3-7-7-7Z"
                     />
                     <path
-                      d="M19 7a2 2 0 1 1 0-3 2 2 0 0 1 0 3Zm-7 1a4 4 0 1 1 0 9 4 4 0 0 1 0-9Zm0-2a6 6 0 1 0 0 13 6 6 0 0 0 0-13Z"
                       class="group-hover:fill-primary"
+                      d="M19 7a2 2 0 1 1 0-3 2 2 0 0 1 0 3Zm-7 1a4 4 0 1 1 0 9 4 4 0 0 1 0-9Zm0-2a6 6 0 1 0 0 13 6 6 0 0 0 0-13Z"
                     />
                   </svg>
                 </button>
@@ -70,8 +70,8 @@ import { CustomButtonComponent } from './custom-button.component';
                 <button class="group size-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                     <path
-                      d="M21.4 3.6A12.4 12.4 0 0 0 12.6 0 12.4 12.4 0 0 0 1.8 18.6L0 25l6.6-1.7A12.4 12.4 0 0 0 21.4 3.7Zm-8.8 19c-1.9 0-3.7-.4-5.3-1.3l-.4-.3-4 1L4 18.4l-.2-.4a11 11 0 0 1-1.6-5.5 10.3 10.3 0 0 1 20.7 0c0 5.7-4.6 10.3-10.3 10.3Zm5.6-7.6a10 10 0 0 0-2.1-1c-.3-.1-.5-.2-.7.1l-1 1.2c-.2.3-.3.3-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.4.1-.6l.5-.5.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5 0 1.6 1 3 1.2 3.2.2.2 2.2 3.4 5.3 4.7l1.8.7c.7.2 1.4.2 2 0 .5 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.5l-.6-.3Z"
                       class="group-hover:fill-primary fill-black"
+                      d="M21.4 3.6A12.4 12.4 0 0 0 12.6 0 12.4 12.4 0 0 0 1.8 18.6L0 25l6.6-1.7A12.4 12.4 0 0 0 21.4 3.7Zm-8.8 19c-1.9 0-3.7-.4-5.3-1.3l-.4-.3-4 1L4 18.4l-.2-.4a11 11 0 0 1-1.6-5.5 10.3 10.3 0 0 1 20.7 0c0 5.7-4.6 10.3-10.3 10.3Zm5.6-7.6a10 10 0 0 0-2.1-1c-.3-.1-.5-.2-.7.1l-1 1.2c-.2.3-.3.3-.7.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.4.1-.6l.5-.5.3-.6v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4c-.3.3-1 1-1 2.5 0 1.6 1 3 1.2 3.2.2.2 2.2 3.4 5.3 4.7l1.8.7c.7.2 1.4.2 2 0 .5 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.5l-.6-.3Z"
                     />
                   </svg>
                 </button>
@@ -87,14 +87,14 @@ import { CustomButtonComponent } from './custom-button.component';
       >
         <div class="relative flex size-3/4 flex-col items-center justify-start">
           <svg
-            (click)="showCertificate = false"
-            xmlns="http://www.w3.org/2000/svg"
             class="absolute -top-8 right-32 z-50 size-4 cursor-pointer"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 273 273"
+            (click)="showCertificate = false"
           >
             <path
-              d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
               class="fill-red-600"
+              d="m171 137 95-95a24 24 0 1 0-34-34l-95 95L42 8A24 24 0 0 0 8 42l95 95-95 95a24 24 0 0 0 34 34l95-95 95 95a24 24 0 1 0 34-34l-95-95Z"
             />
           </svg>
           <div class="relative flex size-full justify-center">

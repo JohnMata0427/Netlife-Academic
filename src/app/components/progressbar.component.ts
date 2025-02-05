@@ -7,8 +7,8 @@ import { Component, input } from '@angular/core';
   template: `
     <div class="bg-quinary h-2.5 w-full rounded-lg border border-white">
       <div
-        [ngStyle]="{ 'width.%': progress() }"
         class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
+        [ngStyle]="{ 'width.%': progress() }"
       ></div>
     </div>
   `,

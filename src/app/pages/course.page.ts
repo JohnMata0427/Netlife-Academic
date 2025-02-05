@@ -68,8 +68,8 @@ import { UserLayout } from '@/layouts/user.layout';
       <section class="mt-8 flex items-center justify-center gap-4">
         <div class="bg-quinary h-5 w-5/6 rounded">
           <div
-            [ngStyle]="{ 'width.%': '50' }"
             class="from-secondary via-tertiary to-quaternary h-full rounded-l bg-gradient-to-r"
+            [ngStyle]="{ 'width.%': '50' }"
           ></div>
         </div>
         <h4 class="text-sm">50% Progreso</h4>
@@ -79,28 +79,28 @@ import { UserLayout } from '@/layouts/user.layout';
         <app-title-component title="Contenido del Curso" />
         <div class="mt-8 flex flex-wrap justify-center gap-1">
           <app-button-component
-            (click)="selectedButton = 'Inicio'"
-            [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
             text="Inicio"
+            [color]="selectedButton === 'Inicio' ? 'orange' : 'black'"
+            (click)="selectedButton = 'Inicio'"
           />
           @for (module of modules; track module) {
             <app-button-component
-              (click)="selectedButton = 'Módulo ' + module"
+              text="Módulo {{ module }}"
               [color]="
                 selectedButton === 'Módulo ' + module ? 'orange' : 'black'
               "
-              text="Módulo {{ module }}"
+              (click)="selectedButton = 'Módulo ' + module"
             />
           }
           <app-button-component
-            (click)="selectedButton = 'Examen'"
-            [color]="selectedButton === 'Examen' ? 'orange' : 'black'"
             text="Examenes"
+            [color]="selectedButton === 'Examen' ? 'orange' : 'black'"
+            (click)="selectedButton = 'Examen'"
           />
           <app-button-component
-            (click)="selectedButton = 'Certificado'"
-            [color]="selectedButton === 'Certificado' ? 'orange' : 'black'"
             text="Fin del Curso"
+            [color]="selectedButton === 'Certificado' ? 'orange' : 'black'"
+            (click)="selectedButton = 'Certificado'"
           />
         </div>
       </section>
@@ -251,8 +251,8 @@ import { UserLayout } from '@/layouts/user.layout';
             class="relative mt-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
               class="absolute inset-y-0 left-0 h-full"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 93 122"
             >
               <path
@@ -277,24 +277,24 @@ import { UserLayout } from '@/layouts/user.layout';
             </div>
             <div class="flex gap-4">
               <app-button-component
+                text="Resolver"
+                moreStyles="w-40 justify-center"
+                color="orange"
                 (click)="
                   router.navigate(['/examen'], {
                     queryParams: { pregunta: '1' },
                   })
                 "
-                color="orange"
-                text="Resolver"
-                moreStyles="w-40 justify-center"
               />
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 class="size-7"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 30 32"
+                fill="none"
               >
                 <path
-                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
                   class="fill-greenlight"
+                  d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
                 />
               </svg>
             </div>
@@ -306,8 +306,8 @@ import { UserLayout } from '@/layouts/user.layout';
           class="relative my-10 ml-16 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#ceced1] to-white"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             class="absolute inset-y-0 left-0 h-full"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 93 122"
           >
             <path
@@ -325,18 +325,18 @@ import { UserLayout } from '@/layouts/user.layout';
 
         <button class="mt-4 ml-16 flex gap-4">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
+            fill="none"
           >
-            <path fill="#000" d="M4.3 0 0 9h19.2l5.3-9H4.2Z" />
+            <path class="fill-black" d="M4.3 0 0 9h19.2l5.3-9H4.2Z" />
             <path
-              fill="#000"
+              class="fill-black"
               d="m32 8-4.8-8L19 14.2a7.9 7.9 0 0 0-5.5 0l-1.6-2.8H2l6 9.7a9.9 9.9 0 0 0 0 4c.3 1.3 1 2.5 1.7 3.6a8.6 8.6 0 0 0 3 2.4 8 8 0 0 0 7.2 0 8.6 8.6 0 0 0 2.9-2.4 9.4 9.4 0 0 0 1.6-3.6 10 10 0 0 0 .1-4L32 8ZM16.1 27.9c-.9 0-1.8-.3-2.5-.9a5 5 0 0 1-1.7-2.2 5.4 5.4 0 0 1 1-5.5 4.5 4.5 0 0 1 2.3-1.3c1-.2 1.9-.1 2.7.2a4.7 4.7 0 0 1 2 1.9 5.3 5.3 0 0 1-.5 6.3 4.5 4.5 0 0 1-3.2 1.5Z"
             />
             <path
-              fill="#000"
+              class="fill-black"
               d="M16 25c1.2 0 2.1-.9 2.1-2s-1-2-2.1-2-2.1.9-2.1 2 1 2 2.1 2Z"
             />
           </svg>
@@ -345,9 +345,9 @@ import { UserLayout } from '@/layouts/user.layout';
         <app-title-component title="Comentario personal" />
         <textarea class="bg-quinary mx-16 h-20 rounded-lg"></textarea>
         <app-button-component
-          color="orange"
           text="Guardar comentario"
           moreStyles="mx-auto mt-4 mb-10"
+          color="orange"
         />
       } @else {
         <app-title-component title="Tema del módulo" />
@@ -355,8 +355,8 @@ import { UserLayout } from '@/layouts/user.layout';
           class="relative mx-8 my-10 flex h-24 items-center bg-gradient-to-r from-[#aeaeaf] via-[#84858D]/40 to-white sm:mx-16"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             class="absolute inset-y-0 left-0 h-full"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 93 122"
           >
             <path
@@ -378,14 +378,14 @@ import { UserLayout } from '@/layouts/user.layout';
             <span>Conceptos básicos de redes </span>
           </div>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             class="mr-4 size-7"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 30 32"
+            fill="none"
           >
             <path
-              d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
               class="fill-greenlight"
+              d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
             />
           </svg>
         </button>
@@ -401,22 +401,22 @@ import { UserLayout } from '@/layouts/user.layout';
             <span>Topologías y medios de transmisión</span>
           </div>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             class="mr-4 size-7"
+            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 34"
+            fill="none"
           >
             <path
-              stroke="#72C234"
-              stroke-miterlimit="10"
               stroke-width="2"
+              stroke-miterlimit="10"
+              stroke="#72C234"
               d="M31 16.6C31 8 24.3 1 16 1S1 8 1 16.6s6.7 15.6 15 15.6 15-7 15-15.6Z"
             />
             <path
-              stroke="#72C234"
-              stroke-linecap="round"
-              stroke-linejoin="round"
               stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke="#72C234"
               d="m23 10.4-9.8 12.5-4.2-5"
             />
           </svg>
@@ -436,24 +436,24 @@ import { UserLayout } from '@/layouts/user.layout';
           </div>
           <div class="flex items-center gap-4">
             <app-button-component
+              text="Presentar 15 de agosto"
+              moreStyles="w-40 justify-center text-neutral-700 text-xs"
+              color="yellow"
               (click)="
                 router.navigate(['/examen'], {
                   queryParams: { pregunta: '1' },
                 })
               "
-              color="yellow"
-              text="Presentar 15 de agosto"
-              moreStyles="w-40 justify-center text-neutral-700 text-xs"
             />
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               class="mr-4 size-7"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 32"
+              fill="none"
             >
               <path
-                d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
                 class="fill-greenlight"
+                d="M15 0C7 0 0 7 0 16c0 8 7 15 15 15s15-7 15-15c0-9-7-16-15-16Zm-3 23-6-6 2-2 4 5L22 8l2 1-12 14Z"
               />
             </svg>
           </div>

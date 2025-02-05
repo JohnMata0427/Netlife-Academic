@@ -1,4 +1,6 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import '@justinribeiro/lite-youtube';
 
 @Component({
@@ -12,6 +14,8 @@ import '@justinribeiro/lite-youtube';
         <lite-youtube
           class="w-3/4 rounded-xl"
           posterquality="maxresdefault"
+          videoplay="Reproducir"
+          videotitle="¡Somos el internet con mejor experiencia de usuario!"
           videoid="STRX58eJDag"
         />
       </div>
@@ -22,11 +26,11 @@ import '@justinribeiro/lite-youtube';
       </div>
     </div>
     @if (!cookies) {
-      <div class="fixed bottom-0 left-0 w-full bg-white">
+      <div class="fixed bottom-0 w-full bg-white z-10">
         <div
           class="container mx-auto flex items-center justify-between px-4 py-1"
         >
-          <p class="text-xs text-gray-700 sm:text-sm">
+          <span class="text-xs text-gray-700 sm:text-sm">
             ©2025 Netlife Academic. Todos los derechos reservados. Consulta
             nuestras
             <a class="text-primary underline underline-offset-2" href="#"
@@ -40,10 +44,10 @@ import '@justinribeiro/lite-youtube';
             <a class="text-primary underline underline-offset-2" href="#"
               >Términos de Uso</a
             >
-          </p>
+          </span>
           <button
-            (click)="cookies = true"
             class="bg-primary hover:bg-primary/80 cursor-pointer rounded-lg px-4 py-1 text-sm text-white duration-300 ease-in-out"
+            (click)="cookies = true"
           >
             Acepto
           </button>
@@ -54,4 +58,15 @@ import '@justinribeiro/lite-youtube';
 })
 export class UserLayout {
   public cookies = false;
+  private title = inject(Title);
+
+  public ngOnInit() {
+    const { pathname } = window.location;
+
+    this.title.setTitle(
+      `${new TitleCasePipe().transform(
+        pathname.split('/').pop()?.split('-').join(' '),
+      )} • Netlife Academic`,
+    );
+  }
 }

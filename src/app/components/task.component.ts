@@ -3,7 +3,7 @@ import { Component, input } from '@angular/core';
 @Component({
   selector: 'app-task-component',
   template: `
-    <a href="/mis-cursos" class="flex gap-4">
+    <a class="flex gap-4" href="/mis-cursos">
       <div class="relative">
         <div
           class="vertical-lr bg-tertiary rounded-lg pt-1 pb-3 text-xl font-bold text-white uppercase"

@@ -7,9 +7,9 @@ import { Component, input } from '@angular/core';
       <div class="flex gap-4">
         <input
           class="accent-greenlight"
-          type="radio"
           id="true"
           name="answer"
+          type="radio"
           [value]="answerSelected()"
         />
         <label class="select-none" for="true">Verdadero</label>
@@ -17,9 +17,9 @@ import { Component, input } from '@angular/core';
       <div class="flex gap-4">
         <input
           class="accent-greenlight"
-          type="radio"
           id="false"
           name="answer"
+          type="radio"
           [value]="answerSelected()"
         /><label class="select-none" for="false">Falso</label>
       </div>

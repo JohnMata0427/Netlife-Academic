@@ -6,9 +6,9 @@ import { Component, input } from '@angular/core';
     <div class="flex items-center gap-4">
       <input
         class="accent-greenlight size-4"
-        [id]="answer()"
-        [name]="answer()"
         type="checkbox"
+        [name]="answer()"
+        [id]="answer()"
       />
       <label class="select-none" [htmlFor]="answer()">{{ answer() }}</label>
     </div>

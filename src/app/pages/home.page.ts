@@ -7,7 +7,6 @@ import { CustomTitleComponent } from '@/components/custom-title.component';
 import { TaskComponent } from '@/components/task.component';
 import { CustomButtonComponent } from '@/components/custom-button.component';
 import { AuthService } from '@/services/auth.service';
-import { SliderComponent } from '@/components/slider.component';
 
 @Component({
   imports: [
@@ -16,27 +15,32 @@ import { SliderComponent } from '@/components/slider.component';
     CustomTitleComponent,
     TaskComponent,
     CustomButtonComponent,
-    SliderComponent,
   ],
   template: `
     <app-user-layout>
-      <app-slider-component />
+      <img
+        class="w-full aspect-[7/2] object-cover"
+        alt="Banner de Inicio"
+        src="/banner.webp"
+      />
       <section>
         <app-title-component title="Ranking de Estudiantes" />
         <div class="flex flex-col lg:flex-row lg:gap-20">
           <aside class="mx-8 flex flex-col gap-2 lg:ml-16 lg:w-1/2">
             @for (user of users; track $index) {
               <div
-                class="flex items-center justify-between rounded-lg bg-quinary p-2 pr-8 border {{
-                  ownId === user.id ? 'border-primary' : 'border-neutral-300'
-              "
+                class="flex items-center justify-between rounded-lg p-2 pr-8 border {{
+                  ownId === user.id
+                    ? 'border-primary bg-primary/15'
+                    : 'border-neutral-300 bg-quinary'
+                }}"
               >
                 <div class="flex items-center gap-2">
                   @if ($index < 3) {
                     <img
                       class="size-12"
                       src="/{{ $index + 1 }}-medall.webp"
-                      alt=""
+                      alt="Medalla"
                     />
                   } @else {
                     <div
@@ -48,8 +52,8 @@ import { SliderComponent } from '@/components/slider.component';
 
                   <img
                     class="size-16 rounded-full border-4 border-white"
-                    [src]="user.imageUrl || '/profile.webp'"
                     alt="Foto de Perfil"
+                    [src]="user.imageUrl || '/profile.webp'"
                   />
                   <h4 class="text-md font-bold">
                     {{ user.name + ' ' + user.lastname }}
@@ -72,18 +76,18 @@ import { SliderComponent } from '@/components/slider.component';
             <div class="mx-8 flex flex-col items-center gap-4">
               <app-task-component
                 nombre="Introducción a las Redes"
-                [fecha]="{ mes: 'Julio', dia: '20' }"
                 hora="11:59 PM"
+                [fecha]="{ mes: 'Julio', dia: '20' }"
               />
               <app-task-component
                 nombre="Aprendizaje Automatico"
-                [fecha]="{ mes: 'Julio', dia: '24' }"
                 hora="11:59 PM"
+                [fecha]="{ mes: 'Julio', dia: '24' }"
               />
               <app-task-component
                 nombre="Analisis de Datos"
-                [fecha]="{ mes: 'Julio', dia: '28' }"
                 hora="11:59 PM"
+                [fecha]="{ mes: 'Julio', dia: '28' }"
               />
               <div class="mt-2 flex gap-2">
                 <div class="flex flex-col gap-2 rounded-lg bg-black px-4 py-2">
@@ -121,14 +125,14 @@ import { SliderComponent } from '@/components/slider.component';
                   moreStyles="text-xs justify-center items-center gap-2 h-full"
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     class="z-10 size-4"
+                    xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
+                    fill="none"
                   >
                     <path
-                      d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"
                       class="fill-white group-hover:fill-black"
+                      d="M0 19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6.3H0V19ZM14.3 8a.2.2 0 0 1 .2-.1h1.7a.2.2 0 0 1 .2.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.7a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8ZM10.7 8a.2.2 0 0 1 .2-.1h1.8a.2.2 0 0 1 .1.1v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2V8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2v1.8a.2.2 0 0 1-.1.2h-1.8a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .1.2V17a.2.2 0 0 1-.1.1h-1.8a.2.2 0 0 1-.2-.1v-1.8Zm-3.6-3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H7.3a.2.2 0 0 1-.2-.2v-1.8Zm0 3.6a.2.2 0 0 1 .2-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H7.3a.2.2 0 0 1-.2-.2v-1.7Zm-3.5-3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2v1.8a.2.2 0 0 1-.2.2H3.7a.2.2 0 0 1-.1-.2v-1.8Zm0 3.6a.2.2 0 0 1 .1-.2h1.8a.2.2 0 0 1 .2.2V17a.2.2 0 0 1-.2.1H3.7a.2.2 0 0 1-.1-.2v-1.7ZM18.9 1.4h-2.5V0h-2.1v1.4H5.7V0H3.6v1.4H1a1 1 0 0 0-1.1 1V5h20V2.5a1 1 0 0 0-1-1Z"
                     />
                   </svg>
                 </app-button-component>
@@ -144,30 +148,30 @@ import { SliderComponent } from '@/components/slider.component';
         >
           <app-courseinfo-component
             id="control-de-versiones"
+            src="https://fireship.io/courses/git/img/featured.png"
             title="Control de Versiones"
             teacher="Gabriel García"
-            src="https://fireship.io/courses/git/img/featured.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="metodologias-agiles"
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             title="Metodologias Agiles"
             teacher="Ivonne Maldonado"
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20240208183413/In-Demand-Scrum-Master-Certifications.png"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="html-y-css"
+            src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             title="HTML y CSS"
             teacher="Katherine Díaz"
-            src="https://www.filepicker.io/api/file/eYA6E8L3TiGl0GxpQoS6"
             [newCourse]="true"
           />
           <app-courseinfo-component
             id="python-desde-cero"
+            src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
             title="Python desde cero"
             teacher="Ivonne Maldonado"
-            src="https://www.freecodecamp.org/espanol/news/content/images/2021/01/Course-Image-1.png"
             [newCourse]="true"
           />
         </div>
