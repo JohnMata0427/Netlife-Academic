@@ -6,7 +6,7 @@ import { ProgressBarComponent } from './progressbar.component';
   selector: 'app-courseinfo-component',
   imports: [CustomButtonComponent, ProgressBarComponent],
   template: `
-    <article class="w-[275px] rounded-lg shadow-md shadow-black/50">
+    <article class="w-72 rounded-lg shadow-md shadow-black/50">
       <a class="relative" href="/mis-cursos/{{ id() }}">
         <img
           class="h-32 w-full rounded-t-lg object-cover"

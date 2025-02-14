@@ -8,7 +8,7 @@ import { UserService } from '@/services/user.service';
   selector: 'app-header-component',
   imports: [RouterLink],
   template: `
-    <header class="bg-[#0b0603] px-4 py-2 shadow-sm shadow-black">
+    <header class="bg-black px-4 py-2 shadow-sm shadow-black">
       <nav class="relative flex">
         <button class="lg:hidden" (click)="mostrarHamburger()">
           <svg
@@ -183,7 +183,7 @@ import { UserService } from '@/services/user.service';
               (click)="mostrarMenu()"
             >
               <img
-                class="size-8 rounded-full border-[3px] border-white"
+                class="size-8 rounded-full border-2 border-white"
                 alt="Perfil del Usuario"
                 [src]="profile || '/profile.webp'"
               />

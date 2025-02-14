@@ -92,6 +92,5 @@ export const routes: Routes = [
       { path: 'certificados', component: AdminCertificatesPage },
     ],
   },
-  { path: '**', component: NotFoundPage, canActivate: [authGuard] },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' },
 ];

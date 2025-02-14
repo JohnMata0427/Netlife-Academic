@@ -39,7 +39,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         </div>
       </div>
       <section
-        class="mx-16 mt-72 flex flex-col items-center md:mt-4 md:ml-[360px]"
+        class="mx-16 mt-72 flex flex-col items-center md:mt-4 md:ml-96"
       >
         <div class="flex w-full gap-1">
           <app-button-component

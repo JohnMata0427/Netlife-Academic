@@ -22,7 +22,7 @@ import { FooterComponent } from '@/components/footer.component';
   ],
   template: `
     <header
-      class="flex flex-col items-center gap-4 bg-[#0b0603] py-2.5 text-white shadow-sm shadow-black md:flex-row md:px-4"
+      class="flex flex-col items-center gap-4 bg-black py-2.5 text-white shadow-sm shadow-black md:flex-row md:px-4"
     >
       <img class="h-8" src="/logo.webp" alt="Logo de la empresa" />
       <h1 class="text-center font-bold">

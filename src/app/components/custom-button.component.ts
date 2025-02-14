@@ -13,9 +13,9 @@ type HoverColorVariant = 'black' | 'white';
   selector: 'app-button-component',
   template: `
     <button
-      class="cursor-pointer font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group select-none {{
-        moreStyles()
-      }} {{ variantsColor[color()][0] }} {{ variantsColor[hoverColor()][2] }}"
+      class="cursor-pointer font-medium rounded-md h-10 relative overflow-hidden border px-2 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center group select-none {{
+        buttonStyles
+      }}"
       [disabled]="loading()"
     >
       @if (loading()) {
@@ -23,35 +23,32 @@ type HoverColorVariant = 'black' | 'white';
           class="size-5 animate-spin text-white {{ variantsColor[color()][1] }}"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill="none"
         >
-          <circle
-            class="opacity-25"
-            stroke-width="4"
-            stroke="currentColor"
-            r="10"
-            cy="12"
-            cx="12"
-          />
           <path
-            class="opacity-75"
+            class="opacity-90"
             fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           />
         </svg>
       } @else {
         <ng-content />
-        <span class="relative z-10">{{ text() }}</span>
+        @if (text()) {
+          <span class="relative z-10">{{ text() }}</span>
+        }
       }
     </button>
   `,
 })
 export class CustomButtonComponent {
-  readonly text = input.required<string>();
+  readonly text = input<string>('');
   readonly color = input<ColorVariant>('black');
   readonly hoverColor = input<HoverColorVariant>('white');
   readonly loading = input(false);
-  readonly moreStyles = input<string>();
+  readonly moreStyles = input<string>('');
+
+  get buttonStyles() {
+    return `${this.moreStyles()} ${this.variantsColor[this.color()][0]} ${this.variantsColor[this.hoverColor()][2]}`;
+  }
 
   public variantsColor: Record<ColorVariant, string[]> = {
     black: [

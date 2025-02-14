@@ -47,6 +47,7 @@ import { NgOptimizedImage } from '@angular/common';
             type="email"
             placeholder="Correo Electrónico"
             formControlName="email"
+            required
           />
         </div>
 
@@ -72,8 +73,9 @@ import { NgOptimizedImage } from '@angular/common';
             name="password"
             placeholder="Contraseña"
             formControlName="password"
+            minlength="8"
+            required
             [type]="isPasswordVisible ? 'text' : 'password'"
-            [minLength]="8"
           />
           <!-- Eye Icon -->
           <svg

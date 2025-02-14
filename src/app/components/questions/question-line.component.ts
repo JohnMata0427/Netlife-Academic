@@ -27,7 +27,7 @@ import { Component, ElementRef, input, viewChild } from '@angular/core';
       </ul>
 
       <svg
-        class="pointer-events-none absolute top-0 left-0 h-full w-full stroke-[4px]"
+        class="pointer-events-none absolute top-0 left-0 h-full w-full stroke-3"
       >
         @for (line of lines; track $index) {
           <line

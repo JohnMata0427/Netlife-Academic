@@ -2,18 +2,28 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserLayout } from '@/layouts/auth.layout';
 import { CustomButtonComponent } from '@/components/custom-button.component';
+import { NgOptimizedImage } from '@angular/common';
+import { matchValidator } from '@/validators/match.validator';
 
 @Component({
-  imports: [ReactiveFormsModule, UserLayout, CustomButtonComponent],
+  imports: [
+    ReactiveFormsModule,
+    UserLayout,
+    CustomButtonComponent,
+    RouterLink,
+    NgOptimizedImage,
+  ],
   template: `
     <app-auth-layout>
       <img
         class="absolute top-0 left-0 w-52 rounded-br-2xl"
-        src="/logo.webp"
+        ngSrc="/logo.webp"
         alt="Logo Netlife"
+        width="512"
+        height="111"
       />
       <form
         class="my-36 flex w-96 flex-col gap-3"
@@ -23,7 +33,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
         <h1
           class="from-secondary via-primary to-primary mb-4 bg-gradient-to-r bg-clip-text text-center text-3xl font-bold text-transparent"
         >
-          Regístrate
+          Regístro
         </h1>
         <div class="relative">
           <!-- User Icon -->
@@ -43,6 +53,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             type="text"
             placeholder="Nombres"
             formControlName="name"
+            required
           />
         </div>
 
@@ -64,6 +75,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             type="text"
             placeholder="Apellidos"
             formControlName="lastname"
+            required
           />
         </div>
 
@@ -85,6 +97,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             type="email"
             placeholder="Correo Electrónico"
             formControlName="email"
+            required
           />
         </div>
 
@@ -106,6 +119,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             type="email"
             placeholder="Confirmar Correo Electrónico"
             formControlName="confirmEmail"
+            required
           />
         </div>
 
@@ -129,11 +143,21 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             id="identification"
             name="identification"
             type="text"
-            placeholder="Cédula o Pasaporte"
+            placeholder="Cédula"
             formControlName="identification"
+            required
             [maxlength]="10"
           />
         </div>
+
+        @if (
+          form.get('identification')?.value &&
+          form.get('identification')?.invalid
+        ) {
+          <p class="text-tertiary px-4 text-xs">
+            La cédula debe tener 10 caracteres
+          </p>
+        }
 
         <span class="text-xs font-semibold text-gray-500"
           >Debe tener minimo 8 caracteres, letra en mayuscula y numero.</span
@@ -156,6 +180,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             name="password"
             placeholder="Contraseña"
             formControlName="password"
+            required
             [type]="isPasswordVisible ? 'text' : 'password'"
           />
           <!-- Eye Icon -->
@@ -198,6 +223,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             name="confirmPassword"
             placeholder="Confirmar Contraseña"
             formControlName="confirmPassword"
+            required
             [type]="isConfirmPasswordVisible ? 'text' : 'password'"
           />
           <!-- Eye Icon -->
@@ -251,6 +277,7 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             type="text"
             placeholder="Código de Verificación"
             formControlName="verificationCode"
+            required
             [maxlength]="6"
           />
         </div>
@@ -262,12 +289,13 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
             name="terms"
             type="checkbox"
             formControlName="terms"
+            required
           />
           <label class="cursor-default text-xs" for="terms"
             >Aceptas los
             <a
               class="text-primary font-medium hover:underline"
-              href="/terms-and-conditions"
+              routerLink="/terms-and-conditions"
               >términos y condiciones</a
             ></label
           >
@@ -287,13 +315,15 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
 
         <span class="text-center text-xs"
           >¿Ya tienes cuenta?
-          <a class="text-primary font-medium hover:underline" href="/auth/login"
+          <a
+            class="text-primary font-medium hover:underline"
+            routerLink="/auth/login"
             >Inicia sesión aquí</a
           ></span
         >
         <a
           class="text-primary text-center text-xs font-medium hover:underline"
-          href="/auth/recovery-password"
+          routerLink="/auth/recovery-password"
           >¿Olvidaste tu contraseña?</a
         >
       </form>
@@ -301,38 +331,49 @@ import { CustomButtonComponent } from '@/components/custom-button.component';
   `,
 })
 export class RegistroPage {
-  public form = new FormGroup({
-    name: new FormControl('', [Validators.minLength(3), Validators.required]),
-    lastname: new FormControl('', [
-      Validators.minLength(3),
-      Validators.required,
-    ]),
-    email: new FormControl('', [Validators.email, Validators.required]),
-    confirmEmail: new FormControl('', [Validators.email, Validators.required]),
-    identification: new FormControl('', [
-      Validators.minLength(10),
-      Validators.required,
-    ]),
-    password: new FormControl('', [
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-    confirmPassword: new FormControl('', [
-      Validators.minLength(8),
-      Validators.required,
-    ]),
-    verificationCode: new FormControl('', Validators.required),
-    terms: new FormControl(false, [
-      Validators.requiredTrue,
-      Validators.required,
-    ]),
-  });
+  public form = new FormGroup(
+    {
+      name: new FormControl('', [Validators.minLength(3), Validators.required]),
+      lastname: new FormControl('', [
+        Validators.minLength(3),
+        Validators.required,
+      ]),
+      email: new FormControl('', [Validators.email, Validators.required]),
+      confirmEmail: new FormControl('', [
+        Validators.email,
+        Validators.required,
+      ]),
+      identification: new FormControl('', [
+        Validators.minLength(10),
+        Validators.required,
+      ]),
+      password: new FormControl('', [
+        Validators.minLength(8),
+        Validators.required,
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.minLength(8),
+        Validators.required,
+      ]),
+      verificationCode: new FormControl('', Validators.required),
+      terms: new FormControl(false, [
+        Validators.requiredTrue,
+        Validators.required,
+      ]),
+    },
+    {
+      validators: [
+        matchValidator('email', 'confirmEmail'),
+        matchValidator('password', 'confirmPassword'),
+      ],
+    },
+  );
   public loading = false;
   public errorMessage = '';
   public isPasswordVisible = false;
   public isConfirmPasswordVisible = false;
 
-  private route = inject(Router);
+  private router = inject(Router);
   private authService = inject(AuthService);
 
   public onSubmit() {
@@ -341,11 +382,11 @@ export class RegistroPage {
       this.authService
         .registerUser(this.form.value)
         .subscribe({
-          next: () => this.route.navigate(['/home']),
+          next: () => this.router.navigate(['/home']),
           error: ({ error }) => (this.errorMessage = error.message),
         })
         .add(() => (this.loading = false));
-    } else if (!this.form.value.terms)
+    } else if (!this.form.get('terms')!.value)
       this.errorMessage = 'Debe aceptar los términos y condiciones de uso';
     else
       this.errorMessage = 'Por favor, complete correctamente todos los campos';

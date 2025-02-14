@@ -131,7 +131,7 @@ import { NgStyle } from '@angular/common';
         <app-title-component title="Contenido del Curso" />
         <div class="mx-16 flex flex-col-reverse items-start gap-8 lg:flex-row">
           <div
-            class="bg-quinary flex w-full flex-col gap-10 rounded-lg p-4 shadow-sm shadow-black/80 lg:w-[65.5%]"
+            class="bg-quinary flex w-full flex-col gap-10 rounded-lg p-4 shadow-sm shadow-black/80 lg:w-2/3"
           >
             <details open>
               <summary class="font-bold">1. Fundamentos</summary>
@@ -249,7 +249,7 @@ import { NgStyle } from '@angular/common';
             </details>
           </div>
 
-          <aside class="flex flex-col gap-4 md:flex-row lg:w-[30%] lg:flex-col">
+          <aside class="flex flex-col gap-4 md:flex-row lg:w-1/3 lg:flex-col">
             <article
               class="relative flex flex-col items-center gap-4 rounded-lg bg-black p-7"
             >
